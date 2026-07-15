@@ -1,0 +1,359 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - list:
+          - listitem [ref=e5]:
+            - link "WorkTime" [ref=e6] [cursor=pointer]:
+              - /url: /work_time/index/project-20190033-group-ri-program
+          - listitem [ref=e7]:
+            - link "My account" [ref=e8] [cursor=pointer]:
+              - /url: /my/account
+          - listitem [ref=e9]:
+            - link "Sign out" [ref=e10] [cursor=pointer]:
+              - /url: /logout
+      - generic [ref=e11]:
+        - text: Logged in as
+        - link "anucha.pi" [ref=e12] [cursor=pointer]:
+          - /url: /users/8
+      - list:
+        - listitem [ref=e13]:
+          - link "Home" [ref=e14] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e15]:
+          - link "My page" [ref=e16] [cursor=pointer]:
+            - /url: /my/page
+        - listitem [ref=e17]:
+          - link "Projects" [ref=e18] [cursor=pointer]:
+            - /url: /projects
+        - listitem [ref=e19]:
+          - link "Easy Gantt" [ref=e20] [cursor=pointer]:
+            - /url: /easy_gantt?set_filter=0
+            - img [ref=e21]
+            - generic [ref=e23]: Easy Gantt
+        - listitem [ref=e24]:
+          - link "Resources" [ref=e25] [cursor=pointer]:
+            - /url: /resource_bookings
+        - listitem [ref=e26]:
+          - link "Help" [ref=e27] [cursor=pointer]:
+            - /url: https://www.redmine.org/guide
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - link "Search" [ref=e32] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search
+            - text: ":"
+          - textbox "Search:" [ref=e33]: ไฟล์
+        - generic [ref=e34]:
+          - generic [ref=e35] [cursor=pointer]: Project 20190033 - New Group RI
+          - text: ✓ ✓
+      - heading "Project 20190033 - New Group RI" [level=1] [ref=e36]
+      - list [ref=e38]:
+        - listitem [ref=e39]:
+          - link "+" [ref=e40] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e41]:
+          - link "Overview" [ref=e42] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program
+        - listitem [ref=e43]:
+          - link "Activity" [ref=e44] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/activity
+        - listitem [ref=e45]:
+          - link "Issues" [ref=e46] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues
+        - listitem [ref=e47]:
+          - link "Spent time" [ref=e48] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/time_entries
+        - listitem [ref=e49]:
+          - link "Gantt" [ref=e50] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/gantt
+        - listitem [ref=e51]:
+          - link "WorkTime" [ref=e52] [cursor=pointer]:
+            - /url: /work_time/show/project-20190033-group-ri-program
+        - listitem [ref=e53]:
+          - link "Resources" [ref=e54] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/resource_bookings
+        - listitem [ref=e55]:
+          - link "Calendar" [ref=e56] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/calendar
+        - listitem [ref=e57]:
+          - link "News" [ref=e58] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/news
+        - listitem [ref=e59]:
+          - link "Documents" [ref=e60] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/documents
+        - listitem [ref=e61]:
+          - link "Wiki" [ref=e62] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/wiki
+        - listitem [ref=e63]:
+          - link "Files" [ref=e64] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/files
+        - listitem [ref=e65]:
+          - link "Easy Gantt" [ref=e66] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_gantt
+        - listitem [ref=e67]:
+          - link "Easy WBS" [ref=e68] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_wbs
+        - listitem [ref=e69]:
+          - link "Settings" [ref=e70] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/settings
+    - generic [ref=e72]:
+      - heading "Search" [level=2] [ref=e73]
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - generic [ref=e76]: Searchfield
+          - paragraph [ref=e77]:
+            - textbox "Searchfield" [active] [ref=e78]: ไฟล์
+            - generic [ref=e79]: Search scope
+            - combobox "Search scope" [ref=e80]:
+              - option "All Projects" [selected]
+              - option "My projects"
+              - option "Project 20190033 - New Group RI"
+            - generic [ref=e81]:
+              - checkbox "All words" [checked] [ref=e82]
+              - text: All words
+            - generic [ref=e83]:
+              - checkbox "Search titles only" [ref=e84]
+              - text: Search titles only
+          - group [ref=e85]:
+            - link "Check all / Uncheck all" [ref=e87] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e88]
+            - paragraph [ref=e90]:
+              - generic [ref=e91]:
+                - checkbox "Issues" [checked] [ref=e92]
+                - link "Issues" [ref=e93] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e94]:
+                - checkbox "News" [ref=e95]
+                - link "News" [ref=e96] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e97]:
+                - checkbox "Documents" [ref=e98]
+                - link "Documents" [ref=e99] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e100]:
+                - checkbox "Changesets" [ref=e101]
+                - link "Changesets" [ref=e102] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e103]:
+                - checkbox "Wiki pages" [ref=e104]
+                - link "Wiki pages" [ref=e105] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e106]:
+                - checkbox "Messages" [ref=e107]
+                - link "Messages" [ref=e108] [cursor=pointer]:
+                  - /url: "#"
+              - generic [ref=e109]:
+                - checkbox "Projects" [ref=e110]
+                - link "Projects" [ref=e111] [cursor=pointer]:
+                  - /url: "#"
+          - group "Options" [ref=e112]:
+            - generic [ref=e113] [cursor=pointer]:
+              - img [ref=e114]
+              - text: Options
+        - paragraph [ref=e116]:
+          - button "Search" [ref=e117] [cursor=pointer]
+      - heading "Results (216)" [level=3] [ref=e118]
+      - paragraph [ref=e119]:
+        - link "Apply issues filter" [ref=e120] [cursor=pointer]:
+          - /url: /issues?f%5B%5D=status_id&f%5B%5D=any_searchable&f%5B%5D=subproject_id&op%5Bany_searchable%5D=~&op%5Bstatus_id%5D=%2A&op%5Bsubproject_id%5D=%2A&project_id=23&set_filter=1&sort=updated_on%3Adesc&v%5Bany_searchable%5D%5B%5D=%E0%B9%84%E0%B8%9F%E0%B8%A5%E0%B9%8C
+          - img [ref=e121]
+          - generic [ref=e123]: Apply issues filter
+      - generic [ref=e124]:
+        - term [ref=e125]:
+          - img [ref=e126]
+          - 'link "Defect #85947 (New): [UAT SOA Estimate Report] SOA : RIG-RP-011 SOA_Est_{YYYY}{MM}" [ref=e128] [cursor=pointer]':
+            - /url: /issues/85947
+        - definition [ref=e129]:
+          - generic [ref=e130]: Issue UAT ข้อ 31,32 https://docs.google.com/ ... Grp_Daiichi_Coins , GIB_Grp_Direct_EB - เปิดไฟล์ไม่ได้ ขึ้นแจ้งเตือนตามรูปแนบ period 202601 ![](clipboard-202607070932-mspiq.png)
+          - text: 07-07-2026 09:32
+        - term [ref=e131]:
+          - img [ref=e132]
+          - 'link "Defect #85944 (New): [UAT BDR Estimate Report] Thaire : RIG-RP-010 BDR Est_Thaire_{YYYY}{MM} (EDW)" [ref=e134] [cursor=pointer]':
+            - /url: /issues/85944
+        - definition [ref=e135]:
+          - generic [ref=e136]: Issue UAT ข้อ 28 https://docs.google.com/spr ... timate EDW Treaty Code THREL_Grp_PA - เปิดไฟล์ไม่ได้ ขึ้นแจ้งเตือนตามรูปแนบ period 202512 , ... By ข้อมูลเบี้ยก่อน แล้วตามด้วย ข้อมูลเคลม
+          - text: 07-07-2026 09:24
+        - term [ref=e137]:
+          - img [ref=e138]
+          - 'link "Defect #85920 (New): [UAT BDR Estimate Report] ThaiRe : RIG-RP-010 BDR Est_Thaire_{YYYY}{MM}" [ref=e140] [cursor=pointer]':
+            - /url: /issues/85920
+        - definition [ref=e141]:
+          - generic [ref=e142]: รายงาน BDR Estimate EDW Treaty Code THREL_Gr ... wnload file BDR และ ดูรายงานจาก Path แล้วเป็นไฟล์เปล่า ไม่มีข้อมูล ![](clipboard-202607070808-kaaml.png)
+          - text: 07-07-2026 08:08
+        - term [ref=e143]:
+          - img [ref=e144]
+          - 'link "Defect #85919 (New): [UAT I Master Report] RIG-RP-012 I_Master_{YYYY}{MM}" [ref=e146] [cursor=pointer]':
+            - /url: /issues/85919
+        - definition [ref=e147]:
+          - generic [ref=e148]: Issue UAT ข้อ 29,30 https://docs.google.com/ ... **2. Treaty Code GIB_Grp_Direct_EB** - เปิดไฟล์ไม่ได้ ขึ้นแจ้งเตือนตามรูปแนบ period 202601 ... yy ![](clipboard-202607070926-tepmr.png)
+          - text: 07-07-2026 08:01
+        - term [ref=e149]:
+          - img [ref=e150]
+          - 'link "Defect #85613 (Resolved): [Reconcile Report] Actual Member Layer ไม่แสดง format วันที่" [ref=e152] [cursor=pointer]':
+            - /url: /issues/85613
+        - definition [ref=e153]:
+          - generic [ref=e154]: 1. font ไม่เหมือนตัวอย่าง (ตัวอย่างเป็น Tahom ... นที่ ![](clipboard-202607031715-urzps.png)
+          - text: 03-07-2026 17:16
+        - term [ref=e155]:
+          - img [ref=e156]
+          - 'link "Defect #85072 (Resolved): [Estimate Process] ... ลผล ไม่ update สถานะการส่งข้อมูลไปยังระบบ MPS" [ref=e158] [cursor=pointer]':
+            - /url: /issues/85072
+        - definition [ref=e159]:
+          - generic [ref=e160]: <u>ข้อมูลทดสอบ</u> Treaty code Dai_KKT Peri ... ็น "ยืนยันนำเข้าข้อมูลสำเร็จ" (7) อัตโนมัติ
+          - text: 02-07-2026 12:11
+        - term [ref=e161]:
+          - img [ref=e162]
+          - 'link "Defect #84979 (Resolved): [Process Actual] ตาราง bdr Claim ไม่ลงข้อมูล Investigate Expense" [ref=e164] [cursor=pointer]':
+            - /url: /issues/84979
+        - definition [ref=e165]:
+          - generic [ref=e166]: "Treaty Code : GIB_Grp_Direct_EB Period : 202 ... ``` ![](clipboard-202607012255-kd2mq.png)"
+          - text: 01-07-2026 22:56
+        - term [ref=e167]:
+          - img [ref=e168]
+          - 'link "Defect #83792 (Closed): [Actual] ประมวลผล Tre ... A ไม่มีข้อมูล Claim benefit ใน config ออก BDR" [ref=e170] [cursor=pointer]':
+            - /url: /issues/83792
+        - definition [ref=e171]:
+          - generic [ref=e172]: "<u>**ข้อมูลทดสอบ**</u> Treaty code : THREL_G ... 5 มีข้อมุล benenit = 2 (TPD) ใน BDR"
+          - text: 28-06-2026 01:51
+        - term [ref=e173]:
+          - img [ref=e174]
+          - 'link "Defect #83791 (Closed): [Actual] ประมวลผล Tre ... ้อมูล Claim benefit ที่ไม่มีใน config ออก BDR" [ref=e176] [cursor=pointer]':
+            - /url: /issues/83791
+        - definition [ref=e177]:
+          - generic [ref=e178]: "<u>**ข้อมูลทดสอบ**</u> Treaty code : DAI_Grp ... enenit = 3 (Dismemberment) มาประมวลผล"
+          - text: 28-06-2026 01:08
+        - term [ref=e179]:
+          - img [ref=e180]
+          - 'link "Defect #83522 (Closed): [Reconcile Report] List of Policy font ไม่เหมือนกับตัวอย่าง" [ref=e182] [cursor=pointer]':
+            - /url: /issues/83522
+        - definition [ref=e183]:
+          - generic [ref=e184]: <u>ตัวอย่าง</u> ![](clipboard-202606261036-a ... </u> ![](clipboard-202606261036-ie4ww.png)
+          - text: 26-06-2026 10:37
+      - generic [ref=e185]:
+        - list [ref=e186]:
+          - listitem [ref=e187]: « Previous
+          - listitem [ref=e188]: "1"
+          - listitem [ref=e189]:
+            - link "2" [ref=e190] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search?all_words=1&issues=1&page=2&q=%E0%B9%84%E0%B8%9F%E0%B8%A5%E0%B9%8C&scope=subprojects
+          - listitem [ref=e191]:
+            - link "3" [ref=e192] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search?all_words=1&issues=1&page=3&q=%E0%B9%84%E0%B8%9F%E0%B8%A5%E0%B9%8C&scope=subprojects
+          - listitem [ref=e193]: …
+          - listitem [ref=e194]:
+            - link "22" [ref=e195] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search?all_words=1&issues=1&page=22&q=%E0%B9%84%E0%B8%9F%E0%B8%A5%E0%B9%8C&scope=subprojects
+          - listitem [ref=e196]:
+            - link "Next »" [ref=e197] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search?all_words=1&issues=1&page=2&q=%E0%B9%84%E0%B8%9F%E0%B8%A5%E0%B9%8C&scope=subprojects
+        - generic [ref=e198]: (1-10/216)
+    - generic [ref=e199]:
+      - text: Powered by
+      - link "Redmine" [ref=e200] [cursor=pointer]:
+        - /url: https://www.redmine.org/
+      - text: © 2006-2025 Jean-Philippe Lang
+  - log [ref=e201]
+  - log [ref=e202]
+  - log [ref=e203]
+  - log [ref=e204]
+  - log [ref=e205]
+  - log [ref=e206]
+  - log [ref=e207]
+  - log [ref=e208]
+  - log [ref=e209]
+  - log [ref=e210]
+  - log [ref=e211]
+  - log [ref=e212]
+  - log [ref=e213]
+  - log [ref=e214]
+  - log [ref=e215]
+  - log [ref=e216]
+  - log [ref=e217]
+  - log [ref=e218]
+  - log [ref=e219]
+  - log [ref=e220]
+  - log [ref=e221]
+  - log [ref=e222]
+  - log [ref=e223]
+  - log [ref=e224]
+  - log [ref=e225]
+  - log [ref=e226]
+  - log [ref=e227]
+  - log [ref=e228]
+  - log [ref=e229]
+  - log [ref=e230]
+  - log [ref=e231]
+  - log [ref=e232]
+  - log [ref=e233]
+  - log [ref=e234]
+  - log [ref=e235]
+  - log [ref=e236]
+  - log [ref=e237]
+  - log [ref=e238]
+  - log [ref=e239]
+  - log [ref=e240]
+  - log [ref=e241]
+  - log [ref=e242]
+  - log [ref=e243]
+  - log [ref=e244]
+  - log [ref=e245]
+  - log [ref=e246]
+  - log [ref=e247]
+  - log [ref=e248]
+  - log [ref=e249]
+  - log [ref=e250]
+  - log [ref=e251]
+  - log [ref=e252]
+  - log [ref=e253]
+  - log [ref=e254]
+  - log [ref=e255]
+  - log [ref=e256]
+  - log [ref=e257]
+  - log [ref=e258]
+  - log [ref=e259]
+  - log [ref=e260]
+  - log [ref=e261]
+  - log [ref=e262]
+  - log [ref=e263]
+  - log [ref=e264]
+  - log [ref=e265]
+  - log [ref=e266]
+  - log [ref=e267]
+  - log [ref=e268]
+  - log [ref=e269]
+  - log [ref=e270]
+  - log [ref=e271]
+  - log [ref=e272]
+  - log [ref=e273]
+  - log [ref=e274]
+  - log [ref=e275]
+  - log [ref=e276]
+  - log [ref=e277]
+  - log [ref=e278]
+  - log [ref=e279]
+  - log [ref=e280]
+  - log [ref=e281]
+  - log [ref=e282]
+  - log [ref=e283]
+  - log [ref=e284]
+  - log [ref=e285]
+  - log [ref=e286]
+  - log [ref=e287]
+  - log [ref=e288]
+  - log [ref=e289]
+  - log [ref=e290]
+  - log [ref=e291]
+  - log [ref=e292]
+  - log [ref=e293]
+  - log [ref=e294]
+  - log [ref=e295]
+  - log [ref=e296]
+  - log [ref=e297]
+  - log [ref=e298]
+  - log [ref=e299]
+  - log [ref=e300]
+  - log [ref=e301]
+  - log [ref=e302]

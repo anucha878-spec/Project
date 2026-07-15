@@ -1,0 +1,109 @@
+﻿Scenario ID,Treaty,Scenario Type,Description,Input Data,Expected Output,Used in Test Case,Priority,Notes
+TD-DAI-001,Dai-ichi,Policy,Active Policy with monthly premium,"PolicyNo=DAI-P001; Channel=Dai-ichi; Mode=Monthly; PremiumPerPayment=1000; EffectiveDate=2025-06-01; Status=Inforce","Annual Premium = 12000; Included in 2026-04 Estimate","TC-BRD-PS-01-01-013, TC-RIG-PS-04-07-001",High,Standard monthly mode
+TD-DAI-002,Dai-ichi,Policy,Active Policy with quarterly premium,"PolicyNo=DAI-P002; Mode=Quarterly; PremiumPerPayment=3000","Annual = 12000","TC-BRD-PS-01-01-014, TC-RIG-PS-04-07-002",High,Quarterly mode
+TD-DAI-003,Dai-ichi,Policy,Active Policy with semi-annual premium,"PolicyNo=DAI-P003; Mode=SemiAnnual; PremiumPerPayment=6000","Annual = 12000","TC-BRD-PS-01-01-015, TC-RIG-PS-04-07-003",High,SemiAnnual mode
+TD-DAI-004,Dai-ichi,Policy,Advance premium,"PolicyNo=DAI-P004; PromiseDate=2026-05-15; Period=2026-04","Excluded from period 2026-04; included in 2026-05","TC-BRD-PS-01-01-017",High,Advance hold
+TD-DAI-005,Dai-ichi,Policy,Renewal unpaid - use Y-1,"PolicyNo=DAI-P005; CommencementDate=2024-04-01; RenewalDate=2026-04-01; Status=Inforce; PaidDate=NULL","Use Y-1 Premium (2025-04 value) for Estimate 2026-04","TC-BRD-PS-01-01-018",High,Y-1 critical
+TD-DAI-006,Dai-ichi,Policy,Late-paid NewBiz prior month,"PolicyNo=DAI-P006; CommencementDate=2026-03-15; PromiseDate=2026-04-10","Include in current period 2026-04","TC-BRD-PS-01-01-019",High,Late-paid
+TD-DAI-007,Dai-ichi,Policy,Already-reported (dedup),"PolicyNo=DAI-P007; Already in 2026-01; Try 2026-02","Excluded from 2026-02 (dedup)","TC-BRD-PS-01-01-020",High,Dedup
+TD-DAI-008,Dai-ichi,SOA,Amounts column 50%,"Base Amount = 100,000","Amounts = 50,000","TC-BRD-PS-01-01-021",High,SOA Amounts
+TD-DAI-009,Dai-ichi,SOA,First Year Premium 50%,"Base FYP = 100,000","FYP cession = 50,000","TC-BRD-PS-01-01-022",High,FYP
+TD-DAI-010,Dai-ichi,SOA,Insurer Expenses 17%,"Base = 100,000","Insurer Expenses = 17,000","TC-BRD-PS-01-01-027",High,17%
+TD-DAI-011,Dai-ichi,SOA,Reinsurer Expenses 8%,"Base = 100,000","Reinsurer Expenses = 8,000","TC-BRD-PS-01-01-028",High,8%
+TD-GIB-001,Gibraltar,Member-Layer1,Member SA 3M Layer 1 only,"MemberID=GIB-M001; PolicyNo=GIB-P001; Age=30; SA Life=3,000,000; Premium Life=5,000; Extra=0","Layer 1 = 3,000,000; L2=0; L3=0; RI Premium Life = round(15% x 5000, 2) = 750.00; RI Commission Life = round(50% x 750, 2) = 375.00","TC-BRD-PS-02-02-001, TC-RIG-PS-04-04-001",High,Layer 1 baseline
+TD-GIB-002,Gibraltar,Member-Layer1Boundary,Member SA 5M boundary,"MemberID=GIB-M002; SA Life=5,000,000; Premium=8000","L1=5,000,000; L2=0; L3=0; RI Premium = round(15% x 8000, 2) = 1200","TC-BRD-PS-02-02-003, TC-RIG-PS-04-04-002",High,Boundary
+TD-GIB-003,Gibraltar,Member-Layer1+2,Member SA 7M split layers,"MemberID=GIB-M003; SA Life=7,000,000; Premium=10000","L1=5M; L2=2M; L3=0
+RI Premium L1 = round(15% x (10000 x 5/7), 2) = round(1071.4286, 2) = 1071.43
+RI Premium L2 = round(100% x (10000 x 2/7), 2) = round(2857.1429, 2) = 2857.14
+Total RI Premium = 3928.57
+RI Commission = round(50% x 3928.57, 2) = 1964.29","TC-BRD-PS-02-03-001, TC-RIG-PS-04-04-003",High,Split L1/L2 critical
+TD-GIB-004,Gibraltar,Member-Layer2Boundary,Member SA 20M boundary,"MemberID=GIB-M004; SA Life=20,000,000; Premium=20000","L1=5M; L2=15M; L3=0
+RI Premium L1 = round(15% x (20000 x 5/20), 2) = 750.00
+RI Premium L2 = round(100% x (20000 x 15/20), 2) = 15000.00
+Total = 15750.00","TC-BRD-PS-02-03-002",High,Boundary 20M
+TD-GIB-005,Gibraltar,Member-AllLayers,Member SA 25M spans all,"MemberID=GIB-M005; SA Life=25,000,000; Premium=12000","L1=5M; L2=15M; L3=5M
+RI Premium L1 = round(15% x (12000 x 5/25), 2) = 360.00
+RI Premium L2 = round(100% x (12000 x 15/25), 2) = 7200.00
+RI Premium L3 = round(0% x (12000 x 5/25), 2) = 0.00 (Facultative)
+Total = 7560.00","TC-BRD-PS-02-04-001, TC-RIG-PS-04-04-005",High,Full layer split
+TD-GIB-006,Gibraltar,Member-Age65Accident,Under-70 Accident,"MemberID=GIB-M006; Age=65; SA Accident=2M; Premium Accident=3000","RI Premium Accident = round(15% x 3000, 2) = 450","TC-BRD-PS-02-05-001",High,Under 70
+TD-GIB-007,Gibraltar,Member-Age70,Boundary age 70,"MemberID=GIB-M007; Age=70 exactly; SA Accident=2M; Premium=3000","Per BRD: 70 = max OK or excluded? Verify config. Per BRD wording: 'อายุสูงสุดสำหรับสมาชิก Accident' = 70 (inclusive)","TC-BRD-PS-02-05-002, TC-RIG-PS-05-04-006",High,Boundary - check inclusive/exclusive
+TD-GIB-008,Gibraltar,Member-Age71,Over 70,"MemberID=GIB-M008; Age=71; SA Accident=2M; Premium=3000","RI Premium Accident = 0 (over age limit)","TC-BRD-PS-02-05-003",High,Over 70
+TD-GIB-009,Gibraltar,Member-AgeMidPeriod,Birthday crosses 70 mid-period,"MemberID=GIB-M009; DOB=1956-04-15; Period=2026-04 (turns 70 within period)","Per BRD: confirm pro-rata or whole-period treatment","TC-BRD-PS-02-05-004, TC-RIG-PS-05-04-007",High,Birthday boundary
+TD-GIB-010,Gibraltar,Claim-Recovery,Claim Recovery Life Layer 1,"MemberID=GIB-M001 (SA 3M); Claim Life=2,000,000","Claim Recovery Life = round(15% x 2000000, 2) = 300,000","TC-BRD-PS-02-06-001",High,Claim recovery L1
+TD-GIB-011,Gibraltar,Claim-Recovery,Claim Recovery split layers,"MemberID=GIB-M003 (SA 7M); Claim Life=7,000,000","Recovery L1 = round(15% x 7M x 5/7, 2) = 750,000
+Recovery L2 = round(100% x 7M x 2/7, 2) = 2,000,000
+Total = 2,750,000","TC-BRD-PS-02-06-002",High,Claim recovery layered
+TD-GIB-012,Gibraltar,Claim-OverAge,Over-age member claim,"Age=75; Accident claim=1,000,000","Claim Recovery Accident = 0","TC-BRD-PS-02-06-004",High,Over-age claim
+TD-GIB-013,Gibraltar,Commission,RI Commission 50%,"RI Premium Life = 1,000,000","RI Commission Life = round(50% x 1000000, 2) = 500,000","TC-BRD-PS-02-07-001",High,Commission Life
+TD-GIB-014,Gibraltar,Commission,Accident Commission,"RI Premium Accident = 30,000","RI Commission Accident = round(50% x 30000, 2) = 15,000","TC-BRD-PS-02-07-002",High,Commission Accident
+TD-GIB-015,Gibraltar,Profit Commission,Q4 PC Profit Year,"Year Premium=10,000,000; Year Claim=4,000,000; Earned Premium=5,000,000 (50%); Reinsurer Expense=400,000 (8%); ER_Rate=15%","PC = max(0, (5M - 4M - 400K) x 15%) = max(0, 600K x 15%) = 90,000","TC-BRD-PS-05-01-010",High,Q4 PC profit
+TD-GIB-016,Gibraltar,Profit Commission,Q4 PC Loss Year,"Year Premium=10M; Year Claim=9M; Earned Premium=5M; Expense=400K","PC = max(0, (5M - 9M - 400K) x 15%) = max(0, -4.4M x 15%) = 0","TC-BRD-PS-05-01-014",High,Q4 PC loss
+TD-THA-001,Thaire,Member-UnderRetention,Member SA below retention,"MemberID=THA-M001; SA=300,000; Type=I; Class=1; Age=35; Group=200; Murder=25%","SA Reassured = 0; RI Premium = 0; RI Commission = 0","TC-BRD-PS-03-02-001",High,Below retention
+TD-THA-002,Thaire,Member-RetentionBoundary,Member SA = 400K exactly,"MemberID=THA-M002; SA=400,000; Class=1; Age=35; Group=200; Murder=25%","SA Reassured = 0; RI Premium = 0","TC-BRD-PS-03-02-002",High,Boundary
+TD-THA-003,Thaire,Member-QS-Only,Member SA 1M (QS only),"MemberID=THA-M003; SA=1,000,000; Type=I; Class=1; Age=35; Group=200; Murder=25%","SA Reassured = (1M - 400K) x 50% = 300,000
+Base rate = 1.10/1000
+Base RI Premium = 1.10 x 300 = 330
+After Murder 15%: 330 x 0.85 = 280.50
+After Volume 20%: 280.50 x 0.80 = 224.40
+RI Premium = round(224.40, 2) = 224.40
+RI Commission = round(25% x 224.40, 2) = 56.10","TC-BRD-PS-03-03-001, TC-BRD-PS-03-09-001",High,QS calc baseline
+TD-THA-004,Thaire,Member-QSBoundary,Member SA = 2M boundary,"MemberID=THA-M004; SA=2,000,000; Type=I; Class=1; Age=35; Group=200; Murder=25%","SA Reassured = (2M - 400K) x 50% = 800,000
+Base RI Premium = 1.10 x 800 = 880
+After Murder: 880 x 0.85 = 748
+After Volume: 748 x 0.80 = 598.40
+RI Premium = 598.40
+Commission = 149.60","TC-BRD-PS-03-03-002",High,QS boundary 2M
+TD-THA-005,Thaire,Member-QS+Surplus,Member SA 5M,"MemberID=THA-M005; SA=5,000,000; Type=II; Class=4; Age=65; Group=1500; Murder=50%","SA Reassured = 800K (QS) + 3M (Surplus) = 3,800,000
+Base rate = 4.22/1000 (Age 65 Type II Class 4)
+Base RI Premium = 4.22 x 3800 = 16,036
+After Murder 50% discount (10%): 16036 x 0.90 = 14,432.40
+After Volume 30% discount: 14432.40 x 0.70 = 10,102.68
+RI Premium = round(10102.68, 2) = 10,102.68
+Commission = round(25% x 10102.68, 2) = 2525.67","TC-BRD-PS-03-04-001, TC-BRD-PS-03-09-002",High,Full E2E
+TD-THA-006,Thaire,Member-AALBoundary,Member SA 10M (AAL boundary),"MemberID=THA-M006; SA=10,000,000; Type=I; Class=1; Age=40; Group=200; Murder=25%","SA Reassured = 800K + 8M = 8,800,000
+Base RI Premium = 1.10 x 8800 = 9,680
+After Murder 15%: 9680 x 0.85 = 8228
+After Volume 20%: 8228 x 0.80 = 6,582.40
+RI Premium = 6,582.40
+Commission = 1,645.60","TC-BRD-PS-03-04-002",High,AAL boundary
+TD-THA-007,Thaire,Member-AboveAAL,Member SA 12M,"MemberID=THA-M007; SA=12,000,000; Type=I; Class=1; Age=40; Group=200; Murder=25%","SA Reassured = 8,800,000 (same as 10M; excess 2M not ceded)
+Same RI Premium as TD-THA-006: 6,582.40
+Excess 2M = uncovered","TC-BRD-PS-03-05-001",High,AAL exclude
+TD-THA-008,Thaire,RatesTable,Age band boundary 60-61,"Age 60 vs Age 61, Type I, Class 1","Age 60 rate = 1.10
+Age 61 rate = 1.33","TC-BRD-PS-03-06-003",High,Age band rate change
+TD-THA-009,Thaire,MurderDiscount,0% Murder coverage (max discount),"Murder=0%","Discount = 20%; RI Premium x 0.80","TC-BRD-PS-03-07-003",High,Max murder discount
+TD-THA-010,Thaire,MurderDiscount,100% Murder coverage (no discount),"Murder=100%","Discount = 0%; RI Premium x 1.00","TC-BRD-PS-03-07-002",High,No murder discount
+TD-THA-011,Thaire,VolumeDiscount,Group 200,"Group Size=200","Volume Discount = 20%","TC-BRD-PS-03-08-001",High,Volume bracket
+TD-THA-012,Thaire,VolumeDiscount,Group 1500,"Group Size=1500","Volume Discount = 30%","TC-BRD-PS-03-08-002",High,Volume bracket
+TD-THA-013,Thaire,VolumeDiscount,Group 15 (small),"Group Size=15","No volume discount","TC-BRD-PS-03-08-004",Medium,Small group
+TD-THA-014,Thaire,Age Limit,Over policy age limit,"Ocean GA.2545 Age Limit=65; Member Age=68","Excluded (or per special extension)","TC-BRD-PS-03-11-001",High,Age limit
+TD-THA-015,Thaire,Special Extension,Cert 00072 age 68 special,"Cert 00072; Age=68; Type I Class 1","Extended at 61-65 rate (1.33)","TC-BRD-PS-03-11-003",High,Special override
+TD-THA-016,Thaire,Re-issued Policy,New cert number same company,"PolicyNo=GA-NEW; Previous Policy=GA-OLD; Company=ABC","Linked via Previous Policy; not new biz","TC-BRD-PS-03-16-005, TC-BRD-PS-06-01-025",High,Re-issued
+TD-THA-017,Thaire,Profit Commission Q4,Per-policy PC,"Policy GA.2545; Year Premium=5M; Claim=2M; Admin Expense=500K (10%); Reserve=2.5M (50%)","Earned Premium = 5M - 2.5M reserve = 2.5M
+PC base = 2.5M - 2M - 500K - reinsurer expense = 0 (if rate = 0%)
+Or PC = (Earned - Claim - Expense) x ER rate per BRD","TC-BRD-PS-06-01-011",High,Per-policy PC
+TD-MULTI-001,Cross-treaty,Conflict,Policy in 2 treaties,"PolicyNo=DUP-P001; In Dai-ichi Treaty + Gibraltar Treaty","Validation error during Staging/Estimate. Per BRD: 'พบ Policy อยู่หลาย Treaty'; abort process","TC-RIG-PS-02-01-004, TC-RIG-PS-04-08-001",High,Multi-treaty conflict
+TD-MULTI-002,Cross-treaty,Treaty Migration,Policy moved Dai-ichi -> Gibraltar,"PolicyNo=MIG-P001; Dai-ichi until 2026-03; Gibraltar from 2026-04","Q1 2026 Actual Dai-ichi: Excluded; Q1 2026 Actual Gibraltar: Included from Apr","TC-BRD-PS-04-01-014",High,Migration
+TD-EDGE-001,Cross-treaty,Empty Period,Quiet month no data,"Period 2026-04; no policies effective in last 12mo","Snapshot/Staging/Process all return 0 rows; SUCCESS; no error","TC-RIG-PS-02-01-008, TC-BRD-PS-04-01-027",Medium,Empty
+TD-EDGE-002,Cross-treaty,Boundary Period,Policy effective exactly 12 months ago,"PolicyNo=BND-P001; EffectiveDate=2025-04-30 (exactly 12mo before period 2026-04)","Per BRD: inclusive or exclusive? Verify","TC-RIG-PS-04-02-002",High,Date boundary
+TD-EDGE-003,Cross-treaty,Concurrent Run,Landing dump + Snapshot concurrent,"Run RIG_AUTO_01 + EST_SNAPSHOT_01 at same time","Snapshot uses committed Landing data only (transactional consistency)","TC-RIG-PS-02-01-009",Medium,Concurrency
+TD-CLAIM-001,Cross-treaty,Health Sub-type,FAX CLAIM,"ClaimType=FAX CLAIM; ReportDate=2026-04-15; PaidDate=NULL","Filter by ReportDate per BRD","TC-RIG-PS-04-03-002",High,Sub-type FAX
+TD-CLAIM-002,Cross-treaty,Health Sub-type,เครดิต,"ClaimType=เครดิต; ReportDate=2026-04-20","Filter by ReportDate","TC-RIG-PS-04-03-002",High,Sub-type เครดิต
+TD-CLAIM-003,Cross-treaty,Health Sub-type,ใบเสร็จ,"ClaimType=ใบเสร็จ; PaidDate=2026-04-10","Filter by PaidDate","TC-RIG-PS-04-03-002",High,Sub-type ใบเสร็จ
+TD-CLAIM-004,Cross-treaty,Health Sub-type,ทันตเครดิต,"ClaimType=ทันตเครดิต; PaidDate=2026-04-25","Filter by PaidDate","TC-RIG-PS-04-03-002",High,Sub-type ทันตเครดิต
+TD-CLAIM-005,Cross-treaty,Investigation Expense,Link to claim,"ExpenseID=EXP001; ClaimNo=CLM001 (must exist in claim tables)","Linked via JOIN with claim tables","TC-RIG-PS-05-09-002",High,Cross-ref
+TD-CFG-001,All,Config Change,Layer 1 boundary change,"Change Layer 1 max from 5M to 6M","All members with SA 5M-6M shift from L2 to L1; recalculate","TC-BRD-PS-02-11-001, TC-BRD-PS-08-03-003",High,Config change
+TD-CFG-002,All,Config Change,Cession rate change,"Change Gibraltar Layer 1 cede from 15% to 20%","All RI Premium L1 increase by ratio","TC-BRD-PS-02-11-002, TC-BRD-PS-08-03-004",High,Cession rate
+TD-CFG-003,All,Config Change,Commission rate change,"Change Gibraltar Commission from 50% to 45%","Commission recalculate","TC-BRD-PS-02-07-003, TC-BRD-PS-08-03-001",High,Commission rate
+TD-CFG-004,All,Config Change,Retention change Thaire,"Change Thaire Retention 400K -> 500K","Members SA 400K-500K go from QS to retained","TC-BRD-PS-08-04-001",High,Retention change
+TD-CFG-005,All,Config Change,Age limit change,"Change Gibraltar Accident max 70 -> 65","Members age 66-70 newly excluded from Accident","TC-BRD-PS-02-05-005, TC-BRD-PS-08-03-002",High,Age limit
+TD-CFG-006,All,Pending Config,Block process,"Set up pending config (not approved)","Estimate/Actual process refuses to start; alert User","TC-BRD-PS-01-01-010, TC-BRD-PS-08-06-001",High,Block on pending
+TD-CFG-007,All,Retroactive Config,Re-run prior period,"Change config in 2026-05; re-run 2026-04","New config applies retroactively","TC-RIG-PS-03-01-009, TC-BRD-PS-08-06-002",High,Retroactive
+TD-CFG-008,All,4-Eyes,Self-approval blocked,"Maker tries to approve own change","Disabled","TC-BRD-PS-08-09-003",High,Authorization
+TD-DICT-001,All,Claim Cause Dictionary,Existing translation,"Thai cause: 'โรคหัวใจวายเฉียบพลัน' (in dictionary)","Auto-translated to 'Acute heart failure'","TC-BRD-PS-04-01-007",High,Auto-translate
+TD-DICT-002,All,Claim Cause Dictionary,Missing translation,"Thai cause: 'ใหม่ไม่มีใน dict' (not in dictionary)","User prompted to add manual translation","TC-BRD-PS-04-01-008",High,Manual translate
+TD-NAME-001,All,English Name Translation,Insured name,"Member name: 'นายสมชาย ใจดี' (Thai)","User imports English: 'Mr. Somchai Jaidee'","TC-BRD-PS-04-01-006",High,Name translation
+TD-VOL-001,Performance,High Volume,50K certificates Inforce,"Snapshot 50,000+ inforce certificates","Snapshot completes < 5 min","TC-RIG-PS-02-07-009",Medium,Performance
+TD-VOL-002,Performance,High Volume,500K health claims Q,"Quarterly snapshot 500K+ health claims","Snapshot completes < 10 min","TC-RIG-PS-03-06-009",Medium,Performance
+TD-VOL-003,Performance,High Volume,100K policies multi-treaty,"Process 100K policies","Process completes < 30 min","TC-BRD-PS-04-01-028",Medium,Performance

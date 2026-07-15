@@ -1,0 +1,52 @@
+- generic [active] [ref=e1]:
+  - 'heading "Regression Evidence — Defect #75852 (GIB RI Premium Per-Layer Cede %)" [level=1] [ref=e2]'
+  - generic [ref=e3]: speckit-qa regression · run 2026-07-07 · DB reconciliation groupri@10.14.8.58 (read-only) · verified-by anucha.pi
+  - generic [ref=e4]:
+    - text: "Finding: The per-layer cede fix is confirmed effective on every current verifiable multi-layer GIB policy — L2/L3 premium is populated per"
+    - code [ref=e5]: percent_re
+    - text: (15/100/0), no collapse into L1.
+  - table [ref=e6]:
+    - rowgroup [ref=e7]:
+      - row "Policy Mode Expected ri_prem_life (formula) Actual (latest run) Result" [ref=e8]:
+        - columnheader "Policy" [ref=e9]
+        - columnheader "Mode" [ref=e10]
+        - columnheader "Expected ri_prem_life (formula)" [ref=e11]
+        - columnheader "Actual (latest run)" [ref=e12]
+        - columnheader "Result" [ref=e13]
+      - row "GL5557 monthly (F=12) L1 139,193.10 / L2 46,080.00 / L3 0 acc L1 36,393.84 / L2 15,120.00 L1 139,193.10 / L2 46,080.00 / L3 0 acc L1 36,393.84 / L2 15,120.00 PASS — exact, no collapse" [ref=e14]:
+        - cell "GL5557" [ref=e15]
+        - cell "monthly (F=12)" [ref=e16]
+        - cell "L1 139,193.10 / L2 46,080.00 / L3 0 acc L1 36,393.84 / L2 15,120.00" [ref=e17]:
+          - text: L1 139,193.10 / L2 46,080.00 / L3 0
+          - text: acc L1 36,393.84 / L2 15,120.00
+        - cell "L1 139,193.10 / L2 46,080.00 / L3 0 acc L1 36,393.84 / L2 15,120.00" [ref=e18]:
+          - text: L1 139,193.10 / L2 46,080.00 / L3 0
+          - text: acc L1 36,393.84 / L2 15,120.00
+        - cell "PASS — exact, no collapse" [ref=e19]
+      - row "GH5558 annual (F=1) L1 124,800.00 / L2 325.00 / L3 0 L1 124,800.00 / L2 325.00 / L3 0 PASS — exact, no collapse" [ref=e20]:
+        - cell "GH5558" [ref=e21]
+        - cell "annual (F=1)" [ref=e22]
+        - cell "L1 124,800.00 / L2 325.00 / L3 0" [ref=e23]
+        - cell "L1 124,800.00 / L2 325.00 / L3 0" [ref=e24]
+        - cell "PASS — exact, no collapse" [ref=e25]
+      - 'row "GL5505 (defect policy) annual (F=1) SC-001: L1 99,192.75 / L2 30,800.00 / L3 0 hd547: L1 96,492.75 / L2 0 / L3 0 (= 643,285 × 15%, now single-layer) BLOCKED — test members 00702/00703 removed from DB; multi-layer path not exercised" [ref=e26]':
+        - cell "GL5505 (defect policy)" [ref=e27]:
+          - text: GL5505
+          - text: (defect policy)
+        - cell "annual (F=1)" [ref=e28]
+        - 'cell "SC-001: L1 99,192.75 / L2 30,800.00 / L3 0" [ref=e29]'
+        - 'cell "hd547: L1 96,492.75 / L2 0 / L3 0 (= 643,285 × 15%, now single-layer)" [ref=e30]':
+          - text: "hd547: L1 96,492.75 / L2 0 / L3 0"
+          - text: (= 643,285 × 15%, now single-layer)
+        - cell "BLOCKED — test members 00702/00703 removed from DB; multi-layer path not exercised" [ref=e31]
+  - generic [ref=e32]:
+    - text: "Transitions (baseline 2026-05-27 → now):"
+    - text: "TC-CR1-011 GL5505: Fail → Blocked (fixture removed; SC-001 not reproducible) · TC-CR1-012 GL5557: Pass → Pass · TC-CR1-013 GH5558: Pass → Pass · TC-CR1-014 single-layer: Pass → Pass"
+    - text: No Pass→Fail → no new regression.
+  - generic [ref=e33]:
+    - text: "Root Cause: Application Defect — Estimate Step 4 ("
+    - code [ref=e34]: tx_rig_est_policy_dt
+    - text: ) did not apply
+    - code [ref=e35]: percent_re
+    - text: per layer and did not perform marginal SA slicing, collapsing multi-layer premium into L1@15%. Now resolved — layer split + per-layer cede verified exact on GL5557 & GH5558.
+  - generic [ref=e36]: "VERDICT: CONDITIONAL-GO → closing on equivalent-policy evidence (GL5557 + GH5558). Per-layer cede engine fixed."

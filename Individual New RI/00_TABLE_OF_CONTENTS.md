@@ -1,0 +1,1108 @@
+# 20210257 — Individual New RI (Ocean Life Insurance)
+
+Confluence space: **RDSINRI** — http://wiki.thaisamut.co.th/display/RDSINRI/Home
+
+Total pages: **1098** (depth 0–5) — generated 
+
+---
+
+## สารบัญ (Table of Contents)
+
+- [Current Version](http://wiki.thaisamut.co.th/display/RDSINRI/Current+Version) `#1038221353`
+  - [01. Overview Specification](http://wiki.thaisamut.co.th/display/RDSINRI/01.+Overview+Specification) `#1038221359`
+  - [02. Process Specification](http://wiki.thaisamut.co.th/display/RDSINRI/02.+Process+Specification) `#1038221360`
+  - [03. User Interface Specification](http://wiki.thaisamut.co.th/display/RDSINRI/03.+User+Interface+Specification) `#1038221361`
+  - [04. Persistence Specification](http://wiki.thaisamut.co.th/display/RDSINRI/04.+Persistence+Specification) `#1038221354`
+  - [05. Business Rules Specification](http://wiki.thaisamut.co.th/display/RDSINRI/05.+Business+Rules+Specification) `#1038221355`
+  - [06. External Service Call Specification](http://wiki.thaisamut.co.th/display/RDSINRI/06.+External+Service+Call+Specification) `#1038221356`
+  - [07. Exposed API Specification](http://wiki.thaisamut.co.th/display/RDSINRI/07.+Exposed+API+Specification) `#1038221357`
+  - [08. Test Specification](http://wiki.thaisamut.co.th/display/RDSINRI/08.+Test+Specification) `#1038221358`
+  - [09. Appendix](http://wiki.thaisamut.co.th/display/RDSINRI/09.+Appendix) `#1099727521`
+  - [10. Document Reference](http://wiki.thaisamut.co.th/display/RDSINRI/10.+Document+Reference) `#1143144955`
+  - [11. EDW PH.6 Mark Policy & Monthly NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220476994) `#1220476994`
+    - [01. CA, UR ที่ปรับแก้ระบบ NEW RI](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1270251867) `#1270251867`
+    - [(ยกเลิก)IRI-PS-021 นำเข้ากรมธรรม์ส่งประกันต่อสามัญ (Outforce) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1128530105) `#1128530105`
+    - [(ยกเลิก) IRI-PS-026 นำเข้าข้อมูลอัตราเพิ่มทุนวันหยุด PA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1172963540) `#1172963540`
+    - [(ยกเลิก) IRI-PS-033 ส่งข้อมูล Actual ไปยัง EDW Auto (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073033) `#1267073033`
+    - [[EDW PH6] IRI-PS-026 ส่งข้อมูลไปยังระบบปลายทาง Mark Policy](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220739105) `#1220739105`
+    - [[EDW PH6] IRI-PS-027 ส่งข้อมูลไปยังระบบปลายทาง Monthly NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220739271) `#1220739271`
+    - [[EDW PH6] IRI-PS-028 ประมวลผล Monthly NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220739108) `#1220739108`
+    - [[EDW PH6] IRI-PS-029 ประมวลผล Mark Policy](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1236074515) `#1236074515`
+    - [[UL-Rider] IRI-PS-004 นำเข้าข้อมูลกรมธรรม์ UL (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1166901409) `#1166901409`
+    - [IRI-PS-000 นำเข้าข้อมูล Base Plan Code และ Rider Code ทุกประเภท](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114439685) `#1114439685`
+    - [IRI-PS-001-1 นำเข้าข้อมูลกรมธรรม์สามัญ (New,Renew) Auto (Outforce)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1213530257) `#1213530257`
+    - [IRI-PS-001 นำเข้าข้อมูลกรมธรรม์สามัญ (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850322) `#1113850322`
+    - [IRI-PS-002 นำเข้าข้อมูลกรมธรรม์สามัญ (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850412) `#1113850412`
+    - [IRI-PS-003 นำเข้าข้อมูลกรมธรรม์ PA (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850446) `#1113850446`
+    - [IRI-PS-004 นำเข้าข้อมูลกรมธรรม์ UL (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850504) `#1113850504`
+    - [IRI-PS-005 นำเข้าข้อมูลกรมธรรม์อุตสาหกรรม (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114439880) `#1114439880`
+    - [IRI-PS-006 นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946291) `#1117946291`
+    - [IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946327) `#1117946327`
+    - [IRI-PS-008 นำเข้าข้อมูลกรมธรรม์ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946362) `#1117946362`
+    - [IRI-PS-009 นำเข้าข้อมูลกรมธรรม์ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946395) `#1117946395`
+    - [IRI-PS-010 นำเข้าข้อมูล Rate ทุนประกัน สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118929090) `#1118929090`
+    - [IRI-PS-011 นำเข้าข้อมูล Rate Benefit Claim สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118929110) `#1118929110`
+    - [IRI-PS-012 นำเข้าข้อมูล Rate ทุนประกัน PA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118929220) `#1118929220`
+    - [IRI-PS-013 นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500801) `#1122500801`
+    - [IRI-PS-014 ประมวลผล Estimate (Auto)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122763155) `#1122763155`
+    - [IRI-PS-015 ประมวลผล Estimate (Manual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1123778576) `#1123778576`
+    - [IRI-PS-016 ประมวลผล Actual (Manual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1123778585) `#1123778585`
+    - [IRI-PS-017 นำเข้าข้อมูลค่าส่งสอบจากระบบ CMS](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1123778594) `#1123778594`
+    - [IRI-PS-019 ประมวลผลรายงาน Profit Comm.](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1123778848) `#1123778848`
+    - [IRI-PS-020 กรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1128530102) `#1128530102`
+    - [IRI-PS-022 นำเข้ากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1128530107) `#1128530107`
+    - [IRI-PS-023 ส่งข้อมูล Estimate เข้า EDW](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841369) `#1129841369`
+    - [IRI-PS-024 ส่งข้อมูล Actual เข้า EDW](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280134) `#1135280134`
+    - [IRI-PS-025 นำเข้าข้อมูล ค่าการประกันภัย (Cost of Insurance) UL](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1138196964) `#1138196964`
+    - [IRI-PS-026 นำเข้าข้อมูลกรมธรรม์สามัญ (Alteration) ตั้งฐาน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1237450898) `#1237450898`
+    - [IRI-PS-027 กรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) ตั้งฐาน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1237450913) `#1237450913`
+    - [IRI-PS-028 นำเข้ากรมธรรม์ส่งประกันต่อ UL (Alteration) ตั้งฐาน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1237450945) `#1237450945`
+    - [IRI-PS-030 ส่งข้อมูล Estimate ไปยัง EDW Auto (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266089986) `#1266089986`
+    - [IRI-PS-031 ประมวลผล UL Estimate (Auto) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266089999) `#1266089999`
+    - [IRI-PS-032 ส่งข้อมูล UL Estimate ไปยัง EDW Auto (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090003) `#1266090003`
+    - [IRI-PS-034 นำเข้าข้อมูล Rate Claim Benefit Rider สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1269530691) `#1269530691`
+    - [IRI-PS-035 นำเข้าข้อมูลกรมธรรม์ที่เข้าเงื่อนไข Copayment](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1271529753) `#1271529753`
+    - [IRI-PS-036 นำเข้าข้อมูลสินไหมจากระบบ CMS](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1274052621) `#1274052621`
+    - [IRI-PS-037 นำเข้าข้อมูลวันสิ้นสุดสัญญาเพิ่มเติม อุตสาหกรรม](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1280475302) `#1280475302`
+    - [IRI-PS-038 ประมวลผลรายงาน Profit Comm. Estimate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1286406508) `#1286406508`
+    - [01. หน้าจอข้อมูล Reinsurer (cf01)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613325) `#1098613325`
+    - [02. หน้าจอข้อมูล Treaty (Auto) (cf02)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613328) `#1098613328`
+    - [03. หน้าจอข้อมูล Policy Facultative (cf03)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613330) `#1098613330`
+    - [04. หน้าจอข้อมูล Reserve Rate (cf04)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613332) `#1098613332`
+    - [06. หน้าจัดการข้อมูล Profit Commission (cf05)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150624) `#1104150624`
+    - [07. หน้าจอประมวลผล Estimate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613343) `#1098613343`
+    - [08. หน้าจอประมวลผล Actual](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613351) `#1098613351`
+    - [09. Manual Batch Process](http://wiki.thaisamut.co.th/display/RDSINRI/09.+Manual+Batch+Process) `#1115193423`
+    - [10. หน้าจอส่งข้อมูล Mark Policy และ Current NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1215758736) `#1215758736`
+    - [ยกเลิก 05. หน้าจอกำหนดสูตร](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613340) `#1098613340`
+    - [Backup Round1](http://wiki.thaisamut.co.th/display/RDSINRI/Backup+Round1) `#1265337077`
+    - [Configuration](http://wiki.thaisamut.co.th/display/RDSINRI/Configuration) `#1098154280`
+    - [EDW P6](http://wiki.thaisamut.co.th/display/RDSINRI/EDW+P6) `#1215758579`
+    - [Master](http://wiki.thaisamut.co.th/display/RDSINRI/Master) `#1098154283`
+    - [Transaction](http://wiki.thaisamut.co.th/display/RDSINRI/Transaction) `#1098154286`
+    - [ยกเลิก](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100906545) `#1100906545`
+    - [[UL-Rider] WS_RI_08 ค้นหากรมธรรม์ส่งประกันต่อ UL (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1166901399) `#1166901399`
+    - [[UL-Rider] WS_RI_09 ค้นหากรมธรรม์ส่งประกันต่อ UL (New,Renew) Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1166901402) `#1166901402`
+    - [WS_RI_00 ดึงข้อมูล Base Plan Code และ Rider Code ทุกประเภท](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110475012) `#1110475012`
+    - [WS_RI_01 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (New&Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1096450874) `#1096450874`
+    - [WS_RI_02 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (New&Renew) Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107099749) `#1107099749`
+    - [WS_RI_03 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1096450888) `#1096450888`
+    - [WS_RI_04 ค้นหากรมธรรม์ส่งประกันต่ออุตสาหกรรม (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105232155) `#1105232155`
+    - [WS_RI_05 ค้นหากรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108246537) `#1108246537`
+    - [WS_RI_06 ค้นหากรมธรรม์ส่งประกันต่อ PA (New&Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105232161) `#1105232161`
+    - [WS_RI_07 ค้นหากรมธรรม์ส่งประกันต่อ PA (New&Renew) Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107099757) `#1107099757`
+    - [WS_RI_08 ค้นหากรมธรรม์ส่งประกันต่อ UL (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105232166) `#1105232166`
+    - [WS_RI_09 ค้นหากรมธรรม์ส่งประกันต่อ UL (New,Renew) Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107853431) `#1107853431`
+    - [WS_RI_10 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1096450882) `#1096450882`
+    - [WS_RI_11 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159915) `#1117159915`
+    - [WS_RI_12 ค้นหากรมธรรม์ส่งประกันต่อ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850249) `#1113850249`
+    - [WS_RI_13 ค้นหากรมธรรม์ส่งประกันต่อ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850389) `#1113850389`
+    - [WS_RI_14 ดึงข้อมูล Rate ทุนประกัน สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118928904) `#1118928904`
+    - [WS_RI_15 ดึงข้อมูล Benefit Claim](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118568649) `#1118568649`
+    - [WS_RI_16 ดึงข้อมูล Rate ทุนประกัน PA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1118929205) `#1118929205`
+    - [WS_RI_17 ค้นหากรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500775) `#1122500775`
+    - [WS_RI_18 ค้นหาข้อมูลค่าส่งสอบจากระบบ CMS](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122173109) `#1122173109`
+    - [WS_RI_20 ค้นหากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1128529927) `#1128529927`
+    - [WS_RI_21 ค้นหาข้อมูลค่าการประกันภัย UL (COI)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1137508587) `#1137508587`
+    - [WS_RI_22 [Insert] สร้างข้อมูล Process ที่ EDW (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140228536) `#1140228536`
+    - [WS_RI_23 [Insert] สร้างข้อมูล tx_ri_std_all (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140228539) `#1140228539`
+    - [WS_RI_24 [Update] อัพเดทสถานะการส่งข้อมูลเข้า EDW (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140228546) `#1140228546`
+    - [WS_RI_25 [Insert] สร้างข้อมูล Process ที่ EDW (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140949099) `#1140949099`
+    - [WS_RI_26 [Insert] สร้างข้อมูล tx_ri_std_all (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140949105) `#1140949105`
+    - [WS_RI_27 [update] อัพเดทสถานะการส่งข้อมูลเข้า EDW (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1140949111) `#1140949111`
+    - [WS_RI_28 [Select] อัพเดทสถานะข้อมูล EDW (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1143439817) `#1143439817`
+    - [WS_RI_29 [Select] อัพเดทสถานะข้อมูล EDW (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1150517523) `#1150517523`
+    - [WS_RI_30 [Select] Reconcile ข้อมูล EDW (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1157890477) `#1157890477`
+    - [WS_RI_31 [Select] Reconcile ข้อมูล EDW (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1157890505) `#1157890505`
+    - [WS_RI_32_ข้อมูลอัตราเพิ่มทุนวันหยุด PA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1172963494) `#1172963494`
+    - [WS_RI_33 [Insert] สร้างข้อมูล tx_mps_base_header](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1231913107) `#1231913107`
+    - [WS_RI_34 [Insert] สร้างข้อมูล tx_mps_landing_ri_status](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1231913224) `#1231913224`
+    - [WS_RI_35 [update] อัพเดทสถานะการส่งข้อมูลเข้า EDW ของ Mark Policy](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1231913273) `#1231913273`
+    - [WS_RI_36 [Insert] สร้างข้อมูล tx_mps_nar_hd](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1232175203) `#1232175203`
+    - [WS_RI_37 [Insert] สร้างข้อมูล tx_mps_landing_nar](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1232175232) `#1232175232`
+    - [WS_RI_38 [update] อัพเดทสถานะการส่งข้อมูลเข้า EDW ของ NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1232175239) `#1232175239`
+    - [WS_RI_39 [Insert] สร้างข้อมูล Process ที่ EDW (Estimate) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090056) `#1266090056`
+    - [WS_RI_40 [Insert] สร้างข้อมูล tx_ri_std_all (Estimate) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090118) `#1266090118`
+    - [WS_RI_41 [Update] อัพเดทสถานะการส่งข้อมูลเข้า EDW (Estimate) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090128) `#1266090128`
+    - [WS_RI_42 [Select] อัพเดทสถานะข้อมูล EDW (Estimate) (OIC) (ยกเลิก)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090142) `#1266090142`
+    - [WS_RI_42 [Update] อัพเดทสถานะการส่งข้อมูลเข้า MPS (ADWETL) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1279721887) `#1279721887`
+    - [WS_RI_43 [Insert] สร้างข้อมูล Process ที่ EDW (Actual) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073192) `#1267073192`
+    - [WS_RI_44 [Insert] สร้างข้อมูล tx_ri_std_all (Actual) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073195) `#1267073195`
+    - [WS_RI_45 [update] อัพเดทสถานะการส่งข้อมูลเข้า EDW (Actual) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073197) `#1267073197`
+    - [WS_RI_46 [Select] อัพเดทสถานะข้อมูล EDW (Actual) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073266) `#1267073266`
+    - [WS_RI_47 ดึงข้อมูล Rate Claim Benefit Rider สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1269530742) `#1269530742`
+    - [WS_RI_48 ค้นหารายการอนุมัติสินไหม cms](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1273266911) `#1273266911`
+    - [WS_RI_49 ค้นหาข้อมูล Copayment ทั้งเข้าเงื่อนไขและไม่เข้าเงื่อนไข](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1275560051) `#1275560051`
+    - [WS_RI_50 ค้นหารายการวันสิ้นสุดสัญญาเพิ่มเติม อุตสาหกรรม](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1280475268) `#1280475268`
+    - [zcancel](http://wiki.thaisamut.co.th/display/RDSINRI/zcancel) `#1129840687`
+    - [Common Service](http://wiki.thaisamut.co.th/display/RDSINRI/Common+Service) `#1103266501`
+    - [File Service](http://wiki.thaisamut.co.th/display/RDSINRI/File+Service) `#1106837904`
+    - [Lookup Data](http://wiki.thaisamut.co.th/display/RDSINRI/Lookup+Data) `#1100350156`
+    - [หน้าจอข้อมูล Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105527072) `#1105527072`
+    - [หน้าจอข้อมูล Reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349570) `#1100349570`
+    - [หน้าจอข้อมูล Treaty (Auto)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350292) `#1100350292`
+    - [เมนูข้อมูล Treaty (Fac)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110474813) `#1110474813`
+    - [A01. Display](http://wiki.thaisamut.co.th/display/RDSINRI/A01.+Display) `#1100087305`
+    - [A02. Common Validation](http://wiki.thaisamut.co.th/display/RDSINRI/A02.+Common+Validation) `#1100087618`
+    - [A03. Popup Confirm](http://wiki.thaisamut.co.th/display/RDSINRI/A03.+Popup+Confirm) `#1100087839`
+    - [A04. Lookup Data](http://wiki.thaisamut.co.th/display/RDSINRI/A04.+Lookup+Data) `#1100906558`
+    - [A05. Location & Country](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105527325) `#1105527325`
+    - [A06. UR Config](http://wiki.thaisamut.co.th/display/RDSINRI/A06.+UR+Config) `#1106084070`
+    - [A07. Medical Type Data](http://wiki.thaisamut.co.th/display/RDSINRI/A07.+Medical+Type+Data) `#1106084433`
+    - [A08. Policy Coverage Type](http://wiki.thaisamut.co.th/display/RDSINRI/A08.+Policy+Coverage+Type) `#1108246548`
+    - [A09. Calculation](http://wiki.thaisamut.co.th/display/RDSINRI/A09.+Calculation) `#1113587976`
+    - [A10. Batch Process](http://wiki.thaisamut.co.th/display/RDSINRI/A10.+Batch+Process) `#1117946447`
+    - [A11. Config e-mail](http://wiki.thaisamut.co.th/display/RDSINRI/A11.+Config+e-mail) `#1119224253`
+    - [A12. Template e-mail แจ้ง IT Support (RI_Landing)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119224256) `#1119224256`
+    - [A13. Template e-mail แจ้ง IT Support (RI_Process_Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500822) `#1122500822`
+    - [A14. Index User Interface](http://wiki.thaisamut.co.th/display/RDSINRI/A14.+Index+User+Interface) `#1128923266`
+    - [A15. Format - Report Detail](http://wiki.thaisamut.co.th/display/RDSINRI/A15.+Format+-+Report+Detail) `#1129840945`
+    - [A16. Short Term Premium(PA)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1132101829) `#1132101829`
+    - [A17. การคำนวณวันคุ้มครอง - วันไม่คุ้มครอง](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445558) `#1133445558`
+    - [A18. MAIN Process](http://wiki.thaisamut.co.th/display/RDSINRI/A18.+MAIN+Process) `#1113587887`
+    - [A19. Policy Status](http://wiki.thaisamut.co.th/display/RDSINRI/A19.+Policy+Status) `#1105527269`
+    - [A20. Treaty Share](http://wiki.thaisamut.co.th/display/RDSINRI/A20.+Treaty+Share) `#1134592280`
+    - [A21. Roll Back And Delete](http://wiki.thaisamut.co.th/display/RDSINRI/A21.+Roll+Back+And+Delete) `#1140949659`
+    - [A22. Effect Date From - To](http://wiki.thaisamut.co.th/display/RDSINRI/A22.+Effect+Date+From+-+To) `#1174077672`
+    - [A23. เงื่อนไขการบันทึกข้อมูลแต่ไม่ประมวลผล](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1178533907) `#1178533907`
+    - [A24. การหาวันที่ชำระล่าสุด](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1195606358) `#1195606358`
+    - [A25. Effect Date From - To : RIDER](http://wiki.thaisamut.co.th/display/RDSINRI/A25.+Effect+Date+From+-+To+%3A+RIDER) `#1198489608`
+    - [A26. Send Reinsurer Status](http://wiki.thaisamut.co.th/display/RDSINRI/A26.+Send+Reinsurer+Status) `#1200161033`
+    - [A27. Status For Report](http://wiki.thaisamut.co.th/display/RDSINRI/A27.+Status+For+Report) `#1201078572`
+    - [A28. การคำนวณ total_premium สำหรับ edw](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1205731394) `#1205731394`
+    - [A29. การปัดทศนิยม](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1210482701) `#1210482701`
+    - [A31. การตั้งฐาน Actual](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1217888369) `#1217888369`
+    - [A32. Process Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A32.+Process+Claim) `#1223589917`
+    - [A33. Refund Claim amount](http://wiki.thaisamut.co.th/display/RDSINRI/A33.+Refund+Claim+amount) `#1275559989`
+    - [A34. How to Config New Treaty](http://wiki.thaisamut.co.th/display/RDSINRI/A34.+How+to+Config+New+Treaty) `#1277690276`
+    - [A35. Footer BDR](http://wiki.thaisamut.co.th/display/RDSINRI/A35.+Footer+BDR) `#1278640144`
+    - [A36. การแบ่งรายการเคลม](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1281229438) `#1281229438`
+    - [A37. Main Template](http://wiki.thaisamut.co.th/display/RDSINRI/A37.+Main+Template) `#1296793712`
+    - [Bin](http://wiki.thaisamut.co.th/display/RDSINRI/Bin) `#1131446382`
+    - [Script ตั้งฐาน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1178534200) `#1178534200`
+    - [การอ้างอิง Template](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1303970316) `#1303970316`
+    - [บันทึก Log ผู้ทำการ Export File หลังจากออกรายงานเรียบร้อยแล้ว](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133707280) `#1133707280`
+    - [Command Log Monitor](http://wiki.thaisamut.co.th/display/RDSINRI/Command+Log+Monitor) `#1260748873`
+    - [SQL ที่โปรแกรมใช้](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1165984119) `#1165984119`
+    - [User Manual](http://wiki.thaisamut.co.th/display/RDSINRI/User+Manual) `#1143144959`
+    - [คู่มือ Support ระบบงาน New RI](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749447) `#1289749447`
+    - [ตรวจสอบประมวลผล Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1323205124) `#1323205124`
+    - [01. Initial Table](http://wiki.thaisamut.co.th/display/RDSINRI/01.+Initial+Table) `#1220476996`
+      - [01_1 เอกสารส่ง sit](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1273266474) `#1273266474`
+      - [IRI-PS-021 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-021+Mapping) `#1129579009`
+      - [IRI-PS-026 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-026+Mapping) `#1172963543`
+      - [1. Create tx_ri_process_header_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073149) `#1267073149`
+      - [2. Create tx_ri_std_hd_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073154) `#1267073154`
+      - [3. Create tx_ri_std_all_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073158) `#1267073158`
+      - [4. Update tx_ri_process_header_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073175) `#1267073175`
+      - [5. Update tx_ri_std_hd_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073178) `#1267073178`
+      - [6. Update tx_ri_std_all_oic (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073180) `#1267073180`
+      - [1. Create tx_mps_base_header](http://wiki.thaisamut.co.th/display/RDSINRI/1.+Create+tx_mps_base_header) `#1231684157`
+      - [2. Create tx_mps_landing_ri_status](http://wiki.thaisamut.co.th/display/RDSINRI/2.+Create+tx_mps_landing_ri_status) `#1231684189`
+      - [3. Update tx_mps_base_header](http://wiki.thaisamut.co.th/display/RDSINRI/3.+Update+tx_mps_base_header) `#1231684244`
+      - [1. Create tx_mps_nar_hd](http://wiki.thaisamut.co.th/display/RDSINRI/1.+Create+tx_mps_nar_hd) `#1231684273`
+      - [2. Create tx_mps_landing_nar](http://wiki.thaisamut.co.th/display/RDSINRI/2.+Create+tx_mps_landing_nar) `#1231913023`
+      - [3. Update tx_mps_nar_hd](http://wiki.thaisamut.co.th/display/RDSINRI/3.+Update+tx_mps_nar_hd) `#1231913039`
+      - [01. Current Monthly NAR](http://wiki.thaisamut.co.th/display/RDSINRI/01.+Current+Monthly+NAR) `#1220739186`
+      - [01. Mark Policy](http://wiki.thaisamut.co.th/display/RDSINRI/01.+Mark+Policy) `#1236074531`
+      - [[UL-Rider] IRI-PS-004 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/%5BUL-Rider%5D+IRI-PS-004+Mapping) `#1166901414`
+      - [IRI-PS-000 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-000+Mapping) `#1115193383`
+      - [IRI-PS-001 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-001+Mapping) `#1113850344`
+      - [IRI-PS-001 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-001+Mapping+Backup) `#1265565760`
+      - [IRI-PS-002 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-002+Mapping) `#1113850418`
+      - [IRI-PS-002 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-002+Mapping+Backup) `#1265565783`
+      - [IRI-PS-003 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-003+Mapping) `#1113850451`
+      - [IRI-PS-003 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-003+Mapping+Backup) `#1265565801`
+      - [IRI-PS-004 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-004+Mapping) `#1113850506`
+      - [IRI-PS-004 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-004+Mapping+Backup) `#1265566187`
+      - [IRI-PS-005 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-005+Mapping) `#1114439883`
+      - [IRI-PS-005 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-005+Mapping+Backup) `#1265566237`
+      - [IRI-PS-006 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-006+Mapping) `#1117946298`
+      - [IRI-PS-006 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-006+Mapping+Backup) `#1265566271`
+      - [IRI-PS-007 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-007+Mapping) `#1117946333`
+      - [IRI-PS-007 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-007+Mapping+Backup) `#1265566438`
+      - [IRI-PS-008 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-008+Mapping) `#1117946364`
+      - [IRI-PS-008 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-008+Mapping+Backup) `#1265566277`
+      - [IRI-PS-009 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-009+Mapping) `#1117946397`
+      - [IRI-PS-009 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-009+Mapping+Backup) `#1265566294`
+      - [IRI-PS-010 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-010+Mapping) `#1118929092`
+      - [IRI-PS-011 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-011+Mapping) `#1118929116`
+      - [IRI-PS-012 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-012+Mapping) `#1118929224`
+      - [IRI-PS-013 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-013+Mapping) `#1122500803`
+      - [IRI-PS-013 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-013+Mapping+Backup) `#1265566315`
+      - [01. New&Renew](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911181) `#1121911181`
+      - [02. Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/02.+Alteration) `#1121911183`
+      - [03. Claim](http://wiki.thaisamut.co.th/display/RDSINRI/03.+Claim) `#1121911185`
+      - [04. Process Mapping Table Estimate & Bordereau](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911178) `#1121911178`
+      - [05. Process Mapping Table SOA](http://wiki.thaisamut.co.th/display/RDSINRI/05.+Process+Mapping+Table+SOA) `#1123778846`
+      - [01. New&Renew Manual](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445944) `#1133445944`
+      - [02. Alteration Manual](http://wiki.thaisamut.co.th/display/RDSINRI/02.+Alteration+Manual) `#1133445960`
+      - [03. Manual Claim](http://wiki.thaisamut.co.th/display/RDSINRI/03.+Manual+Claim) `#1133445966`
+      - [04. Process Mapping Table Estimate & Bordereau (Manual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445978) `#1133445978`
+      - [05. Process Mapping Table SOA (Manual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445980) `#1133445980`
+      - [01. Process Mapping Table Actual & Bordereau](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1132757529) `#1132757529`
+      - [02. Process Mapping Table SOA (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133215801) `#1133215801`
+      - [IRI-PS-017-Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-017-Mapping) `#1123778601`
+      - [IRI-PS-017-Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-017-Mapping+Backup) `#1265566323`
+      - [IRI-PS-020 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-020+Mapping) `#1129578952`
+      - [IRI-PS-020 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-020+Mapping+Backup) `#1265566472`
+      - [IRI-PS-022 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-022+Mapping) `#1129840678`
+      - [IRI-PS-022 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-022+Mapping+Backup) `#1265566479`
+      - [1. Create tx_ri_process_header (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841395) `#1129841395`
+      - [2. Create tx_ri_std_hd (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841418) `#1129841418`
+      - [3. Create tx_ri_std_all (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841428) `#1129841428`
+      - [4. Update tx_ri_process_hd (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841407) `#1129841407`
+      - [5. Update tx_ri_std_hd_oic (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090097) `#1266090097`
+      - [5. Update tx_ri_std_hd (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1143144727) `#1143144727`
+      - [6. Update tx_ri_std_all (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1143144760) `#1143144760`
+      - [1. Create tx_ri_process_header (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280136) `#1135280136`
+      - [2. Create tx_ri_std_hd (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280139) `#1135280139`
+      - [3. Create tx_ri_std_all (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280141) `#1135280141`
+      - [4. Update tx_ri_process_hd (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280143) `#1135280143`
+      - [5. Update tx_ri_std_hd (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1150517501) `#1150517501`
+      - [6. Update tx_ri_std_all (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1150517503) `#1150517503`
+      - [IRI-PS-025 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-025+Mapping) `#1138196967`
+      - [IRI-PS-025 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-025+Mapping+Backup) `#1265566507`
+      - [Copy of IRI-PS-002 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/Copy+of+IRI-PS-002+Mapping) `#1237450900`
+      - [Copy of IRI-PS-020 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/Copy+of+IRI-PS-020+Mapping) `#1237450918`
+      - [Copy of IRI-PS-022 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/Copy+of+IRI-PS-022+Mapping) `#1237450953`
+      - [1. Create tx_ri_process_header (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090075) `#1266090075`
+      - [2. Create tx_ri_std_hd (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090081) `#1266090081`
+      - [3. Create tx_ri_std_all (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090083) `#1266090083`
+      - [4. Update tx_ri_process_hd (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090095) `#1266090095`
+      - [6. Update tx_ri_std_all_oic (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090099) `#1266090099`
+      - [7. Update tx_ri_process_hd (est) (inactive) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1277690437) `#1277690437`
+      - [8. Update tx_mps_base_header (est) (success) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1279459749) `#1279459749`
+      - [9. Update tx_mps_base_header (est) (error) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1279459758) `#1279459758`
+      - [IRI-PS-034 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-034+Mapping) `#1269530756`
+      - [IRI-PS-035 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-035+Mapping) `#1271529759`
+      - [IRI-PS-035 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-035+Mapping+Backup) `#1271529761`
+      - [IRI-PS-036 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-036+Mapping) `#1274052624`
+      - [IRI-PS-036 Mapping Backup](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-036+Mapping+Backup) `#1274052626`
+      - [IRI-PS-037 Mapping](http://wiki.thaisamut.co.th/display/RDSINRI/IRI-PS-037+Mapping) `#1280475318`
+      - [01. IRI_CFG_000 หน้ารวม + ค้นหา Reinsurer (cf01)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613375) `#1098613375`
+      - [02. IRI_CFG_000_1 หน้าเพิ่ม Reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613381) `#1098613381`
+      - [03. IRI_CFG_000_2 หน้า View Reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613385) `#1098613385`
+      - [04. IRI_CFG_000_3 หน้าอนุมัติ Reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1154318420) `#1154318420`
+      - [05. IRI_CFG_000_4 หน้าประวัติการเปลี่ยนแปลง Reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1154318423) `#1154318423`
+      - [01. IRI_CFG_001 หน้ารวม + ค้นหา Treaty (cf02)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613387) `#1098613387`
+      - [02. IRI_CFG_001_1 หน้าเพิ่ม ข้อมูล Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613390) `#1098613390`
+      - [03. IRI_CFG_001_2 หน้าแก้ไข ข้อมูล Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613395) `#1098613395`
+      - [04. IRI_CFG_001_3 หน้าอนุมัติการเพิ่มหรือแก้ไข](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613397) `#1098613397`
+      - [05. IRI_CFG_001_4 หน้า View รายละเอียดภายใน Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613400) `#1098613400`
+      - [06. IRI_CFG_001_5 หน้าประวัติการเปลี่ยนแปลง Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613403) `#1098613403`
+      - [07. IRI_CFG_001_6 หน้า View รายละเอียดภายใน Treaty ที่กำลังรออนุมัติ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1167229187) `#1167229187`
+      - [01. IRI_CFF_001 หน้ารวม + ค้นหา (cf03)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1101594800) `#1101594800`
+      - [02. IRI_CFF_001_0 ค้นหากรมธรรม์](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106509958) `#1106509958`
+      - [03. IRI_CFF_001_1 เพิ่มกรมธรรม์ Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106510118) `#1106510118`
+      - [04. IRI_CFF_001_2 แก้ไขกรมธรรม์ Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106837711) `#1106837711`
+      - [05. IRI_CFF_001_3 หน้าอนุมัติการเพิ่มหรือแก้ไข](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107853519) `#1107853519`
+      - [06. IRI_CFF_001_4 View กรมธรรม์ Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107853517) `#1107853517`
+      - [07. IRI_CFF_001_5  ประวัติกรมธรรม์ Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107853511) `#1107853511`
+      - [08. IRI_CFF_001_6 View กรมธรรม์ Facultative ที่กำลังรออนุมัติ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1167229190) `#1167229190`
+      - [01. IRI_CFG_002 หน้าจัดการข้อมูล Reserve Rate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613411) `#1098613411`
+      - [02. IRI_CFG_002_1 หน้าประวัติข้อมูล Reserve Rate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1154514964) `#1154514964`
+      - [01. IRI_CFG_004 หน้ารวม + ค้นหา Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150819) `#1104150819`
+      - [02. IRI_CFG_004_1 หน้าเพิ่ม Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150873) `#1104150873`
+      - [03. IRI_CFG_004_2 หน้าดูรายละเอียด Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150880) `#1104150880`
+      - [04. IRI_CFG_004_3 หน้าอนุมัติ Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1154514972) `#1154514972`
+      - [05. IRI_CFG_004_4 หน้าประวัติรายการ Profit Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1154514976) `#1154514976`
+      - [07-01 Mapping Template Bordereau Report (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129579036) `#1129579036`
+      - [07-02 Mapping Template SOA Report (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1132102096) `#1132102096`
+      - [07-03 Mapping Template Profit Commission (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1298301060) `#1298301060`
+      - [07-04 Mapping Template Allocation (Estimate)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1298301158) `#1298301158`
+      - [08-01 Mapping Template Bordereau Report (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133707316) `#1133707316`
+      - [08-02 Mapping Template SOA Report (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133215805) `#1133215805`
+      - [08-03 Mapping Template Profit Commission (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1137508356) `#1137508356`
+      - [08-04 Mapping Template Allocation (Actual)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1298301160) `#1298301160`
+      - [Template - 496_Mark_Policy](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+496_Mark_Policy) `#1248067671`
+      - [Template - 497_Monthly_NAR](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+497_Monthly_NAR) `#1248067687`
+      - [-](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121910807) `#1121910807`
+      - [01. IRI_CFG_003 หน้ากำหนดสูตร](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613416) `#1098613416`
+      - [02. IRI_CFG_003_1 หน้าเพิ่ม+แก้ไขสูตร](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613419) `#1098613419`
+      - [03. IRI_CFG_003_2 หน้าประวัติการเปลี่ยนแปลงสูตร](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613422) `#1098613422`
+      - [01. tx_ri_ord_new_renew_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/01.+tx_ri_ord_new_renew_dt_r1) `#1265337080`
+      - [02. tx_ri_ord_alteration_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/02.+tx_ri_ord_alteration_dt_r1) `#1265337083`
+      - [03. tx_ri_pa_new_renew_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/03.+tx_ri_pa_new_renew_dt_r1) `#1265337090`
+      - [04. tx_ri_ul_new_renew_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/04.+tx_ri_ul_new_renew_dt_r1) `#1265337105`
+      - [05. tx_ri_ind_new_renew_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/05.+tx_ri_ind_new_renew_dt_r1) `#1265337119`
+      - [06. tx_ri_ord_master_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/06.+tx_ri_ord_master_claim_dt_r1) `#1265337123`
+      - [07. tx_ri_ord_health_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_health_claim_dt_r1) `#1265337097`
+      - [08. tx_ri_pa_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_pa_claim_dt_r1) `#1265337139`
+      - [09. tx_ri_ul_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_ul_claim_dt_r1) `#1265337143`
+      - [10. tx_ri_ind_cb_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ind_cb_claim_dt_r1) `#1265337147`
+      - [11. tx_ri_inv_claim_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_inv_claim_dt_r1) `#1265337149`
+      - [12. tx_ri_ind_alteration_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_ind_alteration_dt_r1) `#1265337151`
+      - [13. tx_ri_ord_outforce_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/13.+tx_ri_ord_outforce_dt_r1) `#1265337155`
+      - [14. tx_ri_ul_alteration_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/14.+tx_ri_ul_alteration_dt_r1) `#1265337159`
+      - [15. tx_ri_ul_coi_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/15.+tx_ri_ul_coi_dt_r1) `#1265566505`
+      - [16. tx_ri_copay_dt_r1](http://wiki.thaisamut.co.th/display/RDSINRI/16.+tx_ri_copay_dt_r1) `#1271529772`
+      - [17. tx_ri_claim_cms_r1](http://wiki.thaisamut.co.th/display/RDSINRI/17.+tx_ri_claim_cms_r1) `#1274052613`
+      - [cf_email](http://wiki.thaisamut.co.th/display/RDSINRI/cf_email) `#1119224234`
+      - [cf_lookup_catalog](http://wiki.thaisamut.co.th/display/RDSINRI/cf_lookup_catalog) `#1100906556`
+      - [cf_profit_comm](http://wiki.thaisamut.co.th/display/RDSINRI/cf_profit_comm) `#1103528806`
+      - [cf_profit_comm_treaty](http://wiki.thaisamut.co.th/display/RDSINRI/cf_profit_comm_treaty) `#1104150812`
+      - [cf_reinsurer](http://wiki.thaisamut.co.th/display/RDSINRI/cf_reinsurer) `#1098154277`
+      - [cf_reinsurer_contact](http://wiki.thaisamut.co.th/display/RDSINRI/cf_reinsurer_contact) `#1100349468`
+      - [cf_reserve_rate_dt](http://wiki.thaisamut.co.th/display/RDSINRI/cf_reserve_rate_dt) `#1108247085`
+      - [cf_reserve_rate_hd](http://wiki.thaisamut.co.th/display/RDSINRI/cf_reserve_rate_hd) `#1108247061`
+      - [-- cf_soa_column](http://wiki.thaisamut.co.th/display/RDSINRI/--+cf_soa_column) `#1129578653`
+      - [cf_soa_template](http://wiki.thaisamut.co.th/display/RDSINRI/cf_soa_template) `#1132101793`
+      - [cf_template_field](http://wiki.thaisamut.co.th/display/RDSINRI/cf_template_field) `#1103790687`
+      - [cf_template_file](http://wiki.thaisamut.co.th/display/RDSINRI/cf_template_file) `#1103790669`
+      - [-- cf_template_formular](http://wiki.thaisamut.co.th/display/RDSINRI/--+cf_template_formular) `#1128530082`
+      - [cf_template_sheet](http://wiki.thaisamut.co.th/display/RDSINRI/cf_template_sheet) `#1103790676`
+      - [Policy Facultative](http://wiki.thaisamut.co.th/display/RDSINRI/Policy+Facultative) `#1106084016`
+      - [Treaty](http://wiki.thaisamut.co.th/display/RDSINRI/Treaty) `#1100611761`
+      - [tx_profit_history](http://wiki.thaisamut.co.th/display/RDSINRI/tx_profit_history) `#1153172115`
+      - [tx_reinsurer_history](http://wiki.thaisamut.co.th/display/RDSINRI/tx_reinsurer_history) `#1153172108`
+      - [tx_reserve_history](http://wiki.thaisamut.co.th/display/RDSINRI/tx_reserve_history) `#1153172113`
+      - [01. tx_ri_mark_policy_hd](http://wiki.thaisamut.co.th/display/RDSINRI/01.+tx_ri_mark_policy_hd) `#1220739076`
+      - [02. tx_ri_mark_policy_dt](http://wiki.thaisamut.co.th/display/RDSINRI/02.+tx_ri_mark_policy_dt) `#1215758708`
+      - [03. tx_ri_monthly_nar_hd](http://wiki.thaisamut.co.th/display/RDSINRI/03.+tx_ri_monthly_nar_hd) `#1103790082`
+      - [04. tx_ri_monthly_nar_dt](http://wiki.thaisamut.co.th/display/RDSINRI/04.+tx_ri_monthly_nar_dt) `#1215758731`
+      - [01. ms_medical_type](http://wiki.thaisamut.co.th/display/RDSINRI/01.+ms_medical_type) `#1103790084`
+      - [02. ms_calculation](http://wiki.thaisamut.co.th/display/RDSINRI/02.+ms_calculation) `#1103790093`
+      - [03. ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/03.+ms_formular) `#1103790091`
+      - [06. ms_country](http://wiki.thaisamut.co.th/display/RDSINRI/06.+ms_country) `#1105527277`
+      - [07. ms_policy_coverage_type](http://wiki.thaisamut.co.th/display/RDSINRI/07.+ms_policy_coverage_type) `#1107427679`
+      - [08. ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product) `#1100611814`
+      - [09. ms_sa_range](http://wiki.thaisamut.co.th/display/RDSINRI/09.+ms_sa_range) `#1109983755`
+      - [10. ms_policy_status_active](http://wiki.thaisamut.co.th/display/RDSINRI/10.+ms_policy_status_active) `#1112309879`
+      - [11. ms_process](http://wiki.thaisamut.co.th/display/RDSINRI/11.+ms_process) `#1117946417`
+      - [12. ms_sa_ord_rate](http://wiki.thaisamut.co.th/display/RDSINRI/12.+ms_sa_ord_rate) `#1118568590`
+      - [13. ms_benefit_claim](http://wiki.thaisamut.co.th/display/RDSINRI/13.+ms_benefit_claim) `#1118568596`
+      - [14. dm_ppalib_tbincasa](http://wiki.thaisamut.co.th/display/RDSINRI/14.+dm_ppalib_tbincasa) `#1118929202`
+      - [15. ms_short_term_premium](http://wiki.thaisamut.co.th/display/RDSINRI/15.+ms_short_term_premium) `#1132101819`
+      - [16. ms_treaty_share](http://wiki.thaisamut.co.th/display/RDSINRI/16.+ms_treaty_share) `#1134363339`
+      - [17. ms_partner_code_hd](http://wiki.thaisamut.co.th/display/RDSINRI/17.+ms_partner_code_hd) `#1150517351`
+      - [18. ms_partner_code_dt](http://wiki.thaisamut.co.th/display/RDSINRI/18.+ms_partner_code_dt) `#1137508354`
+      - [19. dm_rider_plan_name](http://wiki.thaisamut.co.th/display/RDSINRI/19.+dm_rider_plan_name) `#1166901326`
+      - [20. dm_ppalib_tbratsa0](http://wiki.thaisamut.co.th/display/RDSINRI/20.+dm_ppalib_tbratsa0) `#1172963527`
+      - [21. ms_claim_code_hd](http://wiki.thaisamut.co.th/display/RDSINRI/21.+ms_claim_code_hd) `#1177288731`
+      - [22. ms_claim_code_dt](http://wiki.thaisamut.co.th/display/RDSINRI/22.+ms_claim_code_dt) `#1177911320`
+      - [23. ms_full_claim](http://wiki.thaisamut.co.th/display/RDSINRI/23.+ms_full_claim) `#1196327306`
+      - [24. ms_treaty_share](http://wiki.thaisamut.co.th/display/RDSINRI/24.+ms_treaty_share) `#1196327313`
+      - [25. ms_sum_previous_treaty](http://wiki.thaisamut.co.th/display/RDSINRI/25.+ms_sum_previous_treaty) `#1196589057`
+      - [26. ms_none_reinsurer](http://wiki.thaisamut.co.th/display/RDSINRI/26.+ms_none_reinsurer) `#1196589357`
+      - [27. ms_claim_bef_ord_rate](http://wiki.thaisamut.co.th/display/RDSINRI/27.+ms_claim_bef_ord_rate) `#1269530709`
+      - [28. ms_special_plancode](http://wiki.thaisamut.co.th/display/RDSINRI/28.+ms_special_plancode) `#1305674174`
+      - [01. tx_ri_process_hd](http://wiki.thaisamut.co.th/display/RDSINRI/01.+tx_ri_process_hd) `#1113588038`
+      - [02. tx_ri_ord_new_renew_dt](http://wiki.thaisamut.co.th/display/RDSINRI/02.+tx_ri_ord_new_renew_dt) `#1113588050`
+      - [03. tx_ri_ord_alteration_dt](http://wiki.thaisamut.co.th/display/RDSINRI/03.+tx_ri_ord_alteration_dt) `#1113588178`
+      - [04. tx_ri_pa_new_renew_dt](http://wiki.thaisamut.co.th/display/RDSINRI/04.+tx_ri_pa_new_renew_dt) `#1113588219`
+      - [05. tx_ri_ul_new_renew_dt](http://wiki.thaisamut.co.th/display/RDSINRI/05.+tx_ri_ul_new_renew_dt) `#1113849921`
+      - [06. tx_ri_ind_new_renew_dt](http://wiki.thaisamut.co.th/display/RDSINRI/06.+tx_ri_ind_new_renew_dt) `#1114439761`
+      - [07. tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) `#1117945939`
+      - [08. tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) `#1117946031`
+      - [09. tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) `#1117946130`
+      - [10. tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) `#1117946203`
+      - [11. tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) `#1122500792`
+      - [12. tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) `#1123778616`
+      - [13. tx_ri_est_hd](http://wiki.thaisamut.co.th/display/RDSINRI/13.+tx_ri_est_hd) `#1103790087`
+      - [14. tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/display/RDSINRI/14.+tx_ri_est_policy_dt) `#1124074157`
+      - [15. tx_ri_est_cust_dt](http://wiki.thaisamut.co.th/display/RDSINRI/15.+tx_ri_est_cust_dt) `#1128923424`
+      - [16. tx_ri_est_alt_dt](http://wiki.thaisamut.co.th/display/RDSINRI/16.+tx_ri_est_alt_dt) `#1128923426`
+      - [17. tx_ri_est_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/17.+tx_ri_est_claim_dt) `#1128923428`
+      - [18. tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/18.+tx_ri_est_base_auto_dt) `#1128923431`
+      - [19. tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) `#1128923433`
+      - [20. tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+tx_ri_est_base_facult_dt) `#1128923436`
+      - [21. tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) `#1128923439`
+      - [22. tx_ri_bdr_new_renew](http://wiki.thaisamut.co.th/display/RDSINRI/22.+tx_ri_bdr_new_renew) `#1128923441`
+      - [23. tx_ri_bdr_alter](http://wiki.thaisamut.co.th/display/RDSINRI/23.+tx_ri_bdr_alter) `#1128923443`
+      - [24. tx_ri_bdr_claim](http://wiki.thaisamut.co.th/display/RDSINRI/24.+tx_ri_bdr_claim) `#1128923446`
+      - [25. tx_ri_act_hd](http://wiki.thaisamut.co.th/display/RDSINRI/25.+tx_ri_act_hd) `#1103790089`
+      - [26. tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/display/RDSINRI/26.+tx_ri_act_policy_dt) `#1130103542`
+      - [28. tx_ri_act_alt_dt](http://wiki.thaisamut.co.th/display/RDSINRI/28.+tx_ri_act_alt_dt) `#1130103546`
+      - [29. tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/29.+tx_ri_act_claim_dt) `#1130103548`
+      - [30. tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/30.+tx_ri_act_base_auto_dt) `#1130103550`
+      - [31. tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/31.+tx_ri_act_rider_auto_dt) `#1130103552`
+      - [32. tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/32.+tx_ri_act_base_facult_dt) `#1130103554`
+      - [33. tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/33.+tx_ri_act_rider_facult_dt) `#1130103556`
+      - [34. tx_ri_bdr_act_new_renew](http://wiki.thaisamut.co.th/display/RDSINRI/34.+tx_ri_bdr_act_new_renew) `#1130103558`
+      - [35. tx_ri_bdr_act_alter](http://wiki.thaisamut.co.th/display/RDSINRI/35.+tx_ri_bdr_act_alter) `#1130103564`
+      - [36. tx_ri_bdr_act_claim](http://wiki.thaisamut.co.th/display/RDSINRI/36.+tx_ri_bdr_act_claim) `#1130103566`
+      - [37. tx_ri_est_soa](http://wiki.thaisamut.co.th/display/RDSINRI/37.+tx_ri_est_soa) `#1128923434`
+      - [38. tx_ri_ind_alteration_dt](http://wiki.thaisamut.co.th/display/RDSINRI/38.+tx_ri_ind_alteration_dt) `#1129578925`
+      - [39. tx_ri_ord_outforce_dt](http://wiki.thaisamut.co.th/display/RDSINRI/39.+tx_ri_ord_outforce_dt) `#1129579003`
+      - [40. tx_ri_ul_alteration_dt](http://wiki.thaisamut.co.th/display/RDSINRI/40.+tx_ri_ul_alteration_dt) `#1129840669`
+      - [41. tx_ri_act_soa](http://wiki.thaisamut.co.th/display/RDSINRI/41.+tx_ri_act_soa) `#1133215809`
+      - [42. lg_export_report](http://wiki.thaisamut.co.th/display/RDSINRI/42.+lg_export_report) `#1133707285`
+      - [43. tx_ri_act_dt](http://wiki.thaisamut.co.th/display/RDSINRI/43.+tx_ri_act_dt) `#1135542684`
+      - [44. tx_ri_ul_coi_dt](http://wiki.thaisamut.co.th/display/RDSINRI/44.+tx_ri_ul_coi_dt) `#1138196958`
+      - [45. tx_ri_profit_comm](http://wiki.thaisamut.co.th/display/RDSINRI/45.+tx_ri_profit_comm) `#1138917390`
+      - [46. tx_ri_sum_profit_comm](http://wiki.thaisamut.co.th/display/RDSINRI/46.+tx_ri_sum_profit_comm) `#1141604366`
+      - [47. tx_ri_sum_act](http://wiki.thaisamut.co.th/display/RDSINRI/47.+tx_ri_sum_act) `#1142489091`
+      - [48. tx_ri_allocation_profit](http://wiki.thaisamut.co.th/display/RDSINRI/48.+tx_ri_allocation_profit) `#1142489093`
+      - [49. tx_ri_est_base_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/49.+tx_ri_est_base_auto_not_send) `#1201307661`
+      - [50. tx_ri_est_rider_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/50.+tx_ri_est_rider_auto_not_send) `#1201307663`
+      - [51. tx_ri_est_base_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/51.+tx_ri_est_base_facult_not_send) `#1201307666`
+      - [52. tx_ri_est_rider_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/52.+tx_ri_est_rider_facult_not_send) `#1201307668`
+      - [53. tx_ri_act_base_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/53.+tx_ri_act_base_auto_not_send) `#1201307691`
+      - [54. tx_ri_act_rider_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/54.+tx_ri_act_rider_auto_not_send) `#1201307696`
+      - [55. tx_ri_act_base_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/55.+tx_ri_act_base_facult_not_send) `#1201307699`
+      - [56. tx_ri_act_rider_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/56.+tx_ri_act_rider_facult_not_send) `#1201307703`
+      - [57. LG_TRAKING_PROCESS](http://wiki.thaisamut.co.th/display/RDSINRI/57.+LG_TRAKING_PROCESS) `#1202159734`
+      - [58. TX_TMP_ESTIMATE](http://wiki.thaisamut.co.th/display/RDSINRI/58.+TX_TMP_ESTIMATE) `#1202159720`
+      - [59. TX_RI_SEND_REINSURER](http://wiki.thaisamut.co.th/display/RDSINRI/59.+TX_RI_SEND_REINSURER) `#1202159725`
+      - [60. TX_RI_SEND_REINSURER_PERIOD](http://wiki.thaisamut.co.th/display/RDSINRI/60.+TX_RI_SEND_REINSURER_PERIOD) `#1202159718`
+      - [61. tx_ri_ord_alteration_dt_initial](http://wiki.thaisamut.co.th/display/RDSINRI/61.+tx_ri_ord_alteration_dt_initial) `#1237450904`
+      - [62. tx_ri_ind_alteration_dt_initial](http://wiki.thaisamut.co.th/display/RDSINRI/62.+tx_ri_ind_alteration_dt_initial) `#1237450925`
+      - [63. tx_ri_ul_alteration_dt_initial](http://wiki.thaisamut.co.th/display/RDSINRI/63.+tx_ri_ul_alteration_dt_initial) `#1237450950`
+      - [64. lg_house_keeping](http://wiki.thaisamut.co.th/display/RDSINRI/64.+lg_house_keeping) `#1251967428`
+      - [65. tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt) `#1271529745`
+      - [66. tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) `#1274052611`
+      - [67. tx_ri_ind_mat_rider](http://wiki.thaisamut.co.th/display/RDSINRI/67.+tx_ri_ind_mat_rider) `#1280475317`
+      - [68. tx_ri_profit_comm_est](http://wiki.thaisamut.co.th/display/RDSINRI/68.+tx_ri_profit_comm_est) `#1285391016`
+      - [69. tx_ri_sum_profit_comm_est](http://wiki.thaisamut.co.th/display/RDSINRI/69.+tx_ri_sum_profit_comm_est) `#1285391021`
+      - [70. tx_ri_sum_est](http://wiki.thaisamut.co.th/display/RDSINRI/70.+tx_ri_sum_est) `#1285391024`
+      - [71. tx_ri_allocation_profit_est](http://wiki.thaisamut.co.th/display/RDSINRI/71.+tx_ri_allocation_profit_est) `#1285391027`
+      - [House Keeping](http://wiki.thaisamut.co.th/display/RDSINRI/House+Keeping) `#1277395093`
+      - [**ยกเลิก** 27. tx_ri_act_cust_dt](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1130103544) `#1130103544`
+      - [33. tx_cal_his](http://wiki.thaisamut.co.th/display/RDSINRI/33.+tx_cal_his) `#1103790103`
+      - [ms_medical_type](http://wiki.thaisamut.co.th/display/RDSINRI/ms_medical_type) `#1100611808`
+      - [ms_prem_rate_type](http://wiki.thaisamut.co.th/display/RDSINRI/ms_prem_rate_type) `#1100611830`
+      - [ms_retention_option](http://wiki.thaisamut.co.th/display/RDSINRI/ms_retention_option) `#1100611812`
+      - [ms_retention_type](http://wiki.thaisamut.co.th/display/RDSINRI/ms_retention_type) `#1100611810`
+      - [ดึงข้อมูล Base Plan Code และ Rider Code ทุกประเภท](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110475243) `#1110475243`
+      - [(ยกเลิก) WS_RI_19 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Outforce) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1127744096) `#1127744096`
+      - [cancle WS_RI_46 [Select] อัพเดทสถานะข้อมูล EDW (Actual) (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073199) `#1267073199`
+      - [WS_RI_99 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Fax Claim) (ยกเลิก)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159908) `#1117159908`
+      - [WS_RI_99 ค้นหากรมธรรม์ส่งประกันต่ออุตสาหกรรม (New,Renew) Facultative (ยกเลิก)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107099769) `#1107099769`
+      - [Logic เช็คข้อมูล Commission ขา insert](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103790774) `#1103790774`
+      - [Logic เช็คข้อมูล Retention ขา insert](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103266511) `#1103266511`
+      - [Logic เช็คข้อมูล RI Premium Rate ขา insert](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150616) `#1104150616`
+      - [เช็ค Effective Date From และ Effective Date To ต้องอยู่ในช่วงของ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103266503) `#1103266503`
+      - [/thaisamut/rs/reinsurance/v1/file/validate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106837906) `#1106837906`
+      - [/thaisamut/rs/reinsurance/v1/lookup](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350180) `#1100350180`
+      - [thaisamut/rs/reinsurance/v1/profit-comm/{profit-comm-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106084146) `#1106084146`
+      - [thaisamut/rs/reinsurance/v1/profit-comm/count](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105527129) `#1105527129`
+      - [thaisamut/rs/reinsurance/v1/profit-comm/search](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105527078) `#1105527078`
+      - [thaisamut/rs/reinsurance/v1/profit-comm/treaty/{reinsurer-code}](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105756284) `#1105756284`
+      - [thaisamut/rs/reinsurance/v1/profit-comm (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1105527299) `#1105527299`
+      - [thaisamut/rs/reinsurance/v1/profit-comm (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1106084129) `#1106084129`
+      - [/thaisamut/rs/reinsurance/v1/reinsurer/count](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349575) `#1100349575`
+      - [/thaisamut/rs/reinsurance/v1/reinsurer/search](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349573) `#1100349573`
+      - [/thaisamut/rs/reinsurance/v1/reinsurer (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349874) `#1100349874`
+      - [/thaisamut/rs/reinsurance/v1/reinsurer (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349866) `#1100349866`
+      - [/thaisamut/rs/reinsurance/v1/reinsurer (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100349869) `#1100349869`
+      - [/thaisamut/rs/reinsurance/v1/treaty/reinsurer-active](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100906507) `#1100906507`
+      - [/thaisamut/rs/reinsurance/v1/treaty/base-plan/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427614) `#1107427614`
+      - [/thaisamut/rs/reinsurance/v1/treaty/base-plan (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1101594762) `#1101594762`
+      - [/thaisamut/rs/reinsurance/v1/treaty/base-plan (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100906702) `#1100906702`
+      - [/thaisamut/rs/reinsurance/v1/treaty/base-plan (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100906706) `#1100906706`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-term/{tmp-comm-rate_id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528347) `#1103528347`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-term/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837223) `#1108837223`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-term (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528343) `#1103528343`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-term (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528345) `#1103528345`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-year/{tmp-comm-by-year-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528585) `#1103528585`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-year/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837221) `#1108837221`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-year (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528581) `#1103528581`
+      - [/thaisamut/rs/reinsurance/v1/treaty/commission/policy-year (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528583) `#1103528583`
+      - [/thaisamut/rs/reinsurance/v1/treaty/count](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350296) `#1100350296`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-grp/{tmp-prem-by-grp-ci-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380095) `#1104380095`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-grp/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837229) `#1108837229`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-grp (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380068) `#1104380068`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-grp (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380086) `#1104380086`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-package/{tmp-prem-by-package-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380297) `#1104380297`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-package/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837227) `#1108837227`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-package (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380320) `#1104380320`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-package (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380360) `#1104380360`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-plan/{tmp-prem-by-plan-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104379976) `#1104379976`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-plan/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837225) `#1108837225`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-plan (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104379918) `#1104379918`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-plan (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104380028) `#1104380028`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-product/{tmp-plancode-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150736) `#1104150736`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-product/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837214) `#1108837214`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-product (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150673) `#1104150673`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-treaty/{tmp-prem-by-treaty-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150728) `#1104150728`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-treaty/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108837219) `#1108837219`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-treaty (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150631) `#1104150631`
+      - [/thaisamut/rs/reinsurance/v1/treaty/premium/setup-treaty (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1104150706) `#1104150706`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/age-period/{tmp-retent-age-hd-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103265984) `#1103265984`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/age-period/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108246553) `#1108246553`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/age-period (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103265907) `#1103265907`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/age-period (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103265960) `#1103265960`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/amount/{tmp-retent-amount-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676109) `#1102676109`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/amount/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108246550) `#1108246550`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/amount (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676146) `#1102676146`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/amount (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676106) `#1102676106`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/insurance-policy/{tmp-insurance-policy-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676170) `#1102676170`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/insurance-policy/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427773) `#1107427773`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/insurance-policy (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676090) `#1102676090`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/insurance-policy (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676161) `#1102676161`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/percentage-layer/{tmp-percent-layer-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103266058) `#1103266058`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/percentage-layer/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108246569) `#1108246569`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/percentage-layer (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103266026) `#1103266026`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/percentage-layer (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103266053) `#1103266053`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/quota-share/{tmp-quota-share-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676196) `#1102676196`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/quota-share/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1108246565) `#1108246565`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/quota-share (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676188) `#1102676188`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/quota-share (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102676192) `#1102676192`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/standard-substandard/{tmp-retent-sub-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102021342) `#1102021342`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/standard-substandard/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427752) `#1107427752`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/standard-substandard (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102021327) `#1102021327`
+      - [/thaisamut/rs/reinsurance/v1/treaty/retention/standard-substandard (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1102021329) `#1102021329`
+      - [/thaisamut/rs/reinsurance/v1/treaty/rider/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427651) `#1107427651`
+      - [/thaisamut/rs/reinsurance/v1/treaty/rider (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1101595500) `#1101595500`
+      - [/thaisamut/rs/reinsurance/v1/treaty/rider (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1101595496) `#1101595496`
+      - [/thaisamut/rs/reinsurance/v1/treaty/rider (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1101595498) `#1101595498`
+      - [/thaisamut/rs/reinsurance/v1/treaty/search](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350294) `#1100350294`
+      - [/thaisamut/rs/reinsurance/v1/treaty/temp/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350298) `#1100350298`
+      - [/thaisamut/rs/reinsurance/v1/treaty/temp/approve (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1112048141) `#1112048141`
+      - [/thaisamut/rs/reinsurance/v1/treaty/temp/calculation (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110278250) `#1110278250`
+      - [/thaisamut/rs/reinsurance/v1/treaty/temp/check-curent-tab/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1111818425) `#1111818425`
+      - [/thaisamut/rs/reinsurance/v1/treaty/temp/sent-approve (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1112047671) `#1112047671`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/calculation/{treaty-id}/{mode} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110474959) `#1110474959`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/calculation/master/{mode} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1109983741) `#1109983741`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/commission/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1109983485) `#1109983485`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/inactive/{treaty-id} (DELETE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350305) `#1100350305`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/premium/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1109983489) `#1109983489`
+      - [/thaisamut/rs/reinsurance/v1/treaty/tmp/retention/{treaty-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1109983482) `#1109983482`
+      - [/thaisamut/rs/reinsurance/v1/treaty (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350300) `#1100350300`
+      - [/thaisamut/rs/reinsurance/v1/treaty (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350302) `#1100350302`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/sent-approve (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113587931) `#1113587931`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/{tmp-policy-fac-hd-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114145210) `#1114145210`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/all-tab/{policy-no}/{mode} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114144780) `#1114144780`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/approve (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114144961) `#1114144961`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/cf-treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1115422946) `#1115422946`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/count](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110474816) `#1110474816`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/coverage-type (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114145213) `#1114145213`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/history/{tmp-policy-fac-hd-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114144786) `#1114144786`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/inactive/{tmp-policy-fac-hd-id} (GET)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114439689) `#1114439689`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/search](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1110474811) `#1110474811`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/search-policy/finish/{policy-type}/{job-id} (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113587899) `#1113587899`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/search-policy/pooling/{policy-type}/{job-id} (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113587897) `#1113587897`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp/search-policy/submit (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113587759) `#1113587759`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp (POST)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113588163) `#1113588163`
+      - [/thaisamut/rs/reinsurance/v1/treaty-fac/temp (PUT)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1114145206) `#1114145206`
+      - [Copy](http://wiki.thaisamut.co.th/display/RDSINRI/Copy) `#1113587973`
+      - [1. cf_template_file](http://wiki.thaisamut.co.th/display/RDSINRI/1.+cf_template_file) `#1106084074`
+      - [2. cf_template_sheet](http://wiki.thaisamut.co.th/display/RDSINRI/2.+cf_template_sheet) `#1106084080`
+      - [3. cf_template_field](http://wiki.thaisamut.co.th/display/RDSINRI/3.+cf_template_field) `#1106084087`
+      - [ms_calculation](http://wiki.thaisamut.co.th/display/RDSINRI/ms_calculation) `#1113587979`
+      - [ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/ms_formular) `#1113587985`
+      - [A10.1 Process Running Seq](http://wiki.thaisamut.co.th/display/RDSINRI/A10.1+Process+Running+Seq) `#1152320163`
+      - [01. การคำนวณในรูปแบบเดือน (สำหรับ RI Premium refund เท่านั้น)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445567) `#1133445567`
+      - [02. การคำนวณในรูปแบบเดือน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445581) `#1133445581`
+      - [03. การคำนวณในรูปแบบปี](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445576) `#1133445576`
+      - [(ยกเลิก) 00-6 [EXPENSE] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1132102697) `#1132102697`
+      - [00-0 [NEW-RENEW] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159566) `#1117159566`
+      - [00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471548) `#1116471548`
+      - [00-2 [CLAIM] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216954) `#1131216954`
+      - [00-3 [NEW-RENEW] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216956) `#1131216956`
+      - [00-4 [ALTER] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216958) `#1131216958`
+      - [00-5 [CLAIM] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216960) `#1131216960`
+      - [01 การประมวลผล Actual SA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471509) `#1116471509`
+      - [02 การประมวลผล Previous Actual SA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471544) `#1116471544`
+      - [03-1 การประมวลผล Reserve amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471525) `#1116471525`
+      - [03-2 การประมวลผล Reserve amount [EDWPH6]](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1229717508) `#1229717508`
+      - [04 การประมวลผล Previous Reserve amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471456) `#1116471456`
+      - [05 การประมวลผล Net Amount at Risk](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471527) `#1116471527`
+      - [06 การประมวลผล Previous NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446312) `#1131446312`
+      - [07 การประมวลผล Total NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471692) `#1116471692`
+      - [08-0 [AUTO] การประมวลผล Retention](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471529) `#1116471529`
+      - [08-1 [FAC] การประมวลผล Retention](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446314) `#1131446314`
+      - [09 การประมวลผล SR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446316) `#1131446316`
+      - [10 การประมวลผล Previous SR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471553) `#1116471553`
+      - [11 การประมวลผล Total SR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471590) `#1116471590`
+      - [12-0 ขั้นตอนการเลือก Policy ส่งประกันต่อ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446319) `#1131446319`
+      - [12-1 [EDW PH6] IRI-PS-028 ประมวลผล MARK_POLICY](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1226014876) `#1226014876`
+      - [13 การประมวลผล %RI Ratio](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453416) `#1119453416`
+      - [14 การประมวลผล RI Premium](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471531) `#1116471531`
+      - [15 การประมวลผล RI Extra Premium](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471533) `#1116471533`
+      - [16 การประมวลผล RI Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471538) `#1116471538`
+      - [17 การประมวลผล RI Extra Commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471540) `#1116471540`
+      - [18 การประมวลผล Total RI premium](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446326) `#1131446326`
+      - [19 การประมวลผล Total RI extra premium](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446328) `#1131446328`
+      - [20 การประมวลผล Total RI commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446330) `#1131446330`
+      - [21 การประมวลผล Total RI extra commission](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446332) `#1131446332`
+      - [22 การประมวลผล Net RI Premium](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453418) `#1119453418`
+      - [23 การประมวลผล RI Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453421) `#1119453421`
+      - [24 การประมวลผล RI Extra Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911175) `#1121911175`
+      - [25 การประมวลผล Total RI premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446351) `#1131446351`
+      - [26 การประมวลผล Total RI Extra Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446338) `#1131446338`
+      - [27 การประมวลผล RI Commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453423) `#1119453423`
+      - [28 การประมวลผล RI Extra commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453426) `#1119453426`
+      - [29 การประมวลผล Total RI Commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446343) `#1131446343`
+      - [30 การประมวลผล Total RI Extra commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446345) `#1131446345`
+      - [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) `#1119453428`
+      - [32 การประมวลผล RI Claim expense](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453430) `#1119453430`
+      - [A19.1. Claim Status - Master Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.1.+Claim+Status+-+Master+Claim) `#1176010926`
+      - [A19.2. Claim Status - Health Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.2.+Claim+Status+-+Health+Claim) `#1176010928`
+      - [A19.3. Claim Status - PA Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.3.+Claim+Status+-+PA+Claim) `#1176010930`
+      - [A19.4. Claim Status - UL Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.4.+Claim+Status+-+UL+Claim) `#1176010933`
+      - [A19.5. Claim Status - CB Rider Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.5.+Claim+Status+-+CB+Rider+Claim) `#1176010936`
+      - [A19.6. Alteration Code - ORD Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/A19.6.+Alteration+Code+-+ORD+Alteration) `#1176010942`
+      - [A19.7. Alteration Code - PA Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/A19.7.+Alteration+Code+-+PA+Alteration) `#1176010944`
+      - [A19.8. Alteration Code - IND Outforce](http://wiki.thaisamut.co.th/display/RDSINRI/A19.8.+Alteration+Code+-+IND+Outforce) `#1176010954`
+      - [A19.9. Alteration Code - UL Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/A19.9.+Alteration+Code+-+UL+Alteration) `#1176010956`
+      - [A19.10. Claim Type - Master Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.10.+Claim+Type+-+Master+Claim) `#1177649472`
+      - [A19.11. Claim Type - Health Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.11.+Claim+Type+-+Health+Claim) `#1177649480`
+      - [A19.12. Claim Type - PA Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.12.+Claim+Type+-+PA+Claim) `#1177649485`
+      - [A19.13. Claim Type - UL Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.13.+Claim+Type+-+UL+Claim) `#1177649491`
+      - [A19.14. Claim Type - CB Rider Claim](http://wiki.thaisamut.co.th/display/RDSINRI/A19.14.+Claim+Type+-+CB+Rider+Claim) `#1177649496`
+      - [IND Date (Base)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1198489983) `#1198489983`
+      - [IND Date (Rider)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1198490001) `#1198490001`
+      - [IND Date (Senario)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1198489996) `#1198489996`
+      - [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/tx_ri_ord_health_claim_dt) `#1281229442`
+      - [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/tx_ri_ord_master_claim_dt) `#1281229440`
+      - [01. MARK_POLICY](http://wiki.thaisamut.co.th/display/RDSINRI/01.+MARK_POLICY) `#1220739116`
+      - [02. Option 2](http://wiki.thaisamut.co.th/display/RDSINRI/02.+Option+2) `#1220476998`
+      - [03.](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220739081) `#1220739081`
+      - [03. Option 3](http://wiki.thaisamut.co.th/display/RDSINRI/03.+Option+3) `#1220477000`
+      - [delete1](http://wiki.thaisamut.co.th/display/RDSINRI/delete1) `#1265565698`
+      - [Wait #0](http://wiki.thaisamut.co.th/display/RDSINRI/Wait+%230) `#1150517349`
+      - [ยกเลิก IND Alteration](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1342505304) `#1342505304`
+      - [[Auto] การคัดเลือกกรมธรรม์จาก Table Landing กรมธรรม์สามัญ ORD (New&Renew) (BASE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220477562) `#1220477562`
+      - [[Auto] การคัดเลือกกรมธรรม์จาก Table Landing กรมธรรม์สามัญ ORD (New&Renew) (RIDER)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1220477566) `#1220477566`
+      - [[Auto]เงื่อนไขการดึงข้อมูลกรมธรรม์ IND (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281769) `#1218281769`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ IND (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281771) `#1218281771`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ IND (New&Renew) (BASE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281729) `#1218281729`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ IND (New&Renew) (RIDER)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281732) `#1218281732`
+      - [[Auto]เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281753) `#1218281753`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (New&Renew) (BASE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1170145696) `#1170145696`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (New&Renew) (RIDER)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1170899158) `#1170899158`
+      - [[Auto]เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281764) `#1218281764`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281758) `#1218281758`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281682) `#1218281682`
+      - [[Auto]เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281767) `#1218281767`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281746) `#1218281746`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281679) `#1218281679`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ ORD Health (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281709) `#1218281709`
+      - [[Auto] เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ ORD Master (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281782) `#1218281782`
+      - [[Auto] เงื่อนไขการดึงข้อมูลค่าส่งสอบจากระบบ CMS (Claim) กรณี เฉพาะ รายการเก็บค่าส่งสอบตามมาทีหลัง (มีรายการ ส่ง Re รอบก่อน แต่รายการที่ส่ง ไม่ได้คิดค่าส่งสอบ เลยต้องคิดตามทีหลัง)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281640) `#1218281640`
+      - [[Fac]เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218445321) `#1218445321`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (New&Renew) (BASE)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281992) `#1218281992`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ ORD (New&Renew) (RIDER)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281994) `#1218281994`
+      - [[Fac]เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218445327) `#1218445327`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281981) `#1218281981`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281953) `#1218281953`
+      - [[Fac]เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218445336) `#1218445336`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281959) `#1218281959`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281955) `#1218281955`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ ORD Health (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281937) `#1218281937`
+      - [[Fac] เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ ORD Master (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281907) `#1218281907`
+      - [[Fac] เงื่อนไขการดึงข้อมูลค่าส่งสอบจากระบบ CMS (Claim) กรณี เฉพาะ รายการเก็บค่าส่งสอบตามมาทีหลัง (มีรายการ ส่ง Re รอบก่อน แต่รายการที่ส่ง ไม่ได้คิดค่าส่งสอบ เลยต้องคิดตามทีหลัง)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218282002) `#1218282002`
+      - [2](http://wiki.thaisamut.co.th/display/RDSINRI/2) `#1218281947`
+      - [3](http://wiki.thaisamut.co.th/display/RDSINRI/3) `#1165984504`
+      - [check การย้ายเข้า housekeeping](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1295253655) `#1295253655`
+      - [Config formular](http://wiki.thaisamut.co.th/display/RDSINRI/Config+formular) `#1165984602`
+      - [Generate Dummy Id Card](http://wiki.thaisamut.co.th/display/RDSINRI/Generate+Dummy+Id+Card) `#1174077836`
+      - [House Keeping Move Active to archive YYYY](http://wiki.thaisamut.co.th/display/RDSINRI/House+Keeping+Move+Active+to+archive+YYYY) `#1281000111`
+      - [House Keeping Move Inactive to archive YYYY](http://wiki.thaisamut.co.th/display/RDSINRI/House+Keeping+Move+Inactive+to+archive+YYYY) `#1280999611`
+      - [House Keeping Revert Archive YYYY To Current](http://wiki.thaisamut.co.th/display/RDSINRI/House+Keeping+Revert+Archive+YYYY+To+Current) `#1288798566`
+      - [Mapping ข้อมูลลง Table tx_ri_est_hd (ri_premium, ri_commission, claim_recovery)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1165984126) `#1165984126`
+      - [Script Move Archive](http://wiki.thaisamut.co.th/display/RDSINRI/Script+Move+Archive) `#1255276968`
+      - [Vacuum & Reindex](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1288175790) `#1288175790`
+      - [ชุดคำสั่ง query count ข้อมูลนำเข้าจาก as400](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857740) `#1242857740`
+      - [ชุดคำสั่งตรวจสอบ field ที่ต่างกันระหว่าง current table กับ house keeping](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1277395523) `#1277395523`
+      - [ซ่อม data tx_ri_send_reinsurer_period](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1218281945) `#1218281945`
+      - [ตรวจสอบ Concurrent Database Connection ณ.เวลาปัจจุบัน](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1214119988) `#1214119988`
+      - [ตรวจสอบ Event Date (วันที่เกิดเหตุ) ของการ Claim](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1165984402) `#1165984402`
+      - [ตรวจสอบประมวลผล NAR ค้าง](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1288176570) `#1288176570`
+      - [ตรวจสอบว่า Policy ใด ต้องนำไปประมวลผลต่อ (isSendReinsurerForAlterAndClaim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1165984150) `#1165984150`
+      - [ตรวจสอบเวลาในการทำงานของ Query ในระบบ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1214119984) `#1214119984`
+      - [เชคการประมวล estimate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1167229508) `#1167229508`
+      - [01. คู่มือการใช้งาน User](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749460) `#1289749460`
+      - [02. เพิ่ม Config ผ่าน Changelog](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749523) `#1289749523`
+      - [03. เพิ่ม Config ผ่าน Adhoc](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749530) `#1289749530`
+      - [04. File Template สำหรับ User](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749573) `#1289749573`
+      - [05. ตรวจสอบการทำงานของระบบ Estimate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749580) `#1289749580`
+      - [GIB_Ind_ORD_Med](http://wiki.thaisamut.co.th/display/RDSINRI/GIB_Ind_ORD_Med) `#1323205143`
+        - [1.New_Renew (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073160) `#1267073160`
+        - [2.Alteration (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073163) `#1267073163`
+        - [3.Claim (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073165) `#1267073165`
+        - [4.Profit Commision (act) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1267073167) `#1267073167`
+        - [01. Auto (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1125352052) `#1125352052`
+        - [02. Facult (New & Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1125352056) `#1125352056`
+        - [01. Auto (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446318) `#1131446318`
+        - [02. Fac (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445837) `#1133445837`
+        - [01. Auto (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445823) `#1133445823`
+        - [02. FAC (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445970) `#1133445970`
+        - [[ยกเลิก] Process Mapping Table Estimate & Bordereau](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1200914459) `#1200914459`
+        - [Mapping Table Estimate & Bordereau](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445983) `#1133445983`
+        - [Mapping SOA Report - Internal & External](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129185325) `#1129185325`
+        - [Mapping SOA Report - Internal & External (backup)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1339195913) `#1339195913`
+        - [01. Manual (New&Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445947) `#1133445947`
+        - [02. Manual Facult (New & Renew)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445949) `#1133445949`
+        - [01. Manual (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445962) `#1133445962`
+        - [02. Manual Fac (Alter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445964) `#1133445964`
+        - [01. Manual (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445968) `#1133445968`
+        - [02. Manual FAC (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445972) `#1133445972`
+        - [old เงื่อนไขการ Mapping ข้อมูลลง Table tx_ri_bdr_act_claim](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1258095106) `#1258095106`
+        - [1. base new act](http://wiki.thaisamut.co.th/display/RDSINRI/1.+base+new+act) `#1251213974`
+        - [2. rider new act](http://wiki.thaisamut.co.th/display/RDSINRI/2.+rider+new+act) `#1251213976`
+        - [3. base renew act](http://wiki.thaisamut.co.th/display/RDSINRI/3.+base+renew+act) `#1251213979`
+        - [4. rider renew act](http://wiki.thaisamut.co.th/display/RDSINRI/4.+rider+renew+act) `#1251213981`
+        - [1.New_Renew (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1134068274) `#1134068274`
+        - [2.Alteration (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135050813) `#1135050813`
+        - [3.Claim (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135050819) `#1135050819`
+        - [4.Profit Commision (est)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1286963263) `#1286963263`
+        - [1.New_Renew (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280146) `#1135280146`
+        - [2.Alteration (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280148) `#1135280148`
+        - [3.Claim (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280150) `#1135280150`
+        - [4.Profit Commision (act)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1192296908) `#1192296908`
+        - [1.New_Renew (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090086) `#1266090086`
+        - [2.Alteration (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090088) `#1266090088`
+        - [3.Claim (est) (oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090090) `#1266090090`
+        - [4.Profit Commision (est)(oic)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1286963269) `#1286963269`
+        - [02-1 ข้อมูลหลัก Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350120) `#1100350120`
+        - [02-2 Setup Base Plan Code](http://wiki.thaisamut.co.th/display/RDSINRI/02-2+Setup+Base+Plan+Code) `#1100350123`
+        - [02-3 Setup Rider Code](http://wiki.thaisamut.co.th/display/RDSINRI/02-3+Setup+Rider+Code) `#1100350127`
+        - [02-4 Setup Retention](http://wiki.thaisamut.co.th/display/RDSINRI/02-4+Setup+Retention) `#1100350131`
+        - [02-5 Setup RI Commission Rate](http://wiki.thaisamut.co.th/display/RDSINRI/02-5+Setup+RI+Commission+Rate) `#1100350173`
+        - [02-6 Setup RI Premium Rate](http://wiki.thaisamut.co.th/display/RDSINRI/02-6+Setup+RI+Premium+Rate) `#1100350187`
+        - [02-7 Setup Calculation](http://wiki.thaisamut.co.th/display/RDSINRI/02-7+Setup+Calculation) `#1100350252`
+        - [03-1 แก้ไขข้อมูลหลัก Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427669) `#1107427669`
+        - [03-2 แก้ไข Setup Base Plan Code](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427760) `#1107427760`
+        - [03-3 แก้ไข Setup Rider Code](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427763) `#1107427763`
+        - [03-4 แก้ไข Setup Retention](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427782) `#1107427782`
+        - [03-5 แก้ไข Setup RI Commission Rate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427799) `#1107427799`
+        - [03-6 แก้ไข Setup RI Premium Rate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427808) `#1107427808`
+        - [03-7 แก้ไข Setup Calculation](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427835) `#1107427835`
+        - [IRI_CFG_001_3 Mapping Table กรณีอนุมัติ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1112310029) `#1112310029`
+        - [ความคุ้มครองของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107099738) `#1107099738`
+        - [บันทึกข้อมูลลง Table : tx_tmp_policy_fac_dt](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113588295) `#1113588295`
+        - [บันทึกข้อมูลลง Table : tx_tmp_policy_fac_hd](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113588271) `#1113588271`
+        - [บันทึกข้อมูลลง Table : tx_tmp_rider_fac](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113588275) `#1113588275`
+        - [Mapping Table กรณีอนุมัติกรมธรรม์](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1127744244) `#1127744244`
+        - [บันทึกข้อมูลลง Table : tx_ri_process_hd](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117945907) `#1117945907`
+        - [บันทึกข้อมูลลง Table Landing](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117945964) `#1117945964`
+        - [con_soa_alteration](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_alteration) `#1132757967`
+        - [con_soa_alteration_act](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_alteration_act) `#1135280258`
+        - [con_soa_claim](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_claim) `#1132757975`
+        - [con_soa_claim_act](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_claim_act) `#1135280264`
+        - [con_soa_hd_act](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_hd_act) `#1135543006`
+        - [con_soa_new_renew](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_new_renew) `#1132757963`
+        - [con_soa_new_renew_act](http://wiki.thaisamut.co.th/display/RDSINRI/con_soa_new_renew_act) `#1135280252`
+        - [Condition Sheet Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Alteration) `#1130103255`
+        - [Condition Sheet Claim](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Claim) `#1130103261`
+        - [Condition Sheet New](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+New) `#1130103199`
+        - [Condition Sheet Renew](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Renew) `#1130103247`
+        - [db_table](http://wiki.thaisamut.co.th/display/RDSINRI/db_table) `#1131806844`
+        - [Objectives_Report](http://wiki.thaisamut.co.th/display/RDSINRI/Objectives_Report) `#1129840764`
+        - [Sheet Name](http://wiki.thaisamut.co.th/display/RDSINRI/Sheet+Name) `#1130103311`
+        - [Template - 330_GIBMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+330_GIBMED) `#1129579050`
+        - [Template - 332_PacificReCI](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+332_PacificReCI) `#1129840883`
+        - [Template - 334_PacificReSUBSTD](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+334_PacificReSUBSTD) `#1129840951`
+        - [Template - 336_RGAMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+336_RGAMRTA) `#1129841249`
+        - [Template - 338_RGAMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+338_RGAMLTA) `#1130430655`
+        - [Template - 339_RGAMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+339_RGAMLTA_Fac) `#1130430677`
+        - [Template - 342_SCORNONMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+342_SCORNONMED) `#1130430817`
+        - [Template - 344_ThaiReMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+344_ThaiReMRTA) `#1130430999`
+        - [Template - 346_ThaiReMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+346_ThaiReMLTA) `#1130431007`
+        - [Template - 347_ThaiReGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+347_ThaiReGroupCreditLife_Fac) `#1130431017`
+        - [Template - 350_ThaiReShareRGAMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+350_ThaiReShareRGAMRTA) `#1130431023`
+        - [Template - 351_ThaiReShareRGAMRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+351_ThaiReShareRGAMRTA_Fac) `#1130431028`
+        - [Template - 354_ThaiReShareRGAMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+354_ThaiReShareRGAMLTA) `#1130431034`
+        - [Template - 355_ThaiReShareRGAMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+355_ThaiReShareRGAMLTA_Fac) `#1130431039`
+        - [Template - 358_ThaiReSuperHealthCare](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+358_ThaiReSuperHealthCare) `#1130431044`
+        - [Template - 360_ThaiReCI50](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+360_ThaiReCI50) `#1130758187`
+        - [Template - 362_ThaiReORDINARY](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+362_ThaiReORDINARY) `#1130758264`
+        - [Template - 364_ThaiReNONMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+364_ThaiReNONMED) `#1130758399`
+        - [Template - 366_ThaiRePA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+366_ThaiRePA) `#1130758447`
+        - [Template - 368_ThaiReSupremeHealth](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+368_ThaiReSupremeHealth) `#1130758489`
+        - [Template - 370_ThaiReCITop3](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+370_ThaiReCITop3) `#1130758522`
+        - [Template - 372_ThaireRPUL](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+372_ThaireRPUL) `#1130758574`
+        - [Template - 374_ThaireSPUL](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+374_ThaireSPUL) `#1130758676`
+        - [Template - 376_TOAGroupCreditLife_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+376_TOAGroupCreditLife_MRTA) `#1130758713`
+        - [Template - 378_TOAGroupCreditLife_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+378_TOAGroupCreditLife_MRTA_Fac) `#1130758720`
+        - [Template - 380_TOAGrpCLNonCBank](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+380_TOAGrpCLNonCBank) `#1130758729`
+        - [Template - 382_TOACB](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+382_TOACB) `#1130758734`
+        - [Template - 384_TOACREDIT](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+384_TOACREDIT) `#1130758739`
+        - [Template - 386_TOAB2B](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+386_TOAB2B) `#1131216905`
+        - [Template - 388_ThaiReCI120](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+388_ThaiReCI120) `#1131216913`
+        - [Template - 390_GIBMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+390_GIBMLTA_Fac) `#1131216966`
+        - [Template - 392_PacificReMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+392_PacificReMLTA_Fac) `#1131216972`
+        - [Template - 394_TOAORD_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+394_TOAORD_Fac) `#1131216977`
+        - [Template - 396_MapfreGroupCreditLife_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+396_MapfreGroupCreditLife_MRTA) `#1131446277`
+        - [Template - 398_MapfreGroupCreditLife_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+398_MapfreGroupCreditLife_MRTA_Fac) `#1131446283`
+        - [Template - 400_MapfreMLTAAunjai](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+400_MapfreMLTAAunjai) `#1131446289`
+        - [Template - 402_MapfreMLTAAunjai_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+402_MapfreMLTAAunjai_Fac) `#1131446580`
+        - [Template - 404_MapfreMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+404_MapfreMRTA) `#1131446610`
+        - [Template - 406_MapfreMRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+406_MapfreMRTA_Fac) `#1131446682`
+        - [Template - 464_ThaiReORDINARY_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+464_ThaiReORDINARY_Fac) `#1138917732`
+        - [Template - 471_TOAGroupCreditLife_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+471_TOAGroupCreditLife_MLTA) `#1179189489`
+        - [Template - 473_TOAGroupCreditLife_MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+473_TOAGroupCreditLife_MLTA_Fac) `#1179189496`
+        - [Template - 475_MapfreGroupCreditLife_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+475_MapfreGroupCreditLife_MLTA) `#1179189539`
+        - [Template - 477_MapfreGroupCreditLife_MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+477_MapfreGroupCreditLife_MLTA_Fac) `#1179189545`
+        - [Template - 479_ThaiReGroupCreditLife_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+479_ThaiReGroupCreditLife_MRTA_Fac) `#1186005154`
+        - [Template - 481_TOAGroupCreditLife](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+481_TOAGroupCreditLife) `#1186005165`
+        - [Template - 483_TOAGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+483_TOAGroupCreditLife_Fac) `#1186005169`
+        - [Template - 485_MapfreGroupCreditLife](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+485_MapfreGroupCreditLife) `#1186005174`
+        - [Template - 487_MapfreGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+487_MapfreGroupCreditLife_Fac) `#1186005182`
+        - [Template - 489_MapfreCREDIT](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+489_MapfreCREDIT) `#1198162169`
+        - [Template - 500_MapfreGroupCreditLife_SME_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+500_MapfreGroupCreditLife_SME_MRTA) `#1271234595`
+        - [Template - 501_MapfreGroupCreditLife_SME_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+501_MapfreGroupCreditLife_SME_MRTA_Fac) `#1271234646`
+        - [Template - 502_MapfreGroupCreditLife_SME_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+502_MapfreGroupCreditLife_SME_MLTA) `#1271234598`
+        - [Template - 503_MapfreGroupCreditLife_SME_MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+503_MapfreGroupCreditLife_SME_MLTA_Fac) `#1271234669`
+        - [07-01-01 Mapping Template SOA Report (Estimate) - Sheet Internal](http://wiki.thaisamut.co.th/display/RDSINRI/07-01-01+Mapping+Template+SOA+Report+%28Estimate%29+-+Sheet+Internal) `#1131806828`
+        - [07-01-02 Mapping Template SOA Report (Estimate) - Sheet External](http://wiki.thaisamut.co.th/display/RDSINRI/07-01-02+Mapping+Template+SOA+Report+%28Estimate%29+-+Sheet+External) `#1131806819`
+        - [Template - 508 - Profit_Com_ORD_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+508+-+Profit_Com_ORD_Thaire_Estimate) `#1298301069`
+        - [Template - 509 - Profit Com_GCL_50_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+509+-+Profit+Com_GCL_50_Thaire_Estimate) `#1298301073`
+        - [Template - 510 - Profit Com_Nonmed_PA_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+510+-+Profit+Com_Nonmed_PA_Thaire_Estimate) `#1298301075`
+        - [Template - 511 - Profit Com_Nonmed_PA_Scor_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+511+-+Profit+Com_Nonmed_PA_Scor_Estimate) `#1298301077`
+        - [Template - 512 - Profit Com_GCL_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+512+-+Profit+Com_GCL_Thaire_Estimate) `#1298301079`
+        - [Template - 513 - Profit Com_CI17_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+513+-+Profit+Com_CI17_Thaire_Estimate) `#1298301082`
+        - [Template - 514 - Profit Com_CI50_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+514+-+Profit+Com_CI50_Thaire_Estimate) `#1298301085`
+        - [Template - 515 - Profit Com_Gp_Toa_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+515+-+Profit+Com_Gp_Toa_Estimate) `#1298301088`
+        - [Template - 516 - Profit Com_CB_Toa_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+516+-+Profit+Com_CB_Toa_Estimate) `#1298301091`
+        - [Template - 517 - Profit_Com_Med_GCL_GB_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+517+-+Profit_Com_Med_GCL_GB_Estimate) `#1298301093`
+        - [Template - 518 - Profit_Com_Hss_Rider_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+518+-+Profit_Com_Hss_Rider_Estimate) `#1298301096`
+        - [Template - 519 - Profit_Com_Gp_Mapfre_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+519+-+Profit_Com_Gp_Mapfre_Estimate) `#1298301098`
+        - [Template - 520 - Profit_Com_CI120_Thaire_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+520+-+Profit_Com_CI120_Thaire_Estimate) `#1298301100`
+        - [Template - 521 - Profit_Com_UL_Estimate](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+521+-+Profit_Com_UL_Estimate) `#1298301103`
+        - [Condition Sheet Alteration ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Alteration+ACT) `#1134363302`
+        - [Condition Sheet Claim ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Claim+ACT) `#1134363305`
+        - [Condition Sheet New ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+New+ACT) `#1134363280`
+        - [Condition Sheet Renew ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Condition+Sheet+Renew+ACT) `#1134363290`
+        - [db_table_act](http://wiki.thaisamut.co.th/display/RDSINRI/db_table_act) `#1134363318`
+        - [Objectives_Report_ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Objectives_Report_ACT) `#1133707414`
+        - [Sheet Name ACT](http://wiki.thaisamut.co.th/display/RDSINRI/Sheet+Name+ACT) `#1133707577`
+        - [Template - 331_GIBMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+331_GIBMED) `#1136460500`
+        - [Template - 333_PacificReCI](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+333_PacificReCI) `#1134363360`
+        - [Template - 335_PacificReSUBSTD](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+335_PacificReSUBSTD) `#1134363369`
+        - [Template - 337_RGAMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+337_RGAMRTA) `#1134592014`
+        - [Template - 340_RGAMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+340_RGAMLTA) `#1134592046`
+        - [Template - 343_SCORNONMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+343_SCORNONMED) `#1134592106`
+        - [Template - 345_ThaiReMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+345_ThaiReMRTA) `#1134592116`
+        - [Template - 348_ThaiReMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+348_ThaiReMLTA) `#1134592122`
+        - [Template - 349_ThaiReGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+349_ThaiReGroupCreditLife_Fac) `#1134592127`
+        - [Template - 352_ThaiReShareRGAMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+352_ThaiReShareRGAMRTA) `#1134592140`
+        - [Template - 353_ThaiReShareRGAMRTA_Fac (ยกเลิก)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1134592195) `#1134592195`
+        - [Template - 356_ThaiReShareRGAMLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+356_ThaiReShareRGAMLTA) `#1134592235`
+        - [Template - 359_ThaiReSuperHealthCare](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+359_ThaiReSuperHealthCare) `#1134592242`
+        - [Template - 361_ThaiReCI50](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+361_ThaiReCI50) `#1134592259`
+        - [Template - 363_ThaiReORDINARY](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+363_ThaiReORDINARY) `#1134592271`
+        - [Template - 365_ThaiReNONMED](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+365_ThaiReNONMED) `#1134592281`
+        - [Template - 367_ThaiRePA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+367_ThaiRePA) `#1134592290`
+        - [Template - 369_ThaiReSupremeHealth](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+369_ThaiReSupremeHealth) `#1134592300`
+        - [Template - 371_ThaiReCITop3](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+371_ThaiReCITop3) `#1134592307`
+        - [Template - 373_ThaireRPUL](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+373_ThaireRPUL) `#1134592317`
+        - [Template - 375_ThaireSPUL](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+375_ThaireSPUL) `#1134592342`
+        - [Template - 377_TOAGroupCreditLife_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+377_TOAGroupCreditLife_MRTA) `#1134592371`
+        - [Template - 379_TOAGroupCreditLife__MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+379_TOAGroupCreditLife__MRTA_Fac) `#1134592383`
+        - [Template - 381_TOAGrpCLNonCBank](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+381_TOAGrpCLNonCBank) `#1134592391`
+        - [Template - 383_TOACB](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+383_TOACB) `#1134592414`
+        - [Template - 385_TOACREDIT](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+385_TOACREDIT) `#1134592429`
+        - [Template - 387_TOAB2B](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+387_TOAB2B) `#1134592443`
+        - [Template - 389_ThaiReCI120](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+389_ThaiReCI120) `#1134592477`
+        - [Template - 391_GIBMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+391_GIBMLTA_Fac) `#1134592540`
+        - [Template - 393_PacificReMLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+393_PacificReMLTA_Fac) `#1134592548`
+        - [Template - 395_TOAORD_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+395_TOAORD_Fac) `#1134592554`
+        - [Template - 397_MapfreGroupCreditLife_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+397_MapfreGroupCreditLife_MRTA) `#1134592574`
+        - [Template - 399_MapfreGroupCreditLife_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+399_MapfreGroupCreditLife_MRTA_Fac) `#1134592582`
+        - [Template - 401_MapfreMLTAAunjai](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+401_MapfreMLTAAunjai) `#1134592587`
+        - [Template - 403_MapfreMLTAAunjai_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+403_MapfreMLTAAunjai_Fac) `#1134592589`
+        - [Template - 405_MapfreMRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+405_MapfreMRTA) `#1134592593`
+        - [Template - 407_MapfreMRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+407_MapfreMRTA_Fac) `#1134592596`
+        - [Template - 465_ThaiReORDINARY_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+465_ThaiReORDINARY_Fac) `#1136460493`
+        - [Template - 472_TOAGroupCreditLife_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+472_TOAGroupCreditLife_MLTA) `#1179189507`
+        - [Template - 474_TOAGroupCreditLife_MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+474_TOAGroupCreditLife_MLTA_Fac) `#1179189513`
+        - [Template - 476_MapfreGroupCreditLife_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+476_MapfreGroupCreditLife_MLTA) `#1179189523`
+        - [Template - 478_MapfreGroupCreditLife__MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+478_MapfreGroupCreditLife__MLTA_Fac) `#1179189532`
+        - [Template - 480_ThaiReGroupCreditLife_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+480_ThaiReGroupCreditLife_MRTA_Fac) `#1186005160`
+        - [Template - 482_TOAGroupCreditLife](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+482_TOAGroupCreditLife) `#1186005167`
+        - [Template - 484_TOAGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+484_TOAGroupCreditLife_Fac) `#1186005171`
+        - [Template - 486_MapfreGroupCreditLife](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+486_MapfreGroupCreditLife) `#1186005177`
+        - [Template - 488_MapfreGroupCreditLife_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+488_MapfreGroupCreditLife_Fac) `#1186005185`
+        - [Template - 490_MapfreCREDIT](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+490_MapfreCREDIT) `#1198162226`
+        - [Template - 504_MapfreGroupCreditLife_SME_MRTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+504_MapfreGroupCreditLife_SME_MRTA) `#1271234717`
+        - [Template - 505_MapfreGroupCreditLife_SME_MRTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+505_MapfreGroupCreditLife_SME_MRTA_Fac) `#1271234738`
+        - [Template - 506_MapfreGroupCreditLife_SME_MLTA](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+506_MapfreGroupCreditLife_SME_MLTA) `#1271234723`
+        - [Template - 507_MapfreGroupCreditLife_SME_MLTA_Fac](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+507_MapfreGroupCreditLife_SME_MLTA_Fac) `#1271234744`
+        - [ยกเลิก Template - 341_RGAMLTA_Fac](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1134592087) `#1134592087`
+        - [ยกเลิก Template - 357_ThaiReShareRGAMLTA_Fac](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1134592238) `#1134592238`
+        - [08-02-01 Mapping Template SOA Report (Actual) - Sheet Internal](http://wiki.thaisamut.co.th/display/RDSINRI/08-02-01+Mapping+Template+SOA+Report+%28Actual%29+-+Sheet+Internal) `#1133445380`
+        - [08-02-02 Mapping Template SOA Report (Actual) - Sheet External (Quarter)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445382) `#1133445382`
+        - [08-02-03 Mapping Template SOA Report (Actual) - Sheet External (Period)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133445385) `#1133445385`
+        - [Template - 456 - Profit_Com_ORD_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+456+-+Profit_Com_ORD_Thaire) `#1137508360`
+        - [Template - 457 - Profit Com_GCL_50_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+457+-+Profit+Com_GCL_50_Thaire) `#1137508362`
+        - [Template - 458 - Profit Com_Nonmed_PA_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+458+-+Profit+Com_Nonmed_PA_Thaire) `#1137508364`
+        - [Template - 459 - Profit Com_Nonmed_PA_Scor](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+459+-+Profit+Com_Nonmed_PA_Scor) `#1140228766`
+        - [Template - 460 - Profit Com_GCL_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+460+-+Profit+Com_GCL_Thaire) `#1137508366`
+        - [Template - 461 - Profit Com_CI17_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+461+-+Profit+Com_CI17_Thaire) `#1137508368`
+        - [Template - 462 - Profit Com_CI50_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+462+-+Profit+Com_CI50_Thaire) `#1137508370`
+        - [Template - 463 - Profit Com_Gp_Toa](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+463+-+Profit+Com_Gp_Toa) `#1137508374`
+        - [Template - 466 - Profit Com_CB_Toa](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+466+-+Profit+Com_CB_Toa) `#1137508376`
+        - [Template - 467 - Profit_Com_Med_GCL_GB](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+467+-+Profit_Com_Med_GCL_GB) `#1137508378`
+        - [Template - 468 - Profit_Com_Hss_Rider](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+468+-+Profit_Com_Hss_Rider) `#1137508372`
+        - [Template - 469 - Profit_Com_Gp_Mapfre](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+469+-+Profit_Com_Gp_Mapfre) `#1141866505`
+        - [Template - 470 - Profit_Com_CI120_Thaire](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+470+-+Profit_Com_CI120_Thaire) `#1141866507`
+        - [Template - 495 - Profit_Com_UL](http://wiki.thaisamut.co.th/display/RDSINRI/Template+-+495+-+Profit_Com_UL) `#1198489669`
+        - [00.](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121910821) `#1121910821`
+        - [Config Policy Facultative](http://wiki.thaisamut.co.th/display/RDSINRI/Config+Policy+Facultative) `#1106084019`
+        - [Temp Policy Facultative](http://wiki.thaisamut.co.th/display/RDSINRI/Temp+Policy+Facultative) `#1106084022`
+        - [Config Treaty](http://wiki.thaisamut.co.th/display/RDSINRI/Config+Treaty) `#1100611836`
+        - [Temp Treaty](http://wiki.thaisamut.co.th/display/RDSINRI/Temp+Treaty) `#1100611765`
+        - [[ยกเลิก] 26. ms_none_reinsurer](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1278018095) `#1278018095`
+        - [14. tx_ri_est_policy_dt_inactive_XXXX](http://wiki.thaisamut.co.th/display/RDSINRI/14.+tx_ri_est_policy_dt_inactive_XXXX) `#1277395103`
+        - [14. tx_ri_est_policy_dt_XXXX](http://wiki.thaisamut.co.th/display/RDSINRI/14.+tx_ri_est_policy_dt_XXXX) `#1277395101`
+        - [เงื่อนไขเก่า](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1170898977) `#1170898977`
+        - [เงื่อนไขเก่า #2](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1196916993) `#1196916993`
+        - [[ยกเลิก] 00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1176010862) `#1176010862`
+        - [ORD Alteration](http://wiki.thaisamut.co.th/display/RDSINRI/ORD+Alteration) `#1342079520`
+        - [หลักการคำนวณ Refund (Alter,Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1340768497) `#1340768497`
+        - [[ยกเลิก] 00-2 [CLAIM] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1177026576) `#1177026576`
+        - [ORD Claim](http://wiki.thaisamut.co.th/display/RDSINRI/ORD+Claim) `#1342505408`
+        - [เงื่อนไขเก่า FAC #2](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1198489618) `#1198489618`
+        - [[ยกเลิก] 00-4 [ALTER] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1176305692) `#1176305692`
+        - [[ยกเลิก] 00-5 [CLAIM] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1177026578) `#1177026578`
+        - [08-0-1 Process overview Surplus-QS](http://wiki.thaisamut.co.th/display/RDSINRI/08-0-1+Process+overview+Surplus-QS) `#1177649489`
+        - [ยกเลิก 10 การประมวลผล Previous SR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1197932546) `#1197932546`
+        - [[CA#3] 02-1 ข้อมูลหลัก Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1150517357) `#1150517357`
+        - [WS_RI_04](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_04) `#1150517365`
+        - [WS_RI_05](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_05) `#1152615042`
+        - [WS_RI_06](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_06) `#1150517359`
+        - [WS_RI_08](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_08) `#1150517363`
+        - [WS_RI_10](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_10) `#1150517377`
+        - [WS_RI_11](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_11) `#1152615014`
+        - [WS_RI_12](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_12) `#1152615017`
+        - [WS_RI_13](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_13) `#1152615020`
+        - [WS_RI_14](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_14) `#1152615022`
+        - [WS_RI_15](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_15) `#1152615027`
+        - [WS_RI_20](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_20) `#1152615046`
+        - [WS_RI_21](http://wiki.thaisamut.co.th/display/RDSINRI/WS_RI_21) `#1152615059`
+        - [[Query Count] WS_RI_00 ดึงข้อมูล Base Plan Code และ Rider Code ทุกประเภท](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857742) `#1242857742`
+        - [[Query Count] WS_RI_01 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (New&Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857871) `#1242857871`
+        - [[Query Count] WS_RI_03 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858068) `#1242858068`
+        - [[Query Count] WS_RI_04 ค้นหากรมธรรม์ส่งประกันต่ออุตสาหกรรม (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858135) `#1242858135`
+        - [[Query Count] WS_RI_05 ค้นหากรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858150) `#1242858150`
+        - [[Query Count] WS_RI_06 ค้นหากรมธรรม์ส่งประกันต่อ PA (New&Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857840) `#1242857840`
+        - [[Query Count] WS_RI_07 ค้นหากรมธรรม์ส่งประกันต่อ PA (New&Renew) Facultative](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857896) `#1242857896`
+        - [[Query Count] WS_RI_08 ค้นหากรมธรรม์ส่งประกันต่อ UL (New,Renew) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242857992) `#1242857992`
+        - [[Query Count] WS_RI_10 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858100) `#1242858100`
+        - [[Query Count] WS_RI_11 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858106) `#1242858106`
+        - [[Query Count] WS_RI_12 ค้นหากรมธรรม์ส่งประกันต่อ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858136) `#1242858136`
+        - [[Query Count] WS_RI_13 ค้นหากรมธรรม์ส่งประกันต่อ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858197) `#1242858197`
+        - [[Query Count] WS_RI_14 ดึงข้อมูล Rate ทุนประกัน สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858221) `#1242858221`
+        - [[Query Count] WS_RI_15 ดึงข้อมูล Benefit Claim](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858236) `#1242858236`
+        - [[Query Count] WS_RI_16 ดึงข้อมูล Rate ทุนประกัน PA](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858240) `#1242858240`
+        - [[Query Count] WS_RI_17 ค้นหากรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858245) `#1242858245`
+        - [[Query Count] WS_RI_18 ค้นหาข้อมูลค่าส่งสอบจากระบบ CMS](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858247) `#1242858247`
+        - [[Query Count] WS_RI_20 ค้นหากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858251) `#1242858251`
+        - [[Query Count] WS_RI_21 ค้นหาข้อมูลค่าการประกันภัย UL (COI)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1242858266) `#1242858266`
+        - [ms_none_reinsurer](http://wiki.thaisamut.co.th/display/RDSINRI/ms_none_reinsurer) `#1289749563`
+        - [1. Backup Landing](http://wiki.thaisamut.co.th/display/RDSINRI/1.+Backup+Landing) `#1289749789`
+        - [2. Normal Landing #1](http://wiki.thaisamut.co.th/display/RDSINRI/2.+Normal+Landing+%231) `#1289749794`
+        - [3. Normal Landing #2](http://wiki.thaisamut.co.th/display/RDSINRI/3.+Normal+Landing+%232) `#1289749799`
+        - [4. Estimate Process](http://wiki.thaisamut.co.th/display/RDSINRI/4.+Estimate+Process) `#1289749801`
+        - [5. Estimate To MPS (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749805) `#1289749805`
+        - [6. Monthly NAR & Mark Policy (Policy Status) Process](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749809) `#1289749809`
+        - [7. Monthly NAR & Mark Policy (Policy Status) To MPS (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749813) `#1289749813`
+        - [8. UL COI Landing](http://wiki.thaisamut.co.th/display/RDSINRI/8.+UL+COI+Landing) `#1289749819`
+        - [9. UL Estimate Process](http://wiki.thaisamut.co.th/display/RDSINRI/9.+UL+Estimate+Process) `#1289749821`
+        - [10. UL Estimate To MPS Process (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749824) `#1289749824`
+        - [11. UL Monthly NAR & Mark Policy (Policy Status) Process](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749828) `#1289749828`
+        - [12. UL Monthly NAR & Mark Policy (Policy Status) To MPS (OIC)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1289749832) `#1289749832`
+        - [13. Approve To EDW](http://wiki.thaisamut.co.th/display/RDSINRI/13.+Approve+To+EDW) `#1289749836`
+          - [0.1.1 Mapping ข้อมูลลง Table tx_ri_est_base_auto_not_send](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613064) `#1212613064`
+          - [0.1.2 Mapping ข้อมูลลง Table tx_ri_est_rider_auto_not_send](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613081) `#1212613081`
+          - [0.1.3 Mapping ข้อมูลลง Table tx_ri_est_base_facult_not_send](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613083) `#1212613083`
+          - [0.1.4 Mapping ข้อมูลลง Table tx_ri_est_rider_facult_not_send](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613085) `#1212613085`
+          - [1. Mapping ข้อมูลลง Table Estimate](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613067) `#1212613067`
+          - [2.1 Mapping ข้อมูลลง Table tx_ri_bdr_new_renew](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613069) `#1212613069`
+          - [2.2 Mapping ข้อมูลลง Table tx_ri_bdr_alter](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613073) `#1212613073`
+          - [2.3 Mapping ข้อมูลลง Table tx_ri_bdr_claim](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1212613075) `#1212613075`
+          - [Mapping ข้อมูลลง Table Bordereau #1](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1205731622) `#1205731622`
+          - [1. base new](http://wiki.thaisamut.co.th/display/RDSINRI/1.+base+new) `#1251213857`
+          - [2. rider new](http://wiki.thaisamut.co.th/display/RDSINRI/2.+rider+new) `#1251213860`
+          - [3. base renew](http://wiki.thaisamut.co.th/display/RDSINRI/3.+base+renew) `#1251213862`
+          - [4. rider renew](http://wiki.thaisamut.co.th/display/RDSINRI/4.+rider+renew) `#1251213866`
+          - [facult flag false](http://wiki.thaisamut.co.th/display/RDSINRI/facult+flag+false) `#1339424906`
+          - [facult flag true](http://wiki.thaisamut.co.th/display/RDSINRI/facult+flag+true) `#1339424904`
+          - [02-4-1 Setup Retention - Surplus > Standard / Substandard](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350135) `#1100350135`
+          - [02-4-2 Setup Retention - Surplus > Amount](http://wiki.thaisamut.co.th/display/RDSINRI/02-4-2+Setup+Retention+-+Surplus+%3E+Amount) `#1100350138`
+          - [02-4-3 Setup Retention - Surplus > Age Period](http://wiki.thaisamut.co.th/display/RDSINRI/02-4-3+Setup+Retention+-+Surplus+%3E+Age+Period) `#1100350140`
+          - [02-4-4 Setup Retention - Surplus > Insurance Policies](http://wiki.thaisamut.co.th/display/RDSINRI/02-4-4+Setup+Retention+-+Surplus+%3E+Insurance+Policies) `#1100350160`
+          - [02-4-5 Setup Retention - Quota share > Quota share Percentage](http://wiki.thaisamut.co.th/display/RDSINRI/02-4-5+Setup+Retention+-+Quota+share+%3E+Quota+share+Percentage) `#1100350164`
+          - [02-4-6 Setup Retention - Surplus-QS / QS-Surplus > Percentage (Layer)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350169) `#1100350169`
+          - [02-5-1 Setup RI Commission Rate - Policy Year](http://wiki.thaisamut.co.th/display/RDSINRI/02-5-1+Setup+RI+Commission+Rate+-+Policy+Year) `#1100350179`
+          - [02-5-2 Setup RI Commission Rate - Policy Term](http://wiki.thaisamut.co.th/display/RDSINRI/02-5-2+Setup+RI+Commission+Rate+-+Policy+Term) `#1100350182`
+          - [02-6-1 Setup RI Premium Rate - Set up By Treaty](http://wiki.thaisamut.co.th/display/RDSINRI/02-6-1+Setup+RI+Premium+Rate+-+Set+up+By+Treaty) `#1100350189`
+          - [02-6-2 Setup RI Premium Rate - Set up By Product](http://wiki.thaisamut.co.th/display/RDSINRI/02-6-2+Setup+RI+Premium+Rate+-+Set+up+By+Product) `#1100350191`
+          - [02-6-3 Setup RI Premium Rate - Set up By แผนกรมธรรม์](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350211) `#1100350211`
+          - [02-6-4 Setup RI Premium Rate - Set up By Package](http://wiki.thaisamut.co.th/display/RDSINRI/02-6-4+Setup+RI+Premium+Rate+-+Set+up+By+Package) `#1100350215`
+          - [02-6-5 Setup RI Premium Rate - Set up By กลุ่มโรค CI120](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1100350249) `#1100350249`
+          - [03-4-1 แก้ไข Setup Retention - Surplus > Standard / Substandard](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427787) `#1107427787`
+          - [03-4-2 แก้ไข Setup Retention - Surplus > Amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427789) `#1107427789`
+          - [03-4-3 แก้ไข Setup Retention - Surplus > Age Period](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427791) `#1107427791`
+          - [03-4-4 แก้ไขSetup Retention - Surplus > Insurance Policies](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427793) `#1107427793`
+          - [03-4-5 แก้ไข Setup Retention - Quota share > Quota share Percentage](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427795) `#1107427795`
+          - [03-4-6 แก้ไข Setup Retention - Surplus-QS / QS-Surplus > Percentage (Layer)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427797) `#1107427797`
+          - [03-5-1 แก้ไข Setup RI Commission Rate - Policy Year](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427802) `#1107427802`
+          - [03-5-2 แก้ไข Setup RI Commission Rate - Policy Term](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427805) `#1107427805`
+          - [03-6-1 แก้ไข Setup RI Premium Rate - Set up By Treaty](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427810) `#1107427810`
+          - [03-6-2 แก้ไข Setup RI Premium Rate - Set up By Product](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427815) `#1107427815`
+          - [03-6-3 แก้ไข Setup RI Premium Rate - Set up By แผนกรมธรรม์](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427827) `#1107427827`
+          - [03-6-4 แก้ไข Setup RI Premium Rate - Set up By Package](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427830) `#1107427830`
+          - [03-6-5 แก้ไข Setup RI Premium Rate - Set up By กลุ่มโรค CI120](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427833) `#1107427833`
+          - [- - -](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1130758707) `#1130758707`
+          - [- -](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1136460504) `#1136460504`
+          - [--](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1133707322) `#1133707322`
+          - [cf_policy_fac_dt](http://wiki.thaisamut.co.th/display/RDSINRI/cf_policy_fac_dt) `#1106083967`
+          - [cf_policy_fac_hd](http://wiki.thaisamut.co.th/display/RDSINRI/cf_policy_fac_hd) `#1106083944`
+          - [cf_rider_fac](http://wiki.thaisamut.co.th/display/RDSINRI/cf_rider_fac) `#1106083951`
+          - [tx_policy_history](http://wiki.thaisamut.co.th/display/RDSINRI/tx_policy_history) `#1113391127`
+          - [tx_tmp_policy_fac_dt](http://wiki.thaisamut.co.th/display/RDSINRI/tx_tmp_policy_fac_dt) `#1103528719`
+          - [tx_tmp_policy_fac_hd](http://wiki.thaisamut.co.th/display/RDSINRI/tx_tmp_policy_fac_hd) `#1103266450`
+          - [tx_tmp_rider_fac](http://wiki.thaisamut.co.th/display/RDSINRI/tx_tmp_rider_fac) `#1103528567`
+          - [01. cf_treaty](http://wiki.thaisamut.co.th/display/RDSINRI/01.+cf_treaty) `#1100611838`
+          - [02. cf_plancode_hd](http://wiki.thaisamut.co.th/display/RDSINRI/02.+cf_plancode_hd) `#1100611840`
+          - [03. cf_base_plancode_dt](http://wiki.thaisamut.co.th/display/RDSINRI/03.+cf_base_plancode_dt) `#1100611843`
+          - [04. cf_rider_plancode_dt](http://wiki.thaisamut.co.th/display/RDSINRI/04.+cf_rider_plancode_dt) `#1100611845`
+          - [05. cf_retention](http://wiki.thaisamut.co.th/display/RDSINRI/05.+cf_retention) `#1100611847`
+          - [06. cf_retent_sub_std](http://wiki.thaisamut.co.th/display/RDSINRI/06.+cf_retent_sub_std) `#1100611855`
+          - [07. cf_retent_amount](http://wiki.thaisamut.co.th/display/RDSINRI/07.+cf_retent_amount) `#1100611857`
+          - [08. cf_retent_age_hd](http://wiki.thaisamut.co.th/display/RDSINRI/08.+cf_retent_age_hd) `#1100611859`
+          - [09. cf_retent_age_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+cf_retent_age_dt) `#1100611861`
+          - [10. cf_insurance_policy](http://wiki.thaisamut.co.th/display/RDSINRI/10.+cf_insurance_policy) `#1100611863`
+          - [11. cf_quota_share_percent](http://wiki.thaisamut.co.th/display/RDSINRI/11.+cf_quota_share_percent) `#1100611867`
+          - [12. cf_quota_share_layer](http://wiki.thaisamut.co.th/display/RDSINRI/12.+cf_quota_share_layer) `#1100611869`
+          - [13. cf_commission_rate](http://wiki.thaisamut.co.th/display/RDSINRI/13.+cf_commission_rate) `#1100611871`
+          - [14. cf_comm_by_year](http://wiki.thaisamut.co.th/display/RDSINRI/14.+cf_comm_by_year) `#1100611873`
+          - [15. cf_comm_by_term](http://wiki.thaisamut.co.th/display/RDSINRI/15.+cf_comm_by_term) `#1100611875`
+          - [16. cf_premium_rate](http://wiki.thaisamut.co.th/display/RDSINRI/16.+cf_premium_rate) `#1100611877`
+          - [17. cf_prem_by_treaty_hd](http://wiki.thaisamut.co.th/display/RDSINRI/17.+cf_prem_by_treaty_hd) `#1100611879`
+          - [18. cf_prem_by_treaty_dt](http://wiki.thaisamut.co.th/display/RDSINRI/18.+cf_prem_by_treaty_dt) `#1100611881`
+          - [19. cf_prem_by_product_hd [02/11/2566]](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1107427507) `#1107427507`
+          - [20. cf_prem_by_product_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+cf_prem_by_product_dt) `#1105756531`
+          - [21. cf_prem_by_plan_hd](http://wiki.thaisamut.co.th/display/RDSINRI/21.+cf_prem_by_plan_hd) `#1105756536`
+          - [22. cf_prem_by_plan_dt](http://wiki.thaisamut.co.th/display/RDSINRI/22.+cf_prem_by_plan_dt) `#1105756539`
+          - [23. cf_prem_by_package_hd](http://wiki.thaisamut.co.th/display/RDSINRI/23.+cf_prem_by_package_hd) `#1105756542`
+          - [24. cf_prem_by_package_dt](http://wiki.thaisamut.co.th/display/RDSINRI/24.+cf_prem_by_package_dt) `#1105756545`
+          - [25. cf_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/display/RDSINRI/25.+cf_prem_by_grp_ci_hd) `#1105756547`
+          - [26. cf_prem_by_grp_ci_dt](http://wiki.thaisamut.co.th/display/RDSINRI/26.+cf_prem_by_grp_ci_dt) `#1105756552`
+          - [27. cf_treaty_cal](http://wiki.thaisamut.co.th/display/RDSINRI/27.+cf_treaty_cal) `#1111392278`
+          - [34. cf_coverage_type](http://wiki.thaisamut.co.th/display/RDSINRI/34.+cf_coverage_type) `#1107427594`
+          - [01. tx_tmp_treaty](http://wiki.thaisamut.co.th/display/RDSINRI/01.+tx_tmp_treaty) `#1100611767`
+          - [02. tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/display/RDSINRI/02.+tx_tmp_plancode_hd) `#1100611769`
+          - [03. tx_tmp_base_plancode_dt](http://wiki.thaisamut.co.th/display/RDSINRI/03.+tx_tmp_base_plancode_dt) `#1100611773`
+          - [04. tx_tmp_rider_plancode_dt](http://wiki.thaisamut.co.th/display/RDSINRI/04.+tx_tmp_rider_plancode_dt) `#1100611771`
+          - [05. tx_tmp_retention](http://wiki.thaisamut.co.th/display/RDSINRI/05.+tx_tmp_retention) `#1100611775`
+          - [06. tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/display/RDSINRI/06.+tx_tmp_retent_sub_std) `#1100611786`
+          - [07. tx_tmp_retent_amount](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_tmp_retent_amount) `#1100611790`
+          - [08. tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_tmp_retent_age_hd) `#1100611792`
+          - [09. tx_tmp_retent_age_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_tmp_retent_age_dt) `#1100611797`
+          - [10. tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_tmp_insurance_policy) `#1100611799`
+          - [11. tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_tmp_quota_share_percent) `#1100611803`
+          - [12. tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_tmp_quota_share_layer) `#1100611806`
+          - [13. tx_tmp_commission_rate](http://wiki.thaisamut.co.th/display/RDSINRI/13.+tx_tmp_commission_rate) `#1100611819`
+          - [14. tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/display/RDSINRI/14.+tx_tmp_comm_by_year) `#1100611821`
+          - [15. tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/display/RDSINRI/15.+tx_tmp_comm_by_term) `#1100611823`
+          - [16. tx_tmp_premium_rate](http://wiki.thaisamut.co.th/display/RDSINRI/16.+tx_tmp_premium_rate) `#1103528713`
+          - [17. tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/display/RDSINRI/17.+tx_tmp_prem_by_treaty_hd) `#1103528771`
+          - [18. tx_tmp_prem_by_treaty_dt](http://wiki.thaisamut.co.th/display/RDSINRI/18.+tx_tmp_prem_by_treaty_dt) `#1103528773`
+          - [19. tx_tmp_prem_by_product_hd [01/11/2566]](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1103528775) `#1103528775`
+          - [20. tx_tmp_prem_by_product_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+tx_tmp_prem_by_product_dt) `#1103528777`
+          - [21. tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_tmp_prem_by_plan_hd) `#1103528786`
+          - [22. tx_tmp_prem_by_plan_dt](http://wiki.thaisamut.co.th/display/RDSINRI/22.+tx_tmp_prem_by_plan_dt) `#1103528788`
+          - [23. tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/display/RDSINRI/23.+tx_tmp_prem_by_package_hd) `#1103528795`
+          - [24. tx_tmp_prem_by_package_dt](http://wiki.thaisamut.co.th/display/RDSINRI/24.+tx_tmp_prem_by_package_dt) `#1103528797`
+          - [25. tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/display/RDSINRI/25.+tx_tmp_prem_by_grp_ci_hd) `#1103528799`
+          - [26. tx_tmp_prem_by_grp_ci_dt](http://wiki.thaisamut.co.th/display/RDSINRI/26.+tx_tmp_prem_by_grp_ci_dt) `#1103528801`
+          - [27. tx_tmp_treaty_cal](http://wiki.thaisamut.co.th/display/RDSINRI/27.+tx_tmp_treaty_cal) `#1103528804`
+          - [28. tx_treaty_history](http://wiki.thaisamut.co.th/display/RDSINRI/28.+tx_treaty_history) `#1103790100`
+          - [29. tx_tmp_template](http://wiki.thaisamut.co.th/display/RDSINRI/29.+tx_tmp_template) `#1153172141`
+          - [Find New Renew](http://wiki.thaisamut.co.th/display/RDSINRI/Find+New+Renew) `#1342505102`

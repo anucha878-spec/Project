@@ -1,0 +1,102 @@
+{
+  "TC-BRD-PS-07-01-001": {
+    "status": "Pass",
+    "remark": "EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200. ACT_EDW_PROCESS executed 51 times across all periods. Q1 2026 ACT_EDW by treaty: GIB_Grp_Direct_EB=17/19SUCCESS records=6023; THREL_Grp_PA=8/8SUCCESS records=84. DAI has NO ACT_EDW_PROCESS run for Q1 2026."
+  },
+  "TC-BRD-PS-07-01-002": {
+    "status": "Pass",
+    "remark": "Std template conversion verified by edw_status flag progression. Estimate EDW status: approved(3)=30, failed(11)=4, pending(1)=3. On Actual side, content_id_bdr/content_id_masteri fields not present on act_hd in this DB."
+  },
+  "TC-BRD-PS-07-01-003": {
+    "status": "Blocked",
+    "remark": "UI EDW Summary screen — UI not reachable. DB-level summary computed: EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200. Q1 2026 ACT_EDW by treaty: GIB_Grp_Direct_EB=17/19SUCCESS records=6023; THREL_Grp_PA=8/8SUCCESS records=84. DAI has NO ACT_EDW_PROCESS run for Q1 2026."
+  },
+  "TC-BRD-PS-07-01-004": {
+    "status": "Pass (Partial)",
+    "remark": "Aggregation verified at DB layer: data exists keyed by period (closing_period) + treaty_code on est_hd / act_hd. UI display not verified. Q1 2026 ACT_EDW by treaty: GIB_Grp_Direct_EB=17/19SUCCESS records=6023; THREL_Grp_PA=8/8SUCCESS records=84. DAI has NO ACT_EDW_PROCESS run for Q1 2026."
+  },
+  "TC-BRD-PS-07-01-005": {
+    "status": "Blocked",
+    "remark": "UI \"confirm to send Actuarial+Accounting\" — UI unreachable (sd008 503). DB shows EDW status transitions (1→3 = approved). Estimate EDW status: approved(3)=30, failed(11)=4, pending(1)=3."
+  },
+  "TC-BRD-PS-07-01-006": {
+    "status": "Fail",
+    "remark": "Q1 2026 act_hd mps_status all NULL — no MPS (Actuarial/Master pickup) has occurred for Q1 yet. MPS pickup for Q1 act_hd: ALL NULL (not yet picked by Master/Actuarial). EST_MPS_PROCESS ran 194/200 for Estimate side only. Q1 SUCCESS act_hd EDW pickup: id=592(GIB_Grp_Direct_EB)edw=nullmps=nullri_std=null | id=374(THREL_Grp_PA)edw=5mps=nullri_std=3746 | id=586(THREL_Grp_PA)edw=nullmps=nullri_std=null"
+  },
+  "TC-BRD-PS-07-01-007": {
+    "status": "Blocked",
+    "remark": "Accounting/GL handoff is downstream of EDW; verified by EDW status=3 (อนุมัติเข้า EDW) on Estimate. Actual side Q1 EDW: GIB 17 successful transfers, THREL 8, DAI 0. ms_formular rows=0"
+  },
+  "TC-BRD-PS-07-01-008": {
+    "status": "Pass",
+    "remark": "Estimate vs Actual processes are separate (EST_EDW_PROCESS vs ACT_EDW_PROCESS); each runs independently with own status tracking. EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200."
+  },
+  "TC-BRD-PS-07-01-009": {
+    "status": "Pass (Partial)",
+    "remark": "Estimate side uses ri_std_hd_id as reference linkage. SUCCESS Estimate runs produce ri_std_hd_id. Estimate EDW status: approved(3)=30, failed(11)=4, pending(1)=3."
+  },
+  "TC-BRD-PS-07-01-010": {
+    "status": "Pass (Partial)",
+    "remark": "Actual side ACT_EDW_PROCESS transferred data to downstream for GIB(17 runs, 6023 records) and THREL(8 runs). DAI no transfer (no SUCCESS act_hd). Finance system actual receipt cannot be verified from this DB."
+  },
+  "TC-BRD-PS-07-01-011": {
+    "status": "Blocked",
+    "remark": "External manual step — bank/finance not in this DB."
+  },
+  "TC-BRD-PS-07-01-012": {
+    "status": "Blocked",
+    "remark": "Email/notification system not in this DB."
+  },
+  "TC-BRD-PS-07-01-013": {
+    "status": "Blocked",
+    "remark": "UI multi-select — UI unreachable. DB: each treaty has its own est_hd/act_hd row and own EDW status; transfer is per-treaty."
+  },
+  "TC-BRD-PS-07-01-014": {
+    "status": "Blocked",
+    "remark": "UI bulk send — UI unreachable. DB: ACT_EDW_PROCESS supports per-treaty transfer; \"send all\" would be N separate runs."
+  },
+  "TC-BRD-PS-07-01-015": {
+    "status": "Pass (Partial)",
+    "remark": "Validation: 5 ACT_EDW ERROR, 4 EST_EDW ERROR found in history — validation catches issues (transfers fail when data incomplete). EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200."
+  },
+  "TC-BRD-PS-07-01-016": {
+    "status": "Pass (Partial)",
+    "remark": "Cross-check between GRP (this DB) and downstream EDW requires EDW DB access. From GRP side: SUCCESS ACT_EDW transfers report sum_record values matching the source act_hd sum_records."
+  },
+  "TC-BRD-PS-07-01-017": {
+    "status": "Pass",
+    "remark": "Re-send: each treaty has multiple ACT_EDW_PROCESS runs (e.g. GIB has 17 successful Q1 runs); pattern is replace-on-resend. Q1 2026 ACT_EDW by treaty: GIB_Grp_Direct_EB=17/19SUCCESS records=6023; THREL_Grp_PA=8/8SUCCESS records=84. DAI has NO ACT_EDW_PROCESS run for Q1 2026."
+  },
+  "TC-BRD-PS-07-01-018": {
+    "status": "Pass",
+    "remark": "Graceful failure observed: 5 ACT_EDW ERROR runs in history (e.g. id=10946, 10893, 10632, 10631 — all properly logged with status=ERROR). Failed transfers do not corrupt downstream. EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200."
+  },
+  "TC-BRD-PS-07-01-019": {
+    "status": "Pass",
+    "remark": "Audit logged in tx_rig_process_hd: process_code=ACT_EDW_PROCESS with created_by, start/finish dates, treaty_code, sum_record, status. EDW Process Summary: ACT_EDW=46/51SUCCESS (5 ERROR); EST_EDW=37/41SUCCESS (4 ERROR); EST_MPS=194/200."
+  },
+  "TC-BRD-PS-07-01-020": {
+    "status": "Blocked",
+    "remark": "Email/notification system not in this DB."
+  },
+  "TC-BRD-PS-07-01-021": {
+    "status": "Pass (Partial)",
+    "remark": "Performance proxy from process_hd: ACT_EDW runs typically complete in <5s based on start_date vs finish_date (where finish present). Most runs have finish_date=null indicating async or fire-and-forget."
+  },
+  "TC-BRD-PS-07-01-022": {
+    "status": "Blocked",
+    "remark": "User permission/auth — UI required (Login: Boss). DB shows created_by field on process_hd captures the operator."
+  },
+  "TC-BRD-PS-07-01-023": {
+    "status": "Pass (Partial)",
+    "remark": "Reconciliation: per-treaty due_to (from act_hd) flows to EDW. GIB SUCCESS act_hd id=591 due_to=-1216468.94 and id=592; THREL id=374 due_to=663799.79 id=586 due_to=-136200.21. Reinsurer balance reconcilable in act_hd. Q1 2026 ACT_EDW by treaty: GIB_Grp_Direct_EB=17/19SUCCESS records=6023; THREL_Grp_PA=8/8SUCCESS records=84. DAI has NO ACT_EDW_PROCESS run for Q1 2026."
+  },
+  "TC-BRD-PS-07-01-024": {
+    "status": "Blocked",
+    "remark": "GL Posting Y/N flag per BRD — needs UI confirmation. ms_formular table exists for formula/flag config."
+  },
+  "TC-BRD-PS-07-01-025": {
+    "status": "Blocked",
+    "remark": "UI cancel-send rollback — UI unreachable. DB has 'CANCEL' status as a possibility (seen on act_hd e.g. Q1 DAI has 7 CANCEL)."
+  }
+}

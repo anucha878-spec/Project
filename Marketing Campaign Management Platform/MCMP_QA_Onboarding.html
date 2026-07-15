@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MCMP — QA Test Onboarding</title>
+<style>
+  :root{
+    --navy:#0B2A4A; --blue:#1565C0; --teal:#00897B; --amber:#F57C00;
+    --red:#C62828; --green:#2E7D32; --ink:#1A2330; --muted:#5B6B7B;
+    --line:#D8E0E8; --light:#F6F9FC; --card:#fff; --bg:#EEF2F6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:Tahoma,"Segoe UI",sans-serif;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  .bar{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;
+    display:flex;align-items:center;gap:16px;padding:10px 20px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+  .bar b{font-size:15px;letter-spacing:.5px}
+  .bar .sp{flex:1}
+  .bar button{background:var(--teal);color:#fff;border:0;border-radius:6px;
+    padding:8px 16px;font-size:13px;font-weight:bold;cursor:pointer;font-family:inherit}
+  .bar span{font-size:12px;color:#BCD4EC}
+  .wrap{max-width:1180px;margin:24px auto;padding:0 16px}
+  .slide{background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:34px 40px;margin-bottom:22px;box-shadow:0 1px 4px rgba(11,42,74,.06);
+    position:relative;min-height:560px;border-left:6px solid var(--teal)}
+  .slide.title{background:var(--navy);color:#fff;border-left:6px solid var(--teal);
+    display:flex;flex-direction:column;justify-content:center;min-height:600px}
+  .tag{font-size:12px;font-weight:bold;letter-spacing:2px;color:var(--teal);text-transform:uppercase}
+  h1{font-size:38px;margin:10px 0 6px}
+  h2{font-size:26px;color:var(--navy);margin:6px 0 18px;display:flex;align-items:center;gap:12px}
+  h2 .n{background:var(--navy);color:#fff;font-size:16px;width:38px;height:38px;border-radius:6px;
+    display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+  .pg{position:absolute;bottom:14px;right:20px;font-size:11px;color:var(--muted)}
+  .lead{font-size:15px;line-height:1.6;margin:6px 0 18px}
+  .muted{color:var(--muted);font-size:13px}
+  ul.big{list-style:none;padding:0;margin:0}
+  ul.big li{position:relative;padding:8px 0 8px 26px;font-size:15px;line-height:1.55;border-bottom:1px dashed var(--line)}
+  ul.big li:before{content:"▸";position:absolute;left:4px;color:var(--teal);font-weight:bold}
+  ul.big li.hot:before{color:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:12.5px}
+  th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-weight:bold}
+  td{padding:7px 10px;border:1px solid var(--line);vertical-align:middle}
+  tr:nth-child(even) td{background:var(--light)}
+  .p1{color:var(--red);font-weight:bold;text-align:center}
+  .p2{color:var(--amber);font-weight:bold;text-align:center}
+  .p3{color:var(--green);font-weight:bold;text-align:center}
+  .mono{background:var(--navy);color:#D7E6F5;border-radius:8px;padding:16px 18px;
+    font-family:Consolas,monospace;font-size:12.5px;line-height:1.5;white-space:pre;overflow-x:auto;margin:14px 0}
+  .call{border-radius:6px;padding:12px 16px;margin:12px 0;font-size:13.5px;line-height:1.5;border-left:5px solid}
+  .call.amber{background:#FFF8E1;border-color:var(--amber)}
+  .call.red{background:#FDECEA;border-color:var(--red)}
+  .call.blue{background:#E8F0FB;border-color:var(--blue)}
+  .call.green{background:#E7F4E9;border-color:var(--green)}
+  .call.teal{background:#E2F2F0;border-color:var(--teal)}
+  .cards{display:flex;gap:14px;margin:16px 0}
+  .cards.k4>div,.cards.k5>div{flex:1;background:var(--light);border:1px solid var(--line);
+    border-radius:8px;padding:16px 10px;text-align:center}
+  .cards .v{font-size:30px;font-weight:bold;color:var(--teal)}
+  .cards .vn{color:var(--navy)}
+  .cards .t{font-size:13px;font-weight:bold;color:var(--navy);margin-top:6px}
+  .cards .d{font-size:11px;color:var(--muted);margin-top:4px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  code.f{color:var(--blue);font-weight:bold;font-family:Consolas,monospace}
+  @media print{
+    .bar{display:none}
+    .wrap{margin:0;max-width:none;padding:0}
+    .slide{page-break-after:always;border-radius:0;box-shadow:none;margin:0;min-height:96vh;border:0;border-left:6px solid var(--teal)}
+    .slide.title{min-height:100vh}
+  }
+</style>
+</head>
+<body>
+<div class="bar">
+  <b>MCMP · QA Test Onboarding</b>
+  <span>19 สไลด์ · Project 20240278</span>
+  <div class="sp"></div>
+  <span>กด Print เพื่อบันทึกเป็น PDF</span>
+  <button onclick="window.print()">🖨 Print → PDF</button>
+</div>
+<div class="wrap">
+
+  <!-- 1 TITLE -->
+  <section class="slide title">
+    <div class="tag" style="color:#7FD4C9">Project 20240278 · QA Onboarding Pack</div>
+    <h1>Marketing Campaign<br>Management Platform</h1>
+    <div style="font-size:19px;color:#CFE1F2;margin:10px 0 26px">คู่มือเริ่มต้นสำหรับทีม QA — เข้าใจระบบ รู้จัก Test Cases และเริ่มทดสอบได้ทันที</div>
+    <div style="height:3px;width:100%;background:var(--teal);margin-bottom:22px"></div>
+    <div style="font-size:13px;color:#BCD4EC;line-height:1.7">
+      Owner: ฝ่ายการตลาด — บมจ. ไทยสมุทรประกันชีวิต (Ocean Life Insurance)<br>
+      อ้างอิง: BRD v0.1 · WBS v1.0 · GrowthAi Slides &nbsp;|&nbsp; Test Design <b>180 Test Cases</b> (155 BRD + 25 GrowthAi)
+    </div>
+  </section>
+
+  <!-- 2 START HERE -->
+  <section class="slide">
+    <div class="tag">Start Here</div>
+    <h2><span class="n">1</span>QA จะได้อะไรจาก deck นี้</h2>
+    <p class="lead">อ่านจบแล้วคุณจะ (1) เข้าใจว่าระบบทำอะไร (2) รู้ว่ามี Test Case อะไรบ้าง เก็บไว้ที่ไหน นำเข้าเครื่องมือยังไง (3) รู้จุดที่ต้องทดสอบหนัก + Business Rule (4) รู้ว่าต้องเตรียม Test Data อะไร (5) รู้คำถามที่ต้อง clarify ก่อนลงมือ</p>
+    <div class="cards k4">
+      <div><div class="v">A</div><div class="t">รู้จักระบบ</div><div class="d">Overview · Architecture · 3 Process</div></div>
+      <div><div class="v">B</div><div class="t">รู้จัก Test Asset</div><div class="d">180 TC · RTM · import Jira/TestRail/Xray</div></div>
+      <div><div class="v">C</div><div class="t">รู้จุดเสี่ยง</div><div class="d">Test Focus · Boundary · Business Rules · PDPA</div></div>
+      <div><div class="v">D</div><div class="t">ลงมือ + ส่งมอบ</div><div class="d">Test Data · QA1/QA2 · Entry/Exit · Defect flow</div></div>
+    </div>
+    <div class="call teal">เอกสารคู่มือฉบับเต็มในโปรเจกต์: <code class="f">MCMP_Test_Design.md</code> · <code class="f">MCMP_BRD_vs_WBS_Crosscheck.md</code> · <code class="f">MCMP_GrowthAi_Gap_and_TestCases.md</code> · <code class="f">MCMP_QA_Task_Assignment.md</code></div>
+    <div class="pg">02</div>
+  </section>
+
+  <!-- 3 THE SYSTEM -->
+  <section class="slide">
+    <div class="tag">The System</div>
+    <h2><span class="n">2</span>MCMP ทำอะไร — ใน 1 นาที</h2>
+    <p class="lead">แพลตฟอร์มกลางของฝ่ายการตลาด: รวมข้อมูลลูกค้าหลายระบบ → สร้างกลุ่มเป้าหมาย → ยิงแคมเปญหลายช่องทาง → เชื่อมโฆษณาออนไลน์ → บริหาร Lead จนถึงมือตัวแทน (LC)</p>
+    <div class="cards k5">
+      <div><div class="v vn">①</div><div class="t">รวมข้อมูล</div><div class="d">Single View</div></div>
+      <div><div class="v vn">②</div><div class="t">Segment</div><div class="d">RFM / CLV / Health</div></div>
+      <div><div class="v vn">③</div><div class="t">Campaign</div><div class="d">SMS/Email/LINE/App</div></div>
+      <div><div class="v vn">④</div><div class="t">Ads Sync</div><div class="d">FB / Google</div></div>
+      <div><div class="v vn">⑤</div><div class="t">Lead → LC</div><div class="d">SLA 24 ชม.</div></div>
+    </div>
+    <div class="call blue"><b>3 กระบวนการที่ QA ต้องครอบคลุม:</b>&nbsp; 01 Data Ingestion &nbsp;·&nbsp; 02 Campaign Setting &amp; Send &nbsp;·&nbsp; 03 Lead Management</div>
+    <p class="muted">Segmentation model ที่ต้องรู้: RFM Group (11) · CLV Group (6) · Customer Segment (6) · Age Group · Health</p>
+    <div class="pg">03</div>
+  </section>
+
+  <!-- 4 ARCHITECTURE -->
+  <section class="slide">
+    <div class="tag">Architecture</div>
+    <h2><span class="n">3</span>จุดเชื่อมต่อที่ต้องทดสอบ (Seams)</h2>
+    <div class="mono">[ ต้นทาง ]              [ Data Platform ]            [ MCMP ]           [ ปลายทาง ]
+CIS/OLI ─┐                                                             ┌─ ลูกค้า (SMS/Email/
+AS400    │  DW → S3 → AWS Glue/Athena     01 Ingestion                 │   LINE/Ocean Club)
+LineOA   ├ Upd/Ins ─► (lakecurated) ──► 02 Campaign ───────────────────┤─ FB / Google Ads (ESB)
+GA4      │  → QuickSight (RFM/Dashboard)  03 Lead                       │─ LC Connect (ตัวแทน)
+OSSS·NBS │                                                             └─ Digital Sale
+Web·HR ──┘  Vendor: GrowthAi · Infobip</div>
+    <div class="call amber"><b>Integration ที่ต้องเตรียม stub/บัญชีทดสอบ:</b> FB/Google Ads API · Infobip (SMS+Shortlink) · OSSS · UW · NBS · QuickSight/S3 · GrowthAi</div>
+    <div class="call blue"><b>Single Source of Truth:</b> เจอข้อมูลซ้ำหลายแหล่ง → ระบบต้องยึด <b>เบอร์/อีเมลจาก CIS</b> เสมอ (verify ทุกจุด dedup)</div>
+    <div class="pg">04</div>
+  </section>
+
+  <!-- 5 P01 -->
+  <section class="slide">
+    <div class="tag">Test Map · Process 01</div>
+    <h2><span class="n">4</span>Data Ingestion — ทดสอบอะไร</h2>
+    <table>
+      <tr><th>Scenario</th><th>โฟกัสการทดสอบ</th><th>TC</th><th style="text-align:center">Pri</th></tr>
+      <tr><td><b>TS-01</b> ดึงข้อมูล + แจ้งผล</td><td>Update-Insert ไม่ซ้ำ · จับ error · Automail 08:00 / ไม่พบไฟล์ 09:00</td><td>TC-01-01..09</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-02</b> Upload + Validate ไฟล์</td><td>csv ≤5MB (boundary 5.00/5.01) · column ผิด · ซ้ำ · ว่าง · ไทย UTF-8</td><td>TC-02-01..09</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-03</b> Maker/Checker นำเข้า</td><td>Approve→เข้า CIS · Reject+เหตุผล · Maker อนุมัติงานตัวเองไม่ได้</td><td>TC-03-01..05</td><td class="p1">P1</td></tr>
+    </table>
+    <div class="call amber"><b>จุดพลาดบ่อย:</b> boundary ขนาดไฟล์ (=5MB ยอมรับ / &gt;5MB ปฏิเสธ) และ encoding ภาษาไทยต้องไม่เพี้ยน</div>
+    <div class="pg">05</div>
+  </section>
+
+  <!-- 6 P02 -->
+  <section class="slide">
+    <div class="tag">Test Map · Process 02</div>
+    <h2><span class="n">5</span>Campaign Setting &amp; Send — ทดสอบอะไร</h2>
+    <table>
+      <tr><th>Scenario</th><th>โฟกัสการทดสอบ</th><th>TC</th><th style="text-align:center">Pri</th></tr>
+      <tr><td><b>TS-04</b> Segment</td><td>Filter AND/OR · RFM · Clone · Exclude Consent=No · Exclude Do-not-contact</td><td>TC-04-01..17</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-05</b> Ads Sync</td><td>Sync audience → FB / Google (Customer Match)</td><td>TC-05-01..03</td><td class="p2">P2</td></tr>
+      <tr><td><b>TS-06</b> Campaign</td><td>Flow builder · เวลา 3 แบบ · Retarget · นับ Sent/Open/Unique Click</td><td>TC-06-01..23</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-07</b> Message</td><td>แยกช่องทาง · Personalization · Shortlink Infobip · SMS credit ไทย</td><td>TC-07-01..11</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-08</b> Maker/Checker ส่ง</td><td>Approve→ส่ง · Reject→ไม่ส่ง · แก้หลังอนุมัติ (lock?)</td><td>TC-08-01..05</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-09</b> Send</td><td>ส่งตรงเวลา · ยึด CIS · do-not-contact ไม่ได้รับ · สรุปรายที่ fail</td><td>TC-09-01..06</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-10</b> Tracking</td><td>Sent/Open/Click/Unique · Export raw · Monthly Report (วันที่1 13:00)</td><td>TC-10-01..10</td><td class="p1">P1</td></tr>
+    </table>
+    <div class="call red"><b>GrowthAi:</b> Campaign = Visual Flow Builder (Decision/Condition/Action) → ต้องทดสอบ combinatorial path (ดูสไลด์ 11)</div>
+    <div class="pg">06</div>
+  </section>
+
+  <!-- 7 P03 -->
+  <section class="slide">
+    <div class="tag">Test Map · Process 03</div>
+    <h2><span class="n">6</span>Lead Management — ทดสอบอะไร</h2>
+    <table>
+      <tr><th>Scenario</th><th>โฟกัสการทดสอบ</th><th>TC</th><th style="text-align:center">Pri</th></tr>
+      <tr><td><b>TS-11</b> Import LC (OSSS)</td><td>boundary ≤10 ชื่อ/จังหวัด · ≤10 จังหวัด/ครั้ง · auto update</td><td>TC-11-01..07</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-12</b> บันทึก Lead + Dedup</td><td>Web/FB/Contact(VPN)/CRM · dedup 1 &amp; 2 ช่องทาง · แบบประกันเหมือน/ต่าง</td><td>TC-12-01..12</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-13</b> Online vs ตัวแทน</td><td>Online→Digital Sale (Sheet+Email) / ตัวแทน→เกณฑ์ Assign</td><td>TC-13-01..04</td><td class="p2">P2</td></tr>
+      <tr><td><b>TS-14</b> Auto Assign + Scoring</td><td>จังหวัด→ผลงาน→Round Robin · tie-break · Hot/Warm · no candidate</td><td>TC-14-01..14</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-15</b> Manual Assign</td><td>รายการ Lead ไร้ LC · assign + audit (ใคร/เมื่อไร)</td><td>TC-15-01..05</td><td class="p2">P2</td></tr>
+      <tr><td><b>TS-16</b> LC Connect UI</td><td>My Lead · Notification · Status · ปุ่มโทร · mockup</td><td>TC-16-01..06</td><td class="p2">P2</td></tr>
+      <tr><td><b>TS-17</b> SLA 24 ชม. + ระงับ LC</td><td>Hot/Warm timer · boundary 07/18/19:00 · เกิน→ดึงคืน · ระงับ 5–ถาวร</td><td>TC-17-01..14</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-18</b> Contact + UW + 3 ครั้ง</td><td>UW lookup 3 กรณี · กฎ 3 ครั้งปิดเคส · ติดตาม ≤7 วัน · retention 3 เดือน</td><td>TC-18-01..16</td><td class="p1">P1</td></tr>
+      <tr><td><b>TS-19</b> Report</td><td>Automail Daily 09:00 · Export CSV/Excel</td><td>TC-19-01..04</td><td class="p2">P2</td></tr>
+    </table>
+    <div class="call red"><b>TS-17 (SLA) = จุดต้องทดสอบ Boundary หนักที่สุด</b> — เวลาเริ่มนับ Hot vs Warm ต่างกัน + ขอบ 07/18/19:00</div>
+    <div class="pg">07</div>
+  </section>
+
+  <!-- 8 TEST ASSETS -->
+  <section class="slide">
+    <div class="tag">Test Assets</div>
+    <h2><span class="n">7</span>Test Cases อยู่ที่ไหน — นำเข้ายังไง</h2>
+    <div class="cards k4">
+      <div><div class="v">180</div><div class="d">Test Cases รวม</div></div>
+      <div><div class="v">155</div><div class="d">จาก BRD</div></div>
+      <div><div class="v">25</div><div class="d">จาก GrowthAi</div></div>
+      <div><div class="v">19</div><div class="d">Test Scenarios</div></div>
+    </div>
+    <table>
+      <tr><th>ไฟล์ / ที่อยู่</th><th>ใช้ทำอะไร</th></tr>
+      <tr><td><code class="f">MCMP_Test_Design.md</code></td><td>อ่านทำความเข้าใจ TC ทั้งหมด (RTM · steps · expected · test data · open issues)</td></tr>
+      <tr><td><code class="f">export\MCMP_Test_Artifacts.xlsx</code></td><td>Master 13 sheets — ใช้ track/รีวิว offline</td></tr>
+      <tr><td><code class="f">export\TestCases_Jira.csv</code></td><td>Import เข้า Jira (UTF-8 BOM)</td></tr>
+      <tr><td><code class="f">export\TestCases_TestRail.csv</code></td><td>Import เข้า TestRail</td></tr>
+      <tr><td><code class="f">export\TestCases_Xray_Steps.csv</code></td><td>Import เข้า Xray (แยก step)</td></tr>
+      <tr><td><code class="f">export\data.js → build-excel.js / build-csv.js</code></td><td>แหล่งความจริงเดียว — แก้ TC ที่นี่แล้ว regenerate ทุกไฟล์</td></tr>
+    </table>
+    <div class="pg">08</div>
+  </section>
+
+  <!-- 9 RTM -->
+  <section class="slide">
+    <div class="tag">Coverage</div>
+    <h2><span class="n">8</span>RTM — Requirement → Test Cases</h2>
+    <p class="muted">ทุก Test Case trace กลับไป Process Step ID ของ BRD ได้ (เช่น TC-17-02 → 03-12). ใช้ตารางนี้วางแผน sprint และเช็ค coverage</p>
+    <table>
+      <tr><th>Process</th><th>Scenarios</th><th>TC (BRD)</th><th>จุดเน้น P1</th><th>โฟกัสความเสี่ยง</th></tr>
+      <tr><td><b>01 Ingestion</b></td><td>TS-01..03</td><td>~23</td><td>Upload validate · Maker/Checker</td><td>boundary ไฟล์ · error handling</td></tr>
+      <tr><td><b>02 Campaign</b></td><td>TS-04..10</td><td>~55</td><td>Segment · Send · Tracking · Approval</td><td>PDPA exclude · flow builder · CIS dedup</td></tr>
+      <tr><td><b>03 Lead</b></td><td>TS-11..19</td><td>~77</td><td>Assign · SLA · Contact result</td><td>SLA timer boundary · dedup · retention</td></tr>
+      <tr><td><b>GrowthAi (+)</b></td><td>Segment/Msg/Campaign/Track</td><td>+25</td><td>Flow node · Tracking columns</td><td>combinatorial path · webhook</td></tr>
+    </table>
+    <div class="call green"><b>Priority:</b> P1=Critical · P2=High · P3=Medium — เริ่มรัน P1 ของ Process ที่ตัวเองรับผิดชอบก่อนเสมอ</div>
+    <div class="pg">09</div>
+  </section>
+
+  <!-- 10 TEST FOCUS -->
+  <section class="slide">
+    <div class="tag">⭐ Test Focus</div>
+    <h2><span class="n">9</span>จุดต้องทดสอบหนัก (Critical / Boundary)</h2>
+    <ul class="big">
+      <li class="hot"><b>SLA Timer (TS-17):</b> Hot นับจาก 'เวลานัด' · Warm นับจาก 'เวลา assign' ในช่วง 9–18 น. → ทดสอบขอบ <b>07:00</b> (เริ่ม 9:00), <b>18:00</b> (พอดี), <b>19:00</b> (เริ่ม 9:00 วันถัดไป), <b>ครบ 24 ชม.พอดี</b></li>
+      <li><b>Dedup (TS-12/09):</b> 1 ช่องทาง vs 2 ช่องทาง · แบบประกันเหมือน/ต่าง · ยึด CIS เป็นหลัก · Lead ซ้ำ → LC คนเดิม</li>
+      <li><b>PDPA/Compliance (TS-04/09):</b> Consent=No และ Do-not-contact ต้องถูก exclude ทั้งตอนสร้าง Segment และตอนส่งจริง</li>
+      <li><b>Maker/Checker (TS-03/08):</b> แยกบทบาท — Maker อนุมัติงานตัวเองไม่ได้ · Reject ต้องมีเหตุผล</li>
+      <li><b>File Upload (TS-02):</b> boundary 5.00MB ยอมรับ / 5.01MB ปฏิเสธ · column ผิด · ไฟล์ว่าง · ไทย UTF-8</li>
+      <li><b>Counter (TS-06/10):</b> Sent=สำเร็จเท่านั้น · Unique Click ไม่นับซ้ำ · Open แยกจาก Click</li>
+      <li><b>Import LC (TS-11):</b> boundary ≤10 ชื่อ/จังหวัด และ ≤10 จังหวัด/ครั้ง (10 ยอมรับ / 11 ปฏิเสธ)</li>
+    </ul>
+    <div class="pg">10</div>
+  </section>
+
+  <!-- 11 BUSINESS RULES -->
+  <section class="slide">
+    <div class="tag">Business Rules</div>
+    <h2><span class="n">10</span>Business Rule ที่ต้อง verify ทุก path</h2>
+    <table>
+      <tr><th>#</th><th>Rule</th><th>ทดสอบที่ scenario</th></tr>
+      <tr><td><b>BR-1</b></td><td>ยึดเบอร์/อีเมลจาก CIS เป็นหลักเมื่อข้อมูลซ้ำ</td><td><b style="color:var(--blue)">TS-09, TS-12</b></td></tr>
+      <tr><td><b>BR-2</b></td><td>Exclude Consent=No + Do-not-contact ก่อนส่ง (PDPA)</td><td><b style="color:var(--blue)">TS-04, TS-09</b></td></tr>
+      <tr><td><b>BR-3</b></td><td>Maker/Checker ทั้ง import (01-0-4) และส่ง campaign (02-7)</td><td><b style="color:var(--blue)">TS-03, TS-08</b></td></tr>
+      <tr><td><b>BR-4</b></td><td>SLA Lead 24 ชม. เกิน → ดึงคืน + ระงับ LC (5/10/15/20/ถาวร)</td><td><b style="color:var(--blue)">TS-17</b></td></tr>
+      <tr><td><b>BR-5</b></td><td>Lead Scoring: มีเวลานัด=Hot / ไม่มี=Warm</td><td><b style="color:var(--blue)">TS-14, TS-17</b></td></tr>
+      <tr><td><b>BR-6</b></td><td>Retention: Lead ปิดไม่ได้ 3 เดือน → ลบอัตโนมัติ</td><td><b style="color:var(--blue)">TS-18</b></td></tr>
+      <tr><td><b>BR-7</b></td><td>กฎติดต่อสูงสุด 3 ครั้ง → ปิดเคส</td><td><b style="color:var(--blue)">TS-18</b></td></tr>
+    </table>
+    <div class="call red"><b>BR-2 (PDPA)</b> และ <b>BR-3 (Maker/Checker)</b> เป็นความเสี่ยงเชิงกฎหมาย/governance — ถ้าเทสต์ตกมีผลร้ายแรง จัดเป็น P1 เสมอ</div>
+    <div class="pg">11</div>
+  </section>
+
+  <!-- 12 GROWTHAI -->
+  <section class="slide">
+    <div class="tag">⭐ Heads-up</div>
+    <h2><span class="n">11</span>GrowthAi เปลี่ยนวิธีทดสอบ Campaign</h2>
+    <p class="lead">GrowthAi คือเครื่องมือ marketing-automation จริง — Campaign <b style="color:var(--red)">ไม่ใช่</b> "สร้าง+เลือกช่องทาง" แต่เป็น <b>Visual Flow Builder</b></p>
+    <div class="mono">[Segment / Contact] → [Decision] → [Condition ตาม tag] → [Action]
+                     yes/no       branch               ├─ Send email (drag-drop builder)
+                                                        ├─ Send text message
+                                                        ├─ Mobile app push
+                                                        ├─ Send webhook
+                                                        └─ per-step delay / schedule</div>
+    <div class="call amber"><b>ต้องทดสอบ:</b> แต่ละ node แยก + ทั้ง flow แบบ E2E + combinatorial path (yes/no × branch × action) + per-step delay</div>
+    <div class="call blue"><b>Tracking ตายตัวต่อ campaign:</b> Total User · Total Send · Total Credit · Total Fail · Total Click · Unique Click (+ drill-down รายคน)</div>
+    <div class="pg">12</div>
+  </section>
+
+  <!-- 13 TEST DATA -->
+  <section class="slide">
+    <div class="tag">Prepare</div>
+    <h2><span class="n">12</span>Test Data ที่ต้องเตรียมก่อนเทสต์</h2>
+    <table>
+      <tr><th>ชุดข้อมูล</th><th>รายละเอียด</th><th>ใช้กับ</th></tr>
+      <tr><td><b>Customer ปกติ</b></td><td>มีเบอร์+อีเมล · Consent=Y · Inforce</td><td>TS-04, TS-09</td></tr>
+      <tr><td><b>Customer Consent=No</b></td><td>ต้องถูก exclude</td><td>TC-04-07, 09-06</td></tr>
+      <tr><td><b>Customer ใน Do-not-contact</b></td><td>เบอร์ตรง do-not-contact list</td><td>TC-04-08, 09-06</td></tr>
+      <tr><td><b>Customer หลายแหล่ง</b></td><td>เบอร์/อีเมลต่างกัน CIS vs อื่น</td><td>TC-09-02</td></tr>
+      <tr><td><b>ไฟล์ csv หลายแบบ</b></td><td>ถูก / &gt;5MB / =5MB / column ผิด / ซ้ำ / ว่าง / ไทย</td><td>TS-02</td></tr>
+      <tr><td><b>LC หลายผลงาน</b></td><td>ทุกงวด / บางงวด / จังหวัดต่าง / กรมธรรม์เท่ากัน</td><td>TS-14</td></tr>
+      <tr><td><b>Lead Hot / Warm</b></td><td>มีช่วงเวลา / ไม่มีช่วงเวลา</td><td>TS-14, TS-17</td></tr>
+      <tr><td><b>Lead ซ้ำ</b></td><td>1 ช่องทาง / 2 ช่องทาง / แบบประกันเหมือน-ต่าง</td><td>TS-12</td></tr>
+      <tr><td><b>เลขใบคำขอ/กรมธรรม์</b></td><td>พบทั้งคู่ / พบใบคำขอไม่พบกรมธรรม์ / ไม่พบ</td><td>TC-18-03..05</td></tr>
+      <tr><td><b>เวลา Assign</b></td><td>07:00 / 10:00 / 18:00 / 19:00</td><td>TS-17</td></tr>
+    </table>
+    <div class="pg">13</div>
+  </section>
+
+  <!-- 14 CLARIFY -->
+  <section class="slide">
+    <div class="tag">❓ Clarify First</div>
+    <h2><span class="n">13</span>ต้องถามให้ชัดก่อนเขียน Expected</h2>
+    <ul class="big">
+      <li class="hot"><b>SLA 'ครบ 24 ชม.พอดี' นับ inclusive/exclusive?</b> และนับข้ามวันหยุด (เสาร์-อาทิตย์) หรือนับ 24 ชม.ต่อเนื่อง? (TC-17-03/07/13)</li>
+      <li>GrowthAi เป็น COTS/SaaS หรือ custom build? — กระทบระดับการทดสอบ (config vs functional) + effort</li>
+      <li>Send webhook ยิงไประบบไหน (MCMP internal / LC Connect / UW?) — ยังไม่อยู่ใน BRD</li>
+      <li>Decision vs Condition node ต่างกันเชิง business อย่างไร · LINE Ocean Connect ส่งผ่าน action ใด (หายจาก GrowthAi)</li>
+      <li>Total Credit / Total Fail สูตรตรงกับ Infobip billing หรือไม่ (reconciliation)</li>
+      <li>การแก้ Campaign หลังอนุมัติ — ล็อก หรือ ต้องขออนุมัติใหม่? (TC-08-05)</li>
+      <li>Raw Data Lead Source แสดงหลายช่องทางด้วย comma หรือไม่ (Issue #105 Recheck) · frequency sync RFM (daily vs monthly)</li>
+    </ul>
+    <div class="call amber">ข้อที่ค้างคำตอบ → ทำ TC เป็น <b>'Blocked/Draft'</b> ไว้ก่อน อย่าเดา Expected — ถาม BA/SA (piraya.ph) ให้จบก่อนรัน</div>
+    <div class="pg">14</div>
+  </section>
+
+  <!-- 15 TEAM SPLIT -->
+  <section class="slide">
+    <div class="tag">Team Split</div>
+    <h2><span class="n">14</span>แบ่งงาน QA1 (Senior) / QA2 (Junior)</h2>
+    <p class="muted">จับคู่เป็น 8 workflow chain — QA2 ทำ 'ต้นน้ำ (data/UI)' ป้อนให้ QA1 ทดสอบ 'core logic' ปลายน้ำ ลด false positive</p>
+    <table>
+      <tr><th>บทบาท</th><th>รับผิดชอบหลัก</th><th>MD</th></tr>
+      <tr><td><b style="color:var(--red)">QA1 Senior</b></td><td>Segment+Tag+RFM · Campaign+Maker/Checker · Auto-Assign+SLA · LC API/Batch · GrowthAi · Test Plan</td><td><b>≈63.75</b></td></tr>
+      <tr><td><b style="color:var(--blue)">QA2 Junior</b></td><td>Data ingestion (LineOA/BZB/GA4/Staff) · SMS+Ads · Lead intake · LC Connect Screens</td><td><b>≈39.25</b></td></tr>
+    </table>
+    <div class="call blue">QA รวม (ทางการ) <b>≈102.0 MD</b> = baseline 98.0 + GrowthAi +4.0 · Gap High 5 ข้อ (สไลด์ถัดไป) ควรเป็นงาน QA1 + ขอเพิ่ม ~5–8 MD</div>
+    <p class="muted">8 chains: Segment · Campaign+Activity · Tracking · LINE · Push/App · SMS+Ads · Lead→Auto-Assign · LC Connect</p>
+    <div class="pg">15</div>
+  </section>
+
+  <!-- 16 COVERAGE RISK -->
+  <section class="slide">
+    <div class="tag">🔴 Coverage Risk</div>
+    <h2><span class="n">15</span>Gap: อยู่ใน BRD แต่ไม่พบใน WBS</h2>
+    <p class="muted">ฟีเจอร์เหล่านี้มี Test Case เขียนไว้แล้วตาม BRD แต่ยังไม่พบ dev task ใน WBS — เสี่ยงว่า 'ไม่มีของให้เทสต์' ต้องยืนยันกับ PM ก่อน</p>
+    <table>
+      <tr><th>#</th><th>Gap</th><th>TC ที่รอ</th><th>ระดับ</th></tr>
+      <tr><td><b>1</b></td><td>Do-not-contact list (import + exclude)</td><td><b style="color:var(--blue)">TC-04-08, 09-06</b></td><td class="p1">High</td></tr>
+      <tr><td><b>2</b></td><td>Exclude Consent=No (PDPA)</td><td><b style="color:var(--blue)">TC-04-07</b></td><td class="p1">High</td></tr>
+      <tr><td><b>3</b></td><td>Maker/Checker workflow อนุมัติส่ง Campaign</td><td><b style="color:var(--blue)">TS-08</b></td><td class="p1">High</td></tr>
+      <tr><td><b>4</b></td><td>Manual Assign Lead</td><td><b style="color:var(--blue)">TS-15</b></td><td class="p1">High</td></tr>
+      <tr><td><b>5</b></td><td>ระงับ LC x วัน (5/10/15/20/ถาวร)</td><td><b style="color:var(--blue)">TC-17-10/11</b></td><td class="p1">High</td></tr>
+    </table>
+    <div class="call amber"><b>Medium ที่รอยืนยันเช่นกัน:</b> Open tracking (email) · Campaign Monthly Report · Lead Daily Report · Lead Import Excel/CSV · Message object แยก · Preview</div>
+    <div class="pg">16</div>
+  </section>
+
+  <!-- 17 NON-FUNCTIONAL -->
+  <section class="slide">
+    <div class="tag">Beyond Functional</div>
+    <h2><span class="n">16</span>Non-Functional ที่ต้องครอบคลุม</h2>
+    <table>
+      <tr><th style="width:20%">ด้าน</th><th>สิ่งที่ต้องทดสอบ</th></tr>
+      <tr><td><b style="color:var(--teal)">Performance</b></td><td>Batch Daily 23:00 ต้องเสร็จก่อน 08:00 (ก่อน Automail) · ส่ง Campaign ปริมาณมาก · Load Test</td></tr>
+      <tr><td><b style="color:var(--teal)">Security</b></td><td>แยกสิทธิ์ Maker/Checker · Lead เข้าถึงเฉพาะ LC เจ้าของ · VPN/VDI สำหรับ WFH · Pentest public link</td></tr>
+      <tr><td><b style="color:var(--teal)">Integration</b></td><td>FB/Google Ads API · Infobip SMS · OSSS · UW · NBS · QuickSight/S3 · GrowthAi</td></tr>
+      <tr><td><b style="color:var(--teal)">Data Integrity</b></td><td>Update vs Insert ไม่ duplicate · ยึด CIS เป็น primary · Hash SHA-256 (Staff)</td></tr>
+      <tr><td><b style="color:var(--teal)">Scheduling</b></td><td>Automail ตรงเวลา (08:00/09:00/13:00) · SLA timer · Retention 3 เดือน</td></tr>
+      <tr><td><b style="color:var(--teal)">Compatibility</b></td><td>LC Connect บนมือถือ · การแสดง Email/LINE รูปภาพ · encoding ภาษาไทย</td></tr>
+    </table>
+    <div class="pg">17</div>
+  </section>
+
+  <!-- 18 EXECUTION -->
+  <section class="slide">
+    <div class="tag">Execution</div>
+    <h2><span class="n">17</span>Test Execution Workflow &amp; Defect Flow</h2>
+    <div class="mono">เตรียม ─► Import TC ─► รัน P1 ก่อน ─► บันทึกผล ─► เจอ Defect ─► แจ้ง Dev ─► Retest ─► ปิด
+(Test Data) (Jira/Xray)  (ตาม chain)  (Pass/Fail)  (ระบุ TC+step) (severity)  (verify)  (closed)</div>
+    <div class="grid2">
+      <div class="call green"><b style="color:var(--green)">Entry Criteria (เริ่มเทสต์ได้เมื่อ):</b><br>build พร้อม · test data เตรียมครบ · integration/stub เชื่อมได้ · Open Issue High ได้คำตอบ</div>
+      <div class="call red"><b style="color:var(--red)">Exit Criteria (จบรอบได้เมื่อ):</b><br>P1 ทั้งหมดรัน 100% + ผ่าน · ไม่มี Critical/Blocker ค้าง · defect P2 มีแผนปิด · trace RTM ครบ</div>
+    </div>
+    <div class="call blue"><b>Defect report ต้องอ้าง</b> TC ID + step + expected/actual + severity + test data ที่ใช้ เพื่อให้ dev reproduce ได้ทันที</div>
+    <div class="pg">18</div>
+  </section>
+
+  <!-- 19 GET STARTED -->
+  <section class="slide">
+    <div class="tag">Get Started</div>
+    <h2><span class="n">18</span>Checklist วันแรกของ QA</h2>
+    <ul class="big">
+      <li>☐ 1. &nbsp;อ่าน <code class="f">MCMP_Test_Design.md</code> ทั้งไฟล์ (RTM + TC + test data + open issues)</li>
+      <li>☐ 2. &nbsp;เปิด <code class="f">export\MCMP_Test_Artifacts.xlsx</code> ดู 13 sheets ให้เห็นภาพรวม TC</li>
+      <li>☐ 3. &nbsp;Import <code class="f">TestCases_Jira.csv</code> (หรือ Xray/TestRail) เข้าเครื่องมือทีม</li>
+      <li>☐ 4. &nbsp;รับ scope ตาม QA1/QA2 + 8 workflow chain ของตัวเอง</li>
+      <li>☐ 5. &nbsp;เตรียม Test Data ตามตาราง (Consent=No, do-not-contact, csv boundary, Lead Hot/Warm)</li>
+      <li class="hot">☐ 6. &nbsp;<b>รวบรวม 7 Open Issues → ถาม BA/SA ให้ได้คำตอบก่อนเขียน Expected</b></li>
+      <li>☐ 7. &nbsp;ยืนยัน 5 Gap High กับ PM ว่า 'มีของให้เทสต์' ไหม</li>
+      <li>☐ 8. &nbsp;เริ่มรัน P1 ของ Process ที่รับผิดชอบ → บันทึกผล → แจ้ง defect</li>
+    </ul>
+    <div class="call green">ติดปัญหา/ต้องการรายละเอียด TC เพิ่ม: ดูเอกสารในโปรเจกต์ หรือถาม QA Lead — ขอให้ทดสอบสนุกครับ 🚀</div>
+    <div class="pg">19</div>
+  </section>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,188 @@
+{
+  "feature": "csms-004-birthday",
+  "skill": "/test-data-generator (Spec-Kit 06)",
+  "date": "2026-07-09",
+  "policy": "SYNTHETIC ONLY — no production PII. All cardNo/mobile/name are fabricated. Values chosen to drive specific TC branches.",
+  "summary": {
+    "total_datasets": 24,
+    "priority_distribution": { "P0": 8, "P1": 9, "P2": 5, "P3": 2 },
+    "risk_alignment": "CRITICAL/HIGH risks (RISK-001..008) all have full datasets; blocked-RQ TCs have placeholder datasets pending SA answers.",
+    "data_readiness_score": 78,
+    "readiness_reason": "All functional branches have deterministic synthetic data. -22: 4 blocked-RQ datasets incomplete (Go-Live date RQ-005, credit_amount RQ-006, timeout RQ-007, 112/113 RQ-002) and no live env to seed/verify."
+  },
+  "categories": {
+    "1_positive": ["TD-001", "TD-004", "TD-013", "TD-018", "TD-019"],
+    "2_negative": ["TD-002", "TD-008", "TD-009", "TD-010", "TD-011", "TD-014", "TD-015", "TD-016"],
+    "3_boundary": ["TD-003", "TD-005", "TD-006", "TD-007", "TD-017"],
+    "4_business_rule": ["TD-012", "TD-020", "TD-021"],
+    "5_e2e_flow": ["TD-022"],
+    "6_risk_based_blocked": ["TD-023", "TD-024"]
+  },
+  "datasets": [
+    {
+      "id": "TD-001", "related_tc": ["TC-001", "TC-038", "TC-045"], "req": ["FR-002", "FR-010a", "FR-012"], "risk": "RISK-002 (HIGH)", "category": "Positive", "priority": "P0",
+      "description": "Golden happy-path customer, birthday match, all vars resolvable.",
+      "expected": "Selected + SMS with all vars filled + recorded with refer_no.",
+      "data": { "cardNo": "1100700000001", "policy_no": "O1000000001", "policy_type": "ORD", "policy_status": "1", "fname": "สมชัย", "lname": "ทดสอบ", "birthdate": "1985-05-16", "mobile1": "0845012341", "mobile2": "", "title_desc": "ตัวแทน", "policy_org": 2070500, "remark_code": null, "line_code": "E02", "app_code": "E02", "isBlockLine": false, "cf_reward": "500 เหรียญ", "cf_link": "https://lin.ee/JianZUe", "run_date": "2026-05-16" }
+    },
+    {
+      "id": "TD-002", "related_tc": ["TC-002"], "req": ["FR-002"], "risk": "LOW", "category": "Negative", "priority": "P2",
+      "description": "Birthday day/month differs from run date.",
+      "expected": "Excluded, no SMS.",
+      "data": { "cardNo": "1100700000002", "policy_no": "O1000000002", "policy_type": "ORD", "policy_status": "1", "birthdate": "1985-05-17", "run_date": "2026-05-16" }
+    },
+    {
+      "id": "TD-003", "related_tc": ["TC-003"], "req": ["FR-002"], "risk": "LOW", "category": "Boundary", "priority": "P2",
+      "description": "Same day/month, different birth years — year must be ignored.",
+      "expected": "Both selected.",
+      "data": [ { "cardNo": "1100700000003", "birthdate": "1960-05-16" }, { "cardNo": "1100700000004", "birthdate": "1995-05-16" } ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-004", "related_tc": ["TC-004"], "req": ["FR-002", "FR-004"], "risk": "MEDIUM", "category": "Positive", "priority": "P1",
+      "description": "One inforce matching policy per type ORD/IND/GOV/PA.",
+      "expected": "All four selected.",
+      "data": [
+        { "policy_type": "ORD", "policy_status": "1", "birthdate": "1980-05-16", "policy_org": 2070001 },
+        { "policy_type": "IND", "policy_status": "2", "birthdate": "1980-05-16", "policy_org": 2079999 },
+        { "policy_type": "GOV", "policy_status": "3", "birthdate": "1980-05-16", "policy_org": 5070001 },
+        { "policy_type": "PA", "policy_status": "1", "birthdate": "1980-05-16", "policy_org": 5079999 }
+      ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-005", "related_tc": ["TC-007", "TC-009"], "req": ["FR-003a"], "risk": "RISK-004 (HIGH)", "category": "Boundary", "priority": "P0",
+      "description": "Feb-29 birthday, non-leap year 2027.",
+      "expected": "Sent on 2027-02-28; not on 2027-02-27 or 2027-03-01.",
+      "data": { "cardNo": "1100700000005", "policy_no": "O1000000005", "policy_type": "ORD", "policy_status": "1", "birthdate": "1988-02-29", "mobile1": "0845000005", "policy_org": 2070005, "line_code": "E02", "app_code": "E02" }, "run_dates": ["2027-02-27", "2027-02-28", "2027-03-01"]
+    },
+    {
+      "id": "TD-006", "related_tc": ["TC-008"], "req": ["FR-003a"], "risk": "RISK-004 (HIGH)", "category": "Boundary", "priority": "P1",
+      "description": "Feb-29 birthday, leap year 2028.",
+      "expected": "Sent on 2028-02-29.",
+      "data": { "cardNo": "1100700000006", "birthdate": "1988-02-29" }, "run_date": "2028-02-29"
+    },
+    {
+      "id": "TD-007", "related_tc": ["TC-017"], "req": ["FR-007"], "risk": "MEDIUM", "category": "Boundary", "priority": "P1",
+      "description": "policy_org range endpoints.",
+      "expected": "2070001/2079999/5070001/5079999 kept; 2070000/2080000 excluded.",
+      "data": [ { "policy_org": 2070000, "keep": false }, { "policy_org": 2070001, "keep": true }, { "policy_org": 2079999, "keep": true }, { "policy_org": 2080000, "keep": false }, { "policy_org": 5070001, "keep": true }, { "policy_org": 5079999, "keep": true } ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-008", "related_tc": ["TC-010", "TC-011", "TC-012"], "req": ["FR-004"], "risk": "MEDIUM", "category": "Negative", "priority": "P1",
+      "description": "Inforce EP classes per type.",
+      "expected": "ORD/PA keep only '1'; IND/GOV keep {1,2,3}; others excluded.",
+      "data": [ { "policy_type": "ORD", "policy_status": "1", "keep": true }, { "policy_type": "ORD", "policy_status": "2", "keep": false }, { "policy_type": "IND", "policy_status": "3", "keep": true }, { "policy_type": "IND", "policy_status": "4", "keep": false }, { "policy_type": "PA", "policy_status": "1", "keep": true }, { "policy_type": "PA", "policy_status": "2", "keep": false } ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-009", "related_tc": ["TC-013", "TC-014"], "req": ["FR-006"], "risk": "HIGH", "category": "Negative", "priority": "P1",
+      "description": "Do-Not-Contact rows.",
+      "expected": "ORD remark='1' excluded; IND/GOV/PA remark='4' excluded.",
+      "data": [ { "policy_type": "0", "remark_code": "1", "keep": false }, { "policy_type": "I", "remark_code": "4", "keep": false }, { "policy_type": "G", "remark_code": "4", "keep": false }, { "policy_type": "P", "remark_code": "4", "keep": false } ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-010", "related_tc": ["TC-015", "TC-016"], "req": ["FR-007"], "risk": "HIGH", "category": "Negative", "priority": "P1",
+      "description": "Non-agent channel.",
+      "expected": "ORD title_desc='ชำระเอง' excluded; IND/GOV/PA position_code='99' excluded.",
+      "data": [ { "policy_type": "ORD", "title_desc": "ชำระเอง", "keep": false }, { "policy_type": "IND", "position_code": "99", "keep": false } ], "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-011", "related_tc": ["TC-021"], "req": ["FR-005"], "risk": "MEDIUM", "category": "Negative", "priority": "P1",
+      "description": "Both mobiles empty.",
+      "expected": "Skip + record for Manual Fix; round continues.",
+      "data": { "cardNo": "1100700000011", "mobile1": "", "mobile2": null }, "run_date": "2026-05-16"
+    },
+    {
+      "id": "TD-012", "related_tc": ["TC-019", "TC-020"], "req": ["FR-005"], "risk": "MEDIUM", "category": "Business Rule", "priority": "P2",
+      "description": "coalesce mobile1 else mobile2 (trim/nullif).",
+      "expected": "Case1 uses mobile1; Case2 (mobile1 blank) uses mobile2.",
+      "data": [ { "mobile1": "0845012341", "mobile2": "", "expect_mobile": "0845012341" }, { "mobile1": "   ", "mobile2": "0812345678", "expect_mobile": "0812345678" } ]
+    },
+    {
+      "id": "TD-013", "related_tc": ["TC-022", "TC-024"], "req": ["FR-008", "FR-009"], "risk": "RISK-001 (CRITICAL)", "category": "Positive", "priority": "P0",
+      "description": "cardNo resolves + LINE=E02 & APP=E02 → SEND.",
+      "expected": "Sent.",
+      "data": { "policy_no": "O1000000013", "cardNo_returned": "1100700000013", "line_code": "E02", "app_code": "E02", "isBlockLine": false }
+    },
+    {
+      "id": "TD-014", "related_tc": ["TC-023"], "req": ["FR-008"], "risk": "RISK-006 (HIGH)", "category": "Negative", "priority": "P1",
+      "description": "cardNo not found.",
+      "expected": "Skip + record; round continues.",
+      "data": { "policy_no": "O1000000014", "cardNo_returned": null }
+    },
+    {
+      "id": "TD-015", "related_tc": ["TC-025", "TC-026", "TC-027", "TC-028"], "req": ["FR-009"], "risk": "RISK-001 (CRITICAL)", "category": "Negative", "priority": "P0",
+      "description": "Decision-table SEND/EXCLUDE rules 2-5.",
+      "expected": "R2 send; R3/R4/R5 exclude.",
+      "data": [
+        { "rule": "R2", "line_code": "E00", "isBlockLine": true, "app_code": "E02", "decision": "SEND" },
+        { "rule": "R3", "line_code": "E00", "isBlockLine": false, "app_code": "E02", "decision": "EXCLUDE" },
+        { "rule": "R4", "line_code": "E02", "isBlockLine": false, "app_code": "E00", "decision": "EXCLUDE" },
+        { "rule": "R5", "line_code": "E00", "isBlockLine": true, "app_code": "E00", "decision": "EXCLUDE" }
+      ]
+    },
+    {
+      "id": "TD-016", "related_tc": ["TC-029", "TC-030"], "req": ["FR-009a"], "risk": "RISK-001 (CRITICAL)", "category": "Negative", "priority": "P0",
+      "description": "Abnormal responses E13 / empty.",
+      "expected": "Skip + record; no per-item retry; round continues.",
+      "data": [ { "rule": "R6", "line_code": "E13", "decision": "SKIP_RECORD" }, { "rule": "R7", "line_code": "", "isBlockLine": "", "decision": "SKIP_RECORD" } ]
+    },
+    {
+      "id": "TD-017", "related_tc": ["TC-042"], "req": ["FR-010b"], "risk": "MEDIUM", "category": "Boundary", "priority": "P1",
+      "description": "CSV columns + seq_no starts at 1 + datetime format.",
+      "expected": "Order mobile,var1,var2,var3,seq_no,datetime; first seq_no=1; datetime 'YYYY-MM-DD HH:MM' CE.",
+      "data": { "rows": 3, "first_seq_no": 1, "datetime_sample": "2026-05-16 09:00" }
+    },
+    {
+      "id": "TD-018", "related_tc": ["TC-036", "TC-037", "TC-043"], "req": ["FR-010", "FR-010a"], "risk": "HIGH", "category": "Positive", "priority": "P1",
+      "description": "Template from schedule (112) in range; fallback to category; filename/Category/UTF-8.",
+      "expected": "Schedule template used; fallback works; filename MKT_CSMS_MKTBirthday_690516090000.csv UTF-8.",
+      "data": { "sms_category_code": "112", "schedule_begin": "2026-01-01", "schedule_end": "2026-12-31", "category_abbr": "MKTBirthday", "expected_filename": "MKT_CSMS_MKTBirthday_690516090000.csv" }
+    },
+    {
+      "id": "TD-019", "related_tc": ["TC-044", "TC-045"], "req": ["FR-011", "FR-012"], "risk": "HIGH", "category": "Positive", "priority": "P1",
+      "description": "Gateway returns refer_no + status; record written.",
+      "expected": "CUSTOMER_BIRTHDAY row (sms_sent_date, rewards, sms_message, refer_no) + CSMS_LOG overview.",
+      "data": { "gateway_refer_no": "REF-20260516-0001", "per_item_status": "SUCCESS" }
+    },
+    {
+      "id": "TD-020", "related_tc": ["TC-031", "TC-032", "TC-033"], "req": ["FR-008b"], "risk": "RISK-003 (HIGH)", "category": "Business Rule", "priority": "P0",
+      "description": "Dedup by sms_sent_date current year.",
+      "expected": "Already-sent excluded; re-run 0 duplicates; next year sends again.",
+      "data": { "cardNo": "1100700000020", "sms_sent_date_this_year": "2026-05-16", "rerun_date": "2026-05-16", "next_year_date": "2027-05-16" }
+    },
+    {
+      "id": "TD-021", "related_tc": ["TC-034", "TC-035"], "req": ["FR-008c"], "risk": "RISK-003 (HIGH)", "category": "Business Rule", "priority": "P0",
+      "description": "One cardNo, two matching policies.",
+      "expected": "Exactly 1 SMS; record references 1 representative policy.",
+      "data": { "cardNo": "1100700000021", "policies": ["O1000000021", "O1000000022"], "expected_sms_count": 1 }
+    },
+    {
+      "id": "TD-022", "related_tc": ["TC-050"], "req": ["FR-014"], "risk": "RISK-008 (HIGH)", "category": "E2E Flow", "priority": "P1",
+      "description": "Manual Batch idempotent re-run over a date range.",
+      "shared_keys": ["cardNo", "run_date_D"],
+      "expected": "Only previously-unsent items processed; successes not resent; birthday compared vs specified date D.",
+      "steps": [ { "step": "initial round D partial", "sent": ["1100700000030"], "unsent": ["1100700000031"] }, { "step": "manual batch range covering D", "carried": "date D", "result_sent": ["1100700000031"], "result_not_resent": ["1100700000030"] } ]
+    },
+    {
+      "id": "TD-023", "related_tc": ["TC-039", "TC-040"], "req": ["FR-010a"], "risk": "RISK-002 (CRITICAL)", "category": "Negative", "priority": "P0",
+      "description": "cf_catalog missing/inactive reward or link — enforce no empty-variable SMS.",
+      "expected": "Skip + record + alert; NO SMS with empty var2/var3.",
+      "data": [ { "cf_reward_active": "N", "expect": "SKIP no empty var2 SMS" }, { "cf_link_active": "N", "expect": "SKIP no empty var3 SMS" } ]
+    },
+    {
+      "id": "TD-024", "related_tc": ["TC-051", "TC-052", "TC-053", "TC-054"], "req": ["FR-010", "FR-003", "FR-012", "FR-013"], "risk": "HIGH", "category": "Risk-Based (BLOCKED)", "priority": "P3",
+      "description": "Placeholder datasets for RQ-blocked TCs — values pending SA.",
+      "expected": "[BLOCKED] pending SA: RQ-002 (112 vs 113), RQ-005 (Go Live date), RQ-006 (credit_amount), RQ-007 (CSV timeout SLA).",
+      "data": { "category_code_expected": "PENDING-RQ002", "go_live_date": "PENDING-RQ005", "credit_amount": "PENDING-RQ006", "csv_timeout_sla": "PENDING-RQ007" }
+    }
+  ],
+  "data_gaps": [
+    "TD-024 blocked pending RQ-002/005/006/007.",
+    "RQ-012: no dataset for multiple-active cf_catalog rows (raised as RQ, low likelihood).",
+    "No live env to seed DWConsole/cisappapi/ESB — all external responses must be stubbed at execute."
+  ],
+  "recommendations": [
+    "Provision cisappapi + ESB stubs to force each decision-table rule and skip branch deterministically.",
+    "Seed cf_catalog with an inactive row to exercise TD-023 (no-empty-variable).",
+    "Answer RQ-002/005/006/007 before completing TD-024."
+  ]
+}

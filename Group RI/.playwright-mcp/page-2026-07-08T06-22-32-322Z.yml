@@ -1,0 +1,1398 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - generic:
+          - generic [ref=e6] [cursor=pointer]:  Linked Applications
+          - generic:
+            - heading "Ocean Life Insurance Public Company Limited" [level=1] [ref=e7]:
+              - link "Ocean Life Insurance Public Company Limited" [ref=e8] [cursor=pointer]:
+                - /url: /
+                - img "Ocean Life Insurance Public Company Limited" [ref=e9]
+            - list [ref=e10]:
+              - listitem [ref=e11]:
+                - link "Spaces" [ref=e12] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e13]:
+                - link "People" [ref=e14] [cursor=pointer]:
+                  - /url: /peopledirectory.action
+              - menu [ref=e15]:
+                - link "Browse" [ref=e16] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e17]:
+                - link "Create" [ref=e18] [cursor=pointer]:
+                  - /url: /pages/createpage.action?spaceKey=RDSGRI&fromPageId=1299022576
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - generic "Show or hide sidebar ([)" [ref=e22] [cursor=pointer]
+            - listitem [ref=e23]:
+              - group [ref=e25]:
+                - generic [ref=e26]: Quick Search
+                - textbox "Quick Search" [ref=e27]:
+                  - /placeholder: Search
+            - listitem [ref=e28]:
+              - link " Help" [ref=e29] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e30]:  Help
+            - listitem
+            - listitem [ref=e31]:
+              - link " 0" [ref=e32] [cursor=pointer]:
+                - /url: "#"
+                - generic:
+                  - text: 
+                  - generic:
+                    - generic: "0"
+            - listitem [ref=e33]:
+              - link "อนุชา พิมสร้อย" [ref=e34] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e37]
+    - generic [ref=e38]:
+      - generic [ref=e40]:
+        - generic [ref=e42]:
+          - textbox [ref=e43]
+          - button "Search" [ref=e44] [cursor=pointer]
+        - list [ref=e45]:
+          - list [ref=e47]:
+            - listitem [ref=e48]:
+              - link [ref=e50] [cursor=pointer]:
+                - /url: "#"
+              - link "Software Requirements Specification" [ref=e53] [cursor=pointer]:
+                - /url: /display/RDSGRI/Software+Requirements+Specification
+            - listitem [ref=e54]:
+              - link "User Manual" [ref=e59] [cursor=pointer]:
+                - /url: /display/RDSGRI/User+Manual
+            - listitem [ref=e60]:
+              - link [ref=e62] [cursor=pointer]:
+                - /url: "#"
+              - link "Functional Specification" [ref=e65] [cursor=pointer]:
+                - /url: /display/RDSGRI/Functional+Specification
+              - list [ref=e67]:
+                - listitem [ref=e68]:
+                  - link "01. Overview Specification." [ref=e73] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389385
+                - listitem [ref=e74]:
+                  - link [ref=e76] [cursor=pointer]:
+                    - /url: "#"
+                  - link "02. Process Specification." [ref=e79] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389388
+                  - list [ref=e81]:
+                    - listitem [ref=e82]:
+                      - link [ref=e84] [cursor=pointer]:
+                        - /url: "#"
+                      - 'link "RIG-PS-01 Landing Tables: Group Policy to Group RI" [ref=e87] [cursor=pointer]':
+                        - /url: /display/RDSGRI/RIG-PS-01+Landing+Tables%3A+Group+Policy+to+Group+RI
+                    - listitem [ref=e88]:
+                      - link "RIG-PS-02 Estimate - Snapshot Landing tables" [ref=e93] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-02+Estimate+-+Snapshot+Landing+tables
+                    - listitem [ref=e94]:
+                      - link "RIG-PS-03 Actual - Snapshot Landing Tables" [ref=e99] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-03+Actual+-+Snapshot+Landing+Tables
+                    - listitem [ref=e100]:
+                      - link [ref=e102] [cursor=pointer]:
+                        - /url: "#"
+                      - link "RIG-PS-04 Estimate - Staging Tables" [ref=e105] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-04+Estimate+-+Staging+Tables
+                      - list [ref=e107]:
+                        - listitem [ref=e108]:
+                          - link [ref=e110] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Batch EST-001 ข้อมูล List of policy" [ref=e113] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1291419946
+                        - listitem [ref=e114]:
+                          - link [ref=e116] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Batch EST-002 ข้อมูล กรรมธรรม์ ณ ต้นสัญญา" [ref=e119] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1291715747
+                        - listitem [ref=e120]:
+                          - link [ref=e122] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Batch EST-003 ข้อมูล Claim" [ref=e125] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1291714686
+                        - listitem [ref=e126]:
+                          - link [ref=e128] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Batch EST-004 ข้อมูล Estimated Premium Layer" [ref=e131] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1299022376
+                        - listitem [ref=e132]:
+                          - link [ref=e134] [cursor=pointer]:
+                            - /url: "#"
+                          - link "Batch EST-005 ข้อมูล (R01) List of inforce by member" [ref=e137] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1292239021
+                          - list [ref=e139]:
+                            - listitem [ref=e140]:
+                              - link [ref=e142] [cursor=pointer]:
+                                - /url: "#"
+                              - link "Process ข้อมูล (R01) List of inforce by member (Estimate)" [ref=e145] [cursor=pointer]:
+                                - /url: /pages/viewpage.action?pageId=1299022576
+                        - listitem [ref=e146]:
+                          - link "Batch EST-006 กระบวนการดึงข้อมูลตั้งฐานกรมธรรม์ที่เคยส่ง Reinsurance" [ref=e151] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1301807413
+                    - listitem [ref=e152]:
+                      - link [ref=e154] [cursor=pointer]:
+                        - /url: "#"
+                      - link "RIG-PS-05 Actual - Staging Tables" [ref=e157] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-05+Actual+-+Staging+Tables
+                    - listitem [ref=e158]:
+                      - link [ref=e160] [cursor=pointer]:
+                        - /url: "#"
+                      - link "RIG-PS-06 ประมวลผล Estimate" [ref=e163] [cursor=pointer]:
+                        - /url: /pages/viewpage.action?pageId=1308459473
+                    - listitem [ref=e164]:
+                      - link [ref=e166] [cursor=pointer]:
+                        - /url: "#"
+                      - link "RIG-PS-07 ประมวลผล Actual" [ref=e169] [cursor=pointer]:
+                        - /url: /pages/viewpage.action?pageId=1309999106
+                    - listitem [ref=e170]:
+                      - link "RIG-PS-08 Prevalidate" [ref=e175] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-08+Prevalidate
+                    - listitem [ref=e176]:
+                      - link [ref=e178] [cursor=pointer]:
+                        - /url: "#"
+                      - link "RIG-PS-09 Profit Commission" [ref=e181] [cursor=pointer]:
+                        - /url: /display/RDSGRI/RIG-PS-09+Profit+Commission
+                    - listitem [ref=e182]:
+                      - link "RIG-PS-10 ส่งข้อมูล Estimate เข้า EDW" [ref=e187] [cursor=pointer]:
+                        - /url: /pages/viewpage.action?pageId=1319108810
+                    - listitem [ref=e188]:
+                      - link "RIG-PS-11 ส่งข้อมูล Estimate เข้า MPS" [ref=e193] [cursor=pointer]:
+                        - /url: /pages/viewpage.action?pageId=1319109283
+                    - listitem [ref=e194]:
+                      - link "RIG-PS-12 ส่งข้อมูล Actual เข้า EDW" [ref=e199] [cursor=pointer]:
+                        - /url: /pages/viewpage.action?pageId=1322647585
+                - listitem [ref=e200]:
+                  - link [ref=e202] [cursor=pointer]:
+                    - /url: "#"
+                  - link "03. User Interface Specification." [ref=e205] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389389
+                - listitem [ref=e206]:
+                  - link [ref=e208] [cursor=pointer]:
+                    - /url: "#"
+                  - link "04. Persistence Specification." [ref=e211] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389386
+                - listitem [ref=e212]:
+                  - link [ref=e214] [cursor=pointer]:
+                    - /url: "#"
+                  - link "05. Business Rules Specification." [ref=e217] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389390
+                - listitem [ref=e218]:
+                  - link [ref=e220] [cursor=pointer]:
+                    - /url: "#"
+                  - link "06. External Service Call Specification." [ref=e223] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389387
+                - listitem [ref=e224]:
+                  - link "07. Exposed API Specification." [ref=e229] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389384
+                - listitem [ref=e230]:
+                  - link "08. Test Specification." [ref=e235] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389391
+                - listitem [ref=e236]:
+                  - link [ref=e238] [cursor=pointer]:
+                    - /url: "#"
+                  - link "10. Review by Lead/Line" [ref=e241] [cursor=pointer]:
+                    - /url: /pages/viewpage.action?pageId=1289389392
+                - listitem [ref=e242]:
+                  - link [ref=e244] [cursor=pointer]:
+                    - /url: "#"
+                  - link "09. Appendix" [ref=e247] [cursor=pointer]:
+                    - /url: /display/RDSGRI/09.+Appendix
+                - listitem [ref=e248]:
+                  - link [ref=e250] [cursor=pointer]:
+                    - /url: "#"
+                  - link "11. Document Reference" [ref=e253] [cursor=pointer]:
+                    - /url: /display/RDSGRI/11.+Document+Reference
+            - listitem [ref=e254]:
+              - link [ref=e256] [cursor=pointer]:
+                - /url: "#"
+              - link "Admin Manual" [ref=e259] [cursor=pointer]:
+                - /url: /display/RDSGRI/Admin+Manual
+            - listitem [ref=e260]:
+              - link [ref=e262] [cursor=pointer]:
+                - /url: "#"
+              - link "Function Support" [ref=e265] [cursor=pointer]:
+                - /url: /display/RDSGRI/Function+Support
+      - generic [ref=e266]:
+        - link "vsplitbar":
+          - /url: javascript:void(0)
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - list:
+              - listitem [ref=e271]:
+                - link "Edit" [ref=e272] [cursor=pointer]:
+                  - /url: /pages/editpage.action?pageId=1299022576
+                  - generic [ref=e273]: Edit
+              - listitem [ref=e274]:
+                - link "Watch" [ref=e275] [cursor=pointer]:
+                  - /url: "?watchingPage=false&watchingSpace=false&watchingBlogs=false&isAdmin=true&isBlogPost=false"
+                  - generic [ref=e276]: Watch
+              - listitem [ref=e277]:
+                - link "Share" [ref=e278] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e279]: Share
+              - listitem: ▾
+              - listitem [ref=e280]:
+                - link "Tools▾" [ref=e281] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e282]: Tools▾
+          - generic [ref=e283]:
+            - list [ref=e285]:
+              - listitem [ref=e286]:
+                - link "New Group RI" [ref=e288] [cursor=pointer]:
+                  - /url: /display/RDSGRI?src=breadcrumbs-homepage
+              - listitem "Show all breadcrumbs" [ref=e289] [cursor=pointer]:
+                - text: /
+                - strong [ref=e291]: …
+              - text: / / / /
+              - listitem [ref=e292]:
+                - text: /
+                - link "Batch EST-005 ข้อมูล (R01) List of inforce by member" [ref=e294] [cursor=pointer]:
+                  - /url: /pages/viewpage.action?pageId=1292239021&src=breadcrumbs-parent
+            - heading "Process ข้อมูล (R01) List of inforce by member (Estimate)" [level=1] [ref=e295]:
+              - link "Process ข้อมูล (R01) List of inforce by member (Estimate)" [ref=e296] [cursor=pointer]:
+                - /url: /pages/viewpage.action?pageId=1299022576
+        - generic [ref=e297]:
+          - link "Skip to end of metadata" [ref=e298] [cursor=pointer]:
+            - /url: "#page-metadata-end"
+          - list [ref=e301]:
+            - listitem
+            - listitem [ref=e302]:
+              - link "1 attachment" [ref=e303] [cursor=pointer]:
+                - /url: /pages/viewpageattachments.action?pageId=1299022576&metadataLink=true
+            - listitem [ref=e304]:
+              - text: Added by
+              - link "พงศธร พาสุริยันต์" [ref=e305] [cursor=pointer]:
+                - /url: "    /display/~pongsathorn.pa\n"
+              - text: ", last edited by"
+              - link "สุธนี แซ่ลิ่ม" [ref=e306] [cursor=pointer]:
+                - /url: "    /display/~suthanee.sa\n"
+              - text: on Jun 26, 2026
+              - generic [ref=e307]:
+                - text: (
+                - link "view change" [ref=e308] [cursor=pointer]:
+                  - /url: /pages/diffpages.action?pageId=1299022576&originalId=1351582151
+                - text: )
+          - link "Go to start of metadata" [ref=e309] [cursor=pointer]:
+            - /url: "#page-metadata-start"
+          - generic [ref=e311]:
+            - paragraph
+            - generic [ref=e312]:
+              - text: "["
+              - link "Overview" [ref=e313] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Overview"
+              - text: "] ["
+              - link "Protocol" [ref=e314] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Protocol"
+              - text: "] ["
+              - link "Operation" [ref=e315] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Operation"
+              - text: "] ["
+              - link "Input" [ref=e316] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Input"
+              - text: "] ["
+              - link "Process" [ref=e317] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Process"
+              - text: "] ["
+              - link "Output" [ref=e318] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Output"
+              - text: "] ["
+              - link "Exception" [ref=e319] [cursor=pointer]:
+                - /url: "#Processข้อมูล(R01)Listofinforcebymember(Estimate)-Exception"
+              - text: "]"
+            - paragraph
+            - heading "Overview" [level=2] [ref=e320]
+            - paragraph [ref=e321]: <ดึงข้อมูล ข้อมูลกธมธรรม์ประกันกลุ่มทั้งหมดจาก DataOne (SQLServer)>
+            - heading "Protocol" [level=2] [ref=e322]
+            - generic [ref=e323]:
+              - generic [ref=e324]: Icon
+              - paragraph [ref=e326]: <SOAP,HESSIAN,REST>
+            - heading "Operation" [level=2] [ref=e327]
+            - blockquote [ref=e328]:
+              - paragraph [ref=e329]:
+                - text: "refer :"
+                - link "ESB WebService Design Pattern" [ref=e330] [cursor=pointer]:
+                  - /url: /display/IEA/ESB+WebService+Design+Pattern
+            - generic [ref=e331]:
+              - generic [ref=e332]: Icon
+              - paragraph [ref=e334]: "TYPE : <inquiry,bulk,delete,update,add>"
+            - paragraph [ref=e335]: <ชื่อ operation>
+            - heading "Input" [level=2] [ref=e336]
+            - paragraph [ref=e337]: "-"
+            - heading "Process" [level=2] [ref=e338]
+            - table [ref=e340]:
+              - rowgroup [ref=e341]:
+                - row "# Database Table Name รายละเอียด เงื่อนไขการดึงข้อมูล" [ref=e342]:
+                  - columnheader "#" [ref=e343]:
+                    - paragraph [ref=e345]: "#"
+                  - columnheader "Database" [ref=e346]:
+                    - generic [ref=e347]: Database
+                  - columnheader "Table Name" [ref=e348]:
+                    - paragraph [ref=e350]: Table Name
+                  - columnheader "รายละเอียด" [ref=e351]:
+                    - paragraph [ref=e353]: รายละเอียด
+                  - columnheader "เงื่อนไขการดึงข้อมูล" [ref=e354]:
+                    - generic [ref=e355]: เงื่อนไขการดึงข้อมูล
+                - row "ข้อมูลกรมธรรม์" [ref=e356]:
+                  - cell "ข้อมูลกรมธรรม์" [ref=e357]:
+                    - strong [ref=e358]: ข้อมูลกรมธรรม์
+                - row "1 group ri tx_est_snap_cert_inforce ข้อมูลสมาชิกในกรมธรรม์ประกันกลุ่ม tx_est_snap_cert_inforce.status_member in ('I','B') tx_est_snap_cert_inforce.lot_no = 1 (ข้อมูลต้นสัญญาสำหรับใบเสร็จใบแรก)" [ref=e359]:
+                  - cell "1" [ref=e360]
+                  - cell "group ri" [ref=e361]
+                  - cell "tx_est_snap_cert_inforce" [ref=e362]:
+                    - link "tx_est_snap_cert_inforce" [ref=e363] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                  - cell "ข้อมูลสมาชิกในกรมธรรม์ประกันกลุ่ม" [ref=e364]
+                  - cell "tx_est_snap_cert_inforce.status_member in ('I','B') tx_est_snap_cert_inforce.lot_no = 1 (ข้อมูลต้นสัญญาสำหรับใบเสร็จใบแรก)" [ref=e365]:
+                    - paragraph [ref=e366]:
+                      - generic [ref=e367]:
+                        - link "tx_est_snap_cert_inforce" [ref=e368] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                        - text: .status_member in ('I','B')
+                    - paragraph [ref=e369]:
+                      - generic [ref=e370]:
+                        - link "tx_est_snap_cert_inforce" [ref=e371] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                        - text: .lot_no = 1 (ข้อมูลต้นสัญญาสำหรับใบเสร็จใบแรก)
+                - row "2 group ri tx_est_snap_policy ข้อมูลกรมธรรม์ประกันกลุ่ม tx_est_snap_policy.re_insur_no like \"TG%\" and \"[0-9][0-9]%\" tx_est_snap_policy.promise_date" [ref=e372]:
+                  - cell "2" [ref=e373]
+                  - cell "group ri" [ref=e374]
+                  - cell "tx_est_snap_policy" [ref=e375]:
+                    - link "tx_est_snap_policy" [ref=e376] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                  - cell "ข้อมูลกรมธรรม์ประกันกลุ่ม" [ref=e377]
+                  - cell "tx_est_snap_policy.re_insur_no like \"TG%\" and \"[0-9][0-9]%\" tx_est_snap_policy.promise_date" [ref=e378]:
+                    - paragraph [ref=e379]:
+                      - link "tx_est_snap_policy" [ref=e380] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .re_insur_no like "TG%" and "[0-9][0-9]%"
+                    - paragraph [ref=e381]:
+                      - link "tx_est_snap_policy" [ref=e382] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .promise_date
+                - row "3 group ri tx_est_snap_prem_rate ข้อมูลอัตราเบี้ย x_est_snap_prem_rate.policy_no tx_est_snap_prem_rate.policy_year" [ref=e383]:
+                  - cell "3" [ref=e384]
+                  - cell "group ri" [ref=e385]
+                  - cell "tx_est_snap_prem_rate" [ref=e386]:
+                    - link "tx_est_snap_prem_rate" [ref=e387] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                  - cell "ข้อมูลอัตราเบี้ย" [ref=e388]
+                  - cell "x_est_snap_prem_rate.policy_no tx_est_snap_prem_rate.policy_year" [ref=e389]:
+                    - paragraph [ref=e390]:
+                      - link "x_est_snap_prem_rate" [ref=e391] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .policy_no
+                    - paragraph [ref=e392]:
+                      - link "tx_est_snap_prem_rate" [ref=e393] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .policy_year
+            - list [ref=e394]:
+              - listitem [ref=e395]:
+                - text: ดึงข้อมูลจาก
+                - link "tx_est_snap_policy" [ref=e396] [cursor=pointer]:
+                  - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                - list [ref=e397]:
+                  - listitem [ref=e398]:
+                    - text: เฉพาะ
+                    - link "tx_est_snap_policy" [ref=e399] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                    - text: .
+                    - generic [ref=e400]: re_insur_no like "TG%" and "[0-9][0-9]%" (THREL_Grp_PA,GIB_Grp_Direct_EB) --07/05/26
+                  - listitem [ref=e401]:
+                    - text: เลือกกรมธรรม์ที่เริ่มสัญญาย้อนหลัง 1 ปีตามเงื่อนไขต้นสัญญา
+                    - list [ref=e402]:
+                      - listitem [ref=e403]:
+                        - text: ใช้
+                        - link "tx_est_snap_policy" [ref=e404] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_policy
+                        - text: .promise_date เป็นเงื่อนไขในการกำหนดช่วงข้อมูลตัวอย่าง เมื่อเลือก Period =
+                        - strong [ref=e405]: "'202501'"
+                        - list [ref=e406]:
+                          - listitem [ref=e407]:
+                            - text: ระบบจะดึงข้อมูลที่มี promise_date
+                            - strong [ref=e408]: อยู่ระหว่างวันที่ 1 กุมภาพันธ์ 2024 ถึง 31 มกราคม 2025
+              - listitem [ref=e409]:
+                - text: ดึงข้อมูลรายสมาชิกปัจจุบันจาก
+                - link "tx_est_snap_cert_inforce" [ref=e410] [cursor=pointer]:
+                  - /url: /display/RDSGRI/tx_est_snap_cert_inforce
+                - list [ref=e411]:
+                  - listitem [ref=e412]:
+                    - text: โดย left join ด้วยเงื่อนไข
+                    - list [ref=e413]:
+                      - listitem [ref=e414]:
+                        - link "tx_est_snap_policy" [ref=e415] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_policy
+                        - text: .policy_no =
+                        - link "tx_est_snap_cert_inforce" [ref=e416] [cursor=pointer]:
+                          - /url: /display/RDSGRI/tx_est_snap_cert_inforce
+                        - text: .policy_no
+                      - listitem [ref=e417]:
+                        - link "tx_est_snap_policy" [ref=e418] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_policy
+                        - text: .policy_year =
+                        - link "tx_est_snap_cert_inforce" [ref=e419] [cursor=pointer]:
+                          - /url: /display/RDSGRI/tx_est_snap_cert_inforce
+                        - text: .policy_year
+                  - listitem [ref=e420]:
+                    - text: กรองเงื่อนไข
+                    - list [ref=e421]:
+                      - listitem [ref=e422]:
+                        - text: สถานะสมาชิกมีผลที่
+                        - link "tx_est_snap_cert_inforce" [ref=e423] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                        - text: .
+                        - generic [ref=e424]: status_member in ('I','B')
+                      - listitem [ref=e425]:
+                        - generic [ref=e426]:
+                          - text: "และเลือกข้อมูลต้นสัญญา:"
+                          - link "tx_est_snap_cert_inforce" [ref=e427] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .lot_no = 1
+                      - listitem [ref=e428]:
+                        - text: กรณีสมาชิกของกรมธรรม์ภายใต้ GIB_Grp_Direct_EB ให้เลือกเฉพาะสมาชิกที่มีทุนที่อยู่ใน layer 2 และ 3 เท่านั้น --07/05/26
+                        - list [ref=e429]:
+                          - listitem [ref=e430]:
+                            - text: โดยตรวจสอบ layer จาก
+                            - link "cf_rig_treaty_cond_dt" [ref=e431] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/display/RDSGRI/cf_rig_treaty_cond_dt
+                            - text: ด้วยทุน (LifeSumInsured,AccidentSumInsured,MedAccidentSumInsured,TPDSumInsured) ของสมาชิก > minimum และ ทุนของสมาชิก <= maximum
+              - listitem [ref=e432]:
+                - text: กรณี rate_flag = 1 ดึงข้อมูลอัตราเบี้ยจาก
+                - link "tx_est_snap_prem_rate" [ref=e433] [cursor=pointer]:
+                  - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                - text: "--07/05/26"
+                - list [ref=e434]:
+                  - listitem [ref=e435]:
+                    - text: โดย left join ด้วยเงื่อนไข
+                    - list [ref=e436]:
+                      - listitem [ref=e437]:
+                        - link "tx_est_snap_prem_rate" [ref=e438] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                        - text: .policy_no =
+                        - link "tx_est_snap_cert_inforce" [ref=e439] [cursor=pointer]:
+                          - /url: /display/RDSGRI/tx_est_snap_cert_inforce
+                        - text: .policy_no
+                      - listitem [ref=e440]:
+                        - link "tx_est_snap_prem_rate" [ref=e441] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                        - text: .policy_year =
+                        - link "tx_est_snap_cert_inforce" [ref=e442] [cursor=pointer]:
+                          - /url: /display/RDSGRI/tx_est_snap_cert_inforce
+                        - text: .policy_year
+            - heading "Output" [level=2] [ref=e443]
+            - paragraph [ref=e444]: <แสดงข้อมูลที่ได้รับจาก external service นี้>
+            - table [ref=e446]:
+              - rowgroup [ref=e457]:
+                - row "No. Name Description Input Type (Source) Size Output tx_stg_est_inforce_member รูปแบบการบันทึก Example" [ref=e458]:
+                  - cell "No." [ref=e459]:
+                    - strong [ref=e460]: No.
+                  - cell "Name" [ref=e461]:
+                    - strong [ref=e462]: Name
+                  - cell "Description" [ref=e463]:
+                    - strong [ref=e464]: Description
+                  - cell "Input" [ref=e465]:
+                    - strong [ref=e466]: Input
+                  - cell "Type (Source)" [ref=e467]:
+                    - strong [ref=e468]: Type (Source)
+                  - cell "Size" [ref=e469]:
+                    - strong [ref=e470]: Size
+                  - cell "Output tx_stg_est_inforce_member" [ref=e471]:
+                    - strong [ref=e472]: Output
+                    - strong [ref=e473]:
+                      - link "tx_stg_est_inforce_member" [ref=e474] [cursor=pointer]:
+                        - /url: /display/RDSGRI/tx_stg_est_inforce_member
+                  - cell "รูปแบบการบันทึก" [ref=e475]:
+                    - strong [ref=e476]: รูปแบบการบันทึก
+                  - cell "Example" [ref=e477]:
+                    - strong [ref=e478]: Example
+                - row "1 Period Period ตามรอบประมวลผล tx_est_snap_policy.period numeric 6 period yyyyMM (AD.) 202501" [ref=e479]:
+                  - cell "1" [ref=e480]
+                  - cell "Period" [ref=e481]
+                  - cell "Period ตามรอบประมวลผล" [ref=e482]
+                  - cell "tx_est_snap_policy.period" [ref=e483]:
+                    - paragraph [ref=e484]:
+                      - link "tx_est_snap_policy" [ref=e486] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .period
+                  - cell "numeric" [ref=e487]
+                  - cell "6" [ref=e488]
+                  - cell "period" [ref=e489]
+                  - cell "yyyyMM (AD.)" [ref=e490]
+                  - cell "202501" [ref=e491]
+                - row "2 PolicyNo เลขกรมธรรม์ tx_est_snap_cert_inforce.policy_no varchar 20 policy_no" [ref=e492]:
+                  - cell "2" [ref=e493]
+                  - cell "PolicyNo" [ref=e494]
+                  - cell "เลขกรมธรรม์" [ref=e495]
+                  - cell "tx_est_snap_cert_inforce.policy_no" [ref=e496]:
+                    - link "tx_est_snap_cert_inforce" [ref=e498] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .policy_no
+                  - cell "varchar" [ref=e499]
+                  - cell "20" [ref=e500]
+                  - cell "policy_no" [ref=e501]
+                  - cell [ref=e502]
+                  - cell [ref=e503]
+                - row "3 PromiseDate วันที่คุ้มครอง tx_est_snap_cert_inforce.promise_date datetime promise_date dd/mm/yyyy (AD.) 01/01/2025" [ref=e504]:
+                  - cell "3" [ref=e505]
+                  - cell "PromiseDate" [ref=e506]
+                  - cell "วันที่คุ้มครอง" [ref=e507]
+                  - cell "tx_est_snap_cert_inforce.promise_date" [ref=e508]:
+                    - link "tx_est_snap_cert_inforce" [ref=e510] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .promise_date
+                  - cell "datetime" [ref=e511]
+                  - cell [ref=e512]
+                  - cell "promise_date" [ref=e513]
+                  - cell "dd/mm/yyyy (AD.)" [ref=e514]
+                  - cell "01/01/2025" [ref=e515]
+                - row "4 PolicyYear ปีกรมธรรม์ tx_est_snap_policy.policy_year numeric 4 policy_year 1" [ref=e516]:
+                  - cell "4" [ref=e517]
+                  - cell "PolicyYear" [ref=e518]
+                  - cell "ปีกรมธรรม์" [ref=e519]
+                  - cell "tx_est_snap_policy.policy_year" [ref=e520]:
+                    - link "tx_est_snap_policy" [ref=e522] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                    - text: .policy_year
+                  - cell "numeric" [ref=e523]
+                  - cell "4" [ref=e524]
+                  - cell "policy_year" [ref=e525]
+                  - cell [ref=e526]
+                  - cell "1" [ref=e527]
+                - row "5 CertNo หมายเลขสมาชิก tx_est_snap_cert_inforce.cer_no varchar 20 cer_no 1" [ref=e528]:
+                  - cell "5" [ref=e529]
+                  - cell "CertNo" [ref=e530]
+                  - cell "หมายเลขสมาชิก" [ref=e531]
+                  - cell "tx_est_snap_cert_inforce.cer_no" [ref=e532]:
+                    - link "tx_est_snap_cert_inforce" [ref=e534] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .cer_no
+                  - cell "varchar" [ref=e535]
+                  - cell "20" [ref=e536]
+                  - cell "cer_no" [ref=e537]
+                  - cell [ref=e538]
+                  - cell "1" [ref=e539]
+                - row "6 Sex เพศ tx_est_snap_cert_inforce.sex varchar 1 sex แปลงค่าจาก tx_est_snap_cert_inforce.sex โดยนำค่าไปตรวจสอบใน cf_lookup_catalog .parent_id = 1002500 นำค่าที่ได้ เทียบกับ cf_lookup_catalog.lookup_key แล้วแปลงเป็น cf_lookup_catalog.description M" [ref=e540]:
+                  - cell "6" [ref=e541]
+                  - cell "Sex" [ref=e542]
+                  - cell "เพศ" [ref=e543]
+                  - cell "tx_est_snap_cert_inforce.sex" [ref=e544]:
+                    - link "tx_est_snap_cert_inforce" [ref=e546] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .sex
+                  - cell "varchar" [ref=e547]
+                  - cell "1" [ref=e548]
+                  - cell "sex" [ref=e549]
+                  - cell "แปลงค่าจาก tx_est_snap_cert_inforce.sex โดยนำค่าไปตรวจสอบใน cf_lookup_catalog .parent_id = 1002500 นำค่าที่ได้ เทียบกับ cf_lookup_catalog.lookup_key แล้วแปลงเป็น cf_lookup_catalog.description" [ref=e550]:
+                    - paragraph [ref=e551]:
+                      - text: แปลงค่าจาก
+                      - link "tx_est_snap_cert_inforce" [ref=e552] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                      - text: .sex โดยนำค่าไปตรวจสอบใน
+                      - link "cf_lookup_catalog" [ref=e553] [cursor=pointer]:
+                        - /url: /display/RDSGRI/cf_lookup_catalog
+                      - text: .parent_id = 1002500 นำค่าที่ได้ เทียบกับ
+                      - link "cf_lookup_catalog" [ref=e554] [cursor=pointer]:
+                        - /url: /display/RDSGRI/cf_lookup_catalog
+                      - text: .lookup_key แล้วแปลงเป็น
+                      - link "cf_lookup_catalog" [ref=e555] [cursor=pointer]:
+                        - /url: /display/RDSGRI/cf_lookup_catalog
+                      - text: .description
+                  - cell "M" [ref=e556]
+                - 'row "7 Age อายุ tx_est_snap_cert_inforce.age numeric 2 age ## 34" [ref=e557]':
+                  - cell "7" [ref=e558]
+                  - cell "Age" [ref=e559]
+                  - cell "อายุ" [ref=e560]
+                  - cell "tx_est_snap_cert_inforce.age" [ref=e561]:
+                    - link "tx_est_snap_cert_inforce" [ref=e563] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .age
+                  - cell "numeric" [ref=e564]
+                  - cell "2" [ref=e565]
+                  - cell "age" [ref=e566]
+                  - cell "##" [ref=e567]
+                  - cell "34" [ref=e568]
+                - 'row "8 AccidentSumInsured ทุนประกันชีวิต อุบัติเหตุ tx_est_snap_cert_inforce.acc_insur numeric 14,2 sum_insured_accident #,###.00 coalesce(#,0.00) 1,000.15" [ref=e569]':
+                  - cell "8" [ref=e570]
+                  - cell "AccidentSumInsured" [ref=e571]
+                  - cell "ทุนประกันชีวิต อุบัติเหตุ" [ref=e572]
+                  - cell "tx_est_snap_cert_inforce.acc_insur" [ref=e573]:
+                    - link "tx_est_snap_cert_inforce" [ref=e575] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .acc_insur
+                  - cell "numeric" [ref=e576]
+                  - cell "14,2" [ref=e577]
+                  - cell "sum_insured_accident" [ref=e578]
+                  - cell "#,###.00 coalesce(#,0.00)" [ref=e579]:
+                    - text: "#,###.00"
+                    - text: coalesce(#,0.00)
+                  - cell "1,000.15" [ref=e580]
+                - row "9 ClassNo Ocupation Class tx_est_snap_certificate_cust.class_no numeric 3 class_no" [ref=e581]:
+                  - cell "9" [ref=e582]
+                  - cell "ClassNo" [ref=e583]
+                  - cell "Ocupation Class" [ref=e584]
+                  - cell "tx_est_snap_certificate_cust.class_no" [ref=e585]:
+                    - generic [ref=e586]:
+                      - link "tx_est_snap_certificate_cust" [ref=e587] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_certificate_cust
+                      - text: .
+                      - generic [ref=e589]: class_no
+                  - cell "numeric" [ref=e590]
+                  - cell "3" [ref=e591]
+                  - cell "class_no" [ref=e592]
+                  - cell [ref=e593]
+                  - cell [ref=e594]
+                - row "10 ModeOfPayment ประเภทการจ่าย tx_est_snap_policy.pay_type numeric 10 pay_type if pay_type = 0 then 'Monthly' if pay_type = 1 then 'Quarterly' if pay_type = 2 then 'Semi Annua' if pay_type = 3 then 'Annual' --07/05/26" [ref=e595]:
+                  - cell "10" [ref=e596]
+                  - cell "ModeOfPayment" [ref=e597]
+                  - cell "ประเภทการจ่าย" [ref=e598]
+                  - cell "tx_est_snap_policy.pay_type" [ref=e599]:
+                    - link "tx_est_snap_policy" [ref=e600] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                    - text: .pay_type
+                  - cell "numeric" [ref=e601]
+                  - cell "10" [ref=e602]
+                  - cell "pay_type" [ref=e603]
+                  - cell "if pay_type = 0 then 'Monthly' if pay_type = 1 then 'Quarterly' if pay_type = 2 then 'Semi Annua' if pay_type = 3 then 'Annual'" [ref=e604]:
+                    - paragraph [ref=e605]: if pay_type = 0 then 'Monthly'
+                    - paragraph [ref=e606]:
+                      - generic [ref=e607]: if pay_type = 1 then 'Quarterly'
+                    - paragraph [ref=e608]:
+                      - generic [ref=e609]: if pay_type = 2 then 'Semi Annua'
+                    - paragraph [ref=e610]:
+                      - generic [ref=e612]: if pay_type = 3 then 'Annual'
+                  - cell "--07/05/26" [ref=e613]
+                - row "11 TypePremiumRate ประเภทอัตราเบี้ย tx_est_snap_policy.rate_flag tx_est_snap_prem_rate.prem_rate_table_type numeric 1 rate_type if rate_flag = 0 then 'Unit Rate' if rate_flag = 1 then tx_est_snap_prem_rate.prem_rate_table_type if rate_flag = 2 then 'Unit Premium' --07/05/26" [ref=e614]:
+                  - cell "11" [ref=e615]
+                  - cell "TypePremiumRate" [ref=e616]
+                  - cell "ประเภทอัตราเบี้ย" [ref=e617]
+                  - cell "tx_est_snap_policy.rate_flag tx_est_snap_prem_rate.prem_rate_table_type" [ref=e618]:
+                    - paragraph [ref=e619]:
+                      - link "tx_est_snap_policy" [ref=e620] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .rate_flag
+                    - paragraph [ref=e621]:
+                      - link "tx_est_snap_prem_rate" [ref=e622] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .prem_rate_table_type
+                  - cell "numeric" [ref=e623]
+                  - cell "1" [ref=e624]
+                  - cell "rate_type" [ref=e625]
+                  - cell "if rate_flag = 0 then 'Unit Rate' if rate_flag = 1 then tx_est_snap_prem_rate.prem_rate_table_type if rate_flag = 2 then 'Unit Premium'" [ref=e626]:
+                    - paragraph [ref=e627]:
+                      - text: if
+                      - generic [ref=e628]: rate_flag = 0 then 'Unit Rate'
+                    - paragraph [ref=e629]:
+                      - generic [ref=e630]:
+                        - generic [ref=e631]: if rate_flag
+                        - generic [ref=e632]:
+                          - text: = 1 then
+                          - link "tx_est_snap_prem_rate" [ref=e633] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type
+                    - paragraph [ref=e634]:
+                      - generic [ref=e635]:
+                        - generic [ref=e636]: if rate_flag
+                        - generic [ref=e637]: = 2 then 'Unit Premium'
+                  - cell "--07/05/26" [ref=e638]
+                - row "12 LifeSumInsured ทุนประกันชีวิต tx_est_snap_cert_inforce.life_insur numeric 14,2 sum_insured_life coalesce(#,0.00) --07/05/26" [ref=e639]:
+                  - cell "12" [ref=e640]
+                  - cell "LifeSumInsured" [ref=e641]
+                  - cell "ทุนประกันชีวิต" [ref=e642]
+                  - cell "tx_est_snap_cert_inforce.life_insur" [ref=e643]:
+                    - link "tx_est_snap_cert_inforce" [ref=e644] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .life_insur
+                  - cell "numeric" [ref=e645]
+                  - cell "14,2" [ref=e646]
+                  - cell "sum_insured_life" [ref=e647]
+                  - cell "coalesce(#,0.00)" [ref=e648]
+                  - cell "--07/05/26" [ref=e649]
+                - row "13 MedAccidentSumInsured ทุนประกันค่ารักษาเนื่องจากอุบัติเหตุ tx_est_snap_cert_inforce.med_insur numeric 14,2 sum_insured_med coalesce(#,0.00) --07/05/26" [ref=e650]:
+                  - cell "13" [ref=e651]
+                  - cell "MedAccidentSumInsured" [ref=e652]
+                  - cell "ทุนประกันค่ารักษาเนื่องจากอุบัติเหตุ" [ref=e653]
+                  - cell "tx_est_snap_cert_inforce.med_insur" [ref=e654]:
+                    - link "tx_est_snap_cert_inforce" [ref=e655] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .med_insur
+                  - cell "numeric" [ref=e656]
+                  - cell "14,2" [ref=e657]
+                  - cell "sum_insured_med" [ref=e658]
+                  - cell "coalesce(#,0.00)" [ref=e659]
+                  - cell "--07/05/26" [ref=e660]
+                - row "14 TPDSumInsured ทุนประกันทุพพลภาพ tx_est_snap_cert_inforce.tpd_insur numeric 14,2 sum_insured_tpd coalesce(#,0.00) --07/05/26" [ref=e661]:
+                  - cell "14" [ref=e662]
+                  - cell "TPDSumInsured" [ref=e663]
+                  - cell "ทุนประกันทุพพลภาพ" [ref=e664]
+                  - cell "tx_est_snap_cert_inforce.tpd_insur" [ref=e665]:
+                    - link "tx_est_snap_cert_inforce" [ref=e666] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .tpd_insur
+                  - cell "numeric" [ref=e667]
+                  - cell "14,2" [ref=e668]
+                  - cell "sum_insured_tpd" [ref=e669]
+                  - cell "coalesce(#,0.00)" [ref=e670]
+                  - cell "--07/05/26" [ref=e671]
+                - row [ref=e672]:
+                  - cell "15" [ref=e673]
+                  - cell "LifePremiumRate" [ref=e674]
+                  - cell "อัตราเบี้ย ความคุ้มครองชีวิต" [ref=e675]
+                  - cell "tx_est_snap_policy.life_prem_rate tx_est_snap_prem_rate.value_life" [ref=e676]:
+                    - paragraph [ref=e677]:
+                      - link "tx_est_snap_policy" [ref=e678] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .life_prem_rate
+                    - paragraph [ref=e679]:
+                      - link "tx_est_snap_prem_rate" [ref=e680] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .value_life
+                  - cell "numeric" [ref=e681]
+                  - cell "14,2" [ref=e682]
+                  - cell "prem_rate_life" [ref=e683]
+                  - cell [ref=e684]:
+                    - paragraph [ref=e685]:
+                      - text: if rate_flag = 0 then
+                      - link "tx_est_snap_policy" [ref=e686] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .life_prem_rate
+                    - paragraph [ref=e687]: if rate_flag = 2 then 0.00
+                    - paragraph [ref=e688]
+                    - paragraph [ref=e689]:
+                      - generic [ref=e690]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e691] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 แต่
+                        - link "tx_est_snap_policy" [ref=e692] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date น้อยกว่า cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                        - text: then
+                        - link "tx_est_snap_policy" [ref=e693] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .life_prem_rate
+                    - paragraph [ref=e694]
+                    - paragraph [ref=e695]:
+                      - generic [ref=e696]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e697] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 และ
+                        - link "tx_est_snap_policy" [ref=e698] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date มากกว่าเท่ากับ cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                    - generic [ref=e699]:
+                      - generic [ref=e700]: Class
+                      - generic [ref=e701]:
+                        - paragraph [ref=e702]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e703] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Class'
+                        - paragraph [ref=e704]:
+                          - text: and
+                          - link "tx_est_snap_certificate_cust" [ref=e705] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_certificate_cust
+                          - text: .class_no =
+                          - link "tx_est_snap_prem_rate" [ref=e706] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e707]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e708] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_life
+                    - generic [ref=e709]:
+                      - generic [ref=e710]: AgeGender
+                      - generic [ref=e711]:
+                        - paragraph [ref=e712]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e713] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'AgeGender'
+                        - paragraph [ref=e714]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e715] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e716] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e717]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e719] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - generic [ref=e720]:
+                            - text: .sex =
+                            - link "tx_est_snap_prem_rate" [ref=e721] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                            - text: .value_gender (1 = Male, 2 = Female)
+                        - paragraph [ref=e722]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e723] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_life
+                    - generic [ref=e724]:
+                      - generic [ref=e725]: Age
+                      - generic [ref=e726]:
+                        - paragraph [ref=e727]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e728] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Age'
+                        - paragraph [ref=e729]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e730] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e731] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e732]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e733] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_life
+                  - cell "--07/05/26" [ref=e734]
+                - row [ref=e735]:
+                  - cell "16" [ref=e736]
+                  - cell "AccidentPremiumRate" [ref=e737]
+                  - cell "อัตราเบี้ย ความคุ้มครองอุบัติเหตุ" [ref=e738]
+                  - cell "tx_est_snap_policy.acc_prem_rate tx_est_snap_prem_rate.value_acc" [ref=e739]:
+                    - paragraph [ref=e740]:
+                      - link "tx_est_snap_policy" [ref=e741] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .acc_prem_rate
+                    - paragraph [ref=e742]:
+                      - link "tx_est_snap_prem_rate" [ref=e743] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .value_acc
+                  - cell "numeric" [ref=e744]
+                  - cell "14,2" [ref=e745]
+                  - cell "prem_rate_acc" [ref=e746]
+                  - cell [ref=e747]:
+                    - paragraph [ref=e748]:
+                      - text: if rate_flag = 0 then
+                      - link "tx_est_snap_policy" [ref=e749] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .acc_prem_rate
+                    - paragraph [ref=e750]: if rate_flag = 2 then 0.00
+                    - paragraph [ref=e751]
+                    - paragraph [ref=e752]:
+                      - generic [ref=e753]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e754] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 แต่
+                        - link "tx_est_snap_policy" [ref=e755] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date น้อยกว่า cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                        - text: then
+                        - link "tx_est_snap_policy" [ref=e756] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .acc_prem_rate
+                    - paragraph [ref=e757]
+                    - paragraph [ref=e758]:
+                      - generic [ref=e759]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e760] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 และ
+                        - link "tx_est_snap_policy" [ref=e761] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date มากกว่าเท่ากับ cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                    - generic [ref=e762]:
+                      - generic [ref=e763]: Class
+                      - generic [ref=e764]:
+                        - paragraph [ref=e765]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e766] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Class'
+                        - paragraph [ref=e767]:
+                          - text: and
+                          - link "tx_est_snap_certificate_cust" [ref=e768] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_certificate_cust
+                          - text: .class_no =
+                          - link "tx_est_snap_prem_rate" [ref=e769] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e770]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e771] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_acc
+                    - generic [ref=e772]:
+                      - generic [ref=e773]: AgeGender
+                      - generic [ref=e774]:
+                        - paragraph [ref=e775]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e776] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'AgeGender'
+                        - paragraph [ref=e777]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e778] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e779] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e780]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e782] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .sex =
+                          - link "tx_est_snap_prem_rate" [ref=e783] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_gender (1 = Male, 2 = Female)
+                        - paragraph [ref=e784]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e785] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_acc
+                    - generic [ref=e786]:
+                      - generic [ref=e787]: Age
+                      - generic [ref=e788]:
+                        - paragraph [ref=e789]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e790] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Age'
+                        - paragraph [ref=e791]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e792] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e793] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e794]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e795] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_acc
+                  - cell "--07/05/26" [ref=e796]
+                - row [ref=e797]:
+                  - cell "17" [ref=e798]
+                  - cell "MedAccidentPremiumRate" [ref=e799]
+                  - cell "อัตราเบี้ย ความคุ้มครองค่ารักษาเนื่องจากอุบัติเหตุ" [ref=e800]
+                  - cell "tx_est_snap_policy.med_prem_rate tx_est_snap_prem_rate.value_med_acc" [ref=e801]:
+                    - paragraph [ref=e802]:
+                      - link "tx_est_snap_policy" [ref=e803] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .med_prem_rate
+                    - paragraph [ref=e804]:
+                      - link "tx_est_snap_prem_rate" [ref=e805] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .value_med_acc
+                  - cell "numeric" [ref=e806]
+                  - cell "14,2" [ref=e807]
+                  - cell "prem_rate_med" [ref=e808]
+                  - cell [ref=e809]:
+                    - paragraph [ref=e810]:
+                      - text: if rate_flag = 0 then
+                      - link "tx_est_snap_policy" [ref=e811] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .med_prem_rate
+                    - paragraph [ref=e812]: if rate_flag = 2 then 0.00
+                    - paragraph [ref=e813]
+                    - paragraph [ref=e814]:
+                      - generic [ref=e815]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e816] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 แต่
+                        - link "tx_est_snap_policy" [ref=e817] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date น้อยกว่า cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                        - text: then
+                        - link "tx_est_snap_policy" [ref=e818] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .med_prem_rate
+                    - paragraph [ref=e819]
+                    - paragraph [ref=e820]:
+                      - generic [ref=e821]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e822] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 และ
+                        - link "tx_est_snap_policy" [ref=e823] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date มากกว่าเท่ากับ cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                    - generic [ref=e824]:
+                      - generic [ref=e825]: Class
+                      - generic [ref=e826]:
+                        - paragraph [ref=e827]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e828] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Class'
+                        - paragraph [ref=e829]:
+                          - text: and
+                          - link "tx_est_snap_certificate_cust" [ref=e830] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_certificate_cust
+                          - text: .class_no =
+                          - link "tx_est_snap_prem_rate" [ref=e831] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e832]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e833] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_med_acc
+                    - generic [ref=e834]:
+                      - generic [ref=e835]: AgeGender
+                      - generic [ref=e836]:
+                        - paragraph [ref=e837]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e838] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'AgeGender'
+                        - paragraph [ref=e839]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e840] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e841] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e842]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e844] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .sex =
+                          - link "tx_est_snap_prem_rate" [ref=e845] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_gender (1 = Male, 2 = Female)
+                        - paragraph [ref=e846]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e847] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_med_acc
+                    - generic [ref=e848]:
+                      - generic [ref=e849]: Age
+                      - generic [ref=e850]:
+                        - paragraph [ref=e851]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e852] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Age'
+                        - paragraph [ref=e853]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e854] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e855] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e856]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e857] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_med_acc
+                  - cell "--07/05/26" [ref=e858]
+                - row [ref=e859]:
+                  - cell "18" [ref=e860]
+                  - cell "TPDPremiumRate" [ref=e861]
+                  - cell "อัตราเบี้ย ความคุ้มครองทุพพลภาพ" [ref=e862]
+                  - cell "tx_est_snap_policy.tpd_prem_rate tx_est_snap_prem_rate.value_tpd" [ref=e863]:
+                    - paragraph [ref=e864]:
+                      - link "tx_est_snap_policy" [ref=e865] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .tpd_prem_rate
+                    - paragraph [ref=e866]:
+                      - link "tx_est_snap_prem_rate" [ref=e867] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                      - text: .value_tpd
+                  - cell "numeric" [ref=e868]
+                  - cell "14,2" [ref=e869]
+                  - cell "prem_rate_tpd" [ref=e870]
+                  - cell [ref=e871]:
+                    - paragraph [ref=e872]:
+                      - text: if rate_flag = 0 then
+                      - link "tx_est_snap_policy" [ref=e873] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                      - text: .tpd_prem_rate
+                    - paragraph [ref=e874]: if rate_flag = 2 then 0.00
+                    - paragraph [ref=e875]
+                    - paragraph [ref=e876]:
+                      - generic [ref=e877]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e878] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 แต่
+                        - link "tx_est_snap_policy" [ref=e879] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date น้อยกว่า cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                        - text: then
+                        - link "tx_est_snap_policy" [ref=e880] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .tpd_prem_rate
+                    - paragraph [ref=e881]
+                    - paragraph [ref=e882]:
+                      - generic [ref=e883]:
+                        - text: if
+                        - link "tx_est_snap_policy" [ref=e884] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .rate_flag = 1 และ
+                        - link "tx_est_snap_policy" [ref=e885] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/EgAFTg
+                        - text: .promise_date มากกว่าเท่ากับ cf_lookup_catalog.description ที่ cf_lookup_catalog.lookup_key = CR_RATE_DATE และ cf_lookup_catalog.parent_id = 1003500
+                    - generic [ref=e886]:
+                      - generic [ref=e887]: Class
+                      - generic [ref=e888]:
+                        - paragraph [ref=e889]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e890] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Class'
+                        - paragraph [ref=e891]:
+                          - text: and
+                          - link "tx_est_snap_certificate_cust" [ref=e892] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_certificate_cust
+                          - text: .class_no =
+                          - link "tx_est_snap_prem_rate" [ref=e893] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e894]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e895] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_tpd
+                    - generic [ref=e896]:
+                      - generic [ref=e897]: AgeGender
+                      - generic [ref=e898]:
+                        - paragraph [ref=e899]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e900] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'AgeGender'
+                        - paragraph [ref=e901]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e902] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e903] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e904]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e906] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .sex =
+                          - link "tx_est_snap_prem_rate" [ref=e907] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_gender (1 = Male, 2 = Female)
+                        - paragraph [ref=e908]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e909] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_tpd
+                    - generic [ref=e910]:
+                      - generic [ref=e911]: Age
+                      - generic [ref=e912]:
+                        - paragraph [ref=e913]:
+                          - text: when
+                          - link "tx_est_snap_prem_rate" [ref=e914] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .prem_rate_table_type = 'Age'
+                        - paragraph [ref=e915]:
+                          - text: and
+                          - link "tx_est_snap_cert_inforce" [ref=e916] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                          - text: .age =
+                          - link "tx_est_snap_prem_rate" [ref=e917] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_age_or_class
+                        - paragraph [ref=e918]:
+                          - text: then
+                          - link "tx_est_snap_prem_rate" [ref=e919] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/display/RDSGRI/tx_est_snap_prem_rate
+                          - text: .value_tpd
+                  - cell "--07/05/26" [ref=e920]
+                - row "19 LifePremium เบี้ย ความคุ้มครองชีวิต tx_est_snap_cert_inforce.life_prem numeric 14,2 prem_life coalesce(#,0.00) --07/05/26" [ref=e921]:
+                  - cell "19" [ref=e922]
+                  - cell "LifePremium" [ref=e923]
+                  - cell "เบี้ย ความคุ้มครองชีวิต" [ref=e924]
+                  - cell "tx_est_snap_cert_inforce.life_prem" [ref=e925]:
+                    - link "tx_est_snap_cert_inforce" [ref=e926] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .life_prem
+                  - cell "numeric" [ref=e927]
+                  - cell "14,2" [ref=e928]
+                  - cell "prem_life" [ref=e929]
+                  - cell "coalesce(#,0.00)" [ref=e930]
+                  - cell "--07/05/26" [ref=e931]
+                - row "20 LifeExtraPremium เบี้ย ความคุ้มครองชีวิต พิเศษ tx_est_snap_cert_inforce.life_e1_prem numeric 14,2 prem_extra_life coalesce(#,0.00) --07/05/26" [ref=e932]:
+                  - cell "20" [ref=e933]
+                  - cell "LifeExtraPremium" [ref=e934]
+                  - cell "เบี้ย ความคุ้มครองชีวิต พิเศษ" [ref=e935]
+                  - cell "tx_est_snap_cert_inforce.life_e1_prem" [ref=e936]:
+                    - link "tx_est_snap_cert_inforce" [ref=e937] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .life_e1_prem
+                  - cell "numeric" [ref=e938]
+                  - cell "14,2" [ref=e939]
+                  - cell "prem_extra_life" [ref=e940]
+                  - cell "coalesce(#,0.00)" [ref=e941]
+                  - cell "--07/05/26" [ref=e942]
+                - row "21 AccidentPremium เบี้ย ความคุ้มครองอุบัติเหตุ tx_est_snap_cert_inforce.acc_prem numeric 14,2 prem_acc coalesce(#,0.00) --07/05/26" [ref=e943]:
+                  - cell "21" [ref=e944]
+                  - cell "AccidentPremium" [ref=e945]
+                  - cell "เบี้ย ความคุ้มครองอุบัติเหตุ" [ref=e946]
+                  - cell "tx_est_snap_cert_inforce.acc_prem" [ref=e947]:
+                    - link "tx_est_snap_cert_inforce" [ref=e948] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .acc_prem
+                  - cell "numeric" [ref=e949]
+                  - cell "14,2" [ref=e950]
+                  - cell "prem_acc" [ref=e951]
+                  - cell "coalesce(#,0.00)" [ref=e952]
+                  - cell "--07/05/26" [ref=e953]
+                - row "22 AccidentExtraPremium เบี้ย ความคุ้มครองอุบัติเหตุ พิเศษ 0.00 numeric 14,2 prem_acc_extra fix 0.00 --07/05/26" [ref=e954]:
+                  - cell "22" [ref=e955]
+                  - cell "AccidentExtraPremium" [ref=e956]
+                  - cell "เบี้ย ความคุ้มครองอุบัติเหตุ พิเศษ" [ref=e957]
+                  - cell "0.00" [ref=e958]
+                  - cell "numeric" [ref=e959]
+                  - cell "14,2" [ref=e960]
+                  - cell "prem_acc_extra" [ref=e961]
+                  - cell "fix 0.00" [ref=e962]
+                  - cell "--07/05/26" [ref=e963]
+                - row "23 MedAccidentPremium เบี้ย ความคุ้มครองค่ารักษาเนื่องจากอุบัติเหตุ tx_est_snap_cert_inforce.med_acc_prem numeric 14,2 prem_med coalesce(#,0.00) --07/05/26" [ref=e964]:
+                  - cell "23" [ref=e965]
+                  - cell "MedAccidentPremium" [ref=e966]
+                  - cell "เบี้ย ความคุ้มครองค่ารักษาเนื่องจากอุบัติเหตุ" [ref=e967]
+                  - cell "tx_est_snap_cert_inforce.med_acc_prem" [ref=e968]:
+                    - link "tx_est_snap_cert_inforce" [ref=e969] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .med_acc_prem
+                  - cell "numeric" [ref=e970]
+                  - cell "14,2" [ref=e971]
+                  - cell "prem_med" [ref=e972]
+                  - cell "coalesce(#,0.00)" [ref=e973]
+                  - cell "--07/05/26" [ref=e974]
+                - row "24 TPDPremium เบี้ย ทุพพลภาพ tx_est_snap_cert_inforce.tpd_prem numeric 14,2 prem_tpd coalesce(#,0.00) --07/05/26" [ref=e975]:
+                  - cell "24" [ref=e976]
+                  - cell "TPDPremium" [ref=e977]
+                  - cell "เบี้ย ทุพพลภาพ" [ref=e978]
+                  - cell "tx_est_snap_cert_inforce.tpd_prem" [ref=e979]:
+                    - link "tx_est_snap_cert_inforce" [ref=e980] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .tpd_prem
+                  - cell "numeric" [ref=e981]
+                  - cell "14,2" [ref=e982]
+                  - cell "prem_tpd" [ref=e983]
+                  - cell "coalesce(#,0.00)" [ref=e984]
+                  - cell "--07/05/26" [ref=e985]
+                - row "25 IPDPremium เบี้ย IPD tx_est_snap_cert_inforce.ipd_prem numeric 14,2 prem_ipd coalesce(#,0.00) --07/05/26" [ref=e986]:
+                  - cell "25" [ref=e987]
+                  - cell "IPDPremium" [ref=e988]
+                  - cell "เบี้ย IPD" [ref=e989]
+                  - cell "tx_est_snap_cert_inforce.ipd_prem" [ref=e990]:
+                    - link "tx_est_snap_cert_inforce" [ref=e991] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .ipd_prem
+                  - cell "numeric" [ref=e992]
+                  - cell "14,2" [ref=e993]
+                  - cell "prem_ipd" [ref=e994]
+                  - cell "coalesce(#,0.00)" [ref=e995]
+                  - cell "--07/05/26" [ref=e996]
+                - row "26 OPDPremium เบี้ย OPD tx_est_snap_cert_inforce.opd_prem numeric 14,2 prem_opd coalesce(#,0.00) --07/05/26" [ref=e997]:
+                  - cell "26" [ref=e998]
+                  - cell "OPDPremium" [ref=e999]
+                  - cell "เบี้ย OPD" [ref=e1000]
+                  - cell "tx_est_snap_cert_inforce.opd_prem" [ref=e1001]:
+                    - link "tx_est_snap_cert_inforce" [ref=e1002] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .opd_prem
+                  - cell "numeric" [ref=e1003]
+                  - cell "14,2" [ref=e1004]
+                  - cell "prem_opd" [ref=e1005]
+                  - cell "coalesce(#,0.00)" [ref=e1006]
+                  - cell "--07/05/26" [ref=e1007]
+                - row "27 DentalPremium เบี้ย ทันตกรรม tx_est_snap_cert_inforce.dental_prem numeric 14,2 prem_dental coalesce(#,0.00) --07/05/26" [ref=e1008]:
+                  - cell "27" [ref=e1009]
+                  - cell "DentalPremium" [ref=e1010]
+                  - cell "เบี้ย ทันตกรรม" [ref=e1011]
+                  - cell "tx_est_snap_cert_inforce.dental_prem" [ref=e1012]:
+                    - link "tx_est_snap_cert_inforce" [ref=e1013] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .dental_prem
+                  - cell "numeric" [ref=e1014]
+                  - cell "14,2" [ref=e1015]
+                  - cell "prem_dental" [ref=e1016]
+                  - cell "coalesce(#,0.00)" [ref=e1017]
+                  - cell "--07/05/26" [ref=e1018]
+                - row "28 TreatyCode รหัสสัญญา tx_est_snap_cert_inforce.re_insure_no varchar 50 treaty_code แปลงค่าจาก tx_est_snap_cert_inforce.re_insure_no โดยนำค่าไปตรวจสอบใน cf_lookup_catalog .parent_id = 1000100 นำค่าที่ได้ เทียบกับ cf_lookup_catalog.lookup_key แล้วแปลงเป็น cf_lookup_catalog.description --07/05/26" [ref=e1019]:
+                  - cell "28" [ref=e1020]
+                  - cell "TreatyCode" [ref=e1021]
+                  - cell "รหัสสัญญา" [ref=e1022]
+                  - cell "tx_est_snap_cert_inforce.re_insure_no" [ref=e1023]:
+                    - link "tx_est_snap_cert_inforce" [ref=e1024] [cursor=pointer]:
+                      - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                    - text: .re_insure_no
+                  - cell "varchar" [ref=e1025]
+                  - cell "50" [ref=e1026]
+                  - cell "treaty_code" [ref=e1027]
+                  - cell "แปลงค่าจาก tx_est_snap_cert_inforce.re_insure_no โดยนำค่าไปตรวจสอบใน cf_lookup_catalog .parent_id = 1000100 นำค่าที่ได้ เทียบกับ cf_lookup_catalog.lookup_key แล้วแปลงเป็น cf_lookup_catalog.description" [ref=e1028]:
+                    - generic [ref=e1029]:
+                      - text: แปลงค่าจาก
+                      - link "tx_est_snap_cert_inforce" [ref=e1030] [cursor=pointer]:
+                        - /url: http://wiki.thaisamut.co.th/x/WAAFTg
+                      - text: .re_insure_no
+                    - text: โดยนำค่าไปตรวจสอบใน
+                    - link "cf_lookup_catalog" [ref=e1031] [cursor=pointer]:
+                      - /url: /display/RDSGRI/cf_lookup_catalog
+                    - text: .parent_id = 1000100 นำค่าที่ได้ เทียบกับ
+                    - link "cf_lookup_catalog" [ref=e1032] [cursor=pointer]:
+                      - /url: /display/RDSGRI/cf_lookup_catalog
+                    - text: .lookup_key แล้วแปลงเป็น
+                    - link "cf_lookup_catalog" [ref=e1033] [cursor=pointer]:
+                      - /url: /display/RDSGRI/cf_lookup_catalog
+                    - text: .description
+                  - cell "--07/05/26" [ref=e1034]
+            - heading "Exception" [level=2] [ref=e1035]
+            - paragraph [ref=e1036]: <อธิบายว่า มี exception อะไรที่ต้องจัดการหรือระวังบ้าง>
+          - generic [ref=e1037]:
+            - generic [ref=e1038]:
+              - link "Like" [ref=e1039] [cursor=pointer]:
+                - /url: ""
+              - text: Be the first to like this
+            - list [ref=e1043]:
+              - listitem [ref=e1044]: No labels
+              - listitem [ref=e1045]:
+                - link "Edit Labels" [ref=e1046] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e1047]: Edit Labels
+          - generic [ref=e1048]:
+            - heading "1 Child Page" [level=2] [ref=e1050]:
+              - link "1 Child Page" [ref=e1051] [cursor=pointer]:
+                - /url: /pages/viewpage.action?pageId=1299022576&showChildren=false#children
+            - generic [ref=e1053]:
+              - generic "Page" [ref=e1054]: "Page:"
+              - link "WS_RIG_007 Output" [ref=e1055] [cursor=pointer]:
+                - /url: /display/RDSGRI/WS_RIG_007+Output
+          - generic [ref=e1058]:
+            - paragraph [ref=e1059]:
+              - 'link "User icon: Add a picture of yourself" [ref=e1060] [cursor=pointer]':
+                - /url: /users/editmyprofilepicture.action
+                - 'img "User icon: Add a picture of yourself" [ref=e1061]'
+            - generic "Add a Comment (m)" [ref=e1064]: Write a comment…
+    - list [ref=e1067]:
+      - listitem [ref=e1068]:
+        - text: Powered by
+        - link "Atlassian Confluence" [ref=e1069] [cursor=pointer]:
+          - /url: http://www.atlassian.com/software/confluence
+        - text: 5.3.1,
+        - link "Team Collaboration Software" [ref=e1070] [cursor=pointer]:
+          - /url: http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer
+        - text: ·
+      - text: ·
+      - listitem [ref=e1071]:
+        - link "Report a bug" [ref=e1072] [cursor=pointer]:
+          - /url: http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470
+        - text: ·
+      - listitem [ref=e1073]:
+        - link "Atlassian News" [ref=e1074] [cursor=pointer]:
+          - /url: http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch
+  - generic:
+    - button "Choose File"

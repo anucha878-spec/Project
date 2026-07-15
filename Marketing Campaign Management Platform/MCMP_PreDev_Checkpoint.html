@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCMP — Pre-Dev Checkpoint</title>
+<style>
+  :root{
+    --navy:#0b2a4a; --blue:#1565c0; --teal:#00897b; --amber:#f57c00;
+    --red:#c62828; --ink:#1a2330; --muted:#5b6b7b; --bg:#eef2f6; --card:#fff;
+    --line:#d8e0e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Segoe UI","Tahoma","Sarabun",sans-serif;
+    background:var(--bg); color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .deck{max-width:1120px;margin:0 auto;padding:24px 16px 60px}
+  .slide{
+    background:var(--card); border-radius:14px; margin:0 0 26px; padding:42px 48px;
+    min-height:600px; box-shadow:0 6px 24px rgba(11,42,74,.10);
+    display:flex; flex-direction:column; position:relative; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .slide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(var(--blue),var(--teal))}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:8px}
+  h1{font-size:40px;line-height:1.15;color:var(--navy);margin-bottom:14px}
+  h2{font-size:30px;color:var(--navy);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+  h2 .num{background:var(--navy);color:#fff;border-radius:8px;font-size:18px;padding:4px 12px}
+  h3{font-size:19px;color:var(--blue);margin:16px 0 8px}
+  p,li{font-size:18px;line-height:1.55;color:var(--ink)}
+  ul{padding-left:24px} li{margin:6px 0}
+  .sub{font-size:18px;color:var(--muted);margin-bottom:6px}
+  .pageno{position:absolute;right:20px;bottom:14px;font-size:13px;color:var(--muted)}
+  .foot{position:absolute;left:48px;bottom:14px;font-size:13px;color:var(--muted)}
+  table{border-collapse:collapse;width:100%;margin-top:10px;font-size:15.5px}
+  th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:#f6f9fc}
+  .cols{display:flex;gap:24px;flex:1}
+  .col{flex:1}
+  .pill{display:inline-block;background:#e8f0fb;color:var(--blue);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;margin:3px 4px 3px 0}
+  .chip-red{background:#fdecea;color:var(--red)}
+  .chip-amber{background:#fff4e5;color:var(--amber)}
+  .flow{font-family:"Cascadia Code","Consolas",monospace;background:#0b2a4a;color:#d7e6f5;border-radius:10px;padding:18px 20px;font-size:14px;line-height:1.5;white-space:pre;overflow:auto}
+  .kpi{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}
+  .kpi .box{flex:1;min-width:150px;background:#f6f9fc;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .kpi .box .v{font-size:30px;font-weight:800;color:var(--navy)}
+  .kpi .box .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .callout{background:#fff8e1;border-left:5px solid var(--amber);padding:14px 18px;border-radius:8px;margin-top:14px;font-size:16.5px}
+  .callout.red{background:#fdecea;border-color:var(--red)}
+  .callout.blue{background:#e8f0fb;border-color:var(--blue)}
+  .title-slide{justify-content:center;align-items:flex-start;background:linear-gradient(135deg,#0b2a4a,#1565c0);color:#fff;border:none}
+  .title-slide::before{display:none}
+  .title-slide h1{color:#fff;font-size:48px}
+  .title-slide .sub{color:#cfe1f2;font-size:20px}
+  .title-slide .meta{margin-top:28px;font-size:15px;color:#bcd4ec;line-height:1.8}
+  .lead{font-size:21px;line-height:1.6}
+  .toolbar{position:sticky;top:0;z-index:10;background:#0b2a4a;color:#fff;padding:8px 16px;border-radius:0 0 10px 10px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .toolbar button{background:#1565c0;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:14px;cursor:pointer}
+  @media print{
+    body{background:#fff}
+    .toolbar{display:none}
+    .deck{max-width:none;padding:0}
+    .slide{margin:0;border-radius:0;min-height:100vh;page-break-after:always;box-shadow:none;border:none}
+    @page{size:landscape;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <span>MCMP — Pre-Dev Checkpoint · 12 สไลด์</span>
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+<div class="deck">
+
+  <!-- 1 Title -->
+  <section class="slide title-slide">
+    <div class="tag" style="color:#9ec6ee">PROJECT 20240278</div>
+    <h1>Marketing Campaign<br>Management Platform</h1>
+    <p class="sub">สรุปกระบวนการเพื่อคุย Checkpoint ก่อนเริ่มพัฒนา</p>
+    <div class="meta">
+      Owner: ฝ่ายการตลาด — บมจ. ไทยสมุทรประกันชีวิต (Ocean Life Insurance)<br>
+      เอกสารต้นทาง: BRD v0.1 (42 หน้า) · WBS / Development Effort v1.0 (5 หน้า) · GrowthAi Slides (74 หน้า)
+    </div>
+    <span class="pageno" style="color:#bcd4ec">1 / 12</span>
+  </section>
+
+  <!-- 2 Overview -->
+  <section class="slide">
+    <div class="tag">Overview</div>
+    <h2><span class="num">1</span>ระบบนี้ทำอะไร</h2>
+    <p class="lead">MCMP คือ <b>แพลตฟอร์มกลางการตลาด</b> ที่รวมข้อมูลลูกค้าจากหลายระบบ สร้างกลุ่มเป้าหมาย ส่งแคมเปญหลายช่องทาง และบริหาร Lead จนถึงตัวแทน</p>
+    <div class="kpi" style="margin-top:24px">
+      <div class="box"><div class="v">①</div><div class="l">รวมข้อมูล → Single View</div></div>
+      <div class="box"><div class="v">②</div><div class="l">สร้าง Segment (RFM/CLV/Health)</div></div>
+      <div class="box"><div class="v">③</div><div class="l">ส่ง Campaign (SMS/Email/LINE/App)</div></div>
+      <div class="box"><div class="v">④</div><div class="l">Sync FB / Google Ads</div></div>
+      <div class="box"><div class="v">⑤</div><div class="l">บริหาร Lead → LC (SLA 24 ชม.)</div></div>
+    </div>
+    <div class="callout blue" style="margin-top:28px"><b>3 กระบวนการหลัก:</b> &nbsp;01 Data Ingestion &nbsp;·&nbsp; 02 Campaign Setting &amp; Send &nbsp;·&nbsp; 03 Lead Management</div>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">2 / 12</span>
+  </section>
+
+  <!-- 3 Architecture -->
+  <section class="slide">
+    <div class="tag">Architecture</div>
+    <h2><span class="num">2</span>สถาปัตยกรรม &amp; ระบบที่เกี่ยวข้อง</h2>
+    <div class="flow">[ ต้นทาง ]            [ Data Platform ]              [ MCMP ]            [ ปลายทาง ]
+CIS/OLI ─┐                                                              ┌─ ลูกค้า (SMS/Email/
+AS400    │            DW → S3 → AWS Glue/Athena     01 Ingestion        │   LINE/Ocean Club)
+LineOA   ├ Upd/Ins ─► (gluedb_prod_lakecurated) ──► 02 Campaign ────────┤─ FB / Google Ads (ESB)
+GA4      │            → QuickSight (RFM/Dashboard)  03 Lead             │─ LC Connect (ตัวแทน)
+OSSS·NBS │                                                              └─ Digital Sale
+Web·HR ──┘            Vendor: GrowthAi · Infobip</div>
+    <div style="margin-top:16px">
+      <span class="pill">CIS · AS/400 · LineOA · OSSS · NBS · GA4 · HR</span>
+      <span class="pill">DW · S3 · Glue/Athena · QuickSight</span>
+      <span class="pill chip-amber">GrowthAi (Ocean Club + automation)</span>
+      <span class="pill chip-amber">Infobip (SMS/Shortlink)</span>
+    </div>
+    <div class="callout"><b>Single Source of Truth:</b> เจอข้อมูลซ้ำหลายแหล่ง → ยึด <b>เบอร์/อีเมลจาก CIS</b> เป็นหลัก</div>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">3 / 12</span>
+  </section>
+
+  <!-- 4 Process 01 -->
+  <section class="slide">
+    <div class="tag">Process 01</div>
+    <h2><span class="num">3</span>Data Ingestion</h2>
+    <p class="sub">ดึง/อัปเดต (Update-Insert ไม่ซ้ำ) เข้าระบบกลาง · Daily 23:00 และ Realtime · ตรวจ error → Automail แจ้งผล 08:00 / ไม่พบไฟล์ 09:00 · มี Maker/Checker อนุมัติการ Upload Campaign/Activity</p>
+    <table>
+      <tr><th>แหล่ง</th><th>ต้นทาง</th><th>ความถี่</th><th>แหล่ง</th><th>ต้นทาง</th><th>ความถี่</th></tr>
+      <tr><td>Customer</td><td>CIS/OLI</td><td>Daily</td><td>UTM Behavior</td><td>GA4</td><td>ตามกำหนด</td></tr>
+      <tr><td>Policy</td><td>AS/400</td><td>Daily</td><td>Agent</td><td>OSSS</td><td>Daily/RT</td></tr>
+      <tr><td>LINE Ocean Connect</td><td>LineOA</td><td>Daily</td><td>RFM Model</td><td>S3/Actuary</td><td>Manual</td></tr>
+      <tr><td>Campaign &amp; Activity</td><td>Upload UI</td><td>Weekly</td><td>Lead</td><td>Web Corp.</td><td>Realtime</td></tr>
+      <tr><td>Contact Center / FB</td><td>NBS</td><td>Realtime</td><td>Staff</td><td>HR (+SHA-256)</td><td>Manual</td></tr>
+      <tr><td>Ocean Club App</td><td>GrowthAi (Path)</td><td>Daily</td><td></td><td></td><td></td></tr>
+    </table>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">4 / 12</span>
+  </section>
+
+  <!-- 5 Process 02 -->
+  <section class="slide">
+    <div class="tag">Process 02</div>
+    <h2><span class="num">4</span>Campaign Setting &amp; Send</h2>
+    <ul>
+      <li>วิเคราะห์ + Dashboard/Segment บน <b>QuickSight</b> → ดึง Customer+RFM เข้า MCMP (Manual)</li>
+      <li>สร้าง <b>Segment</b> — Filter AND/OR, Active/Inactive, Clone, Export, <b>exclude Consent=No &amp; Do-not-contact</b></li>
+      <li><b>Manual Sync Audience</b> → FB / Google Ads (Customer Match)</li>
+      <li>สร้าง <b>Campaign</b> — เลือก Segment, ช่องทาง, ตั้งเวลา 3 แบบ, Tag, Retarget, แสดง Sent/Open/Click</li>
+      <li>สร้าง <b>Message</b> แยกช่องทาง — Personalization, Shorten Link (Infobip), Preview</li>
+      <li><b>Maker/Checker อนุมัติส่ง</b> → ระบบส่งตามเวลา (ยึด CIS) → ลูกค้าได้รับ</li>
+      <li>เก็บผล Open/Click/Unique → <b>Automail Monthly Summary</b> (วันที่ 1 เดือนถัดไป 13:00)</li>
+    </ul>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">5 / 12</span>
+  </section>
+
+  <!-- 6 Process 03 -->
+  <section class="slide">
+    <div class="tag">Process 03</div>
+    <h2><span class="num">5</span>Lead Management</h2>
+    <ul>
+      <li>Import <b>LC จาก OSSS</b> (≤10 รายชื่อ/จังหวัด, ≤10 จังหวัด/ครั้ง, อัปเดตอัตโนมัติ)</li>
+      <li>บันทึก <b>Lead</b>: Website (auto) · Facebook (manual) · Contact Center (manual, VPN/VDI ถ้า WFH) · CRM Event (Import Excel/CSV) — ตรวจซ้ำ</li>
+      <li>ซื้อ <b>Online</b> → Digital Sale (Google Sheet + Email) / ผ่าน <b>ตัวแทน</b> → เกณฑ์ Assign</li>
+      <li><b>Auto Assign</b>: จังหวัดตรง → ผลงานทุกงวด → ผลงานบางงวด → Round Robin + <b>Lead Scoring</b> (มีเวลานัด=Hot / ไม่มี=Warm)</li>
+      <li><b>Manual Assign</b> เมื่อระบบเลือกไม่ได้ → แจ้ง New Lead ผ่าน <b>LC Connect</b> → LC ติดต่อ</li>
+      <li><b>SLA 24 ชม.</b> เกิน → ดึงคืน Re-assign + <b>ระงับ LC (5/10/15/20 วัน/ถาวร)</b> + Email การตลาด 09:00</li>
+      <li>บันทึกผล (สูงสุด 3 ครั้ง → ปิดเคส; ปิดไม่ได้เก็บ 3 เดือน → ลบ) → <b>Daily Report 09:00</b> + Export</li>
+    </ul>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">6 / 12</span>
+  </section>
+
+  <!-- 7 Business Rules -->
+  <section class="slide">
+    <div class="tag">Business Rules</div>
+    <h2><span class="num">6</span>Business Rules ที่ต้องตอกย้ำ</h2>
+    <table>
+      <tr><th>#</th><th>Rule</th><th>กระทบ</th></tr>
+      <tr><td>BR-1</td><td>ยึดเบอร์/อีเมลจาก <b>CIS</b> เป็นหลักเมื่อข้อมูลซ้ำ</td><td>Dedup ทุก channel</td></tr>
+      <tr><td>BR-2</td><td><b>Exclude Consent=No + Do-not-contact</b> ก่อนส่ง</td><td><b>PDPA / Compliance</b></td></tr>
+      <tr><td>BR-3</td><td><b>Maker/Checker</b> ทั้ง import (01-0-4) และส่ง campaign (02-7)</td><td>Governance</td></tr>
+      <tr><td>BR-4</td><td><b>SLA Lead 24 ชม.</b> เกิน → ดึงคืน + ระงับ LC</td><td>ผลงานตัวแทน</td></tr>
+      <tr><td>BR-5</td><td><b>Lead Scoring</b> Hot (มีเวลานัด) / Warm (ไม่มี)</td><td>คิว Assign</td></tr>
+      <tr><td>BR-6</td><td><b>Data Retention</b> Lead ปิดไม่ได้ 3 เดือน → ลบ</td><td>Storage / PDPA</td></tr>
+      <tr><td>BR-7</td><td>Segmentation: RFM(11) · CLV(6) · Customer Segment(6) · Age · Health Score</td><td>Data model</td></tr>
+    </table>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">7 / 12</span>
+  </section>
+
+  <!-- 8 GrowthAi -->
+  <section class="slide">
+    <div class="tag" style="color:var(--amber)">⭐ KEY FINDING</div>
+    <h2><span class="num">7</span>GrowthAi เปลี่ยนภาพ Campaign</h2>
+    <p class="lead">GrowthAi คือ <b>เครื่องมือ marketing-automation จริง</b> — Campaign <b>ไม่ใช่</b> "สร้าง + เลือกช่องทาง" แต่เป็น <b>Visual Flow Builder</b></p>
+    <div class="flow" style="margin-top:14px">[Segment / Contact source] → [Decision] → [Condition (ตาม tag)] → [Action]
+                              yes/no       branch              ├─ Send email (drag-drop builder)
+                                                               ├─ Send text message
+                                                               ├─ Mobile app push
+                                                               ├─ Send webhook
+                                                               └─ per-step delay / schedule</div>
+    <div class="callout"><b>Tracking ตายตัวต่อ campaign:</b> Total User · Total Send · Total Credit · Total Fail · Total Click · Unique Click (+ drill-down รายคน)</div>
+    <div class="callout red"><b>ผลกระทบ:</b> scope Campaign หนักกว่าที่ WBS ประเมิน (1.2.3 = 12 MD) เพราะมี combinatorial path ของ flow</div>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">8 / 12</span>
+  </section>
+
+  <!-- 9 Gap High -->
+  <section class="slide">
+    <div class="tag" style="color:var(--red)">🔴 MUST CLOSE</div>
+    <h2><span class="num">8</span>Gap ระดับ High ที่ต้องปิดก่อน Dev</h2>
+    <p class="sub">อยู่ใน BRD แต่ <b>ไม่พบใน WBS v1.0</b> — ต้องยืนยันว่าใครทำ + เพิ่ม effort</p>
+    <table>
+      <tr><th>#</th><th>Gap</th><th>เหตุผล</th></tr>
+      <tr><td>1</td><td><b>Do-not-contact list</b> (import + exclude ตอนส่ง)</td><td>Compliance</td></tr>
+      <tr><td>2</td><td><b>Exclude Consent=No</b> ตอนสร้าง Segment / ส่ง</td><td>PDPA</td></tr>
+      <tr><td>3</td><td><b>Maker/Checker workflow อนุมัติส่ง Campaign</b></td><td>มีแค่ "สถานะ" ยังไม่มี task จริง</td></tr>
+      <tr><td>4</td><td><b>Manual Assign Lead</b></td><td>กรณี auto assign ไม่ได้</td></tr>
+      <tr><td>5</td><td><b>ระงับ LC x วัน</b> (5/10/15/20/ถาวร)</td><td>ยังไม่พบ config/task</td></tr>
+    </table>
+    <div class="callout red">ทั้ง 5 เป็น core business rule/compliance → ควรเป็นงาน <b>QA1 (Senior)</b> + ขอ effort เพิ่ม <b>~5–8 MD</b></div>
+    <p class="sub" style="margin-top:10px"><b>Medium:</b> Open tracking (email) · Campaign Monthly Report · Lead Daily Report · Lead Import Excel/CSV · Message object แยก</p>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">9 / 12</span>
+  </section>
+
+  <!-- 10 Clarify GrowthAi -->
+  <section class="slide">
+    <div class="tag chip-amber" style="color:var(--amber)">❓ CLARIFY</div>
+    <h2><span class="num">9</span>คำถามต้องตอบก่อน Finalize Scope</h2>
+    <ol style="padding-left:24px">
+      <li style="margin:10px 0"><b>GrowthAi เป็น COTS/SaaS หรือ custom build?</b> — กระทบกลยุทธ์ (config vs functional) + effort <b>(+4 MD ถ้า config / +6–8 MD ถ้า custom)</b></li>
+      <li style="margin:10px 0"><b>Decision vs Condition node</b> ต่างกันเชิง business อย่างไร</li>
+      <li style="margin:10px 0"><b>Send webhook</b> ยิงไประบบไหน (MCMP internal / LC Connect / UW?) — ยังไม่อยู่ใน BRD</li>
+      <li style="margin:10px 0"><b>Total Credit / Total Fail</b> สูตรตรงกับ Infobip billing หรือไม่ (reconciliation)</li>
+      <li style="margin:10px 0"><b>Channel-presence filter</b> ("เป็น Ocean Connect แล้ว/ยัง") field มาจาก source ใด refresh บ่อยแค่ไหน</li>
+      <li style="margin:10px 0"><b>LINE Ocean Connect หายจาก GrowthAi actions</b> (มี email/text/app/webhook) — LINE ส่งผ่าน action ใด</li>
+    </ol>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">10 / 12</span>
+  </section>
+
+  <!-- 11 Effort -->
+  <section class="slide">
+    <div class="tag">Effort (WBS v1.0)</div>
+    <h2><span class="num">10</span>ขอบเขต Effort</h2>
+    <div class="kpi">
+      <div class="box"><div class="v">451.70</div><div class="l">Total MD</div></div>
+      <div class="box"><div class="v">313.45</div><div class="l">Marketing Campaign</div></div>
+      <div class="box"><div class="v">127.75</div><div class="l">Lead Management</div></div>
+      <div class="box"><div class="v">10.50</div><div class="l">อื่นๆ</div></div>
+    </div>
+    <div class="kpi" style="margin-top:8px">
+      <div class="box"><div class="v">BA 2</div><div class="l">Business Analyst</div></div>
+      <div class="box"><div class="v">SA 140</div><div class="l">System Analyst</div></div>
+      <div class="box"><div class="v">Dev 211</div><div class="l">Developer</div></div>
+      <div class="box"><div class="v">QA 98</div><div class="l">Quality Assurance</div></div>
+    </div>
+    <div class="callout blue"><b>QA (เลขทางการ):</b> baseline <b>98.0</b> + GrowthAi <b>+4.0</b> = <b>≈102.0 MD</b> — QA1 Senior (core + GrowthAi) · QA2 Junior (ingestion + UI) · 8 paired chains &nbsp;<span style="opacity:.7">[รายการแตกละเอียด = 103.0, ±1 MD slack ยังไม่จัดสรร]</span></div>
+    <p class="sub" style="margin-top:8px"><b>WBS เพิ่มของดีนอก BRD:</b> Hash SHA-256 · Penetration Test · Tag System ขั้นสูง · House Keeping · Monitoring · Impact EDW/IFRS17</p>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">11 / 12</span>
+  </section>
+
+  <!-- 12 Agenda -->
+  <section class="slide">
+    <div class="tag">Next Step</div>
+    <h2><span class="num">11</span>Agenda ประชุม Checkpoint</h2>
+    <ol style="padding-left:24px;font-size:19px">
+      <li style="margin:14px 0">ยืนยันภาพรวม <b>3 process + สถาปัตยกรรม</b> — ตรงกับที่ทีม dev เข้าใจไหม</li>
+      <li style="margin:14px 0">ล็อก <b>Business Rules</b> — โดยเฉพาะ <b>BR-2 PDPA</b> และ <b>BR-3 Maker/Checker</b></li>
+      <li style="margin:14px 0"><b>ตัดสินใจเรื่อง GrowthAi</b> (COTS หรือ custom?) — <b>blocker ใหญ่สุดของการประเมิน scope</b></li>
+      <li style="margin:14px 0">ไล่ปิด <b>5 Gap High</b> — ใครรับผิดชอบ + เพิ่ม MD เท่าไร</li>
+      <li style="margin:14px 0">สรุป <b>effort ที่ revise</b> แล้ว + ลำดับ sprint / priority</li>
+    </ol>
+    <div class="callout">เอกสารอ้างอิง: BRD_Summary_Workflow · MCMP_BRD_vs_WBS_Crosscheck · MCMP_GrowthAi_Gap_and_TestCases · MCMP_QA_Task_Assignment</div>
+    <span class="foot">MCMP Pre-Dev Checkpoint</span><span class="pageno">12 / 12</span>
+  </section>
+
+</div>
+</body>
+</html>

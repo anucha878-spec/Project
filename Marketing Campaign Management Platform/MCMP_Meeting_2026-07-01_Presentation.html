@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MCMP — Meeting Summary (Solution & DB Design)</title>
+<style>
+  :root{
+    --navy:#0b2a4a; --blue:#1565c0; --teal:#00897b; --amber:#f57c00;
+    --red:#c62828; --green:#2e7d32; --ink:#1a2330; --muted:#5b6b7b; --bg:#eef2f6; --card:#fff;
+    --line:#d8e0e8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Segoe UI","Tahoma","Sarabun",sans-serif;
+    background:var(--bg); color:var(--ink); -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  .deck{max-width:1120px;margin:0 auto;padding:24px 16px 60px}
+  .slide{
+    background:var(--card); border-radius:14px; margin:0 0 26px; padding:42px 48px;
+    min-height:600px; box-shadow:0 6px 24px rgba(11,42,74,.10);
+    display:flex; flex-direction:column; position:relative; overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .slide::before{content:"";position:absolute;left:0;top:0;bottom:0;width:8px;background:linear-gradient(var(--blue),var(--teal))}
+  .tag{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:8px}
+  h1{font-size:40px;line-height:1.15;color:var(--navy);margin-bottom:14px}
+  h2{font-size:29px;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  h2 .num{background:var(--navy);color:#fff;border-radius:8px;font-size:18px;padding:4px 12px}
+  h3{font-size:19px;color:var(--blue);margin:14px 0 6px}
+  p,li{font-size:17.5px;line-height:1.55;color:var(--ink)}
+  ul{padding-left:24px} li{margin:6px 0}
+  .sub{font-size:18px;color:var(--muted);margin-bottom:6px}
+  .pageno{position:absolute;right:20px;bottom:14px;font-size:13px;color:var(--muted)}
+  .foot{position:absolute;left:48px;bottom:14px;font-size:13px;color:var(--muted)}
+  table{border-collapse:collapse;width:100%;margin-top:10px;font-size:15px}
+  th,td{border:1px solid var(--line);padding:8px 12px;text-align:left;vertical-align:top}
+  th{background:var(--navy);color:#fff;font-weight:600}
+  tr:nth-child(even) td{background:#f6f9fc}
+  .cols{display:flex;gap:24px;flex:1}
+  .col{flex:1}
+  .pill{display:inline-block;background:#e8f0fb;color:var(--blue);border-radius:999px;padding:3px 12px;font-size:14px;font-weight:600;margin:3px 4px 3px 0}
+  .chip-red{background:#fdecea;color:var(--red)}
+  .chip-amber{background:#fff4e5;color:var(--amber)}
+  .chip-green{background:#e7f4e8;color:var(--green)}
+  .flow{font-family:"Cascadia Code","Consolas",monospace;background:#0b2a4a;color:#d7e6f5;border-radius:10px;padding:18px 20px;font-size:14px;line-height:1.5;white-space:pre;overflow:auto}
+  .kpi{display:flex;gap:16px;margin-top:10px;flex-wrap:wrap}
+  .kpi .box{flex:1;min-width:150px;background:#f6f9fc;border:1px solid var(--line);border-radius:12px;padding:16px;text-align:center}
+  .kpi .box .v{font-size:28px;font-weight:800;color:var(--navy)}
+  .kpi .box .l{font-size:13px;color:var(--muted);margin-top:4px}
+  .callout{background:#fff8e1;border-left:5px solid var(--amber);padding:14px 18px;border-radius:8px;margin-top:14px;font-size:16px}
+  .callout.red{background:#fdecea;border-color:var(--red)}
+  .callout.blue{background:#e8f0fb;border-color:var(--blue)}
+  .callout.green{background:#e7f4e8;border-color:var(--green)}
+  .card2{background:#f6f9fc;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card2 h3{margin-top:0}
+  .conf{display:inline-block;background:#fdecea;color:var(--red);border:1px solid #f3b7b1;border-radius:6px;font-size:12.5px;font-weight:700;padding:2px 8px;margin-left:6px}
+  .title-slide{justify-content:center;align-items:flex-start;background:linear-gradient(135deg,#0b2a4a,#1565c0);color:#fff;border:none}
+  .title-slide::before{display:none}
+  .title-slide h1{color:#fff;font-size:46px}
+  .title-slide .sub{color:#cfe1f2;font-size:20px}
+  .title-slide .meta{margin-top:26px;font-size:15px;color:#bcd4ec;line-height:1.8}
+  .lead{font-size:20px;line-height:1.6}
+  .toolbar{position:sticky;top:0;z-index:10;background:#0b2a4a;color:#fff;padding:8px 16px;border-radius:0 0 10px 10px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .toolbar button{background:#1565c0;color:#fff;border:none;border-radius:6px;padding:6px 14px;font-size:14px;cursor:pointer}
+  @media print{
+    body{background:#fff}
+    .toolbar{display:none}
+    .deck{max-width:none;padding:0}
+    .slide{margin:0;border-radius:0;min-height:100vh;page-break-after:always;box-shadow:none;border:none}
+    @page{size:landscape;margin:0}
+  }
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <span>MCMP — สรุปประชุม Solution &amp; DB Design (สำหรับ QA Lead) · 10 สไลด์</span>
+  <button onclick="window.print()">🖨️ Print / Save as PDF</button>
+</div>
+<div class="deck">
+
+  <!-- 1 Title -->
+  <section class="slide title-slide">
+    <div class="tag" style="color:#9ec6ee">PROJECT 20240278 · MEETING SUMMARY</div>
+    <h1>Solution &amp; DB Design<br>สรุปเพื่อ QA Lead</h1>
+    <p class="sub">ประชุม "ขอปรึกษา Solution และขอสร้าง Repo"</p>
+    <div class="meta">
+      วันที่ประชุม: 2026-07-01 12:52 (GMT+07:00) · ความยาว ~11.75 นาที (เนื้อหาจริง ~7 นาที)<br>
+      โฟกัส: <b>Process Design</b> &amp; <b>DB Design</b> — เพื่อเตรียม Test Scope / Test Data / Clarification<br>
+      แหล่งที่มา: ถอดเสียงอัตโนมัติจาก Recording (whisper large-v3-turbo)
+    </div>
+    <span class="pageno" style="color:#bcd4ec">1 / 10</span>
+  </section>
+
+  <!-- 2 Caveat + overview -->
+  <section class="slide">
+    <div class="tag">Overview &amp; ข้อควรระวัง</div>
+    <h2><span class="num">1</span>ภาพรวมประชุม + ระดับความเชื่อมั่น</h2>
+    <p class="lead">ประชุมปรึกษา <b>สถาปัตยกรรม/การออกแบบข้อมูล</b> ของ MCMP และเริ่ม <b>สร้าง Repo</b> — 2 หัวข้อหลักที่ QA ต้องจับคือ <b>ที่เก็บข้อมูล (CX)</b> และ <b>การ Validate ตอน Ingest</b></p>
+    <div class="kpi" style="margin-top:22px">
+      <div class="box"><div class="v">CX</div><div class="l">ที่เก็บข้อมูลลูกค้า (CDP กลาง)</div></div>
+      <div class="box"><div class="v">2 กลุ่ม</div><div class="l">Customer vs Prospect</div></div>
+      <div class="box"><div class="v">Validate</div><div class="l">13 หลัก + reject invalid</div></div>
+      <div class="box"><div class="v">2 Repo</div><div class="l">Repo + Spec Kit (MSA)</div></div>
+    </div>
+    <div class="callout red" style="margin-top:26px">
+      <b>⚠️ ระดับความเชื่อมั่น:</b> เสียงเป็นประชุม far-field + ศัพท์เทคนิคปนอังกฤษ ทำให้ถอดเสียงเพี้ยนบางส่วน
+      สรุปนี้เป็น <b>การตีความ (interpretation)</b> ไม่ใช่คำต่อคำ — จุดที่ยังไม่ชัดทำแท็ก <span class="conf">ต้อง confirm</span>
+      แนะนำตรวจซ้ำกับ SA / พี่โทน ก่อนล็อกเป็น test basis
+    </div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">2 / 10</span>
+  </section>
+
+  <!-- 3 DB Design: CX + Customer/Prospect -->
+  <section class="slide">
+    <div class="tag">DB Design</div>
+    <h2><span class="num">2</span>ที่เก็บข้อมูล &amp; การจำแนก Customer / Prospect</h2>
+    <div class="cols">
+      <div class="col card2">
+        <h3>🗄️ CX = ที่เก็บข้อมูลลูกค้า (CDP กลาง)</h3>
+        <ul>
+          <li>ข้อมูล <b>Customer</b> ให้ลงที่ <b>CX</b> เป็นหลัก (ทิศทางจากพี่โทน)</li>
+          <li>แยกชุดข้อมูลใน CX โดยมีชุดหนึ่งเป็นฝั่ง <b>Campaign / Activity</b></li>
+          <li>ลูกค้าทำธุรกรรม (recurring) → บันทึกเข้า CX ไม่ใช่ upload ครั้งเดียวจบ</li>
+        </ul>
+      </div>
+      <div class="col card2">
+        <h3>👥 จำแนก 2 ทาง: Customer vs Prospect</h3>
+        <ul>
+          <li><b>Customer</b> → เก็บที่ CX <span class="conf">ต้อง confirm: CX = TCM?</span></li>
+          <li><b>Prospect</b> ยังไม่ล็อก — 2 แนวทาง:</li>
+          <li style="list-style:none">&nbsp;&nbsp;(ก) ขยาย CX ให้รองรับ Prospect → ตามรอย convert เป็นลูกค้าได้</li>
+          <li style="list-style:none">&nbsp;&nbsp;(ข) เก็บ DB แยก (TCM / marketing DB) <span class="conf">ต้อง confirm</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout blue"><b>QA note:</b> ต้องมี test data + assertions แยก 2 กลุ่มชัดเจน และตรวจว่าแต่ละกลุ่มถูกจัดเข้าที่เก็บถูกต้อง</div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">3 / 10</span>
+  </section>
+
+  <!-- 4 DB Design: Validation flow -->
+  <section class="slide">
+    <div class="tag">DB Design · จุดสำคัญของ QA</div>
+    <h2><span class="num">3</span>Validation ตอน Ingest ข้อมูล</h2>
+    <div class="flow">[ ข้อมูลเข้า ]        [ Validate Gate ]                 [ ปลายทาง ]
+
+ Upload / Feed  ──►   ✔ Identify "เป็นใคร"          ┌─►  ✅ ผ่าน → CX
+ (ลูกค้า/Lead)         ✔ เลขบัตร ปชช. 13 หลัก        │        └─ ถ้าตรงลูกค้าเดิม → link/merge
+                       ✔ ตรวจความถูกต้อง (valid)     │
+                                                    └─►  ❌ ไม่ผ่าน → reject / drop ออก</div>
+    <div class="cols" style="margin-top:16px">
+      <div class="col">
+        <h3>กติกาที่ระบุในประชุม</h3>
+        <ul>
+          <li>ยืนยันตัวตน ไม่รับข้อมูลขยะ / ชื่อมั่ว</li>
+          <li>เลขบัตรประชาชน <b>13 หลัก</b> + ตรวจ valid <span class="conf">ต้อง confirm rule เต็ม</span></li>
+          <li>Record ไม่ผ่าน → <b>คัดออก</b> ไม่เข้า CX</li>
+          <li>ผ่านแล้วตรงลูกค้าเดิม → <b>link/merge</b></li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>QA ต้องเตรียม</h3>
+        <ul>
+          <li>Positive / Negative validation test</li>
+          <li>Boundary เลขบัตร (12/13/14 หลัก, checksum)</li>
+          <li>Duplicate / merge scenario</li>
+          <li>Reject-flow verification (ข้อมูลหลุดเข้าไหม)</li>
+        </ul>
+      </div>
+    </div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">4 / 10</span>
+  </section>
+
+  <!-- 5 Process Design: UI -> CX -->
+  <section class="slide">
+    <div class="tag">Process Design</div>
+    <h2><span class="num">4</span>ผู้ใช้คือการตลาด → ไม่ให้เข้า CX ตรง</h2>
+    <div class="flow">   [ ผู้ใช้: ทีมการตลาด ]                          [ ระบบเบื้องหลัง ]
+
+   ┌───────────────────────┐        deliver /        ┌──────────────┐
+   │  UI / เมนู             │  ───── เชื่อมโยง ─────►  │     CX       │
+   │  บน Marketing Platform │        ข้อมูล           │  (CDP กลาง)  │
+   └───────────────────────┘                         └──────────────┘
+        ผู้ใช้ทำงานที่นี่                         ไม่ให้การตลาดเข้า CX โดยตรง</div>
+    <ul style="margin-top:16px">
+      <li>คนใช้งานจริง = <b>ฝ่ายการตลาด</b> → เข้าไปทำงานที่ CX โดยตรง "ไม่เหมาะ"</li>
+      <li><b>ดีไซน์:</b> สร้าง UI/เมนูบน marketing platform ส่วนข้อมูล <b>deliver ไป CX</b> เบื้องหลัง</li>
+      <li>ค่าตั้งต้น: "ออกแบบให้ไปที่ CX" แล้วค่อยพิจารณาเมนูรายตัว</li>
+    </ul>
+    <div class="callout blue"><b>QA note:</b> ต้องทดสอบ integration/data-integrity — UI บน marketing tool → ข้อมูลลง CX ถูกต้องครบถ้วน</div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">5 / 10</span>
+  </section>
+
+  <!-- 6 Process Design: menu placement + ingestion pattern -->
+  <section class="slide">
+    <div class="tag">Process Design</div>
+    <h2><span class="num">5</span>ตำแหน่งเมนู &amp; รูปแบบการนำเข้าข้อมูล</h2>
+    <div class="cols">
+      <div class="col card2">
+        <h3>📍 Menu placement — ตัดสินรายเมนู</h3>
+        <ul>
+          <li>ดูจาก <b>ใครเป็นคนใช้</b></li>
+          <li>การตลาดใช้บ่อย + ผู้ใช้กลุ่มเดียว → วางบน marketing tool ใกล้กัน</li>
+          <li>Data/ฟังก์ชันที่การตลาดไม่ใช้ → อยู่ที่ <b>CX</b></li>
+          <li>มี action ต้อง review รายเมนู <span class="conf">ยังไม่ finalize</span></li>
+        </ul>
+      </div>
+      <div class="col card2">
+        <h3>📥 Ingestion pattern</h3>
+        <ul>
+          <li>ต้องแยกให้ชัด: <b>upload ครั้งเดียวจบ</b> vs <b>ธุรกรรมวิ่งเข้าต่อเนื่อง (recurring)</b></li>
+          <li>มีผลต่อที่เก็บและ flow การประมวลผล</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout"><b>QA note:</b> เมนู UI test ยัง pending — mark ไว้ก่อน รอ finalize ตำแหน่งเมนู</div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">6 / 10</span>
+  </section>
+
+  <!-- 7 Dev/Delivery setup -->
+  <section class="slide">
+    <div class="tag">Dev / Delivery Setup</div>
+    <h2><span class="num">6</span>Repo · Spec Kit · MSA (บริบทให้ QA เตรียมตัว)</h2>
+    <div class="kpi">
+      <div class="box"><div class="v">2</div><div class="l">Repo (repo + Spec Kit)</div></div>
+      <div class="box"><div class="v">MSA</div><div class="l">Microservices Architecture</div></div>
+      <div class="box"><div class="v">Web</div><div class="l">Spec Kit publish ให้ support ดู</div></div>
+    </div>
+    <ul style="margin-top:20px">
+      <li>สร้าง <b>2 Repo</b> — repo + Spec Kit สถาปัตย์แนว <b>MSA</b></li>
+      <li><b>Spec Kit publish บนเว็บ</b> (publishable web) ให้ทีม support / ผู้เกี่ยวข้องเข้ามาดู — ไม่ลงรายละเอียด 100%</li>
+      <li>มี <b>Notification</b> ส่งให้ทีมทางเดียว</li>
+    </ul>
+    <div class="callout red"><b>🚧 Blocker:</b> ยังติดเรื่อง <b>Account / Access provisioning</b> (รอพี่ภู) — กระทบวันเริ่ม test execution</div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">7 / 10</span>
+  </section>
+
+  <!-- 8 QA actions / impact -->
+  <section class="slide">
+    <div class="tag">QA Impact</div>
+    <h2><span class="num">7</span>สิ่งที่ QA ต้องทำ + ผลต่อ 180 Test Cases</h2>
+    <table>
+      <tr><th style="width:34%">ประเด็น</th><th>Action ของ QA</th></tr>
+      <tr><td><b>Validation ตอน ingest</b><br>(13 หลัก, reject, identify)</td><td>เพิ่ม/ทวน TC ฝั่ง <b>Process 01 Data Ingestion</b> — positive/negative, boundary เลขบัตร, duplicate/merge, reject flow</td></tr>
+      <tr><td><b>Customer vs Prospect split</b></td><td>Test data + assertions แยก 2 กลุ่ม, ตรวจการจัดเข้าที่เก็บถูกต้อง (CX vs TCM)</td></tr>
+      <tr><td><b>Prospect → Customer link</b></td><td>เพิ่ม TC ตามรอย prospect ที่ convert — ประวัติต่อเนื่อง link ถูก record</td></tr>
+      <tr><td><b>Data delivery ไป CX</b></td><td>Integration + data-integrity test: UI marketing tool → ลง CX ถูกต้อง</td></tr>
+      <tr><td><b>Menu placement</b></td><td>รอ finalize — mark UI test เป็น pending</td></tr>
+      <tr><td><b>เตรียม test data</b></td><td>ขอชุดข้อมูล valid/invalid ID + customer/prospect จากทีม data</td></tr>
+    </table>
+    <div class="callout green"><b>สรุป:</b> เพิ่มน้ำหนักทดสอบ <b>Data Ingestion Validation</b> + <b>Customer/Prospect data model</b> ในชุด 180 TC เดิม</div>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">8 / 10</span>
+  </section>
+
+  <!-- 9 Open clarifications -->
+  <section class="slide">
+    <div class="tag">Open Issues</div>
+    <h2><span class="num">8</span>ต้องขอ Clarification จาก SA / พี่โทน</h2>
+    <table>
+      <tr><th style="width:44px">#</th><th>ประเด็น</th><th style="width:26%">กระทบ</th></tr>
+      <tr><td>1</td><td><b>CX vs TCM vs ATCS</b> เป็นระบบอะไร แต่ละตัวเก็บอะไร (Customer อยู่ CX หรือ TCM?)</td><td>Data model, test data</td></tr>
+      <tr><td>2</td><td><b>Prospect</b> สรุปเก็บที่ไหน (ขยาย CX หรือ DB แยก)</td><td>Data model</td></tr>
+      <tr><td>3</td><td><b>กติกา Validation</b> ครบถ้วน (นอกจาก 13 หลัก, checksum, dedup key)</td><td>Ingestion TC</td></tr>
+      <tr><td>4</td><td>ข้อมูล <b>data mapping / key</b> ที่ค้างกับคุณฟี/รูบี้</td><td>Test coverage</td></tr>
+      <tr><td>5</td><td>ตำแหน่งเมนูสรุปเมื่อไร</td><td>UI test design</td></tr>
+      <tr><td>6</td><td><b>Environment / Account</b> พร้อมเมื่อไร</td><td>วันเริ่ม execution</td></tr>
+    </table>
+    <span class="foot">MCMP Meeting 2026-07-01</span><span class="pageno">9 / 10</span>
+  </section>
+
+  <!-- 10 Next steps -->
+  <section class="slide">
+    <div class="tag">Next Steps</div>
+    <h2><span class="num">9</span>ขั้นถัดไปของ QA</h2>
+    <div class="cols">
+      <div class="col">
+        <h3>ทำได้เลย</h3>
+        <ul>
+          <li>ร่างเพิ่ม TC ฝั่ง Ingestion Validation + Customer/Prospect</li>
+          <li>ระบุความต้องการ test data (valid/invalid ID, 2 กลุ่ม)</li>
+          <li>ทบทวน Test Focus (Critical/Major) ให้เพิ่มน้ำหนัก Process 01/02</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h3>รอ / ต้องถาม</h3>
+        <ul>
+          <li>ส่ง 6 Clarification ให้ SA / พี่โทน</li>
+          <li>ติดตามความพร้อม Account/Env (พี่ภู)</li>
+          <li>ขอ transcript จาก Google Meet โดยตรง เพื่อความแม่นสูงกว่า</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout blue" style="margin-top:22px">
+      <b>เอกสารอ้างอิง:</b> <code>MCMP_Meeting_2026-07-01_Solution_DB_Design.md</code> ·
+      transcript ดิบ <code>meeting\2026-07-01_transcript_raw.txt</code> / <code>.srt</code> ·
+      เชื่อมกับ <code>MCMP_BRD_vs_WBS_Crosscheck.md</code> + <code>MCMP_TestFocus_BRD_WBS.pptx</code>
+    </div>
+    <span class="foot">MCMP Meeting 2026-07-01 · สำหรับ QA Lead</span><span class="pageno">10 / 10</span>
+  </section>
+
+</div>
+</body>
+</html>

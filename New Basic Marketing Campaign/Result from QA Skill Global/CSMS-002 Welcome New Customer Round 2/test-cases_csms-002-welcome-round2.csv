@@ -1,0 +1,47 @@
+TC_ID,Requirement,Dimension,Priority,Test_Level,Scenario_Name,Preconditions,Steps,Expected_Result,Status,Defect_Ref,Notes
+TC-001,"FR-001, FR-002, FR-018.1",Positive,P1,E2E,Daily 10:00 run sends round-2 SMS to exactly-N-day cohort with round-1 linkage,"Round-1 sent 20d ago; ORD Inforce; valid phone; not DNC; LINE=E02 & APP=E02",Run batch at 10:00,"SMS sent to current phone; message has name/reward/link (no ${var}); per-policy row 'S' with sms_sent_date=today and a round-1 reference ID",Not Run,,core happy path (SC-001/SC-006)
+TC-002,FR-003,Positive,P1,Integration,Changed DATE_COUNT applied without code change,Config N changed 20->15; round-1 sent 15d ago,Run batch,Customer selected using N=15; no deployment needed,Not Run,,configurable N
+TC-003,FR-002,Edge,P2,Integration,Cohort day boundary excludes off-by-one days,round-1 at N-1/N/N+1; N=20,Run batch,Only N=20 included; N-1 and N+1 excluded,Not Run,,boundary
+TC-004,FR-002,Edge,P3,Integration,Empty reference round-1 day ends round normally,No round-1 rows at (today-N),Run batch,Zero targets; normal completion; no failure email,Not Run,,empty cohort not a failure
+TC-005,FR-004,Positive,P1,Integration,Inforce inclusion IND '2' and GOV '3',Qualifying IND status '2'; GOV status '3',Run batch,Both included,Not Run,,per-type inforce sets
+TC-006,FR-004,Negative/Validation,P1,Integration,Lapsed policy excluded,Policy not Inforce,Run batch,Excluded; no SMS,Not Run,,SC-003
+TC-007,FR-004,Edge,P2,Integration,ORD status boundary '2' excluded,ORD policy status '2',Run batch,Excluded (ORD Inforce is '1' only),Not Run,,type/status boundary
+TC-008,FR-005,Positive,P1,Integration,mobile1 used as primary,mobile1 and mobile2 present,Run batch,SMS sent to mobile1,Not Run,,phone primary
+TC-009,FR-005,Edge,P2,Integration,mobile2 fallback,mobile1 empty; mobile2 present,Run batch,SMS sent to mobile2,Not Run,,phone fallback
+TC-010,FR-005,Negative/Validation,P1,Integration,No usable phone excluded,mobile1 and mobile2 empty,Run batch,Excluded; no SMS,Not Run,,negative
+TC-011,"FR-005, FR-018",Edge,P2,Integration,Phone changed since round 1 uses current and logs actual,round-1 phone != current mobile1,Run batch,Send to current phone; history logs phone used,Not Run,,side-effect log
+TC-012,FR-006,Negative/Validation,P1,Integration,Do Not Contact ORD remark '1' excluded,ORD remark code '1',Run batch,Excluded; no SMS,Not Run,,compliance
+TC-013,FR-006,Negative/Validation,P1,Integration,Do Not Contact IND/GOV/PA remark '4' excluded,IND/GOV/PA remark code '4',Run batch,Excluded; no SMS,Not Run,,compliance
+TC-014,"FR-007, FR-018.2",Negative/Validation,P1,Integration,cardNo not found skip and log 'F',policy has no cardNo mapping,Run batch,Skip; row 'F' with NULL send date; round continues,Not Run,,EC-005 parity
+TC-015,"FR-008, FR-009",Positive,P1,Integration,Send rule a registered on neither channel,LINE=E02 and APP=E02,Run batch,SMS sent,Not Run,,dual-channel
+TC-016,FR-009,Positive,P1,Integration,Send rule b LINE blocked and no App,LINE registered isBlockLine=true; APP=E02,Run batch,SMS sent,Not Run,,dual-channel (US1 AS2)
+TC-017,FR-010,Negative/Validation,P1,Integration,Exclude App already registered,APP registered,Run batch,No SMS,Not Run,,dual-channel (US1 AS3)
+TC-018,FR-010,Negative/Validation,P1,Integration,Exclude LINE registered and not blocked,LINE registered isBlockLine=false,Run batch,No SMS,Not Run,,dual-channel (US1 AS3)
+TC-019,FR-010,Edge,P2,Integration,App registered after filter still sent,passes filter then registers before send,Run batch,Still sent (status checked at process time only),Not Run,,timing edge
+TC-020,FR-011,Negative/Validation,P1,Integration,E13 error skip 'F' and continue,registration check returns E13,Run batch,Skip; 'F' NULL date; no retry; continue,Not Run,,negative
+TC-021,FR-011,Edge,P2,Integration,Out-of-condition result skip 'F',empty channel or empty isBlockLine,Run batch,Skip; 'F' NULL date,Not Run,,edge
+TC-022,"FR-012, FR-019",Negative/Validation,P1,Integration,Registration service down retry<=3 then stop and email,service unreachable system-wide,Run batch,Retry <=3 spaced; stop round; failure email,Not Run,,resilience (SC-005)
+TC-023,FR-013,Negative/Validation,P1,Integration,Cross-round dedup no resend,prior successful round-2 send exists,Run batch,No duplicate SMS,Not Run,,SC-002
+TC-024,FR-013.1,Concurrency,P1,Integration,One SMS per customer with multiple policies deterministic pick,same customer 3 qualifying policies one round,Run batch,Exactly 1 SMS; oldest then min policy_no; others logged,Not Run,,grouping (SC-002)
+TC-025,"FR-013, FR-018.2",Edge,P2,Integration,Prior 'F' record does not block resend,'F' row with NULL send date exists,Run batch,Send proceeds; dedup counts NOT NULL only,Not Run,,edge
+TC-026,"FR-014, FR-015",Positive,P1,Integration,Template 111 and full variable substitution,template 111 exists; config active,Run batch,var1/var2/var3 filled; no ${var} remains,Not Run,,SC-004
+TC-027,FR-014,Edge,P2,Integration,Template 111 missing fallback to main type table,no 111 template,Run batch,Uses main message-type table format,Not Run,,fallback
+TC-028,FR-015.1,Negative/Validation,P1,Integration,Empty insured name skip 'F' never send nameless,insured name (var1) empty,Run batch,Skip; 'F'; no message sent,Not Run,,SC-004
+TC-029,"FR-016, FR-019",Negative/Validation,P1,Integration,No active config stop whole round and email,run day has no active config,Run batch,Whole round stopped; failure email,Not Run,,resilience
+TC-030,"FR-015, FR-017",Security,P1,Integration,CSV/formula injection in name neutralized,name is =1+1 / +CMD / @SUM / commas / newline,Run batch,CSV-safe (formula neutralized; commas quoted); no formula exec; no ${var} leak,Not Run,,injection sink (adversarial catalog)
+TC-031,"FR-015, FR-017",Edge,P2,Integration,Unicode/emoji/long name renders intact,Thai combining / CJK+emoji / 256-char name,Run batch,No mojibake; no CSV row corruption or split,Not Run,,encoding
+TC-032,FR-017,Positive,P1,Integration,CSV UTF-8 filename convention and ESB delivery,>=1 sendable record,Run batch,UTF-8; name MKT_CSMS_MKTWelcomeNewCustApp_[YYMMDDhhmmss] BE year; via ESB->Gateway,Not Run,,interface
+TC-033,FR-019,Negative/Validation,P2,Integration,File creation failure raises email,CSV cannot be created,Run batch,Failure email naming the failed step,Not Run,,resilience
+TC-034,FR-018,Positive,P1,Integration,Two-level log with refer_no and type map,completed IND send,Run batch,campaign + per-policy rows; refer_no + status; O->ORD/I->IND/G->GOV/P->PA,Not Run,,audit
+TC-035,"FR-018.1, SC-006",Side-Effects,P1,Integration,Round-1 linkage on every sent row,round sends 10 customers,Run batch,Each per-policy row has a round-1 reference ID,Not Run,,SC-006
+TC-036,FR-018.2,Side-Effects,P1,Integration,Status and date semantics dedup source,success vs skip/fail outcomes,Run batch,'S'+date / 'F'+NULL; dedup reads NOT NULL,Not Run,,side-effect
+TC-037,FR-018.2,Side-Effects,P2,Integration,Gateway per-record failure logged 'F' NULL,gateway returns failure for a record,Run batch,'F' with NULL date; Manual Fix can re-pick,Not Run,,side-effect
+TC-038,"FR-019, SC-005",Positive,P1,Integration,Round failure email to IT and User within 15 min,round-level failure detected,Run batch,Email to IT Dev + User; batch + failed step named; within 15 min,Not Run,,SC-005
+TC-039,FR-020,Positive,P1,E2E,Manual Fix reprocesses failed day without resending successes,a whole daily round previously failed,IT Admin selects date and triggers Manual Fix,Pending processed and sent; successful records untouched,Not Run,,SC-007
+TC-040,"FR-020, FR-013",Edge,P2,Integration,Manual Fix mixed range sends only pending,range has sent and pending records,Trigger Manual Fix,Only pending sent; no duplicate,Not Run,,idempotent
+TC-041,FR-020.1,Negative/Validation,P2,Integration,Daily round never auto-retries 'F',prior 'F' rows in daily window,Run daily batch,'F' records not auto-retried; only Manual Fix picks them,Not Run,,negative
+TC-042,FR-020.2,Edge,P2,Integration,Manual Fix date interpretation uses current N,N=20; select process date D,Trigger Manual Fix,cohort = round-1 sent date D-20 (current N; no config history),Not Run,,edge
+TC-043,"FR-013, FR-020, FR-013.1",Concurrency,P1,Integration,Concurrent Manual Fix and daily batch no double send,overlapping cohort processed near-simultaneously,Run both,Customer receives at most one SMS,Not Run,,SC-002
+TC-044,FR-020.2 (reporting),Side-Effects,P2,Integration,Central reconcile report counts and type breakdown,completed batch round,Generate shared central daily report,processed/S/F/excluded-by-reason + ORD/IND/GOV/PA breakdown; no separate threshold alert,Not Run,,FR-020.2 merged - reporting has no own FR (see coverage)
+TC-045,FR-003,Edge,P2,Integration,Mid-campaign N change handled by dedup and Manual Fix,N changed 20->15 mid-campaign,Run subsequent rounds,dedup blocks doubles; skipped cohorts recoverable via Manual Fix,Not Run,,edge
+TC-046,FR-019,UX/Usability,P3,Integration,Failure email and reconcile report clear and actionable,failure email + reconcile report produced,Review outputs,correct IT+User recipients; failed step clear/actionable; counts legible,Not Run,,feedback surface

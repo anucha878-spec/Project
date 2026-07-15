@@ -1,0 +1,365 @@
+NUM_PAGES:74
+=====TEXT_START=====
+1. Segment
+2. Message
+3. Campaign
+ตัวอย่างการ Set up Segment / Message / Campaign (GrowthAi)
+
+-- 1 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Segment
+ระบบต้องสามารถ
+- Set up ชื่อ Contact Segments ได้
+- ค้นหา segment ที่สร้างไว้ได้
+- การ setting ชื่อ segment ห้ามซํ˕ากัน
+- สามารถ เปิด / ปิด การใช้งาน segment ได้
+- สามารถ Clone segment ได้
+มีการแสดงรายละเอียดการสร้าง เช่น
+- Created by : user name [ ex. puntaree.sr ]
+- Created on : date [ MM, DD, YYYY time HH:MM ]
+- Modified by : user name [ ex. puntaree.sr ]
+- Last modified : date [ MM, DD, YYYY time HH:MM ]
+- ID : เลข Running no ของ Segment
+
+-- 2 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Segment
+
+-- 3 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Segment
+
+-- 4 of 74 --
+
+Segment – search box
+
+-- 5 of 74 --
+
+Segment – edit / clone / refresh / delete
+
+-- 6 of 74 --
+
+Segment – 1. number of customers in segment
+– 2. Segment ID
+1 	2
+
+-- 7 of 74 --
+
+Segment – Details set up
+
+-- 8 of 74 --
+
+Segment – Filter set up
+
+-- 9 of 74 --
+
+Segment – Customer 360
+
+-- 10 of 74 --
+
+Segment – Filter
+
+-- 11 of 74 --
+
+
+
+-- 12 of 74 --
+
+
+
+-- 13 of 74 --
+
+Segment - New Policy 2026 กุมภาพันธ (ไมใช Segment 6)
+
+-- 14 of 74 --
+
+Segment - Campaigns 210.2 : Birthday กุมภาพันธ 2026 ยังไมเปน Ocean
+Connect
+
+-- 15 of 74 --
+
+Edit Segment - Campaign 211.2 : Next Paid Date 3 Day 02 2026 ยังไมเปน
+Ocean Connect
+
+-- 16 of 74 --
+
+Segment - Campaign 198.12 : Email Next paid Date 30 Day ธันวาคม 2025
+ยังไมเปน Ocean Connect
+
+-- 17 of 74 --
+
+Segment - ลูกคาที่มี Health Score
+
+-- 18 of 74 --
+
+Segment - App = No Bkk CLV > เทากับ 100,000
+
+-- 19 of 74 --
+
+Segment - Campaign 196 : App User Yes Nont Photo Card เปน Ocean
+Connect (Seg 6)
+
+-- 20 of 74 --
+
+Segment - Campaigns 199 : ลูกคาที่มี Email และยังไมมี OCEAN CLUB APP (
+มี LINE แตไมมี App)
+
+-- 21 of 74 --
+
+Segment - All Saving Product
+
+-- 22 of 74 --
+
+Segment - ลูกคาที่ มาหนาบทความเกี่ยวกับภาษี และออมทรัพย/สะสมทรัพย
+
+-- 23 of 74 --
+
+Segment - Campaigns : ลูกคาที่มี Email และยังไมไดลงทะเบียน LINE OCEAN
+CONNECT ( มี App แตไมมี LINE)
+
+-- 24 of 74 --
+
+Segment - Campaigns 198 : ลูกคาที่ยังไมเปน Ocean Connect อายุ 41-50 ป
+(App)
+
+-- 25 of 74 --
+
+Segment - ลูกคาที่ซื้อประกันสุขภาพเบี้ยนอยกวา 20,000 บาท
+
+-- 26 of 74 --
+
+Segment - Campaigns : ลูกคาที่มี Email และยังไมไดลงทะเบียน LINE OCEAN
+CONNECT
+
+-- 27 of 74 --
+
+Segment - Campaign 195 : Survey Credit Card Seg 1 Health เปน Ocean
+Connect
+
+-- 28 of 74 --
+
+Segment - Campaign 178 : Campaigns UpSell Year First Policy 4 ป persona
+01 (กลุมที่ 2) ถือ เพื่อนคูชีวิต B450 (20/15)
+
+-- 29 of 74 --
+
+Segment - Campaign 186 : Orphan ที่มีที่อยู กรุงเทพ (ไมอยูในกลุม Persona)
+
+-- 30 of 74 --
+
+Segment - Campaign 192 : Survey Credit Card Seg 3 High Income ยังไมเปน
+Ocean Connect
+
+-- 31 of 74 --
+
+Segment - ประกันโควิด : โอเชี่ยนไลฟ ไฟท โควิด แผน1
+แผน2
+
+-- 32 of 74 --
+
+ลูกคาที่มี create date line และยังไมเปน Ocean Connect
+
+-- 33 of 74 --
+
+Message – search box
+
+-- 34 of 74 --
+
+Message – Details
+
+-- 35 of 74 --
+
+Message – edit / clone / refresh / delete
+
+-- 36 of 74 --
+
+Message – 1. number of credit
+– 2. Message ID
+1 	2
+
+-- 37 of 74 --
+
+Message – 1. เลือกตัวแปรในการสงได
+2. แสดงจํานวนตัวอักษร (character) และ จํานวนเครดิต (credit
+sms)
+1
+2
+
+-- 38 of 74 --
+
+Message – insert link
+
+-- 39 of 74 --
+
+Message – Preview
+
+-- 40 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Campaign
+
+-- 41 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Campaign
+
+-- 42 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Campaign
+
+-- 43 of 74 --
+
+ตัวอย่างรายละเอียดการสร้าง Campaign
+
+-- 44 of 74 --
+
+Campaign – 1. search box
+2. edit / clone / delete
+3. Campaign ID
+1
+
+-- 45 of 74 --
+
+Campaign – Name & Description
+
+-- 46 of 74 --
+
+Campaign – Add contact source
+เลือก Segment ที่ตองการทํา Campaign (segment ที่เราตั้งไวกอนหนานี้)
+
+-- 47 of 74 --
+
+Campaign – Decision / Action / Condition
+
+-- 48 of 74 --
+
+Campaign – decision
+
+-- 49 of 74 --
+
+Campaign – conditions
+
+-- 50 of 74 --
+
+Campaign – actions
+
+-- 51 of 74 --
+
+Campaign – actions > Send a webhook
+
+-- 52 of 74 --
+
+Campaign – actions > Send email
+
+-- 53 of 74 --
+
+Campaign – actions > การตั้งเวลาสง
+
+-- 54 of 74 --
+
+Campaign – new email
+
+-- 55 of 74 --
+
+Campaign – new email builder
+
+-- 56 of 74 --
+
+Campaign – actions > mobile app message
+
+-- 57 of 74 --
+
+Campaign – actions > send text message
+
+-- 58 of 74 --
+
+Campaign – Select Message
+
+-- 59 of 74 --
+
+Campaign – new text message
+
+-- 60 of 74 --
+
+Campaign –Message > Preview
+
+-- 61 of 74 --
+
+Campaign – action > conditions > Contact tags
+
+-- 62 of 74 --
+
+Campaign – action > conditions > Contact tags
+
+-- 63 of 74 --
+
+Upload segment to Facebook custom audience (Facebook Lookalike)
+
+-- 64 of 74 --
+
+Upload segment to Google customer match
+
+-- 65 of 74 --
+
+CAMPAIGN TRACKING
+
+-- 66 of 74 --
+
+1. จํานวนกลุมเปาหมายที่ไดรับ Message ในแตละ Campaign
+2. จํานวนที่เปดอานในแตละ Campaign
+3. จํานวนที่คลิกในแตละ Campaign
+SUMMARY
+Campaign
+ID
+Campaign
+Name
+Total User 	Total Send Total Credit 	Total Fail 	Total Click 	Unique
+Click
+1 	Nont 50,000 	จํานวนคน
+ทั้งหมดที่อยูใน
+แคมเปญ
+จํานวนทั้งหมด
+ที่ไดรับ
+ขอความ
+จํานวนเครดิตที่
+ใช
+จํานวนคนที่ไม
+ไดรับ / สงไมถึง
+จํานวนคลิก
+ทั้งหมด
+จํานวนคนคลิก
+แบบ unique
+(ไมนับซํ้า)
+2 	Nont 100,000
+
+-- 67 of 74 --
+
+จํานวนกลุมเปาหมายที่ไดรับ Message ในแตละ Campaign
+ตัวอยาง SUMMARY
+
+-- 68 of 74 --
+
+จํานวนที่คลิกในแตละ Campaign เมื่อคลิกเขาไปดูแตละ Campaign
+
+-- 69 of 74 --
+
+4. วันและเวลาที่เปดอานแตละแคมเปญของแตละคน
+
+-- 70 of 74 --
+
+ตัวอยาง
+
+-- 71 of 74 --
+
+
+
+-- 72 of 74 --
+
+
+
+-- 73 of 74 --
+
+
+
+-- 74 of 74 --
+
+
+=====TEXT_END=====

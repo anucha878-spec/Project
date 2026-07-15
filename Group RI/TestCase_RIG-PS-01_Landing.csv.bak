@@ -1,0 +1,242 @@
+﻿Test Checklist ID,System,Feature,Screen,Sub Category,Test Condition,Test Objective,Test Step,Expected Result,Test Data,Priority,Test Status,Tested By,Tested Date(YYYY-MM-DD),Redmine No.,Remark
+TC-RIG-PS-01-01-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),"Empty Landing Policy table; source ระบบประกันกลุ่ม View Table มีข้อมูลครบ","ตรวจสอบจำนวนข้อมูลที่ dump เข้า Landing Policy ต้องเท่ากับ source ต้นทาง (Full Load)","1) Clear/truncate ms_landing_policy
+2) Verify count source = N (SELECT COUNT(*) FROM vw_grp_policy)
+3) Trigger RIG_AUTO_01 manually
+4) Wait until ms_process status = SUCCESS
+5) SELECT COUNT(*) FROM ms_landing_policy","จำนวน record ใน ms_landing_policy = จำนวน record ใน vw_grp_policy (source); ms_process_log บันทึก status = SUCCESS",Sample policy data ~1000 records จาก source view,High,,,,,Baseline count test
+TC-RIG-PS-01-01-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),"มี Policy ใหม่/แก้ไขใน source หลัง dump รอบก่อน (Daily delta)","ตรวจสอบ Daily incremental load: เฉพาะ record ที่เปลี่ยนแปลง/เพิ่มต้องถูก capture ไม่ duplicate ของเดิม","1) Note count ms_landing_policy = N
+2) เพิ่ม policy ใหม่ 5 รายการที่ source
+3) Update 3 policy เดิม (เปลี่ยน Status)
+4) รอ schedule daily run (หรือ trigger manual)
+5) ตรวจสอบ ms_landing_policy","count ms_landing_policy = N + 5; 3 policy ที่ update มีค่าใหม่; ไม่มี duplicate PolicyNo",Test policies: P001 (new) P002 (new) ... P005 (new) + update P_existing_01..03,High,,,,,Incremental load critical
+TC-RIG-PS-01-01-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Source มี Policy record สมบูรณ์ (ทุก field มีค่า),"ตรวจสอบ field mapping ของ mandatory fields ครบถ้วนถูกต้อง (PolicyNo, PolicyName, CommencementDate, EffectiveDate, ExpiryDate, ProductType, Status, ChannelCode, ReinsurerCode)","1) เลือก sample 10 policy จาก source
+2) SELECT * จาก vw_grp_policy WHERE PolicyNo IN (...)
+3) SELECT * จาก ms_landing_policy WHERE PolicyNo IN (...)
+4) เทียบทุก mandatory field ทีละ column","ทุก mandatory field ของ Landing ตรงกับ source 100%; ไม่มี field ถูก truncate/แปลงค่าผิด",Sample 10 policy ครอบคลุมทุก ProductType (Group EB Dai-ichi/Gibraltar/Thaire),High,,,,,Field mapping critical
+TC-RIG-PS-01-01-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Source มี Policy record ที่ optional fields เป็น NULL,"ตรวจสอบ field mapping ของ optional/nullable fields รักษาค่า NULL ไม่แปลงเป็น empty string หรือ 0","1) เลือก sample policy ที่ source มี optional field เป็น NULL (เช่น TerminationDate, BrokerCode)
+2) Trigger RIG_AUTO_01
+3) SELECT field เหล่านั้นจาก ms_landing_policy","Landing field = NULL (ไม่ใช่ '' หรือ 0 หรือ '1900-01-01')",Policy 5 รายการที่มี NULL ใน TerminationDate/BrokerCode,Medium,,,,,NULL handling
+TC-RIG-PS-01-01-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Source มี data type หลากหลาย (date, decimal, varchar),"ตรวจสอบ data type และ format ของ Landing field ตรงตาม spec (DATE = YYYY-MM-DD, DECIMAL ไม่มีปัดเศษ, VARCHAR ความยาวพอ)","1) เลือก policy ที่มี date หลายรูปแบบใน source
+2) เลือก policy ที่มี SumAssured = 999999999.99 (max value)
+3) เลือก policy ที่มี ProductName ยาวมาก (>100 chars)
+4) Trigger dump
+5) Verify เทียบ source กับ landing","Date เก็บเป็น DATE/DATETIME ไม่ใช่ string; DECIMAL ไม่ปัดเศษ; VARCHAR ไม่ถูก truncate",Mixed sample 10 policies,High,,,,,Data type integrity
+TC-RIG-PS-01-01-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Source มี Policy ที่ PolicyName เป็นภาษาไทยและมีอักขระพิเศษ,"ตรวจสอบ Thai character encoding (UTF-8) ไม่เพี้ยน/ไม่กลายเป็น ??","1) เลือก policy ที่ PolicyName มีอักขระไทยและพิเศษ เช่น 'บริษัท ก. ABC จำกัด (มหาชน)'
+2) Trigger dump
+3) SELECT PolicyName FROM ms_landing_policy","ตัวอักษรไทยและอักขระพิเศษ ()/-,. เก็บถูกต้อง อ่านได้ปกติ",Policy 5 รายการที่มีอักขระไทย+พิเศษ,Medium,,,,,Encoding test
+TC-RIG-PS-01-01-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Run RIG_AUTO_01 ซ้ำในวันเดียวกัน (re-run),"ตรวจสอบ idempotent: re-run ไม่ทำให้ข้อมูลซ้ำซ้อน/PK duplicate","1) Note count ms_landing_policy = N หลัง run รอบแรก
+2) Trigger RIG_AUTO_01 อีกครั้ง (โดย source ไม่มีอะไรเปลี่ยน)
+3) SELECT COUNT(*) และ SELECT PolicyNo HAVING COUNT(*) > 1","count ยังคง = N; ไม่มี PolicyNo ซ้ำ; ms_process_log แสดง 2 รอบของวันเดียวกัน",Re-run scenario,Medium,,,,,Idempotency
+TC-RIG-PS-01-01-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Source database ไม่พร้อมใช้งาน (connection refused),"ตรวจสอบ graceful failure: process จบลงด้วย ERROR ไม่ทำให้ Landing เสียหาย และมี alert","1) Stop service ของ source DB (หรือ block IP)
+2) Trigger RIG_AUTO_01
+3) ตรวจ ms_process_log
+4) ตรวจ ms_landing_policy state
+5) ตรวจ alert (email/Auto Mail)","ms_process status = FAILED พร้อม error message; ms_landing_policy ไม่ถูกแก้ไข; Auto Mail แจ้งทีม operations",N/A,High,,,,,Negative test failure handling
+TC-RIG-PS-01-01-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),Daily schedule ทำงานตาม timing ที่กำหนด,"ตรวจสอบว่า Daily schedule trigger RIG_AUTO_01 ตามเวลาที่ตั้งไว้","1) ตรวจ config schedule (เช่น Cron 02:00 ทุกวัน)
+2) ดู ms_process_log ย้อนหลัง 7 วัน
+3) ตรวจว่า process มี run ทุกวันในเวลาใกล้เคียง","มี process run ครบทุกวัน เวลาตรงตาม schedule; ไม่มีวันที่ skip ไป",N/A — observational test,Medium,,,,,Scheduling
+TC-RIG-PS-01-01-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Policy (RIG_AUTO_01),รัน RIG_AUTO_01 จบสมบูรณ์,"ตรวจสอบ audit log: ms_process_log บันทึก process_id, start_time, end_time, status, record_count ถูกต้อง","1) Trigger RIG_AUTO_01
+2) รอจบ
+3) SELECT * FROM ms_process_log WHERE process_code = 'RIG-PS-01-01' ORDER BY start_time DESC LIMIT 1","ms_process_log มี field: process_id=1, process_code=RIG-PS-01-01, process_name=Policy, start_time, end_time, status=SUCCESS, total_records ตรงกับ count ใน landing",N/A,Medium,,,,,Audit log
+TC-RIG-PS-01-02-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),"Empty Landing Customer table; source ระบบประกันกลุ่ม มี Customer ครบ","ตรวจสอบจำนวน Customer ที่ dump เข้า Landing เท่ากับ source (Full Load)","1) Truncate ms_landing_customer
+2) Note count source vw_grp_customer = N
+3) Trigger RIG_AUTO_02
+4) รอเสร็จ
+5) SELECT COUNT(*) FROM ms_landing_customer","count Landing = count source = N; ms_process status = SUCCESS",Customer sample ~500 records,High,,,,,Baseline count
+TC-RIG-PS-01-02-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),มี Customer ใหม่/แก้ไขใน source (Daily delta),"ตรวจสอบ Daily incremental: เฉพาะ record ใหม่/แก้ไขถูกอัปเดต","1) Note count = N
+2) เพิ่ม Customer ใหม่ 5 รายการ
+3) Update Customer เดิม 3 รายการ (เปลี่ยน Address)
+4) Trigger dump
+5) Verify count + content","count = N + 5; Customer ที่ update มีค่า Address ใหม่; ไม่มี CustomerID ซ้ำ",Customer C001..C005 (new) + update C_existing_01..03,High,,,,,Incremental
+TC-RIG-PS-01-02-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Source มี Customer record สมบูรณ์,"ตรวจสอบ mandatory field mapping (CustomerID, CompanyName, TaxID, Address, ContactName, Phone)","1) เลือก 10 Customer
+2) เทียบ source vs landing ทีละ field","ทุก mandatory field ตรง 100%",Sample 10 customers,High,,,,,Field mapping
+TC-RIG-PS-01-02-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Customer ที่ไม่มี TaxID หรือ optional field,"ตรวจสอบ optional field รักษา NULL","1) เลือก Customer ที่ TaxID = NULL ใน source
+2) Verify landing","Landing TaxID = NULL",Customer ที่ optional field ว่าง,Medium,,,,,NULL handling
+TC-RIG-PS-01-02-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Source มี CompanyName ภาษาไทย+พิเศษ,"ตรวจสอบ encoding ภาษาไทยและอักขระพิเศษ","1) เลือก customer ที่ CompanyName ภาษาไทย+อักขระ () ./
+2) Verify landing",ภาษาไทย+อักขระเก็บถูก,Customer ที่มีชื่อไทยพิเศษ,Medium,,,,,Encoding
+TC-RIG-PS-01-02-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),TaxID 13 หลัก (Thai),"ตรวจสอบ format TaxID 13 หลักไม่ถูก truncate หรือ trim","1) เลือก customer ที่ TaxID = '0105512345678' (13 หลัก)
+2) Verify landing","TaxID ใน landing = '0105512345678' ครบ 13 หลัก ไม่หล่นเลข 0 ตัวหน้า",Customer ที่ TaxID ขึ้นต้นด้วย 0,High,,,,,Common bug
+TC-RIG-PS-01-02-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Re-run RIG_AUTO_02,"ตรวจสอบ idempotent","1) Note count
+2) Re-trigger
+3) Verify count + PK uniqueness","count คงเดิม; ไม่มี CustomerID ซ้ำ",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-02-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Source DB ไม่พร้อม,"Graceful failure","1) Block source
+2) Trigger
+3) Check log + alert","status = FAILED; landing ไม่เสียหาย; alert ส่ง",N/A,High,,,,,Negative test
+TC-RIG-PS-01-02-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Daily schedule,"Verify daily run","1) Check schedule config
+2) Review ms_process_log 7 days","Run ครบทุกวัน",N/A,Medium,,,,,Scheduling
+TC-RIG-PS-01-02-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Customer (RIG_AUTO_02),Run complete,"Verify audit log","1) Trigger
+2) SELECT ms_process_log WHERE process_code='RIG-PS-01-02'","Log มี process_id=2, process_code=RIG-PS-01-02, process_name=Customer, status=SUCCESS, record_count match",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-03-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),"Empty Landing Company; source มี Company","Full load count verify","1) Truncate ms_landing_company
+2) Trigger RIG_AUTO_03
+3) Verify count","count Landing = source",Company sample,High,,,,,Baseline
+TC-RIG-PS-01-03-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Daily delta,"Incremental dump verify","1) Add 5 new + update 3
+2) Trigger
+3) Verify","count = N+5; updated rows มีค่าใหม่",Test data,High,,,,,Incremental
+TC-RIG-PS-01-03-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Sample company complete,"Mandatory field mapping (CompanyID, CompanyName, NatureOfBusiness, IndustryCode, GroupSize)","1) Pick 10 companies
+2) Compare source vs landing","100% match",Sample 10,High,,,,,Mapping
+TC-RIG-PS-01-03-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Optional fields NULL,"NULL preservation","1) Pick company with NULL optional
+2) Verify","NULL preserved",Companies with sparse data,Medium,,,,,NULL
+TC-RIG-PS-01-03-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Nature of Business linkage,"ตรวจสอบ NatureOfBusiness ที่อ้างถึง ms_landing_nature_of_business ต้องมี foreign key สอดคล้อง","1) เลือก company ที่ NatureOfBusiness ใส่ค่า
+2) JOIN กับ ms_landing_nob","ทุก company มี nature_of_business ที่ resolve ได้ใน ms_landing_nob",Company-NOB linkage,High,,,,,Referential integrity
+TC-RIG-PS-01-03-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Thai company name,"Encoding","1) Pick Thai-named company
+2) Verify","Thai chars preserved",Thai companies,Medium,,,,,Encoding
+TC-RIG-PS-01-03-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Re-run,"Idempotent","1) Note count
+2) Re-run
+3) Verify","count same; no duplicate CompanyID",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-03-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Source unavailable,"Graceful failure","1) Block source
+2) Trigger
+3) Check","FAILED status; alert",N/A,High,,,,,Negative
+TC-RIG-PS-01-03-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Daily schedule,"Verify run schedule","1) Check config
+2) Review log","Daily run OK",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-03-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Company (RIG_AUTO_03),Run complete,"Audit log","1) Trigger
+2) SELECT log","Log ครบ process_id=3 process_code=RIG-PS-01-03",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-04-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Empty ms_landing_claim_death; source มี Claim Death,"Full load count","1) Truncate
+2) Trigger RIG_AUTO_04
+3) Verify count","Landing = source",Claim Death sample ~200 claims,High,,,,,Baseline
+TC-RIG-PS-01-04-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Daily new claims approved,"Incremental: เคลม Death ใหม่ที่อนุมัติในช่วง 1 วันที่ผ่านมาต้องเข้า Landing","1) Note count = N
+2) สร้าง claim death ใหม่ 5 รายการ approve date = วันนี้
+3) Trigger
+4) Verify","count = N+5; รายการใหม่อยู่ใน Landing พร้อม ApprovedDate=วันนี้",New death claims today,High,,,,,Incremental
+TC-RIG-PS-01-04-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Full claim record,"Mandatory mapping: ClaimNo, PolicyNo, CertNo, MemberID, DeathDate, ApprovedDate, PaidDate, ClaimAmount, ClaimCause","1) Pick 10 death claims
+2) Compare source vs landing
+3) Verify each mandatory field","All match 100%",Sample 10 claims with varied causes,High,,,,,Mapping
+TC-RIG-PS-01-04-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Claim amount precision,"ตรวจสอบ ClaimAmount เป็น DECIMAL ไม่ปัดเศษ (เช่น 1234567.89)","1) Pick claim ClaimAmount = 1234567.89
+2) Verify landing ClaimAmount","= 1234567.89 ไม่ปัดเป็น 1234567 หรือ 1234567.9",High-precision amount,High,,,,,Decimal precision
+TC-RIG-PS-01-04-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Claim cause ภาษาไทย,"ตรวจสอบ ClaimCause Thai text preserved (อาจมี enter line break ในต้นทาง)","1) Pick claim ClaimCause = 'โรคหัวใจวายเฉียบพลัน'
+2) Verify","Thai text exact match",Thai cause claims,Medium,,,,,Encoding
+TC-RIG-PS-01-04-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Date fields,"ตรวจสอบ DeathDate, ApprovedDate, PaidDate format ถูกต้อง","1) Pick claim 3 รายการที่มี 3 dates แตกต่างกัน
+2) Verify",Dates เก็บเป็น DATE/DATETIME ถูกต้อง,Sample claims,High,,,,,Date format
+TC-RIG-PS-01-04-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Re-run,"Idempotent","1) Note count
+2) Re-run","count same; no ClaimNo duplicate",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-04-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Source unavailable,"Graceful failure","1) Block source
+2) Trigger","FAILED; alert",N/A,High,,,,,Negative
+TC-RIG-PS-01-04-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Schedule,"Daily run","1) Check schedule
+2) Review log","Run daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-04-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Death (RIG_AUTO_04),Run complete,"Audit log","1) Trigger
+2) Check log","Log: process_id=4 process_code=RIG-PS-01-04 process_name='Claim Death' status=SUCCESS",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-05-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Empty Landing; source มี Claim TPD,"Full load count","1) Truncate
+2) Trigger RIG_AUTO_05
+3) Verify count","Landing = source",Claim TPD sample ~100,High,,,,,Baseline
+TC-RIG-PS-01-05-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Daily new TPD claims,"Incremental","1) สร้าง TPD claim ใหม่ approve วันนี้
+2) Trigger
+3) Verify","New claims in landing",New TPD claims,High,,,,,Incremental
+TC-RIG-PS-01-05-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Complete TPD record,"Mandatory: ClaimNo, PolicyNo, CertNo, MemberID, DisabilityDate, ApprovedDate, DisabilityPercent, ClaimAmount","1) Pick 10 TPD claims
+2) Compare fields","100% match",Sample 10,High,,,,,Mapping
+TC-RIG-PS-01-05-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Disability percentage,"ตรวจสอบ DisabilityPercent (0-100) เก็บถูกต้อง รวมกรณี partial disability","1) Pick claims with %: 25, 50, 75, 100
+2) Verify","Exact percent value",Various disability levels,High,,,,,Field accuracy
+TC-RIG-PS-01-05-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Sum assured vs payable amount,"ตรวจสอบ ClaimAmount ที่จ่ายตามเงื่อนไข (% of SA) ไม่ใช่ SA เต็ม","1) Pick claim ที่ disability = 50%, SA = 1000000
+2) Verify ClaimAmount ที่ source/landing",Match between source and landing,Partial TPD,High,,,,,Calculation linked
+TC-RIG-PS-01-05-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Thai cause,"Encoding","Pick claim with Thai cause; verify","Thai preserved",Thai cause claims,Medium,,,,,Encoding
+TC-RIG-PS-01-05-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Re-run,"Idempotent","Re-run; verify","count same; no duplicate",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-05-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Source down,"Graceful","Block source; trigger","FAILED; alert",N/A,High,,,,,Negative
+TC-RIG-PS-01-05-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Schedule,"Daily run","Check schedule; review log","Run daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-05-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim TPD (RIG_AUTO_05),Run complete,"Audit","Trigger; check log","Log: process_id=5 process_code=RIG_AUTO_05 (note: in spec listed as RIG_AUTO_05 instead of RIG-PS-01-05) process_name='Claim Tpd' status=SUCCESS",N/A,Medium,,,,,Audit (note inconsistent code in spec)
+TC-RIG-PS-01-06-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Empty Landing; source มี Claim Health,"Full load count","1) Truncate
+2) Trigger RIG_AUTO_06
+3) Verify count","Landing = source",Claim Health sample ~5000,High,,,,,Baseline (high volume)
+TC-RIG-PS-01-06-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Daily health claims (high volume),"Incremental: health claims เยอะ (FAX/เครดิต/ใบเสร็จ)","1) Note count
+2) สร้าง health claim ใหม่ 50 รายการแยกตาม type
+3) Trigger
+4) Verify","All 50 in landing; type column ถูกต้อง",Mixed type sample,High,,,,,Volume + incremental
+TC-RIG-PS-01-06-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Sub-type classification,"ตรวจสอบ Claim Type sub-category ครบ: FAX CLAIM/เครดิต/ใบเสร็จ/ทันตเครดิต/ทันตใบเสร็จ","1) Pick claims ของแต่ละ sub-type
+2) Verify ClaimType column","Type ตรงทุกกรณี",Multi-type health claims,High,,,,,Type classification
+TC-RIG-PS-01-06-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Mandatory field mapping,"All required fields populated (ClaimNo, PolicyNo, CertNo, MemberID, ServiceDate, ApprovedDate, PaidDate, ClaimAmount, ClaimType, HospitalCode)","Pick 20 claims; verify each","100% match",Sample 20,High,,,,,Mapping
+TC-RIG-PS-01-06-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Approved date vs PaidDate filter,"ตรวจสอบเงื่อนไข BRD: 'สินไหมที่มีวันที่จ่ายเงิน/วันที่จัดทำรายงานต้องอยู่ใน Period ที่เลือก' — Landing ต้องเก็บทั้งสอง dates","1) Pick claims with ServiceDate ≠ PaidDate ≠ ApprovedDate
+2) Verify both PaidDate และ ApprovedDate ใน Landing","ทั้ง PaidDate และ ApprovedDate เก็บถูกต้อง (สำคัญสำหรับ filter ใน Estimate)",Multi-date claims,High,,,,,BRD condition critical
+TC-RIG-PS-01-06-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Decimal precision,"Verify amount precision","Pick claim with .XX cents","No rounding",Sample,Medium,,,,,Decimal
+TC-RIG-PS-01-06-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Re-run,"Idempotent","Re-run; verify","count same; no duplicate",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-06-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Source down,"Graceful","Block; trigger","FAILED; alert",N/A,High,,,,,Negative
+TC-RIG-PS-01-06-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Schedule,"Daily run","Verify daily","Run daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-06-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Claim Health (RIG_AUTO_06),Run complete,"Audit log","Trigger; check log","Log: process_id=6 process_code=RIG-PS-01-06 process_name='Claim Health' status=SUCCESS",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-07-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Empty Landing; source มี Cert Inforce,"Full load (high volume)","1) Truncate
+2) Trigger RIG_AUTO_07
+3) Verify count","Landing = source",Inforce certs ~50000 records,High,,,,,Baseline high-volume
+TC-RIG-PS-01-07-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Daily delta,"Incremental: เพิ่ม/เปลี่ยน status cert","1) Add 10 new + change status 5
+2) Trigger
+3) Verify","Count = N+10; updated cert มี status ใหม่",Cert delta,High,,,,,Incremental
+TC-RIG-PS-01-07-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Full record mapping,"Mandatory: CertNo, PolicyNo, MemberID, MemberName, DOB, Gender, EffectiveDate, ExpiryDate, SumAssured, Status, OccupationClass","Pick 20 cert; verify","100% match",Sample 20 cert,High,,,,,Mapping
+TC-RIG-PS-01-07-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Inforce status filter,"ตรวจสอบเฉพาะ cert ที่ Status = Inforce เท่านั้น (ไม่รวม Lapse/Cancelled)","1) Verify ทุกราย landing มี Status = Inforce
+2) เช็คว่าไม่มี Lapse/Cancelled","ทุก record Status IN ('Inforce','Active')",Mixed status pool,High,,,,,Filter logic
+TC-RIG-PS-01-07-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Multi-treaty check,"ตรวจสอบ cert เดียวกันไม่ปรากฏใน treaty หลายตัว (ตาม BRD: ถ้าเจอ ให้แสดง Error Message)","1) สร้าง test cert ที่ผูกกับ 2 treaty
+2) Trigger
+3) ตรวจ Landing + ตรวจ error log","Error Message ขึ้น; cert ไม่ถูก dump ซ้ำ หรือ flag เป็น duplicate",Duplicate-treaty cert,High,,,,,BRD critical rule
+TC-RIG-PS-01-07-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Thai member name,"Encoding","Verify Thai names preserved","Thai chars OK",Thai-named members,Medium,,,,,Encoding
+TC-RIG-PS-01-07-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Re-run,"Idempotent","Re-run","No duplicate CertNo",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-07-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Source down,"Graceful","Block; trigger","FAILED; alert",N/A,High,,,,,Negative
+TC-RIG-PS-01-07-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Schedule,"Daily run","Verify","Daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-07-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Inforce (RIG_AUTO_07),Run complete,"Audit","Check log","process_id=7 process_code=RIG-PS-01-07",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-08-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Empty Landing; source has NewBiz cert,"Full load count","1) Truncate
+2) Trigger
+3) Verify count","Landing = source",NewBiz sample ~500,High,,,,,Baseline
+TC-RIG-PS-01-08-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),NewBiz this period,"ตรวจสอบ cert ที่ EffectiveDate อยู่ใน period ปัจจุบัน","1) Add 10 NewBiz with EffectiveDate=วันนี้
+2) Trigger
+3) Verify","All 10 in landing",NewBiz current period,High,,,,,Period filter
+TC-RIG-PS-01-08-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Field mapping,"Mandatory: CertNo, PolicyNo, MemberID, EffectiveDate, IssueDate, FirstPremium, SumAssured","Pick 10; verify","Match",Sample 10,High,,,,,Mapping
+TC-RIG-PS-01-08-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Late paid NewBiz,"ตรวจสอบกรณีพิเศษ BRD: New Business ของเดือนก่อน แต่จ่ายเบี้ยล่าช้า ต้อง dump เข้า Landing ด้วย","Add late-paid NewBiz; trigger; verify",Cert ปรากฏใน Landing พร้อม IssueDate เดือนก่อน,Late-payment cert,High,,,,,BRD edge case
+TC-RIG-PS-01-08-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Thai member,"Encoding","Verify Thai","Preserved",Thai,Medium,,,,,Encoding
+TC-RIG-PS-01-08-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Premium amount decimal,"Precision","Verify decimal","No rounding",Sample,Medium,,,,,Decimal
+TC-RIG-PS-01-08-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Re-run,"Idempotent","Re-run","No dup",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-08-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Source down,"Graceful","Block; trigger","FAILED",N/A,High,,,,,Negative
+TC-RIG-PS-01-08-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Schedule,"Daily","Verify","Run daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-08-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate New Business (RIG_AUTO_08),Run complete,"Audit","Check log","process_id=8 process_code=RIG-PS-01-08",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-09-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Empty Landing; source has Alteration,"Full load","Truncate; trigger; verify","Landing = source",Alteration sample,High,,,,,Baseline
+TC-RIG-PS-01-09-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Daily alterations,"Incremental","Add 5; trigger","N+5 in landing",Test alterations,High,,,,,Incremental
+TC-RIG-PS-01-09-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Mapping,"Mandatory: AlterationID, CertNo, AlterationType, OldValue, NewValue, EffectiveDate, ApprovedBy","Pick 10; verify","Match",Sample,High,,,,,Mapping
+TC-RIG-PS-01-09-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Alteration type classification,"ตรวจ AlterationType ครบ (Sum Assured change, Coverage add/remove, Beneficiary change, etc.)","Pick alterations แต่ละ type; verify","Type ตรงทุกกรณี",Multi-type alterations,High,,,,,Type
+TC-RIG-PS-01-09-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Sum Assured change preservation,"ตรวจ OldValue/NewValue ของ SA alteration ไม่ถูกแปลงเป็น string ผิด","Pick SA change 1000000->2000000; verify Old/New columns","Both columns เก็บค่า numeric ถูกต้อง",SA alteration,High,,,,,Numeric preservation
+TC-RIG-PS-01-09-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Thai text,"Encoding","Verify","Preserved",Thai,Medium,,,,,Encoding
+TC-RIG-PS-01-09-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Re-run,"Idempotent","Re-run","No dup",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-09-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Source down,"Graceful","Block","FAILED",N/A,High,,,,,Negative
+TC-RIG-PS-01-09-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Schedule,"Daily","Verify","Daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-09-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Certificate Alteration (RIG_AUTO_09),Run complete,"Audit","Check log","process_id=9 process_code=RIG-PS-01-09",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-10-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Empty Landing; source มี ER,"Full load","Truncate; trigger; verify","Landing = source",ER sample,High,,,,,Baseline
+TC-RIG-PS-01-10-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Daily ER,"Incremental","Add 3 ER; trigger","N+3",Test ER,Medium,,,,,Incremental
+TC-RIG-PS-01-10-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Mapping,"Mandatory: ER_ID, PolicyNo, PolicyYear, PremiumTotal, ClaimTotal, RefundAmount, EffectiveDate","Pick 5; verify","Match",Sample,High,,,,,Mapping
+TC-RIG-PS-01-10-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Refund calculation linkage,"ตรวจ RefundAmount = Premium - Claim - Expense (per ER formula) ของ source ตรงกับ Landing","Pick 5 ER; cross-check formula","Source vs landing match",ER with various ratios,High,,,,,Cross-check
+TC-RIG-PS-01-10-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Decimal precision,"Refund amount precision","Pick ER with .XX","No rounding",Sample,Medium,,,,,Decimal
+TC-RIG-PS-01-10-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Negative refund (claim > premium),"ตรวจกรณี RefundAmount = 0 (กลุ่ม loss ratio สูง ไม่มีคืน) เก็บถูกต้อง","Pick ER with refund=0","RefundAmount = 0 not NULL",Loss-ratio>100% ER,Medium,,,,,Edge case
+TC-RIG-PS-01-10-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Re-run,"Idempotent","Re-run","No dup",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-10-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Source down,"Graceful","Block","FAILED",N/A,High,,,,,Negative
+TC-RIG-PS-01-10-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Schedule,"Daily","Verify","Daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-10-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler,Experience Refund (RIG_AUTO_10),Run complete,"Audit","Check log","process_id=10 process_code=RIG-PS-01-10",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-11-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Empty Landing; source has NOB,"Full load","Truncate; trigger; verify","Landing = source",NOB master ~200,High,,,,,Baseline
+TC-RIG-PS-01-11-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),NOB master changes,"Incremental: เพิ่ม NOB ใหม่จากหน้า 'จัดการข้อมูล Nature of Business'","Add NOB ผ่านหน้าจอ; trigger","NOB ใหม่อยู่ใน Landing",New NOB,Medium,,,,,Master update
+TC-RIG-PS-01-11-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Mapping,"Mandatory: NOB_Code, NameTH, NameEN, Category","Pick all NOB; verify","Match",All NOB,High,,,,,Mapping
+TC-RIG-PS-01-11-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Bilingual TH/EN,"ตรวจ NameTH (Thai) และ NameEN (English) เก็บถูกต้อง รองรับ Thaire export ภาษาอังกฤษ","Pick 10 NOB; verify both columns","Both languages preserved",Bilingual NOB,High,,,,,Bilingual support
+TC-RIG-PS-01-11-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),NOB usage referenced,"ตรวจ NOB ที่อยู่ใน Landing สามารถ resolve กลับให้ Policy/Company ได้","JOIN ms_landing_company ON NOB_Code = ms_landing_nob.NOB_Code","ไม่มี company ที่ NOB_Code ไม่ตรงกัน (orphan)",Cross-table integrity,High,,,,,Referential
+TC-RIG-PS-01-11-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Inactive NOB,"NOB ที่ถูกยกเลิกใช้งาน (Inactive) ต้องไม่ถูกใช้กับ Policy ใหม่ แต่ยังต้องอยู่ใน Landing","Mark NOB inactive; verify still in landing","Landing เก็บไว้พร้อม IsActive flag",Inactive NOB,Medium,,,,,Soft delete
+TC-RIG-PS-01-11-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Re-run,"Idempotent","Re-run","No dup",N/A,Medium,,,,,Idempotency
+TC-RIG-PS-01-11-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Source down,"Graceful","Block","FAILED",N/A,High,,,,,Negative
+TC-RIG-PS-01-11-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Schedule,"Daily","Verify","Daily",N/A,Medium,,,,,Schedule
+TC-RIG-PS-01-11-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,Background Job / Job Scheduler / Master Mgmt Screen,Nature of Business (RIG_AUTO_11),Run complete,"Audit","Check log","process_id=11 process_code=RIG-PS-01-11",N/A,Medium,,,,,Audit
+TC-RIG-PS-01-12-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Empty Landing; user มีไฟล์ Unname Policy.csv,"Manual import via screen: upload Unname Policy CSV","1) Login เข้าระบบ
+2) เปิดหน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate'
+3) เลือก period
+4) Upload Unname_Policy_202604.csv
+5) กด Import
+6) ตรวจสอบ ms_landing_unname_policy","All rows imported; count Landing = count CSV; message 'Import success'",Unname_Policy.csv with 100 rows,High,,,,,Manual import critical
+TC-RIG-PS-01-12-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Upload ไฟล์ที่ format ผิด (เช่น .xlsx แทน .csv),"ตรวจสอบการ validate file format","1) Upload Unname_Policy.xlsx (wrong)
+2) กด Import","ระบบ reject พร้อม error message 'รองรับเฉพาะ .csv'",Wrong format file,High,,,,,Validation
+TC-RIG-PS-01-12-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Upload ไฟล์ที่ column missing,"ตรวจสอบ validate column structure","Upload file ขาด column PolicyNo","Reject + error message ระบุ column ที่ขาด",Malformed CSV,High,,,,,Validation
+TC-RIG-PS-01-12-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Upload ที่ row บางตัวมี data type ผิด,"ตรวจสอบ row-level validation","Upload file ที่บาง row มี SumAssured = 'ABC' (ไม่ใช่ number)","Reject ทั้ง file หรือ partial accept พร้อม report บอก row ที่ผิด",Mixed valid/invalid rows,High,,,,,Row validation
+TC-RIG-PS-01-12-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Mapping,"Mandatory: PolicyNo, EstimatedSumAssured, EstimatedPremium, Period","Upload valid CSV; verify landing","All fields mapped",Valid CSV,High,,,,,Mapping
+TC-RIG-PS-01-12-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Duplicate PolicyNo same period,"ตรวจสอบ duplicate detection: upload file มี PolicyNo ซ้ำใน period เดียวกัน","Upload CSV with duplicate PolicyNo","Reject หรือ flag duplicate",Duplicate-PolicyNo CSV,High,,,,,Dedup
+TC-RIG-PS-01-12-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Re-import same period,"User import ทับ period เดิม","1) Import period 202604 ครั้งแรก
+2) Import period 202604 อีกครั้ง (ทับ)","Confirmation dialog ขึ้น; ถ้า confirm → ลบของเดิมแล้วใส่ใหม่",Re-import scenario,High,,,,,Replace logic
+TC-RIG-PS-01-12-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Permission,"User ไม่มีสิทธิ์ upload ไม่ควรเห็นปุ่ม Import","Login as read-only user; check screen","ปุ่ม Import disabled หรือซ่อน",Read-only user,Medium,,,,,Authorization
+TC-RIG-PS-01-12-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Thai PolicyName,"Encoding ใน CSV UTF-8","Upload CSV with Thai text","Thai preserved",Thai PolicyName CSV,Medium,,,,,Encoding
+TC-RIG-PS-01-12-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Unname Policy Estimate',Unname Policy (RIG_AUTO_12),Upload complete,"Audit log","Upload; check log","ms_process_log: process_id=12 process_code=RIG-PS-01-12 process_name='Unname Policy' uploaded_by=user, file_name, status=SUCCESS, record_count",N/A,High,,,,,Audit with user tracking
+TC-RIG-PS-01-13-001,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Empty Landing; user มีไฟล์ Investigation Expense.csv,"Manual import via screen","1) เปิดหน้าจอ
+2) เลือก period
+3) Upload Investigate_Expense_202604.csv
+4) Import
+5) Verify","All rows imported; count = CSV",Investigation Expense CSV,High,,,,,Manual import
+TC-RIG-PS-01-13-002,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Wrong format,"Validate","Upload .xlsx","Reject",Wrong file,High,,,,,Validation
+TC-RIG-PS-01-13-003,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Column missing,"Validate column","Upload missing column","Reject + msg",Malformed,High,,,,,Validation
+TC-RIG-PS-01-13-004,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Mapping,"Mandatory: ExpenseID, ClaimNo, PolicyNo, ExpenseAmount, ExpenseDate, InvestigatorName","Upload valid; verify","Match",Valid CSV,High,,,,,Mapping
+TC-RIG-PS-01-13-005,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Link to Claim,"ตรวจ ExpenseID ต้อง link ClaimNo ที่มีอยู่ใน ms_landing_claim_death/tpd/health","Upload; JOIN with claim tables","ทุก expense มี claim ที่ resolve ได้",Cross-ref test,High,,,,,Referential
+TC-RIG-PS-01-13-006,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Decimal precision,"ExpenseAmount precision","Upload with .XX","No rounding",Sample,Medium,,,,,Decimal
+TC-RIG-PS-01-13-007,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Duplicate,"Detect dup ExpenseID","Upload with dup","Reject",Dup CSV,High,,,,,Dedup
+TC-RIG-PS-01-13-008,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Re-import period,"Replace logic","Re-import same period","Confirmation; replace",Re-import,High,,,,,Replace
+TC-RIG-PS-01-13-009,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Thai investigator name,"Encoding","Upload Thai name","Preserved",Thai CSV,Medium,,,,,Encoding
+TC-RIG-PS-01-13-010,Group RI (GRP),RIG-PS-01 Landing Tables: Group Policy to Group RI,หน้าจอ 'นำเข้าข้อมูล Investigate Expense',Investigation Expense (RIG_AUTO_13),Upload complete,"Audit","Upload; check log","ms_process_log: process_id=13 process_code=RIG-PS-01-13 process_name='Investigation Expense' uploaded_by, file_name, status=SUCCESS",N/A,High,,,,,Audit

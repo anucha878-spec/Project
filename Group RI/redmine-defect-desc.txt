@@ -1,0 +1,112 @@
+Defect พบจาก UAT — CR#1 "After Golive Lot1" / Test Case TC-CR1-011 (Estimate, Layer differentiation) ภายใต้ CR#6 (#63684 ข้อ 8: เงื่อนไขการคำนวณสมาชิก GIB Level 2 และ 3)
+
+=================================================================
+■ SUMMARY
+=================================================================
+เครื่องคำนวณ RI Premium (Estimate) ไม่ apply percent_re แยกตาม Layer (GIB band) ของ treaty — นำเบี้ยของสมาชิกทุกชั้นมารวมไว้ที่ L1 ทั้งหมด แล้วใช้ % cede ของ L1 (15%) เพียงชั้นเดียว ทำให้สมาชิกที่ทุนประกัน (Sum Assured) ตกชั้น L2 (ต้อง cede 100%) และ L3 (ต้อง cede 0%) ไม่ถูกคำนวณตามเงื่อนไข treaty ที่กำหนดไว้
+
+=================================================================
+■ ENVIRONMENT
+=================================================================
+* Database  : groupri @ 10.14.8.58 (PostgreSQL 18)
+* Treaty    : GIB_Grp_Direct_EB (cf_rig_treaty_id = 2, method QSSUR, ri_com_rate 50%)
+* Policy    : GL5505  |  Closing period: 202604  |  Policy Year 2 (Non-Unit Rate, rate_flag=1)
+* Estimate run : tx_rig_est_hd.rig_est_hd_id = 439 (status SUCCESS, created 2026-05-26 by QA)
+* Test data : cer_no 00701-00708 (created_by = 'QA_TC_CR1_010_018')
+
+=================================================================
+■ TREATY CONDITION ที่ถูกต้อง (cf_rig_treaty_cond_dt, cond_hd_id = 2)
+=================================================================
+<pre>
+Layer   Sum Assured range              percent_re (cede)
+L1      0 - 5,000,000                  15%
+L2      5,000,000.01 - 20,000,000      100%
+L3      > 20,000,000                   0%   (เกิน capacity ไม่รับต่อ)
+</pre>
+
+TEST MEMBERS (ฝั่ง Life) และชั้นที่ควรตก:
+<pre>
+cer     SA (Life)      expected layer
+00701   4,000,000      L1
+00702   12,000,000     L2
+00703   22,000,000     L3
+00708   5,000,000      L1
+</pre>
+
+=================================================================
+■ STEPS TO REPRODUCE
+=================================================================
+1. โหลด test member 00701-00708 เข้า Landing (tx_rig_landing_cert_inforce) ของ policy GL5505 PY2
+   - 00702 ทุน Life 12,000,000 (ต้องตก L2), 00703 ทุน Life 22,000,000 (ต้องตก L3)
+2. รัน Estimate (snapshot -> staging -> RI calc) ของ treaty GIB_Grp_Direct_EB period 202604
+3. ตรวจ RI Premium รายชั้นที่ตาราง tx_rig_est_policy_dt ของ GL5505
+
+=================================================================
+■ EXPECTED vs ACTUAL  (RI Premium Life — tx_rig_est_policy_dt, hd = 439)
+=================================================================
+Expected = เบี้ย layer จาก staging x percent_re
+  L1 = 654,085 x 15% = 98,112.75
+  L2 = 14,400 x 100% = 14,400.00
+  L3 = 26,400 x 0%   = 0.00
+<pre>
+Layer   Expected        Actual          Diff
+L1      98,112.75       104,232.75      +6,120.00
+L2      14,400.00       0.00            -14,400.00
+L3      0.00            0.00            0.00
+Total   112,512.75      104,232.75      -8,280.00
+</pre>
+ค่า Actual L1 = 104,232.75 = (654,085 + 14,400 + 26,400) x 15% = 694,885 (เบี้ย Life รวมทุกชั้น) x 15%
+=> ยืนยันว่า engine นำเบี้ยรวมทุกชั้นมาคูณ % ของ L1 ชั้นเดียว
+
+=================================================================
+■ ROOT CAUSE (วิเคราะห์)
+=================================================================
+* Step 2 (Premium Rate ระดับสมาชิก) ถูกต้อง — prem = SA/1000 x rate (Life 1.2, Acc 3.0)
+* Step 3 (staging tx_stg_est_prem_layer) แยกชั้นถูกต้อง:
+      L1 life_prem 654,085 / L2 14,400 / L3 26,400  (และ L2 life_insure=12,000,000 = 00702, L3=22,000,000 = 00703)
+* Step 4 (tx_rig_est_policy_dt — RI cede) ยุบทุก member กลับเป็น L1:
+      L1 = 104,232.75, L2 = 0, L3 = 0
+* สรุป: ข้อมูล layer mapping ที่ถูกต้องจาก staging (Step 3) ไม่ถูกส่งต่อเข้าการคิด cede ราย layer (Step 4)
+  engine ใช้ percent_re ของ L1 (15%) กับสมาชิกทุกคนแทนที่จะใช้ % ตามชั้นจริง
+
+=================================================================
+■ IMPACT
+=================================================================
+* RI Premium Life ของ GL5505 ขาดไป net 8,280.00
+    - member 00702 (L2): ควร cede 100% = 14,400 แต่ถูกคิดแค่ 15% = 2,160  (ขาด 12,240)
+    - member 00703 (L3): ควร cede 0% = 0 แต่ถูก cede 15% = 3,960  (เกิน 3,960 — ไม่ควรรับต่อเลย)
+* RI Commission (50%) และรายงาน BDR (tx_rig_est_bdr) คำนวณผิดตามยอดเบี้ยที่ผิด
+* ฝั่ง Accident มี logic เดียวกัน — แต่ใน run นี้สมาชิก acc ทุกคนตก L1 อยู่แล้วจึงยังไม่เห็นส่วนต่าง
+* กระทบทุก policy/treaty ที่มีสมาชิกตก GIB Level 2/3 (ตรงกับขอบเขต CR#6 ข้อ 8)
+
+=================================================================
+■ EVIDENCE (SQL ตรวจสอบ — groupri@10.14.8.58)
+=================================================================
+<pre>
+-- 1) RI premium รายชั้น (Actual ที่ผิด)
+SELECT dt.policy_no, dt.level, dt.ri_prem_life, dt.ri_prem_acc
+FROM tx_rig_est_policy_dt dt
+JOIN tx_rig_est_policy_hd hd ON hd.rig_est_policy_hd_id = dt.rig_est_policy_hd_id
+WHERE hd.rig_est_hd_id = 439 AND dt.policy_no = 'GL5505'
+ORDER BY dt.level;
+
+-- 2) staging layer premium (Input — ถูกต้อง)
+SELECT level, life_prem, accident_prem
+FROM tx_stg_est_prem_layer
+WHERE rig_process_hd_id = 14430 AND policy_no = 'GL5505'
+ORDER BY level;
+
+-- 3) treaty layer percent (Config)
+SELECT d.layer, d.minimum, d.maximum, d.percent_re
+FROM cf_rig_treaty_cond_dt d
+JOIN cf_rig_treaty_cond_hd h ON h.cf_rig_treaty_cond_id = d.cf_rig_treaty_cond_hd_id
+WHERE h.cf_rig_treaty_id = 2
+ORDER BY d.layer;
+</pre>
+
+=================================================================
+■ REFERENCE
+=================================================================
+* Test Case : TC-CR1-011 (Estimate — Layer differentiation L1/L2/L3) => FAIL
+* Related CR : #63684 ข้อ 8 "เพิ่มเงื่อนไขการอ่าน Rate และนำมาคำนวณในกรณีมีสมาชิกอยู่ใน GIB Level 2 และ 3"
+* Step ที่ผิด : Step 4 (RI cede / layer mapping). ยืนยันแล้วว่า Step 2 (premium rate) และ Step 3 (staging layer) ถูกต้อง

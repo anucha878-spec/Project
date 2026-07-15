@@ -1,0 +1,184 @@
+[    4335ms] [INFO] This page is not reloaded @ chrome-extension://loopjjegnlccnhgfehekecpanpmielcj/content-script/contentScript.js:201
+[    4604ms] [LOG] DEPRECATED: jquery.autocomplete.js - See https://ecosystem.atlassian.net/browse/AUI-393 @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    4783ms] [LOG] AJS.Confluence: run binder components @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    4796ms] [LOG] confluence-keyboard-shortcuts initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    4817ms] [LOG] Applying doc-theme quick search @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    4889ms] [LOG] Creating iframes @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/1.2/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.js:45
+[    5914ms] [LOG] QuickComment: instigated background loading of the comment editor. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6024ms] [LOG] EditorLoader: 1 scripts to be loaded. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6040ms] [LOG] EditorLoader: Finished inserting the editor CSS tags. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6581ms] [LOG] draft-changes initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6677ms] [LOG] tinymce.documentBaseURL = http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/947e28e72d498dff8eb75f787dd3b666/_/download/resources/com.atlassian.plugins.editor/tinymcesource @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6705ms] [LOG] Creating AJS.Rte.BootstrapManager object. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6705ms] [LOG] AJS.Rte.BootstrapManager created @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6707ms] [LOG] TinyMceAdapter: initTinyMce @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6723ms] [LOG] TinyMceAdapter: auto-start meta data was not set. Default to false. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6723ms] [LOG] TinyMceAdapter: Pre-initialisation complete. auto-start=false. You can now call AJS.Rte.BootstrapManager.initialise() to activate TinyMce. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6725ms] [LOG] tinyMce-autocomplete-settings initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6725ms] [LOG] tinyMce-autocomplete-util starting @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6726ms] [LOG] tinyMce-autocomplete-control starting @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6726ms] [LOG] tinyMce-autocomplete-manager starting @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6727ms] [LOG] tinyMce-autocomplete-settings-links initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6727ms] [LOG] tinyMce-autocomplete-settings-media initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    6728ms] [LOG] tinyMce-autocomplete-settings-macro initialising @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    7195ms] [LOG] EditorLoader: Finished loading the editor template. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    7204ms] [LOG] EditorLoader: Finished loading the editor. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    7210ms] [LOG] EditorLoader: all 'after load' callbacks have been called. @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    7340ms] [LOG] AJS.MacroBrowser.loadModel - starting @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[    7345ms] [LOG] AJS.MacroBrowser.loadModel - complete, 91 macros loaded @ http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:9428
+[   31258ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://wiki.thaisamut.co.th/rest/api/content?spaceKey=RDSGRI&type=page&limit=100&start=0&expand=ancestors,version:0
+[   44389ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://wiki.thaisamut.co.th/rest/api/content?spaceKey=RDSGRI&type=page&limit=5:0
+[  360122ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+[  392964ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[  666582ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[  957138ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 1562238ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 1776457ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 1845804ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2420990ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2540852ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2695223ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2761862ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2944878ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 2985080ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3098333ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3399049ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3437018ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3563248ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3791576ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3855288ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 3980371ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4037397ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4092296ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4133504ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4168432ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4366721ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4447220ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4575539ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4753260ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4861845ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 4979814ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 5043889ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 5454858ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 5542006ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 6657697ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 6743583ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 7117171ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 8081315ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 8764905ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9080381ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9314031ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9522619ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9724522ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9856931ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[ 9968864ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[10015090ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[10489124ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[10867715ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[11510177ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[15658104ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[15709771ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[17069680ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)
+[17760083ms] TypeError: text.replace is not a function
+    at Object.parse (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14772:1209)
+    at eval (eval at <anonymous> (http://wiki.thaisamut.co.th/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5061/_/download/superbatch/js/batch.js:1:1), <anonymous>:14750:738)

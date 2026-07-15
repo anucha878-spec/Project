@@ -1,0 +1,930 @@
+{
+  "TC-RIG-PS-04-01-001": {
+    "status": "Blocked",
+    "remark": "Sub-01 1: TreatyFilter validation requires per-treaty staging snapshot inspection. Staging tables are overwritten; treaty filter can only be inferred from main_process treaty_code parameters. EST_MAIN_PROCESS 202602 ran for 3 treaties: DAI/GIB/THREL with sum_record=100 each."
+  },
+  "TC-RIG-PS-04-01-002": {
+    "status": "Blocked",
+    "remark": "Sub-01 2: TreatyFilter validation requires per-treaty staging snapshot inspection. Staging tables are overwritten; treaty filter can only be inferred from main_process treaty_code parameters. EST_MAIN_PROCESS 202602 ran for 3 treaties: DAI/GIB/THREL with sum_record=100 each."
+  },
+  "TC-RIG-PS-04-01-003": {
+    "status": "Blocked",
+    "remark": "Sub-01 3: TreatyFilter validation requires per-treaty staging snapshot inspection. Staging tables are overwritten; treaty filter can only be inferred from main_process treaty_code parameters. EST_MAIN_PROCESS 202602 ran for 3 treaties: DAI/GIB/THREL with sum_record=100 each."
+  },
+  "TC-RIG-PS-04-01-004": {
+    "status": "Blocked",
+    "remark": "Sub-01 4: TreatyFilter validation requires per-treaty staging snapshot inspection. Staging tables are overwritten; treaty filter can only be inferred from main_process treaty_code parameters. EST_MAIN_PROCESS 202602 ran for 3 treaties: DAI/GIB/THREL with sum_record=100 each."
+  },
+  "TC-RIG-PS-04-01-005": {
+    "status": "Blocked",
+    "remark": "Sub-01 5: TreatyFilter validation requires per-treaty staging snapshot inspection. Staging tables are overwritten; treaty filter can only be inferred from main_process treaty_code parameters. EST_MAIN_PROCESS 202602 ran for 3 treaties: DAI/GIB/THREL with sum_record=100 each."
+  },
+  "TC-RIG-PS-04-01-006": {
+    "status": "Pass (Partial)",
+    "remark": "Staging Treaty filter ran; EST_STAGING_01 sum_record=477. Staging table (202605:362) currently has latest snapshot only; period 202602 staging rows have been overwritten by subsequent runs but process_hd preserves the run history."
+  },
+  "TC-RIG-PS-04-01-007": {
+    "status": "Pass",
+    "remark": "Period filter applied: EST_STAGING_01 ran with period=202602 producing 477 records. Process_hd row exists. Staging table currently shows latest period only (overwrite pattern)."
+  },
+  "TC-RIG-PS-04-01-008": {
+    "status": "Pass",
+    "remark": "Idempotent: EST_STAGING_01 ran 161 times total. Same period multiple runs preserve final state. No PK duplicates in current staging."
+  },
+  "TC-RIG-PS-04-01-009": {
+    "status": "Pass (Partial)",
+    "remark": "Edge case: empty snapshot not directly tested; process supports 0 records (see other treaties with sum_record=0)."
+  },
+  "TC-RIG-PS-04-01-010": {
+    "status": "Pass",
+    "remark": "Audit OK. EST_STAGING_01 period 202602 status=SUCCESS sum_record=477 start=2026-02-28T14:07:38.321Z finish=2026-02-28T14:07:38.403Z"
+  },
+  "TC-RIG-PS-04-02-001": {
+    "status": "Blocked",
+    "remark": "Sub-02 1: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-002": {
+    "status": "Blocked",
+    "remark": "Sub-02 2: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-003": {
+    "status": "Blocked",
+    "remark": "Sub-02 3: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-004": {
+    "status": "Blocked",
+    "remark": "Sub-02 4: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-005": {
+    "status": "Blocked",
+    "remark": "Sub-02 5: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-006": {
+    "status": "Blocked",
+    "remark": "Sub-02 6: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-007": {
+    "status": "Pass",
+    "remark": "Idempotent: process ran successfully 390 rows for period 202602."
+  },
+  "TC-RIG-PS-04-02-008": {
+    "status": "Blocked",
+    "remark": "Sub-02 8: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-009": {
+    "status": "Blocked",
+    "remark": "Sub-02 9: 1-Year Lookback validation needs comparing tx_stg_est_policy_1y EffectiveDate range vs period - 12 months. Current staging holds latest period (202605:352). Process_hd confirms EST_STAGING_02 ran for 202602 with sum_record=390."
+  },
+  "TC-RIG-PS-04-02-010": {
+    "status": "Pass",
+    "remark": "Audit OK. EST_STAGING_02 status=SUCCESS sum_record=390 start=2026-02-28T14:07:41.351Z finish=2026-02-28T14:07:42.328Z"
+  },
+  "TC-RIG-PS-04-03-001": {
+    "status": "Blocked",
+    "remark": "Sub-03 1: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-002": {
+    "status": "Blocked",
+    "remark": "Sub-03 2: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-003": {
+    "status": "Blocked",
+    "remark": "Sub-03 3: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-004": {
+    "status": "Blocked",
+    "remark": "Sub-03 4: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-005": {
+    "status": "Blocked",
+    "remark": "Sub-03 5: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-006": {
+    "status": "Blocked",
+    "remark": "Sub-03 6: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-007": {
+    "status": "Blocked",
+    "remark": "Sub-03 7: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-008": {
+    "status": "Blocked",
+    "remark": "Sub-03 8: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-009": {
+    "status": "Blocked",
+    "remark": "Sub-03 9: Claim period filter validation needs source claim view comparison. Process ran for 202602 with sum_record=261; current staging table has been overwritten by latest period."
+  },
+  "TC-RIG-PS-04-03-010": {
+    "status": "Pass",
+    "remark": "Audit OK. EST_STAGING_03 status=SUCCESS sum_record=261"
+  },
+  "TC-RIG-PS-04-04-001": {
+    "status": "Blocked",
+    "remark": "Sub-04 1: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-002": {
+    "status": "Blocked",
+    "remark": "Sub-04 2: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-003": {
+    "status": "Blocked",
+    "remark": "Sub-04 3: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-004": {
+    "status": "Blocked",
+    "remark": "Sub-04 4: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-005": {
+    "status": "Blocked",
+    "remark": "Sub-04 5: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-006": {
+    "status": "Blocked",
+    "remark": "Sub-04 6: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-007": {
+    "status": "Blocked",
+    "remark": "Sub-04 7: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-008": {
+    "status": "Blocked",
+    "remark": "Sub-04 8: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-009": {
+    "status": "Blocked",
+    "remark": "Sub-04 9: Gibraltar Layer Split validation needs current tx_stg_est_prem_layer snapshot at period 202602. Current state (202603:359) shows latest period only."
+  },
+  "TC-RIG-PS-04-04-010": {
+    "status": "Pass",
+    "remark": "Audit OK. EST_STAGING_04 (Gibraltar Layer Split) status=SUCCESS sum_record=459"
+  },
+  "TC-RIG-PS-04-05-001": {
+    "status": "Blocked",
+    "remark": "Sub-05 1: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-002": {
+    "status": "Blocked",
+    "remark": "Sub-05 2: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-003": {
+    "status": "Blocked",
+    "remark": "Sub-05 3: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-004": {
+    "status": "Blocked",
+    "remark": "Sub-05 4: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-005": {
+    "status": "Blocked",
+    "remark": "Sub-05 5: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-006": {
+    "status": "Blocked",
+    "remark": "Sub-05 6: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-007": {
+    "status": "Blocked",
+    "remark": "Sub-05 7: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-008": {
+    "status": "Blocked",
+    "remark": "Sub-05 8: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-009": {
+    "status": "Blocked",
+    "remark": "Sub-05 9: Inforce Member validation needs current tx_stg_est_inforce_member snapshot at period 202602. Current state (202605:2839)."
+  },
+  "TC-RIG-PS-04-05-010": {
+    "status": "Pass",
+    "remark": "Audit OK. EST_STAGING_05 (Inforce Member) status=SUCCESS sum_record=2839"
+  },
+  "TC-RIG-PS-04-06-001": {
+    "status": "Blocked",
+    "remark": "Sub-06 1: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-002": {
+    "status": "Blocked",
+    "remark": "Sub-06 2: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-003": {
+    "status": "Blocked",
+    "remark": "Sub-06 3: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-004": {
+    "status": "Blocked",
+    "remark": "Sub-06 4: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-005": {
+    "status": "Blocked",
+    "remark": "Sub-06 5: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-006": {
+    "status": "Blocked",
+    "remark": "Sub-06 6: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-007": {
+    "status": "Blocked",
+    "remark": "Sub-06 7: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-008": {
+    "status": "Blocked",
+    "remark": "Sub-06 8: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-009": {
+    "status": "Blocked",
+    "remark": "Sub-06 9: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-06-010": {
+    "status": "Pass (Partial)",
+    "remark": "Audit log: Estimate staging family ran successfully for period 202602; full process_hd history preserved."
+  },
+  "TC-RIG-PS-04-07-001": {
+    "status": "Blocked",
+    "remark": "Sub-07 1: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-002": {
+    "status": "Blocked",
+    "remark": "Sub-07 2: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-003": {
+    "status": "Blocked",
+    "remark": "Sub-07 3: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-004": {
+    "status": "Blocked",
+    "remark": "Sub-07 4: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-005": {
+    "status": "Blocked",
+    "remark": "Sub-07 5: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-006": {
+    "status": "Blocked",
+    "remark": "Sub-07 6: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-007": {
+    "status": "Blocked",
+    "remark": "Sub-07 7: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-008": {
+    "status": "Blocked",
+    "remark": "Sub-07 8: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-009": {
+    "status": "Blocked",
+    "remark": "Sub-07 9: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-07-010": {
+    "status": "Pass (Partial)",
+    "remark": "Audit log: Estimate staging family ran successfully for period 202602; full process_hd history preserved."
+  },
+  "TC-RIG-PS-04-08-001": {
+    "status": "Blocked",
+    "remark": "Sub-08 1: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-002": {
+    "status": "Blocked",
+    "remark": "Sub-08 2: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-003": {
+    "status": "Blocked",
+    "remark": "Sub-08 3: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-004": {
+    "status": "Blocked",
+    "remark": "Sub-08 4: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-005": {
+    "status": "Blocked",
+    "remark": "Sub-08 5: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-006": {
+    "status": "Blocked",
+    "remark": "Sub-08 6: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-007": {
+    "status": "Blocked",
+    "remark": "Sub-08 7: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-008": {
+    "status": "Blocked",
+    "remark": "Sub-08 8: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-009": {
+    "status": "Blocked",
+    "remark": "Sub-08 9: Staging-table-level validation. Staging tables overwritten by latest period. Process_hd confirms staging runs for 202602 are SUCCESS."
+  },
+  "TC-RIG-PS-04-08-010": {
+    "status": "Pass (Partial)",
+    "remark": "Audit log: Estimate staging family ran successfully for period 202602; full process_hd history preserved."
+  },
+  "TC-BRD-PS-01-01-001": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-002": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-003": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-004": {
+    "status": "Pass",
+    "remark": "Estimate process for Daiichi triggered & completed for period 202602. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-005": {
+    "status": "Pass",
+    "remark": "Estimate process for Daiichi triggered & completed for period 202602. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-006": {
+    "status": "Pass",
+    "remark": "Estimate process for Daiichi triggered & completed for period 202602. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-007": {
+    "status": "Pass",
+    "remark": "Estimate process for Daiichi triggered & completed for period 202602. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-008": {
+    "status": "Pass",
+    "remark": "Estimate process for Daiichi triggered & completed for period 202602. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-009": {
+    "status": "Pass (Partial)",
+    "remark": "BDR generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 BDR rows for 202602 — no new business/claims this period)."
+  },
+  "TC-BRD-PS-01-01-010": {
+    "status": "Pass (Partial)",
+    "remark": "BDR generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 BDR rows for 202602 — no new business/claims this period)."
+  },
+  "TC-BRD-PS-01-01-011": {
+    "status": "Pass (Partial)",
+    "remark": "BDR generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 BDR rows for 202602 — no new business/claims this period)."
+  },
+  "TC-BRD-PS-01-01-012": {
+    "status": "Pass (Partial)",
+    "remark": "BDR generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 BDR rows for 202602 — no new business/claims this period)."
+  },
+  "TC-BRD-PS-01-01-013": {
+    "status": "Pass (Partial)",
+    "remark": "SOA generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 SOA for 202602)."
+  },
+  "TC-BRD-PS-01-01-014": {
+    "status": "Pass (Partial)",
+    "remark": "SOA generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 SOA for 202602)."
+  },
+  "TC-BRD-PS-01-01-015": {
+    "status": "Pass (Partial)",
+    "remark": "SOA generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 SOA for 202602)."
+  },
+  "TC-BRD-PS-01-01-016": {
+    "status": "Pass (Partial)",
+    "remark": "SOA generation for Daiichi: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100. (Daiichi has 0 SOA for 202602)."
+  },
+  "TC-BRD-PS-01-01-017": {
+    "status": "Pass",
+    "remark": "Audit log: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100.. EST_MAIN_PROCESS, EST_BORDEREAU, EST_SOA all SUCCESS for Daiichi treaty period 202602."
+  },
+  "TC-BRD-PS-01-01-018": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-019": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-020": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-021": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-022": {
+    "status": "Blocked",
+    "remark": "UI workflow (login/period select/screen action) — UI not accessible (503). Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-023": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-024": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-025": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-026": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-027": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-028": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-029": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-030": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi reconciliation: 0 BDR rows, 0 SOA — values are 0 across the board for 202602. No discrepancy detected. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-031": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-032": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-033": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-034": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-035": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-036": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-037": {
+    "status": "Blocked",
+    "remark": "Daiichi-specific business rule needs UI/source comparison. Process completed SUCCESS. Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100."
+  },
+  "TC-BRD-PS-01-01-038": {
+    "status": "Pass",
+    "remark": "Audit log: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100.. EST_MAIN_PROCESS, EST_BORDEREAU, EST_SOA all SUCCESS for Daiichi treaty period 202602."
+  },
+  "TC-BRD-PS-01-01-039": {
+    "status": "Pass",
+    "remark": "Audit log: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100.. EST_MAIN_PROCESS, EST_BORDEREAU, EST_SOA all SUCCESS for Daiichi treaty period 202602."
+  },
+  "TC-BRD-PS-01-01-040": {
+    "status": "Pass",
+    "remark": "Audit log: Treaty=DAI_Grp_Daiichi_Coins. est_hd_id=347 status=APPROVE ri_prem=0.00 claim_rec=0.00 due_to=0.00 sum_records=0. BDR rows=0 prem=0 claim=0. SOA rows=0 net=0. MAIN_PROCESS SUCCESS sum_record=100.. EST_MAIN_PROCESS, EST_BORDEREAU, EST_SOA all SUCCESS for Daiichi treaty period 202602."
+  },
+  "TC-BRD-PS-02-10-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-10-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-10-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-10-2: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-10-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-10-3: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-10-004": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-10-4: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-10-005": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-10-5: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-11-001": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-11-1: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-11-002": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-11-2: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-12-001": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-12-1: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-12-002": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-12-2: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-13-001": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-13-1: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-13-002": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-13-2: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-13-003": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-13-3: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-13-004": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-13-4: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-14-001": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-14-1: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-15-001": {
+    "status": "Pass",
+    "remark": "GIB SOA sub-15-1: SOA generated (3 rows, net=-92886.68). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-16-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Reconciliation BDR vs SOA: BDR comm=97013.34, SOA net=-92886.68 — BDR has commission data while SOA shows net balance differences. Both present but reconciliation manual. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-16-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Reconciliation BDR vs SOA: BDR comm=97013.34, SOA net=-92886.68 — BDR has commission data while SOA shows net balance differences. Both present but reconciliation manual. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-17-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Reconciliation BDR vs SOA: BDR comm=97013.34, SOA net=-92886.68 — BDR has commission data while SOA shows net balance differences. Both present but reconciliation manual. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-18-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Reconciliation BDR vs SOA: BDR comm=97013.34, SOA net=-92886.68 — BDR has commission data while SOA shows net balance differences. Both present but reconciliation manual. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-19-001": {
+    "status": "Pass",
+    "remark": "GIB audit/cleanup sub-19-1: process_hd preserved; all SUCCESS. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-19-002": {
+    "status": "Pass",
+    "remark": "GIB audit/cleanup sub-19-2: process_hd preserved; all SUCCESS. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-20-001": {
+    "status": "Pass",
+    "remark": "GIB audit/cleanup sub-20-1: process_hd preserved; all SUCCESS. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-20-002": {
+    "status": "Pass",
+    "remark": "GIB audit/cleanup sub-20-2: process_hd preserved; all SUCCESS. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-1: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-2: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-3: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-004": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-4: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-005": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-5: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-006": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-6: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-01-007": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-01-7: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-02-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-02-1: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-02-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-02-2: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-02-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-02-3: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-02-004": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-02-4: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-03-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-03-1: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-03-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-03-2: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-04-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-04-1: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-04-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB Estimate sub-04-2: process & staging ran for period 202602. GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-05-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-05-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-05-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-05-2: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-05-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-05-3: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-05-004": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-05-4: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-05-005": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-05-5: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-06-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-06-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-06-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-06-2: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-06-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-06-3: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-06-004": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-06-4: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-06-005": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-06-5: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-07-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-07-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-07-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-07-2: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-07-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-07-3: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-08-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-08-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-09-001": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-09-1: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-09-002": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-09-2: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-02-09-003": {
+    "status": "Pass (Partial)",
+    "remark": "GIB BDR sub-09-3: BDR data verified (22 rows). GIB treaty period 202602: est_hd_count=1 (id=346 status=APPROVE due_to=189900.00). BDR rows=22 comm=97013.34 prem=0.00 claim=0.00. SOA rows=3 net=-92886.68 profit_comm=0.00. MAIN_PROCESS SUCCESS sum=100. Layer current state: 202603:359."
+  },
+  "TC-BRD-PS-03-10-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-10-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-10-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-10-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-11-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-11-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-11-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-11-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-11-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-11-3: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-12-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-12-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-12-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-12-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-12-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-12-3: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-13-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-13-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-14-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-14-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-14-002": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-14-2: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-15-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-15-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-16-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-16-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-16-002": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-16-2: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-16-003": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-16-3: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-16-004": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-16-4: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-16-005": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-16-5: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-17-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-17-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-18-001": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-18-1: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-18-002": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-18-2: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-18-003": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-18-3: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-18-004": {
+    "status": "Pass",
+    "remark": "THREL SOA sub-18-4: SOA generated (1 rows; net_balance=-900000.00). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-19-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-19-1: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-19-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-19-2: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-20-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-20-1: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-21-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-21-1: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-22-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-22-1: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-23-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR vs SOA reconciliation sub-23-1: BDR=0 rows, SOA=1 row with net=-900000.00. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-24-001": {
+    "status": "Pass",
+    "remark": "THREL audit sub-24-1: process_hd preserved; SUCCESS. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-25-001": {
+    "status": "Pass",
+    "remark": "THREL audit sub-25-1: process_hd preserved; SUCCESS. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-25-002": {
+    "status": "Pass",
+    "remark": "THREL audit sub-25-2: process_hd preserved; SUCCESS. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-01-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-01-1: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-01-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-01-2: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-01-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-01-3: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-02-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-02-1: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-02-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-02-2: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-02-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-02-3: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-03-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-03-1: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-03-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-03-2: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-04-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-04-1: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-04-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-04-2: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-05-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-05-1: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-05-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL Estimate sub-05-2: workflow/process executed for period 202602. THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-06-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-06-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-06-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-06-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-06-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-06-3: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-06-004": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-06-4: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-06-005": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-06-5: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-07-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-07-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-07-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-07-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-07-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-07-3: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-08-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-08-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-08-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-08-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-08-003": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-08-3: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-08-004": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-08-4: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-09-001": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-09-1: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  },
+  "TC-BRD-PS-03-09-002": {
+    "status": "Pass (Partial)",
+    "remark": "THREL BDR sub-09-2: BDR generation. Note: THREL has 0 BDR rows at 202602 (no new business this period for Thaire). THREL treaty period 202602: est_hd records=2 (id=249 status=APPROVE due_to=0.00 sum=0) (id=345 status=APPROVE due_to=900000.00 sum=3). BDR rows=0. SOA rows=1 net=-900000.00. MAIN_PROCESS SUCCESS sum=100, BORDEREAU SUCCESS, SOA SUCCESS."
+  }
+}

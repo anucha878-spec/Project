@@ -1,0 +1,15 @@
+{
+  "name": "qa-marketplace-v2",
+  "owner": { "name": "Thanakrit" },
+  "metadata": {
+    "description": "QA Spec-Kit marketplace (V2, skill-based) for Claude Code",
+    "version": "2.0.0"
+  },
+  "plugins": [
+    {
+      "name": "qa-speckit-workflow",
+      "source": "./plugins/qa-speckit-workflow",
+      "description": "QA Spec-Kit Execution Workflow — full skill-based pipeline (source-ingest → test-plan → requirement-review[-generic] → e2e-flow-designer → test-case-generator → coverage-review → risk-analysis → test-data-generator → qa-automation-script → result-analysis → qa-reconcile → qa-report-generator → redmine-logging → qa-retest)"
+    }
+  ]
+}

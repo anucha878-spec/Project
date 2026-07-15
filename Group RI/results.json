@@ -1,0 +1,652 @@
+[
+  {
+    "id": "TC-RIG-PS-01-10-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 431, all-period = 431. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_10. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 431): doc_no=0, policy_no=0, company_name=0, rd_name=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): premium_all:0/431, total_claim:0/431, exp_refund:0/431, exp_refund_g:0/431, doc_date:0/431, cal_date:0/431, period_begin_date:0/431. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-005",
+    "status": "Pass",
+    "remark": "Decimal col 'premium_all' has min=832.6000, max=8618743.3100, fractional rows=431/431 → numeric preserved. doc_no max length=14."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-006",
+    "status": "Pass",
+    "remark": "Col 'company_name': total=431, thai_rows=431, thai+special=177. Sample: บริษัท สยามนิสทรานส์ จำกัด สำนักงานใหญ่ | บริษัท สยามนิสทรานส์ จำกัด สำนักงานใหญ่ | บริษัท สยามนิสทรานส์ จำกัด สำนักงานใหญ่ [Refund=0 rows=387, refund NULL rows=0]"
+  },
+  {
+    "id": "TC-RIG-PS-01-10-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 431, total rows = 431. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-10-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-10-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_10 ran on 13 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×2, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-10-010",
+    "status": "Pass",
+    "remark": "Last run: id=13306, code=RIG_AUTO_10, status=SUCCESS, period=202605, sum_record=431, start=2026-05-19T14:06:11.803Z, finish=2026-05-19T14:06:15.463Z; rows in landing for this run = 431"
+  },
+  {
+    "id": "TC-RIG-PS-01-11-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 1634, all-period = 1634. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-11-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_11. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-11-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 1634): dbdcode=0, type_business=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-11-004",
+    "status": "N/A",
+    "remark": "No optional/nullable cols selected."
+  },
+  {
+    "id": "TC-RIG-PS-01-11-005",
+    "status": "N/A",
+    "remark": "No decimal columns to verify precision. [Company.dbdcode w/o NOB master = 5]"
+  },
+  {
+    "id": "TC-RIG-PS-01-11-006",
+    "status": "Pass",
+    "remark": "Col 'type_business': total=1634, thai_rows=1634, thai+special=78. Sample: การปลูกข้าวโพดที่ใช้เมล็ดแก่ | การปลูกธัญพืช | การทำไร่ยาสูบ"
+  },
+  {
+    "id": "TC-RIG-PS-01-11-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 1634, total rows = 1634. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-11-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-11-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_11 ran on 12 distinct days in last 14 days. Last 5: 2026-05-18×3, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1, 2026-05-12×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-11-010",
+    "status": "Pass",
+    "remark": "Last run: id=13307, code=RIG_AUTO_11, status=SUCCESS, period=202605, sum_record=1634, start=2026-05-19T14:06:30.338Z, finish=2026-05-19T14:06:33.755Z; rows in landing for this run = 1634"
+  },
+  {
+    "id": "TC-RIG-PS-01-12-001",
+    "status": "Blocked",
+    "remark": "UI-driven manual upload via \"นำเข้าข้อมูล Unname Policy Estimate\" screen — DB layer only verified data exists for current period. | Prior DB-side note: Landing count period 202605 = 88, all-period = 88. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-002",
+    "status": "Blocked",
+    "remark": "Wrong file format reject — must test via screen. | Prior DB-side note: Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_12. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-003",
+    "status": "Blocked",
+    "remark": "Missing-column validation — must test via screen. | Prior DB-side note: Sample mandatory cols NULL counts (of 88): policy_no=0, doc_no=0, reinsur_no=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-004",
+    "status": "Blocked",
+    "remark": "Row-level type validation — must test via screen. | Prior DB-side note: Optional cols retain NULL where source NULL (sample): total_life:0/88, grand_total:0/88, total_e1_amt:88/88, promise_date:0/88, reinsur_date:0/88. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-005",
+    "status": "Pass",
+    "remark": "Decimal col 'total_life' has min=-11477.0700, max=1382290.0000, fractional rows=88/88 → numeric preserved. policy_no max length=6."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-006",
+    "status": "Blocked",
+    "remark": "Duplicate-PolicyNo detection — must test via screen. | Prior DB-side note: No Thai-text columns identified for Unname Policy."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 88, total rows = 88. Duplicate PK rows = 0. No PK duplicates → idempotent [Unname Policy by period: 202605:88]"
+  },
+  {
+    "id": "TC-RIG-PS-01-12-008",
+    "status": "Blocked",
+    "remark": "Permission control — must test via screen. | Prior DB-side note: Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-12-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_12 ran on 12 distinct days in last 14 days. Last 5: 2026-05-18×3, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1, 2026-05-12×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-12-010",
+    "status": "Pass",
+    "remark": "Last run: id=13308, code=RIG_AUTO_12, status=SUCCESS, period=202605, sum_record=88, start=2026-05-19T14:07:58.566Z, finish=2026-05-19T14:09:20.928Z; rows in landing for this run = 88"
+  },
+  {
+    "id": "TC-RIG-PS-01-13-001",
+    "status": "Blocked",
+    "remark": "Landing total rows = 6 (no 'period' column in this table). UI manual import — screen-level test required. | Prior DB-side note: column \"period\" does not exist"
+  },
+  {
+    "id": "TC-RIG-PS-01-13-002",
+    "status": "Blocked",
+    "remark": "Wrong format reject — screen test. | Prior DB-side note: Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_13. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-003",
+    "status": "Pass (Partial)",
+    "remark": "Mandatory NULL counts (of 6): doc_no=0, claim_no=0, policy_no=0. No source view; mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL (no period field in this table). expense_amount:0/6, investigation_expense:6/6, medical_expense:6/6, doc_date:0/6, effective_date:0/6, approved_date:0/6. NULL preserved across dates and amounts."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-005",
+    "status": "Pass",
+    "remark": "Expense rows=6, with claim_no=6, without=0. Cross-referenced 6 expense claim_no → resolved in landing claim tables = 6."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-006",
+    "status": "N/A",
+    "remark": "No Thai-text columns identified for Investigation Exp."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-007",
+    "status": "Blocked",
+    "remark": "Duplicate detection — screen test. | Prior DB-side note: column \"period\" does not exist"
+  },
+  {
+    "id": "TC-RIG-PS-01-13-008",
+    "status": "Blocked",
+    "remark": "Re-import replace logic — screen test. | Prior DB-side note: Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-13-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_13 ran on 12 distinct days in last 14 days. Last 5: 2026-05-18×3, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1, 2026-05-12×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-13-010",
+    "status": "Pass",
+    "remark": "Last run: id=13309, code=RIG_AUTO_13, status=SUCCESS, period=202605, sum_record=6, start=2026-05-19T14:08:04.926Z, finish=2026-05-19T14:08:08.381Z; rows in landing for this run = 0"
+  },
+  {
+    "id": "TC-RIG-PS-01-01-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 7048, all-period = 7048. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_01. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 7048): policy_no=0, company_name=0, prefix_thai=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): life_prem:3568/7048, acc_prem:1463/7048, med_prem:1465/7048, policy_doc_date:527/7048, first_date:0/7048, expire_date:8/7048. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-005",
+    "status": "Pass",
+    "remark": "Decimal col 'life_prem' has min=0.0000, max=2750.0000, fractional rows=3480/3480 → numeric preserved. policy_no max length=6."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-006",
+    "status": "Pass",
+    "remark": "Col 'company_name': total=7048, thai_rows=6340, thai+special=3546. Sample: ในกลุ่มสมบูรณ์ | ในกลุ่มสมบูรณ์ | ไทยสมุทรประกันชีวิต จำกัด"
+  },
+  {
+    "id": "TC-RIG-PS-01-01-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 7048, total rows = 7048. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-01-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-01-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_01 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-01-010",
+    "status": "Pass",
+    "remark": "Last run: id=13297, code=RIG_AUTO_01, status=SUCCESS, period=202605, sum_record=7048, start=2026-05-19T14:00:04.425Z, finish=2026-05-19T14:00:09.601Z; rows in landing for this run = 7048"
+  },
+  {
+    "id": "TC-RIG-PS-01-02-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 995067, all-period = 995067. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_02. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 995067): certific_cust_no=0, cust_code=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): life_prem:0/995067, med_prem:0/995067, life_insur:0/995067, effect_date:1/995067, trans_date:4/995067, birthday:1627/995067. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-005",
+    "status": "Pass",
+    "remark": "Decimal col 'life_prem' has min=0.0000, max=44000.0000, fractional rows=995067/995067 → numeric preserved. certific_cust_no max length=5."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-006",
+    "status": "N/A",
+    "remark": "No Thai-text columns identified for Customer. [TaxID/cust_code check: len min=9, max=10, leading-zero rows=0]"
+  },
+  {
+    "id": "TC-RIG-PS-01-02-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 995067, total rows = 995067. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-02-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-02-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_02 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-02-010",
+    "status": "Pass",
+    "remark": "Last run: id=13298, code=RIG_AUTO_02, status=SUCCESS, period=202605, sum_record=995067, start=2026-05-19T14:00:04.683Z, finish=2026-05-19T14:02:39.942Z; rows in landing for this run = 995067"
+  },
+  {
+    "id": "TC-RIG-PS-01-03-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 2447, all-period = 2447. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-03-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_03. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-03-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 2447): company_code=0, dbdcode=0, type_business=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-03-004",
+    "status": "N/A",
+    "remark": "No optional/nullable cols selected."
+  },
+  {
+    "id": "TC-RIG-PS-01-03-005",
+    "status": "N/A",
+    "remark": "No decimal columns to verify precision. [Referential: companies=2447, orphan dbdcode w/o NOB=5]"
+  },
+  {
+    "id": "TC-RIG-PS-01-03-006",
+    "status": "Pass",
+    "remark": "Col 'type_business': total=2447, thai_rows=2424, thai+special=201. Sample: ให้บริการและบริหารจัดการโรงแรม | ให้บริการและบริหารจัดการโรงแรม | ให้บริการและบริหารจัดการโรงแรม"
+  },
+  {
+    "id": "TC-RIG-PS-01-03-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 2447, total rows = 2447. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-03-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-03-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_03 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-03-010",
+    "status": "Pass",
+    "remark": "Last run: id=13299, code=RIG_AUTO_03, status=SUCCESS, period=202605, sum_record=2447, start=2026-05-19T14:00:11.949Z, finish=2026-05-19T14:00:15.385Z; rows in landing for this run = 2447"
+  },
+  {
+    "id": "TC-RIG-PS-01-04-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 726, all-period = 726. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_04. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 726): inform_no=0, death_cause_remark=1. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): approve_claim:3/726, life_insur:1/726, acc_insur:1/726, death_date:0/726, approve_date:6/726, pay_date:82/726. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-005",
+    "status": "Pass",
+    "remark": "Decimal col 'approve_claim' has min=0, max=3, fractional rows=0/723 → numeric preserved. inform_no max length=9."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-006",
+    "status": "Pass (Partial)",
+    "remark": "Col 'death_cause_remark': total=725, thai_rows=0, thai+special=0. Sample: "
+  },
+  {
+    "id": "TC-RIG-PS-01-04-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 726, total rows = 726. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-04-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-04-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_04 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-04-010",
+    "status": "Pass",
+    "remark": "Last run: id=13300, code=RIG_AUTO_04, status=SUCCESS, period=202605, sum_record=726, start=2026-05-19T14:00:17.996Z, finish=2026-05-19T14:00:24.670Z; rows in landing for this run = 726"
+  },
+  {
+    "id": "TC-RIG-PS-01-05-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 22, all-period = 22. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_05. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 22): inform_no=0, accident_cause=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): indemnity_rate:0/22, indemnity_amt:0/22, approve_claim:0/22, accident_date:0/22, approve_date:0/22, pay_date:2/22. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-005",
+    "status": "Pass",
+    "remark": "Decimal col 'indemnity_rate' has min=0.0000, max=100.0000, fractional rows=22/22 → numeric preserved. inform_no max length=9."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-006",
+    "status": "Pass",
+    "remark": "Col 'accident_cause': total=22, thai_rows=21, thai+special=0. Sample: ขาซ้ายขาดจากอุบัติเหตุรถไถพลิกคว่ำทับขา | ตาซ้ายบอดจากน้ำกรดหยอดยางพารากระเด็นเข้าตา | ตาบอดสองข้างจากขับขี่รถยนต์เก๋งชนท้ายรถบรรทุก"
+  },
+  {
+    "id": "TC-RIG-PS-01-05-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 22, total rows = 22. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-05-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-05-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_05 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-05-010",
+    "status": "Pass",
+    "remark": "Last run: id=13301, code=RIG_AUTO_05, status=SUCCESS, period=202605, sum_record=22, start=2026-05-19T14:00:27.297Z, finish=2026-05-19T14:00:30.655Z; rows in landing for this run = 22"
+  },
+  {
+    "id": "TC-RIG-PS-01-06-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 897681, all-period = 897681. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_06. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 897681): notify_no=0, cause_detail=35021, claim_type=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): claim_request:0/897681, pay_amount:0/897681, approve_claim:0/897681, notify_date:2/897681, approve_date:11320/897681, pay_date:98155/897681. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-005",
+    "status": "Pass",
+    "remark": "Decimal col 'claim_request' has min=0.0000, max=2308229.0000, fractional rows=897681/897681 → numeric preserved. notify_no max length=12."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-006",
+    "status": "Pass (Partial)",
+    "remark": "Col 'cause_detail': total=862660, thai_rows=0, thai+special=0. Sample: "
+  },
+  {
+    "id": "TC-RIG-PS-01-06-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 897681, total rows = 897681. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-06-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-06-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_06 ran on 14 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×1, 2026-05-16×1, 2026-05-15×1, 2026-05-14×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-06-010",
+    "status": "Pass",
+    "remark": "Last run: id=13302, code=RIG_AUTO_06, status=SUCCESS, period=202605, sum_record=897681, start=2026-05-19T14:00:33.291Z, finish=2026-05-19T14:04:41.086Z; rows in landing for this run = 897681"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 1448235, all-period = 1448235. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-07-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_07. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-07-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 1448235): cer_no=0, policy_name=0, company_name=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-07-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): life_prem:0/1448235, total_prem:0/1448235, sum_total_prem:0/1448235, effect_date:0/1448235, end_date:1448235/1448235, approved_date:1448235/1448235. Verified NULL not converted to 0/''/'1900-01-01' for date cols. [status_member dist: {\"status_member\":\"I\",\"n\":908978},{\"status_member\":\"B\",\"n\":386084},{\"status_member\":\"N\",\"n\":78436},{\"status_member\":\"A\",\"n\":56828},{\"status_member\":\"T\",\"n\":11133},{\"status_member\":\"E\",\"n\":6156}]"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-005",
+    "status": "Pass",
+    "remark": "Decimal col 'life_prem' has min=0.0000, max=44000.0000, fractional rows=1448235/1448235 → numeric preserved. cer_no max length=5. [Multi-treaty cert_no count = 5; sample = [{\"cer_no\":\"00001\",\"treaties\":1042},{\"cer_no\":\"00002\",\"treaties\":1050},{\"cer_no\":\"00003\",\"treaties\":1050},{\"cer_no\":\"00004\",\"treaties\":1044},{\"cer_no\":\"00005\",\"treaties\":1061}]]"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-006",
+    "status": "Pass",
+    "remark": "Col 'policy_name': total=1448235, thai_rows=1447897, thai+special=794546. Sample: ดอยคำผลิตภัณฑ์อาหาร จำกัด | ดอยคำผลิตภัณฑ์อาหาร จำกัด | ดอยคำผลิตภัณฑ์อาหาร จำกัด"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 1448235, total rows = 1448235. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-07-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_07 ran on 13 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×2, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-07-010",
+    "status": "Pass",
+    "remark": "Last run: id=13303, code=RIG_AUTO_07, status=SUCCESS, period=202605, sum_record=1448235, start=2026-05-19T14:02:42.555Z, finish=2026-05-19T14:06:44.790Z; rows in landing for this run = 1448235"
+  },
+  {
+    "id": "TC-RIG-PS-01-08-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 52697, all-period = 52697. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_08. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 52697): certific_cust_no=0, cust_code=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): life_prem:58/52697, life_insur:0/52697, effect_date:0/52697, trans_date:0/52697. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-005",
+    "status": "Pass",
+    "remark": "Decimal col 'life_prem' has min=0.0000, max=36400.0000, fractional rows=52639/52639 → numeric preserved. certific_cust_no max length=5."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-006",
+    "status": "N/A",
+    "remark": "No Thai-text columns identified for Cert New Business."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 52697, total rows = 52697. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-08-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-08-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_08 ran on 13 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×2, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-08-010",
+    "status": "Pass",
+    "remark": "Last run: id=13304, code=RIG_AUTO_08, status=SUCCESS, period=202605, sum_record=52697, start=2026-05-19T14:04:43.684Z, finish=2026-05-19T14:05:06.712Z; rows in landing for this run = 52697"
+  },
+  {
+    "id": "TC-RIG-PS-01-09-001",
+    "status": "Pass (Partial)",
+    "remark": "Landing count period 202605 = 224403, all-period = 224403. No source view (vw_grp_*) available to compare; verified Landing populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-002",
+    "status": "Blocked",
+    "remark": "Requires source-side INSERT/UPDATE in vw_grp_* and trigger RIG_AUTO_09. Read-only DB connection; need infra access."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-003",
+    "status": "Pass (Partial)",
+    "remark": "Sample mandatory cols NULL counts (of 224403): doc_no=0, policy_no=0. Source-vs-Landing diff not checked (no source view). Mandatory fields populated."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-004",
+    "status": "Pass (Partial)",
+    "remark": "Optional cols retain NULL where source NULL (sample): life_insur_before:3672/224403, life_insur_after:0/224403, life_prem_diff:0/224403, doc_date:0/224403, effect_date:0/224403, change_date_before:78778/224403. Verified NULL not converted to 0/''/'1900-01-01' for date cols."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-005",
+    "status": "Pass",
+    "remark": "Decimal col 'life_insur_before' has min=0.0000, max=20000000.0000, fractional rows=220731/220731 → numeric preserved. doc_no max length=10."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-006",
+    "status": "N/A",
+    "remark": "No Thai-text columns identified for Cert Alteration."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-007",
+    "status": "Pass",
+    "remark": "Distinct PK = 224403, total rows = 224403. Duplicate PK rows = 0. No PK duplicates → idempotent"
+  },
+  {
+    "id": "TC-RIG-PS-01-09-008",
+    "status": "Blocked",
+    "remark": "Negative test requires blocking source-side connection. Cannot simulate from read-only DB session; need infra/network access to source."
+  },
+  {
+    "id": "TC-RIG-PS-01-09-009",
+    "status": "Pass",
+    "remark": "RIG_AUTO_09 ran on 13 distinct days in last 14 days. Last 5: 2026-05-18×1, 2026-05-17×2, 2026-05-15×1, 2026-05-14×1, 2026-05-13×1"
+  },
+  {
+    "id": "TC-RIG-PS-01-09-010",
+    "status": "Pass",
+    "remark": "Last run: id=13305, code=RIG_AUTO_09, status=SUCCESS, period=202605, sum_record=224403, start=2026-05-19T14:05:09.295Z, finish=2026-05-19T14:06:09.143Z; rows in landing for this run = 224403"
+  }
+]

@@ -1,0 +1,1057 @@
+NUM_PAGES:5
+=====TEXT_START=====
+Development Effort
+Estimated
+BA Effort (Man-Day)
+- AI
+Estimated
+SA Effort (Man-Day) -
+AI
+Estimated
+Developer Effort
+(Man-Day) - AI
+Estimated
+QA Effort (Man-Day) -AI
+Impact Existing System
+(รวม EDW และ IFRS17)
+-AI
+Task 	Note 	System 	Require New System
+1) 	พัฒนา / ปรับระบบ 	2.00 	140.25 	211.45 	98.00 	451.70
+1 	Part Marketing Campaign Management 	0.00 	101.25 	145.70 	66.50 	313.45
+1.1 	กระบวนการนําเข้าข้อมูล 	0.00 	49.50 	52.00 	27.50 	129.00
+1.1.1 	[A1.1>>A1.9]ข้อมูล Customer (Auto Daily)
+source DWH
+0.00 	4.25 	4.25 	0.00 	8.50
+1.1.2 	[A1.2>>A1.9] ข้อมูล Policy (Auto Daily) 	0.00 	3.25 	2.75 	0.00 	6.00
+1.1.3 	[A1.3>>A1.9] ข้อมูลลงทะเบียน Line Ocean Connect (Auto Daily) 	0.00 	6.00 	4.00 	3.50 	13.50
+msa-lineoa
+ESB
+1.1.4 	[A1.4] ข้อมูล Case Management (ลูกค้าติดต่อ FB Inbox) (Auto Daily) 	0.00 	2.75 	1.75 	0.00 	4.50
+1.1.5 	[A1.5] ข้อมูล Activity & Campaign (ฺBZB- Ocean Club App) (Auto Daily) 	0.00 	2.25 	2.25 	2.00 	6.50
+1.1.6 	[A1.6] ข้อมูล Google Analytic 4 (Auto) 	0.00 	4.00 	8.50 	4.00 	16.50
+1.1.7 	[A1.7] นําเข้าข้อมูล RFM Segment จาก Data Platform (Manual) 	0.00 	10.50 	9.50 	7.00 	27.00
+1.1.8 	[A1.8>>A1.11] นําเข้าข้อมูล Activity & Campaign 	0.00 	10.00 	11.00 	6.00 	27.00
+1.1.9 	[A1.10] นําเข้าข้อมูลไฟล์ Staff (เลขปชชทีผ่านการ Hash SHA-256) ที
+ระบบ MCMP
+Staff & Agent Template MCM
+0.00 	2.50 	3.50 	3.00 	9.00
+1.1.10 	Monitoring & Support หน้าจอ 	0.00 	4.00 	4.50 	2.00 	10.50
+1.2 	Core Marketing Campaign Management 	0.00 	51.75 	93.70 	39.00 	184.45
+1.2.1 	ออกแบบพัฒนาหน้าจอสําหรับการค้นหา Segment 	6.00
+1.2.2 	หน้าจอสําหรับการ Create Segment 	0.00 	12.50 	28.50 	15.00 	56.00
+Diagram
+SA: พีผึง
+Dev: พีเหมียว
+QA: พีเล็ก
+1.1.1.1 	[A1.7] Batch Daily ดึงข้อมูลเข้า 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+ESB 	0.00 	1.00 	1.00 	0.00 	2.00
+1.1.1.1.1 	พัฒนา ESB Polling Consumer สําหรับดึงข้อมูลจาก DWH ตามรอบ Daily
+Batch
+- Mapping ข้อมูลจาก DWH Format สําหรับส่งต่อให้ MCMP
+- กระบวนการจัดการ Data (เพือรองรับ Data ปริมาณมาก)
+- การแบ่งก้อนข้อมูลก่อนส่ง
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+ESB 	0.00 	1.00 	1.00 	0.00 	2.00
+1.1.1.1.2 	จัดการ Error Handling & Retry
+- หากส่งก้อนไหนไม่ผ่าน ให้บันทึก Log
+- Email Notification แจ้งผลสรุป Success/Fail ของ Batch รายวัน
+- กระบวนการ Manual Batch
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+ESB 	0.00 	1.00 	1.00 	0.00 	2.00
+1.1.1.2 	ออกแบบและสร้าง Duct Table (Landing Area) ใน MCMP เพือเป็นจุดพัก
+ข้อมูลก่อนกระจายเข้าตารางหลัก
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50 	0.00 	1.00
+1.1.1.3 	พัฒนากระบวนการ Update/Insert ข้อมูล 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50 	0.00 	1.00
+1.1.1.4 	DB Design:
+- ออกแบบตารางสําหรับจัดเก็บข้อมูล Customer
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.25 	0.25 	0.00 	0.50
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+1.1.2.1 	พัฒนากระบวนการนําเข้าข้อมูล Policy ทีระบบ MCMP จากระบบ DWH
+(Solution ESB + Batch update ,insert ปกติ)
+Policy View Template MCM
+- esb ค้นหาข้อมูลกธ. searchpolicy สามัญ อุต pa ตรวจสอบ esb เดิมว่ามีอะไร
+ต้องดึงเพิมบ้าง
+- batch process ดึงข้อมูลกธ.ตามเงือนไข
+ทีมีผลบังคับ และ ไม่มีผลบังคับ
+ครอบคลุมทุกประเภทแบบประกัน ได้แก่ สามัญ, อุตสาหกรรม, PA, UL
+- batch daily
+- validate data
+- transform data
+- บันทึก ลง table
+- บันทึก log
+- email แจ้งผล
+- error handle
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+ESB 	0.00 	2.50 	1.50 	0.00 	4.00
+1.1.2.2 	ออกแบบและสร้าง Duct Table (Landing Area) ใน MCMP เพือเป็นจุดพัก
+ข้อมูลก่อนกระจายเข้าตารางหลัก
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	1.00 	0.00 	1.50
+1.1.2.3 	ออกแบบตารางสําหรับจัดเก็บข้อมูล Policy
+Policy View Template MCM
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.25 	0.25 	0.00 	0.50
+SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+1.1.3.1
+- Create New Table (เก็บข้อมูล Last Click) & Data Dict & Process insert (0.5)
+- Migrate lg_lineoa_menu_entry + ar_lg_lineoa_menu_entry (prepare
+script to PROD) (0.5)
+- Dump table last click to staging (support) (0.25)
+- Query prepare data register & lastclick to new table dwconsol (0.5)
+- ESB Spec (0.25)
+SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+DWH 	0.00 	2.00 	0.50 	2.00 	4.50
+1.1.3.2 	Batch ดึงข้อมูลเข้า
+- สร้าง Polling Consumer ไปดึงข้อมูลจาก DWH
+- ทํา Data Transformation
+-
+- Mapping ข้อมูลจาก DWH Format สําหรับส่งต่อให้ MCMP
+- กระบวนการจัดการ Data (เพือรองรับ Data ปริมาณมาก)
+- การแบ่งก้อนข้อมูลก่อนส่ง
+- จัดการ Error Handling (เช่น ถ้าส่งก้อนที 3 ไม่ผ่าน ให้บันทึก Log และ Retry
+ใหม่)
+- เงือนไขการกวาดข้อมูลเข้าระบบ
+- status ต่างๆในการซ่อมข้อมูล
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	2.00 	1.00 	1.50 	4.50
+1.1.3.3 	ออกแบบตารางสําหรับจัดเก็บข้อมูล Line OA 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50 	- 	1.00
+1.1.3.4 	ESB insert / update data ที MCMP 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.50 	2.00 	- 	3.50
+SA: พีพงศ์ / พีผึง
+Dev: พีเหมียว / พีเฟิร์ส
+QA: พีลิงค์ / พีเล็ก
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+SA: พีเจียบ
+Dev: พีเฟิร์ส
+QA: พีเล็ก
+SA: พีผึง
+Dev: พีเหมียว
+QA: พีเล็ก
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+0.00 	1.50 	2.50 	2.00
+1.2.1.1 	พัฒนาหน้าจอค้นหารายการ Segment
+- หน้าจอแสดงรายการ Segment โดยมีคอลัมน์สําคัญ: Segment ID / Name,
+Audience Size (จํานวนลูกค้าล่าสุดใน Segment นัน),
+Status (Published / Draft / Inactive), Created Date / Modified By,
+- หน้าจอส่วนการค้นหาเพือให้หา Segment ได้รวดเร็ว:
+*** ค้นหาตามชือ Segment (ห้ามชือซํากันตาม BRD)
+*** กรองตามสถานะ การเปิด/ปิด การใช้งาน
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.50 	2.50 	2.00 	6.00
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.2.1 	ออกแบบและพัฒนาหน้าจอสําหรับการ Create Segment โดยมีฟังก์ชันรองรับ
+ดังนี
+- พัฒนาหน้าจอ Pop-up สร้างเงือนไขแบบ Logic (AND / OR) ทีสามารถเพิม/
+ลดกลุ่มเงือนไขได้ไม่จํากัดชัน (Nested Conditions)
+- พัฒนาตัวเลือกทีดึงข้อมูลจาก Metadata (เช่น ข้อมูลลูกค้า, ข้อมูล
+กรมธรรม์, ข้อมูลความสนใจจาก GA4) มาแสดงเป็นหมวดหมู่
+- พัฒนา Operator ให้เหมาะสมตามประเภทข้อมูล (เช่น ตัวเลข: >, <,
+ระหว่าง | ข้อความ: เท่ากับ, ประกอบด้วย | วันที: ภายใน X วัน, ก่อนวันที)
+- พัฒนาฟังก์ชันแสดงจํานวนลูกค้าทีเข้าเงือนไข (Audience Size) ทันทีที
+User ปรับเปลียน Criteria เพือให้เห็นผลลัพธ์ก่อนบันทึก
+- พัฒนาส่วนแสดงผลสรุป Criteria ทีเลือกในรูปแบบทีอ่านง่าย
+- รองรับการบันทึกเงือนไข Segment
+- รองรับการติด Tag โดยผูกกับ Segment
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	5.00 	15.00 	8.00 	28.00
+1.2.2.2 	พัฒนาระบบรองรับการติด Tag
+- พัฒนา UI แบบ Multi-select Dropdown หรือ Tag Cloud ทีรองรับการค้นหา
+(Typeahead) เพือเลือก Tag ในหน้า Create Segment
+- เพิมตัวเลือกระหว่าง "Include" (เอา Tag นี) กับ "Exclude" (ไม่เอา Tag นี) ใน
+ส่วนของ Filter Criteria
+- พัฒนาหน้าจอทีให้ User สามารถเลือกกลุ่มลูกค้าแล้วกดยืนยันเพือ "ติด
+Tag" (Bulk Action) ได้ด้วยตัวเอง
+- หน้าจอสําหรับสร้าง แก้ไข หรือลบ Master Tag ของระบบ
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	5.00 	4.00 	10.00
+- esb ค้นหาข้อมูลกธ. UL
+ข้อมูลวิธีชําระ?
+ช่องทางการชําระเบีย
+วิธีการชําระเบีย
+Link
+
+-- 1 of 5 --
+
+Development Effort
+Estimated
+BA Effort (Man-Day)
+- AI
+Estimated
+SA Effort (Man-Day) -
+AI
+Estimated
+Developer Effort
+(Man-Day) - AI
+Estimated
+QA Effort (Man-Day) -AI
+Impact Existing System
+(รวม EDW และ IFRS17)
+-AI
+Task 	Note 	System 	Require New System
+1.2.2.2.1 	พัฒนาฟังก์ชันให้ระบบติด Tag อัตโนมัติเมือลูกค้าเข้าเงือนไขบางอย่าง (เช่น
+ติด Tag "High-Value" เมือ RFM = 555)
+- พัฒนา Query Engine ให้รองรับการสร้าง SQL WHERE NOT EXISTS หรือ
+EXCEPT สําหรับกรณี "ไม่เอาคนทีมี Tag X"
+- พัฒนาฟังก์ชันตังเวลาหมดอายุของ Tag (เช่น Tag "Active Campaign" ให้
+หายไปหลังจากผ่านไป 30 วัน)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00 	5.00 	3.00 	11.00
+1.2.2.2.2 	DB Design
+- ออกแบบตารางเก็บชือ Tag และประเภท (เช่น System Tag, Manual Tag,
+Campaign Tag)
+- สร้างตารางเชือมโยง customer_id กับ tag_id เพือให้ลูกค้าหนึงคนมีได้
+หลาย Tag และ Tag หนึงตัวติดให้ลูกค้าได้หลายคน
+- สร้าง Index บน tag_id และ customer_id ในตาราง Mapping เพือให้การ
+Filter (In/Exclude) ทํางานได้เร็วแม้ข้อมูล Tag จะมีปริมาณมาก
+- เตรียมตารางพักข้อมูลสําหรับกรณีทีต้องการติด Tag ให้ลูกค้าพร้อมกันทีละ
+หลักแสนคนจากไฟล์หรือ Segment ผลลัพธ์
+- ออกแบบตารางจัดเก็บข้อมูล Log การนําเข้า และการอนุมัติรายการ
+- ตารางรองรับขจ้อมูลหลัง transform data ของแต่ละ source
+กลุ่ม master data ของระบบ
+1. Campaign Master
+2. Target & Segment Master
+3. Channel & Template Master
+4. Supporting Master"
+กลุ่ม Transaction
+1. Data Ingestion & Transformation Transaction (กลุ่มงานนําเข้า)
+2. Campaign Execution Transaction (กลุ่มงานสือสาร)
+3. Lead & Feedback Transaction (กลุ่มงานติดตามผล)
+กลุ่ม report และ output
+1. กลุ่ม Report (Internal Dashboards & Reports)
+2. กลุ่ม Output (External Data & Notifications)
+- data output สําหรับ user วิเคราะห์ต่อ raw data
+กลุ่ม monitor และ maintainace
+1. Data Pipeline Monitor (ติดตามการไหลของข้อมูล)
+2. Error Management & Logging (ระบบจัดการข้อผิดพลาด)
+3. Notification & Health Check (การแจ้งเตือนและสุขภาพระบบ)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.50 	3.50 	0.00 	7.00
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.3.1 	พัฒนาหน้าจอค้นหาและแสดงรายการแคมเปญ พร้อมคอลัมน์สําคัญ (ID, ชือ
+แคมเปญ, สถานะ, ช่องทางทีใช้, วันทีเริม-สินสุด)
+- Search & Filter Bar: พัฒนาตัวกรองข้อมูลเพือให้ Marketing หาแคมเปญ
+ได้ง่าย:
+- ค้นหาด้วยชือหรือ ID
+- กรองตามสถานะ (Draft, Pending Approve, Published, Completed,
+Rejected)
+- กรองตามช่วงเวลา (Created Date / Start Date)
+- Action Buttons:
+- ปุ่ม "Create Campaign": เพือ Link ไปหน้า Create Campaign
+- ปุ่ม "Clone": สําหรับคัดลอกแคมเปญเดิม (ช่วยประหยัดเวลา Marketing
+มหาศาล)
+- ปุ่ม "View Result": สําหรับกดไปดู Tracking/Report ของแคมเปญทีจบ
+แล้ว
+- Status Badges: พัฒนา UI แสดงสถานะด้วยสีทีแตกต่างกัน (เช่น
+Published สีเขียว, Rejected สีแดง)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	5.00 	10.00 	6.00 	21.00
+1.2.3.2 	พัฒนา SQL Query สําหรับการค้นหาแบบ Partial Match (Like Search) ในชือ
+แคมเปญ
+- พัฒนาการดึงข้อมูลสรุปเบืองต้นมาแสดงในหน้า List (เช่น จํานวน Total
+Audience ของแคมเปญนันๆ)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00 	3.00 	0.00 	6.00
+1.2.3.3 	พัฒนาหน้าจอ Create Campaign
+- Segment Integration & Exclusion UI: Target Segment: ส่วนเลือก
+Segment หลักทีสร้างไว้ก่อนหน้า
+- Exclusion Criteria (The Tag Logic): เพิม UI สําหรับเลือก "ไม่เอาลูกค้าทีมี
+Tag..." (Exclude Tag) เพือป้องกันการส่งซําซ้อนกับแคมเปญอืนทีกําลังรันอยู่
+- Multi-Channel Message Builder: LINE: ตัวเลือก OA และ Template
+Message
+- SMS: ช่องกรอกข้อความพร้อมระบบนับ Credit/Character
+- Email: ระบบจัดการ Subject, Sender Name และ HTML Template
+- Push Notification: ช่องกรอก Header, Body และ Deep Link สําหรับเปิด
+แอป Ocean Club
+- Content Personalization Tool: พัฒนาปุ่มเลือก "Variable" (เช่น
+[FirstName], [PolicyNo]) เพือใช้ทํา Personalized Message ในทุกช่องทาง
+- Scheduling & Priority Setup: ส่วนเลือกวันเวลาทีจะส่ง (Schedule) และการ
+กําหนด Priority (กรณีลูกค้าคนเดียวอาจติดหลายแคมเปญพร้อมกัน)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	5.00 	10.00 	6.00 	21.00
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.4.1 	พัฒนา Tracking Engine:
+- พัฒนา Microservice สําหรับทํา Redirect โดยเฉพาะ (เช่น
+https://mcmp.link/xyz123) เพือดึงข้อมูลลูกค้ารายบุคคลก่อนส่งต่อไปยัง
+ปลายทาง
+- พัฒนาฟังก์ชันสร้าง Unique Link สําหรับลูกค้าแต่ละคนในแคมเปญ (เช่น
+นํา Customer_ID + Campaign_ID มาทําเป็น Hash/Short URL)
+- พัฒนา Logic การบันทึกข้อมูลเมือมีการคลิก:
+- ใครเป็นคนคลิก (Customer_ID)
+- คลิกจากแคมเปญไหน (Campaign_ID)
+- คลิกจากช่องทางใด (Channel: SMS, LINE, Email, App)
+- คลิกเมือไหร่ (Timestamp)
+- Device/Browser เบืองต้น (User Agent)
+- พัฒนาให้ระบบรักษาค่า UTM เดิมทีติดมากับ Link ต้นทางไว้ เพือให้ระบบ
+ปลายทาง (เช่น Google Analytics) ยังทํางานได้ปกติ
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00 	5.00 	0.00 	8.00
+1.2.4.2 	พัฒนาส่วน Integration กับหน้าจอ campaign
+- ในหน้า Create Campaign เมือ User ใส่ Link ปลายทาง ให้เพิม Checkbox
+"Enable Tracking" เพือให้ระบบแปลง Link อัตโนมัติ
+- พัฒนาให้รองรับการใส่ Variable ใน Link (เช่น
+https://survey.com?id=[Customer_ID]) โดยทีระบบ Tracking ยังทํางานได้
+- Channel-Specific Link Formatting:
+- SMS: พัฒนาให้เป็น Short URL (เพราะมีข้อจํากัดเรืองจํานวนตัวอักษร)
+- Email/LINE: พัฒนาให้ครอบ Link ไว้ภายใต้ปุ่ม (Button) หรือ Hyperlink
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00 	5.00 	2.00 	10.00
+1.2.4.3 	Design DB
+- ออกแบบตารางเก็บคู่ลําดับระหว่าง Short_Link_ID กับ Original_URL
+- ออกแบบตารางเก็บ Log การคลิกปริมาณมาก (High Volume) โดยควรมี
+โครงสร้าง:
+- Log_ID, Campaign_ID, Customer_ID, Channel_ID, Click_Time,
+IP_Address
+- ตารางสรุปยอดคลิกรายแคมเปญ (Total Clicks, Unique Clicks) เพือใช้
+แสดงผลในหน้า Dashboard ให้รวดเร็ว
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+0.00 	3.00 	1.00 	0.00 	4.00
+1.2.4.4 	พัฒนาเพิมเติมส่วน Integration with Reporting (Feedback Loop)
+- พัฒนาให้ระบบ "ติด Tag ลูกค้าอัตโนมัติ" เมือมีการคลิก Link (เช่น ติด Tag:
+Clicked_Product_A) เพือเอาไปสร้าง Segment ต่อไป
+- พัฒนา API สําหรับดึงข้อมูลสรุปการคลิกไปแสดงในหน้า Campaign Listing
+หรือ Campaign Detail
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00 	3.00 	0.00 	6.00
+SA: พีจ๋า
+Dev: พีกร
+QA: พีกุ๊ก
+1.2.5.1 	พัฒนากระบวนการส่งข้อมความผ่าน Line ผ่าน Service
+- ตรวจสอบ Customer ซําซ้อน ในระดับ Snapshot ก่อนการส่ง
+- เพิมการจัดการ Load เพือเตรียมข้อมูลและจัดการคิว
+- พัฒนาตัวควบคุมความเร็วในการส่ง (Throttling) ให้สอดคล้องกับขีดจํากัด
+ของ Line Messaging API
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	3.00 	0.00 	4.00
+1.2.5.2 	(การส่ง Notification โดยรับ message จากต้นทาง
+โดยไม่ใช้ message_key)
+- Flow & API Spec
+- Flow & API Spec
+- ปรับ Config เพือ allow channel
+- ตรวจสอบ concurrent (30k Noti)
+- ตรวจสอบ log ในการส่ง
+- ตรวจสอบให้รองรับการซ่อมข้อมูล process กลาง
+SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+lineoa 	0.00 	2.00 	3.50 	2.00 	7.50
+1.2.5.3 	LINE API (1-2) Integration Review 	SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+lineoa 	0.00 	0.50 	0.50 	0.00 	1.00
+SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.6.1 	[ESB] พัฒนากระบวนการส่งข้อมความผ่าน SMS
+- ตรวจสอบ Customer ซําซ้อน ในระดับ Snapshot ก่อนการส่ง
+- เพิมการจัดการ Load เพือเตรียมข้อมูลและจัดการคิว
+- พัฒนาตัวควบคุมความเร็วในการส่ง (Throttling) ให้สอดคล้องกับขีดจํากัด
+การส่ง Messaging
+SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	3.00 	2.00 	5.50
+1.2.3 	ออกแบบหน้าจอสําหรับจัดการ Campaign (ค้นหา , สร้าง , แก้ไข) 	0.00 	13.00 	23.00 	12.00 	48.00
+1.2.4 	ออกแบบกระบวนการทํา Tracking Link, การ Generate Short Link 	0.00 	12.00 	14.00 	2.00 	28.00
+1.2.5 	การส่ง Line Message ผ่าน ระบบ LineOA 	0.00 	3.50 	7.00 	2.00 	12.50
+Push Notification via Line
+API 1 : Send noti by user_id (0.5)
+API 2 : Send noti by card_no (0.5)
+Other Task (0.5)
+1.2.6 	การส่ง SMS 	0.00 	1.00 	3.20 	2.00 	6.20
+Flow
+MCMP
+
+-- 2 of 5 --
+
+Development Effort
+Estimated
+BA Effort (Man-Day)
+- AI
+Estimated
+SA Effort (Man-Day) -
+AI
+Estimated
+Developer Effort
+(Man-Day) - AI
+Estimated
+QA Effort (Man-Day) -AI
+Impact Existing System
+(รวม EDW และ IFRS17)
+-AI
+Task 	Note 	System 	Require New System
+1.2.6.2 	การ Set Up SMS Category เพือตรวจสอบ log การส่ง SMS 	SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+CSMS 	0.00 	0.50 	0.20 	0.70
+SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.7.1 	[ESB] พัฒนากระบวนการส่งข้อความ
+- ตรวจสอบ Customer ซําซ้อน ในระดับ Snapshot ก่อนการส่ง
+- เพิมการจัดการ Load เพือเตรียมข้อมูลและจัดการคิวก่อนการส่ง
+- พัฒนาตัวควบคุมความเร็วในการส่ง (Throttling) ให้สอดคล้องกับขีดจํากัด
+การส่ง Message
+SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	3.00 	1.00
+1.2.7.2 	ปรึกษา Vendor BZB เกียวกับ Limitation การส่งข้อมูลและการปรับระบบปลาย
+ทางให้รองรับการส่งข้อความ
+SA: พีพงศ์ (ตาม source
+system)
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.00 	0.00 	0.50
+1.2.7.3 	(การส่ง Notification โดยรับ message จากต้นทาง
+โดยไม่ใช้ message_key)
+- Flow & API Spec
+- Flow & API Spec
+- ปรับ Config เพือ allow channel
+- ตรวจสอบ log ในการส่ง
+SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+lineoa 	0.00 	1.25 	3.00 	2.00 	6.25
+1.2.7.4 	APP API (3-4) Integration Review 	SA: พีจ๋า
+Dev: พีอาร์ม
+QA: พีกุ๊ก
+lineoa 	0.00 	0.50 	0.50 	0.00 	1.00
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+1.2.8.1 	พัฒนาหน้าจอ Manual Trigger สงข้อมูลเข้า Google Ads, Facebook Ads
+- ฟังก์ชันค้นหา Segment
+- หน้าจอรายละเอียดข้อมูล
+- ปุ่ม Manual ส่งข้อมูล
+- Popup แสดงสถานะการส่งข้อมูล
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	2.00 	3.00 	1.00
+1.2.8.2 	พัฒนาส่วนเชือมต่อกับ ESB API Facebook ADs, Google Ads (หรือ Message
+Queue ของ ESB) เพือส่งข้อมูล Hashed Lead
+- แบ่งข้อมูลออกเป็นชุด (Batch) ขนาดที ESB กําหนด เพือป้องกันไม่ให้การ
+ส่ง Message มีขนาดใหญ่เกินไปจนทําให้ ESB หรือ Network ทํางานช้า
+- พัฒนาการสร้างและส่ง Transaction_ID ไปกับทุก Request เพือใช้ในการ
+ไล่ตรวจสอบสถานะ (Traceability) ระหว่าง MCMP, ESB และ Ad Platforms
+- บันทึก Log การส่งข้อมูลไปที ESB: ส่งสําเร็จกีรายการ, เวลาทีส่ง, และ
+Request_ID ทีได้รับกลับมาจาก ESB
+*** MCMP ไม่ต้องถือ Token ของ Google/Facebook เอง แต่จะใช้การ
+Authen ระหว่าง MCMP กับ ESB แทน
+*** ข้อมูลจะถูกส่งออกไปในรูปแบบเดียว (Single Interface) แล้วให้ ESB ไป
+แยกส่ง (Route) ให้ Google หรือ Facebook
+*** หาก Google หรือ Facebook มีการอัปเดต API Version ทีม ESB จะเป็นคน
+จัดการแก้ส่วนเชือมต่อ ส่วน MCMP จะยังคงส่งข้อมูลรูปแบบเดิมได้
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	2.00 	3.00 	0.00
+1.2.8.3 	พัฒนา API Endpoint เพือรอรับสถานะ (Callback) จาก ESB กรณีที ESB ส่ง
+ข้อมูลให้ Google/Facebook เสร็จสินแล้ว (ถ้า ESB รองรับแบบ Async)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	3.00 	0.00
+2.1.1.1 	บันทึกข้อมูล Lead 	SA:
+Dev: พีน๊อต
+QA:
+Corp Web
+2.1.1.1.1 	พัฒนาฟังก์ชันหน้าเว็บเพือเก็บข้อมูลทีลูกค้ากรอก (Name, Email, Tel,
+Product, UTM) ลงฐานข้อมูลของ Web Corp
+SA:
+Dev: พีน๊อต
+QA:
+Corp Web 	0.00 	1 	2 	1 	4.00
+Database Design (Web Log)
+- สร้างตารางเก็บข้อมูลกรอก Lead
+- สร้างตาราง outbound_api_logs ใน Web Corp เพือเก็บ:
+- Payload ทีส่งออกไป
+- สถานะการส่ง (Pending, Success, Failed)
+- Response ทีได้รับกลับมาจาก MCMP (เพือดู Error Message), จํานวนครัง
+ที Retry
+SA:
+Dev: พีน๊อต
+QA:
+Corp Web 	0.00 	1 	1 	0.25 	2.25
+2.1.1.1.2 	พัฒนาตัวส่งข้อมูล (Client) เพือยิง REST API ไปยัง MCMP พร้อมส่ง Token
+Security
+SA:
+Dev: พีน๊อต
+QA:
+Corp Web 	0.00 	0.5 	1.5 	0 	2.00
+2.1.1.1.3 	พัฒนา Background Job ให้คอยดึง Log ทีสถานะ Failed มาส่งใหม่ (Retry)
+อัตโนมัติเมือ MCMP กลับมาออนไลน์
+SA:
+Dev: พีน๊อต
+QA:
+Corp Web 	0.00 	0.5 	2 	1 	3.50
+2.1.1.1.4 	หน้าจอตรวจสอบสถานะเบืองต้นว่า Lead ทีกรอกผ่านเว็บ ถูกส่งเข้า MCMP
+สําเร็จกีรายการ
+SA:
+Dev: พีน๊อต
+QA:
+Corp Web 	0.00 	1.5 	3 	1 	5.50
+2.1.2.1 	พัฒนาหน้าจอกรอกฟอร์ม
+- จัดทํา URL สําหรับใช้งาน (เช่น leads-entry.oceanlife.com)
+- เงือนไข criteria ในการกรอกฟอร์ม อ้างอิง
+- พัฒนาการสร้างเลขทีอ้างอิง (Ref ID) ทันทีทีบันทึกสําเร็จ เพือแสดงผลให้
+User ใช้เป็นหลักฐาน
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP/NBS
+Portal
+0.00 	1 	3 	1.5
+2.1.2.2 	พัฒนา REST API เพือรับ Data Payload จากหน้าเว็บเข้าระบบ MCMP 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.5 	1 	0
+2.1.2.3 	พัฒนา Logic การระบุแหล่งทีมา (Source) เช่น "Manual Input - FB Inbox" เพือ
+ให้ระบบแยกประเภท Lead ได้ถูกต้อง
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.5 	1 	0.5
+2.1.2.4 	พัฒนาระบบตรวจสอบข้อมูลซํา (เช่น ตรวจเบอร์โทรศัพท์) ก่อนบันทึกลงฐาน
+ข้อมูลหลัก เพือไม่ให้เกิด Data Junk
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.25 	1 	0.5
+2.1.2.5 	พัฒนาฟิลด์สําหรับระบุตัวตนผู้กรอก (เช่น Staff ID หรือรหัสตัวแทน) เพือใช้ใน
+กระบวนการติดตามผลภายหลัง
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.25 	1 	0
+2.1.2.6 	DB Design
+- สร้างตารางเก็บ Log ทุกรายการทีส่งเข้ามาผ่าน Web Link นี (บันทึกเวลา,
+IP Address, ข้อมูลดิบทีกรอกมา)
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1 	1 	0
+2.1.3.1 	[OSSS][MCMP] พัฒนา Service ดึงข้อมูลตัวแทนตามเงือนไขของ MCMT 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50 	1
+2.1.3.2 	[OSSS][MCMP] พัฒนา Service ดึงข้อมูลตัวแทนใน MCMT ทีถูก Mark เป็น
+Lead
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50
+2.1.3.3 	[OSSS][MCMP] พัฒนา Service Update ข้อมูลตัวแทนไปยัง MCMT 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	0.50
+2.1.3.4 	[OSSS][MCMP] ปรับ Process อนุมัติ แก้ไขข้อมูลตัวแทน, ปรับตําแหน่ง, ย้าย
+สาขา ส่งข้อมูลตัวแทนทีเปลียนแปลงไปยัง MCMP
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	2.00
+2.1.4.1 	[INCOME][MCMP] พัฒนา Service ดึงข้อมูลผลงานค่าคอม, เบียประกัน,
+จํานวนเคสใหม่
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.50 	1.00 	1.50
+2.1.5 	พัฒนา Process การเรียงลําดับ Lead ของแต่ละ Zone ตามผลงาน อ้างอิงตาม
+03-08 โดยจะต้องเรียก Process นีเพือจัดเรียงทุกครังทีมีการ
+- เพิมลด Candidate ใน Zone นันแบบ Manual หรือ
+- การ update ผลงาน
+*** รองรับการเรียกเพือจัดเรียง by Zone กรณีให้เรียงทังหมด ระบุ ALL
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	2.00
+2.2.1.1 	กระบวนการกรณีประสงค์ซือ online
+2.2.1.1.1 	พัฒนา Process สําหรับส่งข้อมูล Lead ทีต้องการซือผ่านช่องทางออนไลน์ให้
+Digital Sale
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00 	2.00 	1.00
+2.2.1.1.2 	พัฒนาเอกสารแจ้งรายละเอียดข้อมูล Lead ตาม Template ของ Digital Sale
+- พัฒนาฟังก์ชันการแปลงข้อมูลจากฐานข้อมูลให้เป็นไฟล์ .xlsx
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1 	2.00 	0.25
+1.2.7 	การส่ง Message ผ่านะระบบ Ocean Club App 	0.00 	3.25 	6.50 	3.00 	12.75
+5.00
+Push Notification via APP
+API 3 : Send noti by user_id (0.5)
+API 4 : Send line by card_no (0.5)
+Other Task (0.25)
+1.2.8 	พัฒนาหน้าจอ Manual Trigger สงข้อมูลเข้า Google Ads, Facebook Ads
+- ฟังก์ชันค้นหา Segment
+- หน้าจอรายละเอียดข้อมูล
+- ปุ่ม Manual ส่งข้อมูล
+0.00 	5.00 	9.00 	1.00 	15.00
+6.00
+5.00
+4.00
+2 	Part Lead Management 	0.00 	39.00 	62.25 	26.50 	127.75
+2.1 	กระบวนการนําเข้าข้อมูล 	0.00 	11.50 	24.00 	8.25 	43.75
+2.1.1 	[B1.1] ข้อมูล Lead จาก Corporate Web 	0.00 	4.50 	9.50 	3.25 	17.25
+2.1.2 	[A1.12] ข้อมูล Lead จาก MCMP (User ขอให้พัฒนา public web link
+เพราะจําเป็นในการทํางานทีจะกรอกโดยไม่ผ่าน vpn และอาจจะเปิด
+ผ่าน mobile phone) -- ซึงต้องทํา pen test
+0.00 	3.50 	8.00 	2.50 	14.00
+5.50
+1.50
+2.00
+1.75
+1.25
+2.00
+2.1.3 	[B1.2] นําเข้าข้อมูล Agent จากระบบ OSSS 	0.00 	2.00 	3.50 	1.00 	6.50
+2.00
+1.00
+1.00
+2.50
+2.1.4 	[B1.3] นําเข้าข้อมูลผลงานจากระบบ Income 	0.00 	1.50 	3.00 	1.50 	6.00
+3.00
+3.00
+2.2 	Core Lead Management 	0.00 	7.75 	14.50 	6.75 	29.00
+2.2.1 	Lead Management
+4.00
+3.25
+http://wiki.thaisamut.co.th/display/RDSLINEOA/API+-+Thank+You+Notifica
+tion+Real+Time
+Link
+Link
+
+-- 3 of 5 --
+
+Development Effort
+Estimated
+BA Effort (Man-Day)
+- AI
+Estimated
+SA Effort (Man-Day) -
+AI
+Estimated
+Developer Effort
+(Man-Day) - AI
+Estimated
+QA Effort (Man-Day) -AI
+Impact Existing System
+(รวม EDW และ IFRS17)
+-AI
+Task 	Note 	System 	Require New System
+2.2.1.1.3 	เพิมกระบวนการส่ง Email ให้ทีม Digital Sale
+- Template Email
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	0.25 	0.5 	0.50
+2.2.1.2 	กระบวนการกรณีประสงค์ซือผ่านตัวแทน
+2.2.1.2.1 	พัฒนาระบบ Auto Assign Lead 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	2 	3.00 	1.00
+2.2.1.2.1.1 	พัฒนา Process การกระจาย Lead
+- ดึงตัวแทนทีเข้าเงือนไขพืนทีตรงกับจังหวัด/Zone ที Lead ระบุมา
+- ทําการประจาย Lead แบบวนรอบ (Round-Robin) ให้กับตัวแทนในกลุ่ม
+เดียวกัน
+- ให้ดูจํานวนกรมธรรม์ใหม่ (ไม่รวม PA) ทีอนุมัติ 3 งวดย้อนหลัง โดยเรียง
+จากมากไปน้อย และหากมีจํานวนกรมธรรม์ใหม่เท่ากันให้ดูจากรายได้สะสม 3
+งวดย้อนหลัง โดยเรียงจากมากไปน้อย
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.5 	3.00 	2.00
+2.2.1.2.1.1.1 พัฒนา Process ในการตรวจสอบและ reassign Lead ตาม
+- เงือนไข Hot Lead/ Warm Lead
+- เงือนไขการนับ SLA (วันทีปฏิทินสําหรับ Hot Lead, วันทีทําการสําหรับ
+Warm Lead)
+- Auto Email แจ้งเตือนตาม 	กรณี LC ไม่ติดต่อตัวแทนหลังจาก
+Reassign ตามเงือนไข
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1 	3.00 	2.00
+2.2.1.3 	ออกแบบตารางสําหรับจัดเก็บข้อมูล
+- Config Criteria ทีหน้าจอ LC Connect App
+- SLA Configuration
+- Log การ assign lead
+- Log Action ตัวแทน
+- ประวัติการบันทึกสถานะ, รายละเอียดติดต่อ, รายละเอียดปิดการขาย ของ
+ตัวแทน
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1 	1.00 	0.00
+0.00 	19.75 	23.75 	11.50
+2.3.1.1 	API ข้อมูลรายละเอียด Lead ทีระบบ Lead management 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.00
+2.3.1.2 	WS (msa-lccon) ดึงข้อมูลสถานะ พิจารณารับประกัน 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.1.3 	WS (msa-uwer) ดึงข้อมูลสถานะ พิจารณารับประกัน 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+UW 	0.00
+2.3.1.4 	WS (coreUL) ดึงข้อมูลสถานะ พิจารณารับประกัน แบบประกัน UL 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+coreUL 	0.00
+2.3.2.1 	BatchJob+Process แจ้ง Notification เตือนล่วงหน้า 1 ชัวโมง เมือใกล้ถึงวัน
+นัดหมาย Lead
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	3.00
+2.3.2.2 	BatchJob+Process ส่งข้อมูลกลับไปทีระบบ Lead management กรณี เกิน
+SLA
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.2.3 	Batch+Auto Email ยังไม่ติดต่อตาม SLA แจ้งเตือนมาทีฝ่ายการตลาด โดย
+ระบบจะต้องส่งอีเมลแจ้งเตือนเวลา 9.00 น. ของทุกวัน
+-เพิม Config Email Template ทีตาราง cf_email_template, cf_email_config
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.2.4 	Process Auto Mail
+ให้ HRA และ CC การตลาด (Email_แจ้งเตือนไม่พบเลขทีใบคําขอ)
+ในขันตอนบันทึกติดตามผล
+-เพิม Config Email Template ทีตาราง cf_email_template, cf_email_config
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.2.5 	Process กรณี Lead ทีปิดการขายไม่ได้ จะเก็บไว้ในระบบเป็นระยะเวลา 3
+เดือน หลังจากนันระบบลบออกอัตโนมัติได้เลย
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00 	1.5
+2.3.2.6 	Create New table : เก็บข้อมูล Lead 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.2.7 	Create New table :เก็บข้อมูลประวัติการติดตาม 	SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.2.8 	Create New table Config : เก็บข้อมูล Config เหตุผลการติดตาม
++ ทํา service ดึงข้อมูล
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+MCMP 	0.00
+2.3.3.1
+2.3.3.1.1 	ปรับ WS Notification ทีระบบ LC (V.2) เพือรองรับการ Notification
+- แจ้งเตือนการ Assign Lead (Lead management)
+- แจ้งเตือนก่อนเวลานัดหมาย 1 ชัวโมง
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.50 	1.00 	0.50
+2.3.3.1.2 	config กลุ่มของ Notification
+เพือรองรับให้แสดงทีหน้าจอ ตาราง cf_notification_template
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.25 	0.25 	0.25
+2.3.3.1.3 	ปรับหน้าจอ เพิม Tab ใหม่
+-รองรับการแสดงข้อความแจ้งเตือน ของ Lead
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.50 	0.50 	0.25
+2.3.3.2
+2.3.3.2.1 	Config Permission New Menu ทีตาราง ms_user_group_menu 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.25 	0.25 	0.00
+2.3.3.2.2 	Config การเข้าใช้งาน New Menu ทีตาราง ms_mapping_menu 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.25 	0.25 	0.00
+2.3.3.2.3 	หน้าจอเมนูทังหมด : เพิมเมนู My Lead Management 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	0.25 	0.25 	0.25
+2.3.3.2.4 	หน้าจอแสดงข้อมูล Lead + popup Sorting
+- ชือ-นามสกุล Lead
+- Lead Status
+- วันและเวลาทีได้รับ Lead
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	2.00 	1.00
+2.3.3.2.5 	หน้าจอสําหรับค้นหาข้อมูล Lead และกําหนดเงือนไขในการกรองข้อมูล
+- ชือ-นามสกุล Lead
+- Lead Status
+- วันและเวลาทีได้รับ Lead
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	1.00 	1.00
+2.3.3.2.6 	หน้าจอแสดงรายละเอียด Lead (Lead Detail)
+-หน้าจอแสดงรายละเอียด ข้อมูล Lead + กดปุ่ม โทรออกได้
+-หน้าจอ popup บันทึกผลการติดตาม, ข้อมูลเลขทีใบคําขอ/เลขกธ
+รองรับ การแก้ไขเลขใบคําขอ/กธ ได้
+- หน้าจอ popup Calendar
+- ดึงสถานะการติดพิจารณารับประกัน ข้อมูล UW ,UL
+SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	3.00 	3.00 	2.00
+2.3.3.2.7 	WS (msa-lccon) ดึงข้อมูล Lead มาแสดงทีหน้าจอ 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	0.50 	0.25
+2.3.3.2.8 	WS (msa-lccon) บันทึกผลการติดตามข้อมูล + Log 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	1.00
+2.3.3.2.9 	Create New table Log: เก็บข้อมูล Log ในการส่งไปทีระบบ Lead 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	0.25 	0
+2.3.3.2.10 	Process WS ดึงข้อมูล Master เหตุผลในการติดต่อลูกค้า 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	0.50 	0.25
+2.3.3.2.11 	API สําหรับตรวจสอบว่า ตัวแทน คนนี เข้าใช้งานระบบ LC แล้วหรือไม่ 	SA: พียุ้ย
+Dev: พีกร
+QA: พีเล็ก
+LC Connect 	0.00 	1.00 	0.50
+2.3.3.2.12 	Process ส่งข้อมูล ผลการติดตาม Lead กลับไปทีระบบ Lead management
+Remark. Call API ระบบ Lead เพือ Update ข้อมูล
+depend system MCMP
+(Lead)
+LC Connect 	0.00 	1.00 	1.00 	0.25
+1
+1. Meeting Project Update ร่วมกับ Project Team (0.5,0.5,0.5,0.5)
+2. Meeting หารือภายในของแต่ละทีม (SA/Dev/QA) (0,0.5,0.5,0.5)
+3. Meeting หารือ/สรุป Requirement ร่วมกับ User (1,0.25,0.25,0)
+4. Meeting หารือร่วมกับ IT Solution (0,0.25,0.25,0)
+5. Meeting Brief Business Requirement, Workflow และ Functional
+Specification ร่วมกับ Project Team (0.5,0,0,0)
+6. Meeting หารือ UAT Preparation ร่วมกับ User (0,0.25,0,0.25)
+7. Meeting Demo SIT (0,0,1,0)
+8. Meeting Demo UAT (0,0,0,0.5)
+9. Meeting Issue Update ร่วมกับ User (0,0.25,0,0.25)
+BA: ลูกแก้ว, พีจิบ
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+Others 	2.00 	0.00 	1.50 	1.50 	5.00
+1.25
+6.00
+6.50
+6.00
+2.00
+55.00
+0.00
+2.50
+1.00
+1.00
+1.00
+0.00
+6.00
+3.00
+3.00
+1.00
+3.00
+0.75
+0.75
+0.75
+2.3.3 	[B2>>B3>>B4] LC Connect 	0.00 	13.00 	12.25 	6.00 	31.25
+Notification
+2.00
+0.75
+1.25
+เมนู My Lead Management
+0.50
+0.50
+0.75
+4.00
+3.00
+8.00
+1.75
+2.00
+1.25
+1.75
+1.50
+2.25
+2) 	งานอืนๆ 	2.00 	0.00 	3.50 	5.00 	10.50
+Meeting
+เงือนไข SLA
+Template
+2.3 	Interaction กับ LC Connect
+2.3.1 	API & WS
+2.3.2 	Batch Process
+0.50 	1.00
+0.50 	0.50
+0.50 	0.50
+0.50 	0.50
+1.00 	2.00
+1.00 	2.00
+1.00 	2.00
+0.50 	0.50
+0.50 	1.00
+0.25 	0.50
+0.25 	0.50
+0.25 	0.50
+
+-- 4 of 5 --
+
+Development Effort
+Estimated
+BA Effort (Man-Day)
+- AI
+Estimated
+SA Effort (Man-Day) -
+AI
+Estimated
+Developer Effort
+(Man-Day) - AI
+Estimated
+QA Effort (Man-Day) -AI
+Impact Existing System
+(รวม EDW และ IFRS17)
+-AI
+Task 	Note 	System 	Require New System
+2 	พัฒนาโปรแกรมสําหรับประมวลผลและทํา House Keeping (รายเดือน/รายปี)
+House Keeping
+- ข้อมูล Customer ที inactive ไปแล้ว
+- ข้อมูล policy ที inactive ไปแล้ว
+- ข้อมูล Campaign & Activity
+- ข้อมูล Segment ที inactive
+- ข้อมูล UTM
+- ข้อมูลประวัติการส่ง Campaign
+- ข้อมูลประวัติการ assign Lead
+- ข้อมูลการบันทึกผล Lead
+- ข้อมูลการออก report รายงาน
+BA: -
+SA: พีพงศ์
+Dev: พีเหมียว
+QA: พีลิงค์
+Others 	0.00 	0.00 	2.00 	1.50 	3.50
+(identify risk and mitigation plan) 	Others
+4 	BA: -
+SA: -
+Dev: -
+QA: พีลิงค์
+Others 	0.00 	0.00 	0.00 	2.00 	2.00
+1 	Load Test 	Others 	1.00
+2 	Penetration Test
+3 	Certification Body (CB) Audit
+BRD:
+3 	Risk Management
+Test Preparation
+Total Estimated Development Effort (Man-Day) (ข้อ 1+2) 	2.00 	140.25 	211.45 	98.00 	451.70
+3) 	การทดสอบ และการขอขึนทะเบียน (ถ้ามี)
+Total Estimated Development Effort (Man-Day) (ข้อ 1+2+3) 	2.00 	140.25 	211.45 	99.00
+Load Test
+Penetration Test
+Certification Body (CB) Audit
+Remark
+Re-Pentratation Testing
+เกณฑ์ทีใช้พิจารณาการเปลียนแปลงอย่างมีนัยยะสําคัญเพือการทํา Re-Penetration Testing มีอยู่ 4 หัวข้อหลักๆ ทีต้องพิจารณา
+1. พิจารณาว่าระบบทีเราเปลียนแปลงนัน จําเป็นจะต้องไปเชือมต่อกับระบบอืนๆ ด้วยหรือไม่
+2. พิจารณาว่าระบบทีเราเปลียนแปลงนัน จะต้องไปเชือมต่อกับ Third Party หรือมีระบบภายนอกทีจะเข้ามาเชือมต่อด้วยหรือไม่
+3. พิจารณาว่าระบบทีเราเปลียนแปลงนัน มีการเปลียนแปลงสูตรการคํานวณ หรือเปลียน Logic ของระบบหรือไม่
+4. มีการปรับปรุงเวอร์ชันของซอฟท์แวร์ระบบหลัก เช่น OS หรือ Web Server หรือ DB หรือไม่
+https://docs.google.com/spreadsheets/d/1j5eX0DFAA7PGP96uYmNFJTtEO4MEGwY0mVe9r1PPfew/edit?gid=353072656#gid=353072656
+
+-- 5 of 5 --
+
+
+=====TEXT_END=====

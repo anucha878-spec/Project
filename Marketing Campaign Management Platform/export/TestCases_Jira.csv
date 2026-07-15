@@ -1,0 +1,2702 @@
+﻿Issue Type,Summary,Priority,Component,Fix Version,Labels,Description
+Test,TC-01-01 ดึง Customer Daily สำเร็จ,Highest,TS-01,Lot 1,"Lot1,TS-01,Positive","*Lot:* 1
+*Trace:* 01-1
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูลใน CIS/DW
+
+*Test Steps:*
+รอ batch 23:00 หรือ trigger ดึงข้อมูล
+
+*Expected Result:*
+ข้อมูล Customer ถูก Insert/Update เข้า MCMP ครบ (Inforce + ไม่ Inforce, ทุกแบบประกัน)
+
+*Test Data:*
+Customer ปกติ"
+Test,TC-01-02 Update ข้อมูลที่เปลี่ยนแปลง (ไม่สร้างซ้ำ),Highest,TS-01,Lot 1,"Lot1,TS-01,Positive","*Lot:* 1
+*Trace:* 01-1
+*Type:* Positive
+
+*Pre-condition:*
+Customer เดิมมีในระบบ + ต้นทางแก้ไข
+
+*Test Steps:*
+1. แก้ข้อมูล Customer ที่ต้นทาง
+2. รัน batch
+
+*Expected Result:*
+ระเบียนเดิมถูก Update ไม่เกิด record ซ้ำ
+
+*Test Data:*
+Customer เดิม + แก้ไข"
+Test,TC-01-03 ดึง Contact Center / FB Inbox Realtime,High,TS-01,Lot 3,"Lot3,TS-01,Positive","*Lot:* 3
+*Trace:* 01-1-(2)
+*Type:* Positive
+
+*Pre-condition:*
+มี case ใหม่ใน NBS
+
+*Test Steps:*
+สร้าง case ใหม่ใน NBS
+
+*Expected Result:*
+ข้อมูลเข้า MCMP แบบ Realtime
+
+*Test Data:*
+"
+Test,TC-01-04 ตัวแทน OSSS อัปเดต Near-realtime,High,TS-01,Lot 2,"Lot2,TS-01,Positive","*Lot:* 2
+*Trace:* 01-1-(5)
+*Type:* Positive
+
+*Pre-condition:*
+OSSS มีการแก้ไขข้อมูล
+
+*Test Steps:*
+แก้คุณวุฒิ/ตำแหน่งใน OSSS
+
+*Expected Result:*
+MCMP อัปเดตตามอัตโนมัติ
+
+*Test Data:*
+"
+Test,TC-01-05 ดึงข้อมูลไม่สำเร็จ → ไป 01-4,Highest,TS-01,Lot 1,"Lot1,TS-01,Negative","*Lot:* 1
+*Trace:* 01-2
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ทำให้ source ล่ม/ไฟล์เสีย แล้วรัน batch
+
+*Expected Result:*
+ระบบจับ error ข้ามไปขั้นแจ้งผล ไม่บันทึกข้อมูลผิด
+
+*Test Data:*
+"
+Test,TC-01-06 ดึงสำเร็จ → จัดเก็บ + แจ้งผล,Highest,TS-01,Lot 1,"Lot1,TS-01,Positive","*Lot:* 1
+*Trace:* 01-2/01-3
+*Type:* Positive
+
+*Pre-condition:*
+source ปกติ
+
+*Test Steps:*
+รัน batch
+
+*Expected Result:*
+บันทึกลงระบบส่วนกลาง + ส่ง Automail สำเร็จ
+
+*Test Data:*
+"
+Test,TC-01-07 Automail แจ้งผลสำเร็จ 08:00,High,TS-01,Lot 1,"Lot1,TS-01,Positive","*Lot:* 1
+*Trace:* 01-4
+*Type:* Positive
+
+*Pre-condition:*
+batch เสร็จ
+
+*Test Steps:*
+ตรวจเวลา/ผู้รับ/Template
+
+*Expected Result:*
+อีเมลส่งถึงฝ่ายการตลาด 08:00 ตาม Template_Marketing Campaign
+
+*Test Data:*
+"
+Test,TC-01-08 ไม่พบไฟล์ใน Path → Automail 09:00,High,TS-01,Lot 1,"Lot1,TS-01,Negative","*Lot:* 1
+*Trace:* 01-0-(5)
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ลบไฟล์ออกจาก Path แล้วรัน batch
+
+*Expected Result:*
+ส่ง Automail แจ้งฝ่ายที่เกี่ยวข้อง 09:00
+
+*Test Data:*
+"
+Test,TC-01-09 ดึง RFM แบบ Manual,High,TS-01,Lot 1,"Lot1,TS-01,Positive","*Lot:* 1
+*Trace:* 01-1-(6)
+*Type:* Positive
+
+*Pre-condition:*
+มีไฟล์ RFM
+
+*Test Steps:*
+กดปุ่มประมวลผลบนหน้าจอ
+
+*Expected Result:*
+ข้อมูล RFM ถูกนำเข้า
+
+*Test Data:*
+RFM Actuary"
+Test,TC-02-01 Upload csv ถูกต้อง,Highest,TS-02,Lot 3,"Lot3,TS-02,Positive","*Lot:* 3
+*Trace:* 01-5
+*Type:* Positive
+
+*Pre-condition:*
+ไฟล์ csv 4MB column ครบ
+
+*Test Steps:*
+Upload ผ่าน UI
+
+*Expected Result:*
+นำเข้าสำเร็จ ไป 01-3
+
+*Test Data:*
+csv 4MB ถูกต้อง"
+Test,TC-02-02 Upload ไฟล์ไม่ใช่ csv,Highest,TS-02,Lot 3,"Lot3,TS-02,Negative","*Lot:* 3
+*Trace:* 01-7(1)
+*Type:* Negative
+
+*Pre-condition:*
+ไฟล์ .xlsx/.pdf
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+Popup: อัปโหลดเป็น csv เท่านั้น
+
+*Test Data:*
+xlsx/pdf"
+Test,TC-02-03 Upload ไฟล์ = 5MB พอดี,High,TS-02,Lot 3,"Lot3,TS-02,Boundary","*Lot:* 3
+*Trace:* 01-7(1)
+*Type:* Boundary
+
+*Pre-condition:*
+ไฟล์ csv 5.00MB
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+นำเข้าสำเร็จ (ขอบเขตยอมรับ)
+
+*Test Data:*
+csv 5.00MB"
+Test,TC-02-04 Upload ไฟล์ > 5MB,Highest,TS-02,Lot 3,"Lot3,TS-02,Boundary","*Lot:* 3
+*Trace:* 01-7(1)
+*Type:* Boundary
+
+*Pre-condition:*
+ไฟล์ csv 5.01MB
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+Popup: เกินขนาดที่กำหนด
+
+*Test Data:*
+csv 5.01MB"
+Test,TC-02-05 คอลัมน์ไม่ครบ/ชื่อผิด,Highest,TS-02,Lot 3,"Lot3,TS-02,Negative","*Lot:* 3
+*Trace:* 01-7(2)
+*Type:* Negative
+
+*Pre-condition:*
+csv ตัดคอลัมน์ออก
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+Popup: โครงสร้าง/ชื่อคอลัมน์ไม่ถูกต้อง
+
+*Test Data:*
+csv column ผิด"
+Test,TC-02-06 ข้อมูลซ้ำกับที่เคยอัปโหลด,Highest,TS-02,Lot 3,"Lot3,TS-02,Negative","*Lot:* 3
+*Trace:* 01-7(3)
+*Type:* Negative
+
+*Pre-condition:*
+เคย upload ไฟล์นี้แล้ว
+
+*Test Steps:*
+Upload ไฟล์เดิมซ้ำ
+
+*Expected Result:*
+Popup: พบข้อมูลซ้ำ ไม่บันทึก
+
+*Test Data:*
+csv ซ้ำ"
+Test,TC-02-07 เกิด error ระหว่างบันทึก,High,TS-02,Lot 3,"Lot3,TS-02,Negative","*Lot:* 3
+*Trace:* 01-7(4)
+*Type:* Negative
+
+*Pre-condition:*
+จำลอง DB error
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+Popup: เกิดข้อผิดพลาด กรุณาลองใหม่
+
+*Test Data:*
+"
+Test,TC-02-08 ไฟล์ว่าง / 0 byte,High,TS-02,Lot 3,"Lot3,TS-02,Negative","*Lot:* 3
+*Trace:* 01-7
+*Type:* Negative
+
+*Pre-condition:*
+csv ว่าง
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+ระบบปฏิเสธอย่างเหมาะสม ไม่ crash
+
+*Test Data:*
+csv 0 byte"
+Test,TC-02-09 csv อักขระพิเศษ/ภาษาไทย,High,TS-02,Lot 3,"Lot3,TS-02,Boundary","*Lot:* 3
+*Trace:* 01-5
+*Type:* Boundary
+
+*Pre-condition:*
+csv UTF-8 ไทย
+
+*Test Steps:*
+Upload
+
+*Expected Result:*
+นำเข้าได้ถูกต้อง ไม่เพี้ยน
+
+*Test Data:*
+csv ไทย UTF-8"
+Test,TC-03-01 Maker upload → แสดงรายการตรวจ,Highest,TS-03,Lot 3,"Lot3,TS-03,Positive","*Lot:* 3
+*Trace:* 01-0-4-1/2
+*Type:* Positive
+
+*Pre-condition:*
+สิทธิ์ Maker
+
+*Test Steps:*
+Upload + เปิดดูรายการ
+
+*Expected Result:*
+ระบบแสดงรายการข้อมูลให้ผู้บริหารตรวจ
+
+*Test Data:*
+"
+Test,TC-03-02 Checker Approve → บันทึกเข้า CIS,Highest,TS-03,Lot 3,"Lot3,TS-03,Positive","*Lot:* 3
+*Trace:* 01-0-4-3/4
+*Type:* Positive
+
+*Pre-condition:*
+สิทธิ์ Approver
+
+*Test Steps:*
+กด Approve
+
+*Expected Result:*
+บันทึกข้อมูลเข้า CIS + ส่ง Email แจ้งผล
+
+*Test Data:*
+"
+Test,TC-03-03 Checker Reject + ระบุเหตุผล,Highest,TS-03,Lot 3,"Lot3,TS-03,Negative","*Lot:* 3
+*Trace:* 01-0-4-3/5
+*Type:* Negative
+
+*Pre-condition:*
+สิทธิ์ Approver
+
+*Test Steps:*
+กด Reject + กรอกเหตุผล
+
+*Expected Result:*
+ไม่บันทึกข้อมูล + Email แจ้งผลพร้อมเหตุผล
+
+*Test Data:*
+"
+Test,TC-03-04 Maker ไม่สามารถ Approve งานตัวเอง,Highest,TS-03,Lot 3,"Lot3,TS-03,Negative","*Lot:* 3
+*Trace:* 01-0-4
+*Type:* Negative
+
+*Pre-condition:*
+login เป็น Maker
+
+*Test Steps:*
+พยายามอนุมัติงานตนเอง
+
+*Expected Result:*
+ระบบไม่อนุญาต (แยกบทบาท Maker/Checker)
+
+*Test Data:*
+"
+Test,TC-03-05 Reject โดยไม่กรอกเหตุผล,High,TS-03,Lot 3,"Lot3,TS-03,Negative","*Lot:* 3
+*Trace:* 01-0-4-5
+*Type:* Negative
+
+*Pre-condition:*
+สิทธิ์ Approver
+
+*Test Steps:*
+กด Reject เว้นเหตุผลว่าง
+
+*Expected Result:*
+ระบบบังคับให้กรอกเหตุผล
+
+*Test Data:*
+"
+Test,TC-04-01 สร้าง Segment ชื่อใหม่,Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+สร้าง Segment ชื่อไม่ซ้ำ
+
+*Expected Result:*
+บันทึกสำเร็จ
+
+*Test Data:*
+"
+Test,TC-04-02 ตั้งชื่อ Segment ซ้ำ,Highest,TS-04,Lot 1,"Lot1,TS-04,Negative","*Lot:* 1
+*Trace:* 02-3.1
+*Type:* Negative
+
+*Pre-condition:*
+มี Segment ชื่อนี้แล้ว
+
+*Test Steps:*
+สร้างชื่อที่มีอยู่แล้ว
+
+*Expected Result:*
+ระบบปฏิเสธ ""ห้ามตั้งชื่อซ้ำ""
+
+*Test Data:*
+"
+Test,TC-04-03 Active/Inactive โดยไม่ลบ,High,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+toggle สถานะ
+
+*Expected Result:*
+สถานะเปลี่ยน ข้อมูลยังอยู่
+
+*Test Data:*
+"
+Test,TC-04-04 Clone Segment,High,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+กด Clone
+
+*Expected Result:*
+ได้ Segment ใหม่ที่ copy เงื่อนไข
+
+*Test Data:*
+"
+Test,TC-04-05 Filter หลาย Attribute ผสมกัน,Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือก gender + age range + province
+
+*Expected Result:*
+ได้กลุ่มลูกค้าตรงทุกเงื่อนไข (AND)
+
+*Test Data:*
+Customer หลากหลาย"
+Test,TC-04-06 Filter ด้วย RFM Group,Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.2
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล RFM
+
+*Test Steps:*
+เลือก RFM = Champions
+
+*Expected Result:*
+ได้เฉพาะลูกค้ากลุ่มนั้น
+
+*Test Data:*
+RFM 11 กลุ่ม"
+Test,TC-04-07 Exclude Consent = No,Highest,TS-04,Lot 1,"Lot1,TS-04,Negative","*Lot:* 1
+*Trace:* 02-3.2
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เปิด exclude Consent No
+
+*Expected Result:*
+ลูกค้า Consent=No ไม่อยู่ในกลุ่ม
+
+*Test Data:*
+Customer Consent=No"
+Test,TC-04-08 Exclude Do-not-contact list,Highest,TS-04,Lot 1,"Lot1,TS-04,Negative","*Lot:* 1
+*Trace:* 02-3.2
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เปิด exclude do-not-contact
+
+*Expected Result:*
+เบอร์ที่อยู่ใน do-not-contact ถูกตัดออก
+
+*Test Data:*
+Customer ใน do-not-contact"
+Test,TC-04-09 แสดง metadata Segment,Medium,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.3
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+เปิดดู Segment
+
+*Expected Result:*
+แสดง Created by/on, Modified, running no ถูกต้อง
+
+*Test Data:*
+"
+Test,TC-04-10 Export Raw Data by Campaign,High,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3.4
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+กด Export
+
+*Expected Result:*
+ได้ไฟล์ Raw Data ตาม Template
+
+*Test Data:*
+"
+Test,TC-05-01 ส่ง Audience ไป Facebook Ads,High,TS-05,Lot 1,"Lot1,TS-05,Positive","*Lot:* 1
+*Trace:* 02-4
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+เลือก Segment + Manual คลิกส่ง FB Ads
+
+*Expected Result:*
+FB Ads รับข้อมูลทำ Customer Match
+
+*Test Data:*
+"
+Test,TC-05-02 ส่ง Audience ไป Google Ads,High,TS-05,Lot 1,"Lot1,TS-05,Positive","*Lot:* 1
+*Trace:* 02-4
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+เลือก Segment + ส่ง Google Ads
+
+*Expected Result:*
+Google Ads รับข้อมูล
+
+*Test Data:*
+"
+Test,TC-05-03 ส่งเฉพาะ Mobile No. แยกตาม Segment,High,TS-05,Lot 1,"Lot1,TS-05,Positive","*Lot:* 1
+*Trace:* 02-4
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+ส่ง Audience
+
+*Expected Result:*
+ส่งเฉพาะ Mobile No. ของ Customer ตาม Segment
+
+*Test Data:*
+"
+Test,TC-06-01 สร้าง Campaign ชื่อไม่ซ้ำ,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+สร้าง Campaign
+
+*Expected Result:*
+บันทึกสำเร็จ
+
+*Test Data:*
+"
+Test,TC-06-02 ตั้งชื่อ Campaign ซ้ำ,Highest,TS-06,Lot 3,"Lot3,TS-06,Negative","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Negative
+
+*Pre-condition:*
+มีชื่อนี้แล้ว
+
+*Test Steps:*
+สร้างชื่อซ้ำ
+
+*Expected Result:*
+ปฏิเสธ
+
+*Test Data:*
+"
+Test,TC-06-03 เลือกหลายช่องทาง,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Message ทุกช่องทาง
+
+*Test Steps:*
+เลือกครบ 4 ช่องทาง
+
+*Expected Result:*
+ผูก Message ได้ทุกช่องทาง
+
+*Test Data:*
+"
+Test,TC-06-04 ส่งทันที (Immediate),Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+Campaign อนุมัติแล้ว
+
+*Test Steps:*
+เลือก ""ส่งทันที""
+
+*Expected Result:*
+ส่งทันทีหลังอนุมัติ
+
+*Test Data:*
+"
+Test,TC-06-05 ส่งตามเวลาที่กำหนด,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ตั้งเวลาในอนาคต
+
+*Expected Result:*
+ส่งตรงเวลาที่กำหนด
+
+*Test Data:*
+"
+Test,TC-06-06 แก้เวลาส่งก่อนถึงกำหนด,High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+Campaign ตั้งเวลาไว้
+
+*Test Steps:*
+แก้เวลาก่อนส่ง
+
+*Expected Result:*
+เวลาส่งอัปเดต
+
+*Test Data:*
+"
+Test,TC-06-07 หลาย Tag / Tag ซ้ำชื่อได้,Medium,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ใส่ 2 Tag ชื่อซ้ำ Campaign อื่น
+
+*Expected Result:*
+ระบบยอมรับ
+
+*Test Data:*
+"
+Test,TC-06-08 สถานะ Publish/Off,High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Campaign
+
+*Test Steps:*
+เปลี่ยนสถานะ
+
+*Expected Result:*
+แสดงสถานะถูกต้อง
+
+*Test Data:*
+"
+Test,TC-06-09 Retarget จากกลุ่ม Open/Click,High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5.1
+*Type:* Positive
+
+*Pre-condition:*
+Campaign ส่งแล้ว
+
+*Test Steps:*
+สร้าง retarget ตาม Action=Click
+
+*Expected Result:*
+ส่งข้อมูลกลุ่มไป FB/Google
+
+*Test Data:*
+"
+Test,TC-06-10 นับ Sent = เฉพาะที่ส่งสำเร็จ,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/02-10
+*Type:* Positive
+
+*Pre-condition:*
+ส่ง 100 สำเร็จ 95
+
+*Test Steps:*
+ตรวจตัวเลข Sent
+
+*Expected Result:*
+Sent = 95
+
+*Test Data:*
+ส่ง 100 fail 5"
+Test,TC-06-11 นับ Open = เฉพาะคนเปิดอ่าน,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-10.2
+*Type:* Positive
+
+*Pre-condition:*
+40 คนเปิด
+
+*Test Steps:*
+ตรวจ Open
+
+*Expected Result:*
+Open = 40
+
+*Test Data:*
+"
+Test,TC-06-12 นับ Unique Click (ไม่นับซ้ำ),Highest,TS-06,Lot 3,"Lot3,TS-06,Boundary","*Lot:* 3
+*Trace:* 02-10.4
+*Type:* Boundary
+
+*Pre-condition:*
+1 คนคลิก 3 ครั้ง
+
+*Test Steps:*
+ตรวจ Unique Click
+
+*Expected Result:*
+Unique Click +1
+
+*Test Data:*
+"
+Test,TC-07-01 สร้าง Message ชื่อไม่ซ้ำ,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+สร้าง Message
+
+*Expected Result:*
+สำเร็จ
+
+*Test Data:*
+"
+Test,TC-07-02 SMS = Text + Link เท่านั้น,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+สร้าง Message SMS
+
+*Expected Result:*
+บังคับรูปแบบ Text+Link
+
+*Test Data:*
+"
+Test,TC-07-03 Email/Line = Image + Text + Link,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+สร้าง Message Email
+
+*Expected Result:*
+รองรับรูปภาพ+ข้อความ+ลิงก์
+
+*Test Data:*
+"
+Test,TC-07-04 Personalization variable,Highest,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูลลูกค้า
+
+*Test Steps:*
+ใส่ตัวแปร {ชื่อ},{เลขกรมธรรม์}
+
+*Expected Result:*
+Preview/ส่งจริงแสดงข้อมูลลูกค้าจริง
+
+*Test Data:*
+Customer ชื่อ+กรมธรรม์"
+Test,TC-07-05 แปลง Link เป็น Shortlink (Infobip),High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ติ๊ก shorten link
+
+*Expected Result:*
+Link ถูกย่อ
+
+*Test Data:*
+"
+Test,TC-07-06 นับ Character & Credit SMS,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+พิมพ์ข้อความ SMS
+
+*Expected Result:*
+แสดงจำนวนตัวอักษร + credit ที่ใช้
+
+*Test Data:*
+"
+Test,TC-07-07 SMS ภาษาไทยยาว (multi-part),High,TS-07,Lot 3,"Lot3,TS-07,Boundary","*Lot:* 3
+*Trace:* 02-6
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ใส่ข้อความไทยยาว
+
+*Expected Result:*
+credit คำนวณตามจำนวน segment ถูกต้อง
+
+*Test Data:*
+SMS ไทยยาว"
+Test,TC-07-08 Preview ข้อความ,Medium,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+กด Preview
+
+*Expected Result:*
+แสดงตัวอย่างตรงช่องทาง
+
+*Test Data:*
+"
+Test,TC-07-09 Clone Message,Medium,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Message
+
+*Test Steps:*
+Clone
+
+*Expected Result:*
+ได้ Message ใหม่
+
+*Test Data:*
+"
+Test,TC-08-01 Maker สร้าง+ผูก Segment → ขออนุมัติ,Highest,TS-08,Lot 3,"Lot3,TS-08,Positive","*Lot:* 3
+*Trace:* 02-7-1
+*Type:* Positive
+
+*Pre-condition:*
+สิทธิ์ Maker
+
+*Test Steps:*
+สร้าง Campaign + ผูก Segment + ส่งขออนุมัติ
+
+*Expected Result:*
+สถานะ ""รออนุมัติ""
+
+*Test Data:*
+"
+Test,TC-08-02 Approver อนุมัติ → ส่งตาม 02-8,Highest,TS-08,Lot 3,"Lot3,TS-08,Positive","*Lot:* 3
+*Trace:* 02-7-2
+*Type:* Positive
+
+*Pre-condition:*
+สิทธิ์ Approver
+
+*Test Steps:*
+กด Approve
+
+*Expected Result:*
+ระบบดำเนินการส่ง Campaign
+
+*Test Data:*
+"
+Test,TC-08-03 Approver ไม่อนุมัติ → ไม่ส่ง,Highest,TS-08,Lot 3,"Lot3,TS-08,Negative","*Lot:* 3
+*Trace:* 02-7-2
+*Type:* Negative
+
+*Pre-condition:*
+สิทธิ์ Approver
+
+*Test Steps:*
+กด Reject
+
+*Expected Result:*
+ระบบไม่ส่ง Campaign
+
+*Test Data:*
+"
+Test,TC-08-04 Maker ไม่สามารถอนุมัติงานตนเอง,Highest,TS-08,Lot 3,"Lot3,TS-08,Negative","*Lot:* 3
+*Trace:* 02-7
+*Type:* Negative
+
+*Pre-condition:*
+login Maker
+
+*Test Steps:*
+พยายามอนุมัติ
+
+*Expected Result:*
+ไม่อนุญาต
+
+*Test Data:*
+"
+Test,TC-08-05 แก้ Campaign หลังอนุมัติแล้ว,High,TS-08,Lot 3,"Lot3,TS-08,Negative","*Lot:* 3
+*Trace:* 02-7
+*Type:* Negative
+
+*Pre-condition:*
+Campaign อนุมัติแล้ว
+
+*Test Steps:*
+พยายามแก้หลัง Approve
+
+*Expected Result:*
+ตรวจ behavior (ควรล็อก/ขออนุมัติใหม่) — ต้อง clarify
+
+*Test Data:*
+"
+Test,TC-09-01 ส่งตรงตามเวลาที่ตั้ง,Highest,TS-09,Lot 3,"Lot3,TS-09,Positive","*Lot:* 3
+*Trace:* 02-8
+*Type:* Positive
+
+*Pre-condition:*
+Campaign อนุมัติ + ตั้งเวลา
+
+*Test Steps:*
+ถึงเวลา schedule
+
+*Expected Result:*
+ส่งครบทุกช่องทางที่ระบุ
+
+*Test Data:*
+"
+Test,TC-09-02 ยึดเบอร์/อีเมลจาก CIS,Highest,TS-09,Lot 3,"Lot3,TS-09,Positive","*Lot:* 3
+*Trace:* 02-8
+*Type:* Positive
+
+*Pre-condition:*
+ลูกค้ามีข้อมูลหลายแหล่ง
+
+*Test Steps:*
+ส่ง Campaign
+
+*Expected Result:*
+ใช้เบอร์/อีเมลจาก CIS เท่านั้น
+
+*Test Data:*
+Customer หลายแหล่ง"
+Test,TC-09-03 ส่งไม่สำเร็จบางราย → สรุปจำนวน+user,Highest,TS-09,Lot 3,"Lot3,TS-09,Negative","*Lot:* 3
+*Trace:* 02-8
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+จำลองส่ง fail 5 ราย
+
+*Expected Result:*
+ระบบสรุปจำนวน + รายชื่อที่ fail
+
+*Test Data:*
+ส่ง fail 5"
+Test,TC-09-04 ส่ง SMS ผ่าน Infobip,High,TS-09,Lot 3,"Lot3,TS-09,Positive","*Lot:* 3
+*Trace:* 02-8
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ส่งช่องทาง SMS
+
+*Expected Result:*
+ลูกค้าได้รับ SMS
+
+*Test Data:*
+"
+Test,TC-09-05 ลูกค้าได้รับครบทุกช่องทาง,High,TS-09,Lot 3,"Lot3,TS-09,Positive","*Lot:* 3
+*Trace:* 02-9
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ตรวจปลายทาง
+
+*Expected Result:*
+ได้รับตามช่องทางที่ระบุ
+
+*Test Data:*
+"
+Test,TC-09-06 ลูกค้าใน do-not-contact ไม่ได้รับ,Highest,TS-09,Lot 3,"Lot3,TS-09,Negative","*Lot:* 3
+*Trace:* 02-8
+*Type:* Negative
+
+*Pre-condition:*
+มีลูกค้า do-not-contact ใน segment
+
+*Test Steps:*
+ส่ง Campaign
+
+*Expected Result:*
+ไม่ส่งให้รายนั้น
+
+*Test Data:*
+Customer do-not-contact"
+Test,TC-10-01 เก็บจำนวนผู้รับต่อ Campaign,Highest,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10.1
+*Type:* Positive
+
+*Pre-condition:*
+ส่งเสร็จ
+
+*Test Steps:*
+ตรวจตัวเลข
+
+*Expected Result:*
+บันทึกจำนวนถูกต้อง
+
+*Test Data:*
+"
+Test,TC-10-02 เก็บวัน-เวลาเปิดอ่านราย user,High,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10.5
+*Type:* Positive
+
+*Pre-condition:*
+user เปิดอ่าน
+
+*Test Steps:*
+ตรวจ log
+
+*Expected Result:*
+บันทึก timestamp ราย user
+
+*Test Data:*
+"
+Test,TC-10-03 Export Raw Data by User,High,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล
+
+*Test Steps:*
+กด Export
+
+*Expected Result:*
+ได้ไฟล์ตาม Template
+
+*Test Data:*
+"
+Test,TC-10-04 Automail Monthly Report,High,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10
+*Type:* Positive
+
+*Pre-condition:*
+สิ้นเดือน
+
+*Test Steps:*
+วันที่ 1 เดือนถัดไป 13:00
+
+*Expected Result:*
+ส่งสรุปรายเดือนตรงเวลา
+
+*Test Data:*
+"
+Test,TC-10-05 เก็บข้อมูลจนกว่าจะสั่งลบ,Medium,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10
+*Type:* Positive
+
+*Pre-condition:*
+ผ่านไปหลายเดือน
+
+*Test Steps:*
+ตรวจข้อมูล
+
+*Expected Result:*
+ข้อมูลยังอยู่
+
+*Test Data:*
+"
+Test,TC-11-01 ดึง LC ด้วยตนเอง,Highest,TS-11,Lot 2,"Lot2,TS-11,Positive","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Positive
+
+*Pre-condition:*
+เชื่อม OSSS
+
+*Test Steps:*
+เลือก LC + ดึง
+
+*Expected Result:*
+ข้อมูล LC เข้าระบบครบ (Agent Code, ชื่อ, ตำแหน่ง, คุณวุฒิ, ผลงาน, สาขา, จังหวัด)
+
+*Test Data:*
+"
+Test,TC-11-02 เลือก 10 รายชื่อ/จังหวัด พอดี,Highest,TS-11,Lot 2,"Lot2,TS-11,Boundary","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือก 10 ชื่อใน 1 จังหวัด
+
+*Expected Result:*
+ยอมรับ
+
+*Test Data:*
+"
+Test,TC-11-03 เลือก 11 รายชื่อ/จังหวัด,Highest,TS-11,Lot 2,"Lot2,TS-11,Boundary","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือก 11 ชื่อ
+
+*Expected Result:*
+ปฏิเสธ/เตือนเกินกำหนด
+
+*Test Data:*
+"
+Test,TC-11-04 เลือก 10 จังหวัด/ครั้ง พอดี,Highest,TS-11,Lot 2,"Lot2,TS-11,Boundary","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือก 10 จังหวัด
+
+*Expected Result:*
+ยอมรับ
+
+*Test Data:*
+"
+Test,TC-11-05 เลือก 11 จังหวัด/ครั้ง,Highest,TS-11,Lot 2,"Lot2,TS-11,Boundary","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือก 11 จังหวัด
+
+*Expected Result:*
+ปฏิเสธ
+
+*Test Data:*
+"
+Test,TC-11-06 ดึงหลายครั้งต่อวัน,High,TS-11,Lot 2,"Lot2,TS-11,Positive","*Lot:* 2
+*Trace:* 03-01.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ดึงซ้ำหลายครั้ง
+
+*Expected Result:*
+ไม่จำกัดจำนวนครั้ง
+
+*Test Data:*
+"
+Test,TC-11-07 LC แก้ข้อมูลใน OSSS → auto update,High,TS-11,Lot 2,"Lot2,TS-11,Positive","*Lot:* 2
+*Trace:* 03-01.4
+*Type:* Positive
+
+*Pre-condition:*
+LC มีในระบบ
+
+*Test Steps:*
+แก้คุณวุฒิใน OSSS
+
+*Expected Result:*
+MCMP อัปเดตอัตโนมัติ
+
+*Test Data:*
+"
+Test,TC-12-01 Lead จาก Website (auto),Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.1
+*Type:* Positive
+
+*Pre-condition:*
+เชื่อมเว็บไซต์
+
+*Test Steps:*
+submit web form
+
+*Expected Result:*
+บันทึกเข้าระบบอัตโนมัติ
+
+*Test Data:*
+"
+Test,TC-12-02 Lead จาก Facebook (manual),Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.2
+*Type:* Positive
+
+*Pre-condition:*
+สิทธิ์ User
+
+*Test Steps:*
+บันทึกทีละราย
+
+*Expected Result:*
+บันทึกสำเร็จ
+
+*Test Data:*
+"
+Test,TC-12-03 Contact Center ผ่าน VPN/VDI (WFH),High,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.3
+*Type:* Positive
+
+*Pre-condition:*
+WFH + VPN
+
+*Test Steps:*
+บันทึก Lead
+
+*Expected Result:*
+บันทึกได้
+
+*Test Data:*
+"
+Test,TC-12-04 บันทึก Contact Center ไม่ผ่าน VPN (WFH),High,TS-12,Lot 2,"Lot2,TS-12,Negative","*Lot:* 2
+*Trace:* 03-05.3
+*Type:* Negative
+
+*Pre-condition:*
+WFH ไม่ต่อ VPN
+
+*Test Steps:*
+พยายามบันทึก
+
+*Expected Result:*
+ไม่สามารถบันทึก
+
+*Test Data:*
+"
+Test,TC-12-05 Import Lead Excel/CSV (CRM),Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.4
+*Type:* Positive
+
+*Pre-condition:*
+มีไฟล์
+
+*Test Steps:*
+Import
+
+*Expected Result:*
+นำเข้าหลายรายการ
+
+*Test Data:*
+ไฟล์ Lead CRM"
+Test,TC-12-06 Dedup 1 ช่องทาง — ยึดล่าสุด #2,Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+กรอกซ้ำ 2 ครั้งจาก Web
+
+*Expected Result:*
+เก็บข้อมูล #2 (ล่าสุด)
+
+*Test Data:*
+Lead ซ้ำ Web"
+Test,TC-12-07 Dedup 1 ช่องทาง — แบบประกันต่างกัน,Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+#1 และ #2 แบบประกันต่างกัน
+
+*Expected Result:*
+แสดงทั้ง 2 แบบประกัน
+
+*Test Data:*
+"
+Test,TC-12-08 Dedup 1 ช่องทาง — แบบประกันเดียวกัน,High,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+#1=#2 แบบประกันเดียวกัน
+
+*Expected Result:*
+แสดงแบบประกันเดียว
+
+*Test Data:*
+"
+Test,TC-12-09 Dedup 2 ช่องทาง (Web+FB),Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เบอร์เดียวกันจาก Web และ FB
+
+*Expected Result:*
+ยึดล่าสุด + ระบุว่ามาจาก 2 ช่องทาง
+
+*Test Data:*
+Lead Web+FB"
+Test,TC-12-10 Dedup 2 ช่องทาง — แบบประกันต่างกัน,High,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+แบบประกันต่างกัน
+
+*Expected Result:*
+แสดงทั้ง 2 แบบประกัน
+
+*Test Data:*
+"
+Test,TC-12-11 Lead ซ้ำ assign LC คนเดียว,Highest,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+Lead ซ้ำหลายครั้ง
+
+*Expected Result:*
+assign LC คนเดียวกัน
+
+*Test Data:*
+"
+Test,TC-12-12 นับจำนวนครั้ง/ช่องทางที่ฝาก Lead,High,TS-12,Lot 2,"Lot2,TS-12,Positive","*Lot:* 2
+*Trace:* 03-05.6
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ฝาก 3 ครั้ง
+
+*Expected Result:*
+แสดงจำนวนครั้ง + ช่องทาง
+
+*Test Data:*
+"
+Test,TC-13-01 ลูกค้าซื้อผ่าน Online,High,TS-13,Lot 2,"Lot2,TS-13,Positive","*Lot:* 2
+*Trace:* 03-06
+*Type:* Positive
+
+*Pre-condition:*
+Lead บันทึกแล้ว
+
+*Test Steps:*
+เลือกช่องทาง Online
+
+*Expected Result:*
+ระบบส่งข้อมูลไป Google Sheet Digital Sale → 03-07
+
+*Test Data:*
+"
+Test,TC-13-02 ลูกค้าซื้อผ่านตัวแทน,High,TS-13,Lot 2,"Lot2,TS-13,Positive","*Lot:* 2
+*Trace:* 03-06
+*Type:* Positive
+
+*Pre-condition:*
+Lead บันทึกแล้ว
+
+*Test Steps:*
+เลือกช่องทางตัวแทน
+
+*Expected Result:*
+เข้าสู่เงื่อนไข Auto Assign 03-08
+
+*Test Data:*
+"
+Test,TC-13-03 ส่ง Email ให้ Digital Sale (Realtime),High,TS-13,Lot 2,"Lot2,TS-13,Positive","*Lot:* 2
+*Trace:* 03-07
+*Type:* Positive
+
+*Pre-condition:*
+Lead online
+
+*Test Steps:*
+บันทึก Lead online
+
+*Expected Result:*
+ส่ง Email Realtime (ชื่อ, เบอร์, ช่วงเวลา, จังหวัด, อีเมล, แบบประกัน)
+
+*Test Data:*
+"
+Test,TC-13-04 ข้อมูลใน Email Digital Sale ครบถ้วน,Medium,TS-13,Lot 2,"Lot2,TS-13,Positive","*Lot:* 2
+*Trace:* 03-07
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ตรวจเนื้อหา Email
+
+*Expected Result:*
+มีข้อมูลครบตาม BRD
+
+*Test Data:*
+"
+Test,TC-14-01 Assign ตามจังหวัด (ลำดับ 1),Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08.3.1
+*Type:* Positive
+
+*Pre-condition:*
+มี LC จังหวัด A
+
+*Test Steps:*
+Lead จังหวัด A เข้าระบบ
+
+*Expected Result:*
+assign ให้ LC จังหวัด A
+
+*Test Data:*
+LC จังหวัด A"
+Test,TC-14-02 ผลงานทุกงวด > บางงวด,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08.3.2/3
+*Type:* Positive
+
+*Pre-condition:*
+2 LC จังหวัดเดียวกัน
+
+*Test Steps:*
+Lead เข้า
+
+*Expected Result:*
+เลือก LC ผลงานทุกงวดก่อน
+
+*Test Data:*
+LC ผลงานต่างระดับ"
+Test,TC-14-03 Tie-break จำนวนกรมธรรม์ใหม่ 3 งวด (ไม่รวม PA),Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+ผลงานเท่ากัน
+
+*Test Steps:*
+Lead เข้า
+
+*Expected Result:*
+เรียงตามจำนวนกรมธรรม์ใหม่มาก→น้อย
+
+*Test Data:*
+LC กรมธรรม์ต่างกัน"
+Test,TC-14-04 Tie-break รายได้สะสม 3 งวด,High,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+จำนวนกรมธรรม์เท่ากัน
+
+*Test Steps:*
+Lead เข้า
+
+*Expected Result:*
+เรียงตามรายได้สะสมมาก→น้อย
+
+*Test Data:*
+"
+Test,TC-14-05 Round Robin — LC ล่าสุดไปท้ายคิว,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+มีหลาย LC ในคิว
+
+*Test Steps:*
+assign Lead ติดกันหลายราย
+
+*Expected Result:*
+กระจายหมุนเวียน ไม่กระจุก
+
+*Test Data:*
+"
+Test,TC-14-06 Assign Near-realtime,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึก Lead
+
+*Expected Result:*
+assign ภายในเวลาสั้น
+
+*Test Data:*
+"
+Test,TC-14-07 Assign ในวันหยุด,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึก Lead วันหยุด
+
+*Expected Result:*
+ยัง assign ได้เหมือนวันทำการ
+
+*Test Data:*
+"
+Test,TC-14-08 ไม่พบ candidate → Email การตลาด,Highest,TS-14,Lot 2,"Lot2,TS-14,Negative","*Lot:* 2
+*Trace:* 03-08
+*Type:* Negative
+
+*Pre-condition:*
+Lead จังหวัดไม่มี LC
+
+*Test Steps:*
+Lead เข้า
+
+*Expected Result:*
+ส่ง Email ให้การตลาด Manual Assign
+
+*Test Data:*
+Lead จังหวัดไม่มี LC"
+Test,TC-14-09 พบ candidate >1 → ตามเงื่อนไข/Manual,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+หลาย LC เข้าเงื่อนไข
+
+*Test Steps:*
+Lead เข้า
+
+*Expected Result:*
+ใช้เกณฑ์ลำดับ หรือเข้าสู่ Manual Assign
+
+*Test Data:*
+"
+Test,TC-14-10 Lead Scoring = Hot,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+Lead ระบุช่วงเวลา 09:00-12:00
+
+*Expected Result:*
+Scoring = Hot Lead
+
+*Test Data:*
+Lead Hot"
+Test,TC-14-11 Lead Scoring = Warm,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+Lead ไม่ระบุช่วงเวลา
+
+*Expected Result:*
+Scoring = Warm Lead
+
+*Test Data:*
+Lead Warm"
+Test,TC-14-12 Assign LC คนเดียวต่อ 1 Lead,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+Lead ใหม่
+
+*Expected Result:*
+assign 1 LC เท่านั้น
+
+*Test Data:*
+"
+Test,TC-14-13 Dedup เบอร์ทุกช่องทาง/ทุกเวลา,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เบอร์ซ้ำเข้าหลายช่องทาง
+
+*Expected Result:*
+จับได้ว่าเป็น Lead ซ้ำ
+
+*Test Data:*
+"
+Test,TC-14-14 Notify New Lead หลัง assign,Highest,TS-14,Lot 2,"Lot2,TS-14,Positive","*Lot:* 2
+*Trace:* 03-08→03-10
+*Type:* Positive
+
+*Pre-condition:*
+assign สำเร็จ
+
+*Test Steps:*
+ตรวจ LC Connect
+
+*Expected Result:*
+แจ้งเตือน LC ผ่าน LC Connect
+
+*Test Data:*
+"
+Test,TC-15-01 แสดงรายการ Lead ที่ยังไม่มี LC,High,TS-15,Lot 2,"Lot2,TS-15,Positive","*Lot:* 2
+*Trace:* 03-09.1
+*Type:* Positive
+
+*Pre-condition:*
+มี Lead ค้าง
+
+*Test Steps:*
+เปิดหน้า Manual Assign
+
+*Expected Result:*
+แสดงข้อมูล Lead ครบ
+
+*Test Data:*
+"
+Test,TC-15-02 เลือก Lead + LC + Assign,Highest,TS-15,Lot 2,"Lot2,TS-15,Positive","*Lot:* 2
+*Trace:* 03-09.2/3
+*Type:* Positive
+
+*Pre-condition:*
+มี Lead + LC
+
+*Test Steps:*
+เลือก Lead, เลือก LC, Assign
+
+*Expected Result:*
+assign สำเร็จ
+
+*Test Data:*
+"
+Test,TC-15-03 บันทึก Agent Code + วันเวลา + ผู้ assign,Highest,TS-15,Lot 2,"Lot2,TS-15,Positive","*Lot:* 2
+*Trace:* 03-09.4
+*Type:* Positive
+
+*Pre-condition:*
+assign แล้ว
+
+*Test Steps:*
+ตรวจ audit log
+
+*Expected Result:*
+บันทึกครบ
+
+*Test Data:*
+"
+Test,TC-15-04 แจ้งเตือน New Lead หลัง Manual Assign,Highest,TS-15,Lot 2,"Lot2,TS-15,Positive","*Lot:* 2
+*Trace:* 03-09.5
+*Type:* Positive
+
+*Pre-condition:*
+assign สำเร็จ
+
+*Test Steps:*
+ตรวจ LC Connect
+
+*Expected Result:*
+LC ได้รับแจ้งเตือน
+
+*Test Data:*
+"
+Test,TC-15-05 Assign Lead ที่มี LC อยู่แล้ว (ซ้ำ),High,TS-15,Lot 2,"Lot2,TS-15,Negative","*Lot:* 2
+*Trace:* 03-09
+*Type:* Negative
+
+*Pre-condition:*
+Lead มี LC แล้ว
+
+*Test Steps:*
+พยายาม assign ซ้ำ
+
+*Expected Result:*
+ป้องกัน/เตือน
+
+*Test Data:*
+"
+Test,TC-16-01 เข้าถึง Lead จากเมนู My Lead,High,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-11.1
+*Type:* Positive
+
+*Pre-condition:*
+LC มี Lead
+
+*Test Steps:*
+เปิด My Lead
+
+*Expected Result:*
+เห็นรายการ Lead
+
+*Test Data:*
+"
+Test,TC-16-02 เข้าถึง Lead จาก Notification,High,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-11.1
+*Type:* Positive
+
+*Pre-condition:*
+มีแจ้งเตือน
+
+*Test Steps:*
+กดแจ้งเตือน
+
+*Expected Result:*
+เข้าหน้า Lead
+
+*Test Data:*
+"
+Test,TC-16-03 Lead Status ถูกต้อง,High,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-11.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ดูรายการ
+
+*Expected Result:*
+แสดงสถานะ ยังไม่ติดต่อ/ติดต่อแล้ว ถูกต้อง
+
+*Test Data:*
+"
+Test,TC-16-04 ปุ่มโทรออกจาก Lead Detail,High,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-11.3
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+กดปุ่มโทร
+
+*Expected Result:*
+โทรออกได้
+
+*Test Data:*
+"
+Test,TC-16-05 ข้อความแจ้งเตือน New Lead ถูกต้อง,High,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-10.1
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ดูข้อความแจ้งเตือน
+
+*Expected Result:*
+""Lead ใหม่: คุณ[ชื่อ] สนใจ[แบบประกัน]...""
+
+*Test Data:*
+"
+Test,TC-16-06 UI ตรงตาม Mockup หน้า 7,Medium,TS-16,Lot 2,"Lot2,TS-16,Positive","*Lot:* 2
+*Trace:* 03-11.4
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เทียบ Mockup
+
+*Expected Result:*
+UI ตรง Mock Up - Lead Management.pdf
+
+*Test Data:*
+"
+Test,TC-17-01 Hot — เริ่มนับ SLA จากเวลานัด,Highest,TS-17,Lot 2,"Lot2,TS-17,Positive","*Lot:* 2
+*Trace:* 03-12.1
+*Type:* Positive
+
+*Pre-condition:*
+Lead Hot
+
+*Test Steps:*
+นัด 13:00, LC บันทึกผล 13:30
+
+*Expected Result:*
+ผ่าน SLA
+
+*Test Data:*
+Hot นัด 13:00"
+Test,TC-17-02 Hot — เกิน 24 ชม.,Highest,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+Lead Hot
+
+*Test Steps:*
+นัด 13:00 D1, บันทึก 14:00 D2
+
+*Expected Result:*
+เกิน SLA → ดึง Lead คืน
+
+*Test Data:*
+"
+Test,TC-17-03 Hot — ครบ 24 ชม. พอดี,Highest,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+Lead Hot
+
+*Test Steps:*
+นัด 13:00 D1, บันทึก 13:00 D2
+
+*Expected Result:*
+ตรวจ behavior ที่ขอบเขต (ต้อง clarify inclusive/exclusive)
+
+*Test Data:*
+"
+Test,TC-17-04 Warm — assign ในเวลา 9-18,Highest,TS-17,Lot 2,"Lot2,TS-17,Positive","*Lot:* 2
+*Trace:* 03-12.1
+*Type:* Positive
+
+*Pre-condition:*
+Lead Warm
+
+*Test Steps:*
+assign 10:00, บันทึก 12:00
+
+*Expected Result:*
+นับจาก 10:00 ผ่าน SLA
+
+*Test Data:*
+Warm assign 10:00"
+Test,TC-17-05 Warm — assign 07:00 (ก่อน 9:00),Highest,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+Lead Warm
+
+*Test Steps:*
+assign 07:00
+
+*Expected Result:*
+SLA เริ่มนับ 09:00 วันเดียวกัน
+
+*Test Data:*
+Warm assign 07:00"
+Test,TC-17-06 Warm — assign 19:00 (หลัง 18:00),Highest,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+Lead Warm
+
+*Test Steps:*
+assign 19:00
+
+*Expected Result:*
+SLA เริ่มนับ 09:00 วันถัดไป
+
+*Test Data:*
+Warm assign 19:00"
+Test,TC-17-07 Warm — assign 18:00 พอดี,High,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+Lead Warm
+
+*Test Steps:*
+assign 18:00
+
+*Expected Result:*
+ระบุชัดว่าเริ่มนับเมื่อใด (ขอบเขต)
+
+*Test Data:*
+"
+Test,TC-17-08 ติดต่อตาม SLA → ไป 03-13,Highest,TS-17,Lot 2,"Lot2,TS-17,Positive","*Lot:* 2
+*Trace:* 03-12.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึกผลในเวลา
+
+*Expected Result:*
+ดำเนินต่อบันทึกผล
+
+*Test Data:*
+"
+Test,TC-17-09 ไม่ติดต่อใน SLA → ดึง Lead คืน auto,Highest,TS-17,Lot 2,"Lot2,TS-17,Negative","*Lot:* 2
+*Trace:* 03-12.3
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+ปล่อยเกิน SLA
+
+*Expected Result:*
+ระบบดึง Lead คืน Re-assign ตาม 03-08
+
+*Test Data:*
+"
+Test,TC-17-10 ระงับ LC 5 วัน,High,TS-17,Lot 2,"Lot2,TS-17,Positive","*Lot:* 2
+*Trace:* 03-12.3
+*Type:* Positive
+
+*Pre-condition:*
+LC เกิน SLA
+
+*Test Steps:*
+เลือก 5 วัน
+
+*Expected Result:*
+LC ไม่ได้รับ Lead 5 วัน
+
+*Test Data:*
+"
+Test,TC-17-11 ระงับ LC ถาวร,High,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12.3
+*Type:* Boundary
+
+*Pre-condition:*
+LC เกิน SLA
+
+*Test Steps:*
+เลือกถาวร
+
+*Expected Result:*
+LC ไม่ได้รับ Lead จนกว่าจะปลด
+
+*Test Data:*
+"
+Test,TC-17-12 Re-assign LC ใหม่ก็ไม่ติดต่อ → Email 09:00,Highest,TS-17,Lot 2,"Lot2,TS-17,Negative","*Lot:* 2
+*Trace:* 03-12.4
+*Type:* Negative
+
+*Pre-condition:*
+LC ใหม่เกิน SLA
+
+*Test Steps:*
+รอ
+
+*Expected Result:*
+Email แจ้งการตลาด 09:00 ทุกวัน
+
+*Test Data:*
+"
+Test,TC-17-13 นับ SLA ข้ามวันหยุด,High,TS-17,Lot 2,"Lot2,TS-17,Boundary","*Lot:* 2
+*Trace:* 03-12
+*Type:* Boundary
+
+*Pre-condition:*
+SLA คร่อมวันหยุด
+
+*Test Steps:*
+รอ
+
+*Expected Result:*
+ตรวจการนับ 24 ชม. ต่อเนื่อง (ต้อง clarify)
+
+*Test Data:*
+"
+Test,TC-17-14 ติดต่อได้ + นัดใหม่ → SLA เริ่มจากวันนัด,Highest,TS-17,Lot 2,"Lot2,TS-17,Positive","*Lot:* 2
+*Trace:* 03-13/03-12
+*Type:* Positive
+
+*Pre-condition:*
+บันทึกผล ""ติดต่อได้""
+
+*Test Steps:*
+นัดวันใหม่
+
+*Expected Result:*
+SLA เริ่มจากวันนัด 9-18 ภายใน 24 ชม.
+
+*Test Data:*
+"
+Test,TC-18-01 ติดต่อได้: ขอตัดสินใจก่อน + Calendar,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.1.1
+*Type:* Positive
+
+*Pre-condition:*
+Lead assign แล้ว
+
+*Test Steps:*
+เลือกเหตุผล + นัดวัน
+
+*Expected Result:*
+บันทึก + แจ้งเตือนล่วงหน้า 1 ชม. ก่อนนัด
+
+*Test Data:*
+"
+Test,TC-18-02 ติดต่อได้: ไม่ซื้อ + เหตุผล,High,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.1.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือกเหตุผลไม่ซื้อ
+
+*Expected Result:*
+บันทึกผล
+
+*Test Data:*
+"
+Test,TC-18-03 ซื้อ — พบใบคำขอ+กรมธรรม์,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.1.3.1
+*Type:* Positive
+
+*Pre-condition:*
+มีใน UW
+
+*Test Steps:*
+กรอกเลข, ระบบ lookup
+
+*Expected Result:*
+สถานะ = ""อนุมัติ""
+
+*Test Data:*
+เลขพบทั้งคู่"
+Test,TC-18-04 ซื้อ — พบใบคำขอ ไม่พบกรมธรรม์,Highest,TS-18,Lot 2,"Lot2,TS-18,Boundary","*Lot:* 2
+*Trace:* 03-13.1.3.2
+*Type:* Boundary
+
+*Pre-condition:*
+มีใบคำขอ
+
+*Test Steps:*
+กรอกเลข
+
+*Expected Result:*
+แสดงสถานะตามระบบ UW
+
+*Test Data:*
+พบใบคำขอ ไม่พบกรมธรรม์"
+Test,TC-18-05 ซื้อ — ไม่พบทั้งคู่,Highest,TS-18,Lot 2,"Lot2,TS-18,Negative","*Lot:* 2
+*Trace:* 03-13.1.3.3
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+กรอกเลขไม่มีใน UW
+
+*Expected Result:*
+สถานะ = ""ไม่พบข้อมูล"" + แก้ไขเลขได้
+
+*Test Data:*
+เลขไม่พบ"
+Test,TC-18-06 ซื้อ — ส่ง Auto Email HRA + CC การตลาด,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.1.3
+*Type:* Positive
+
+*Pre-condition:*
+บันทึกการซื้อ
+
+*Test Steps:*
+save
+
+*Expected Result:*
+ส่ง Email ถึง HRA, CC การตลาด
+
+*Test Data:*
+"
+Test,TC-18-07 ติดต่อไม่ได้ ครั้งที่ 1 + เหตุผล,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึก ไม่ได้ฝากลีด
+
+*Expected Result:*
+บันทึก + ต้องกรอกวันติดตาม ≤7 วัน
+
+*Test Data:*
+"
+Test,TC-18-08 ติดต่อไม่ได้ ครั้งที่ 2,High,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.2
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึกครั้งที่ 2 (ไม่รับสาย >2 ครั้ง)
+
+*Expected Result:*
+บันทึกผล
+
+*Test Data:*
+"
+Test,TC-18-09 วันติดตามเกิน 7 วัน,Highest,TS-18,Lot 2,"Lot2,TS-18,Boundary","*Lot:* 2
+*Trace:* 03-13.3
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เลือกวันที่ +8 วัน
+
+*Expected Result:*
+ปฏิเสธ (ไม่เกิน 7 วัน)
+
+*Test Data:*
+"
+Test,TC-18-10 วันติดตาม = 7 วันพอดี,High,TS-18,Lot 2,"Lot2,TS-18,Boundary","*Lot:* 2
+*Trace:* 03-13.3
+*Type:* Boundary
+
+*Pre-condition:*
+-
+
+*Test Steps:*
++7 วัน
+
+*Expected Result:*
+ยอมรับ
+
+*Test Data:*
+"
+Test,TC-18-11 กฎ 3 ครั้ง — ครั้งที่ 1 เกิน SLA → ดึงคืน,Highest,TS-18,Lot 2,"Lot2,TS-18,Negative","*Lot:* 2
+*Trace:* 03-13
+*Type:* Negative
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เกิน SLA ครั้งที่ 1
+
+*Expected Result:*
+ดึง Lead กลับ Re-assign
+
+*Test Data:*
+"
+Test,TC-18-12 กฎ 3 ครั้ง — ครบ 3 ครั้ง → ปิดเคส,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13
+*Type:* Positive
+
+*Pre-condition:*
+บันทึก 2 ครั้งแล้ว
+
+*Test Steps:*
+บันทึกครั้งที่ 3
+
+*Expected Result:*
+ปิดเคส (ไม่ว่าซื้อหรือไม่)
+
+*Test Data:*
+"
+Test,TC-18-13 SLA นับใหม่หลังบันทึกแต่ละครั้ง,Highest,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+บันทึกครั้งที่ 1→2
+
+*Expected Result:*
+SLA เริ่มนับใหม่หลังครั้งก่อน
+
+*Test Data:*
+"
+Test,TC-18-14 Retention — เก็บ 3 เดือนแล้วลบ,High,TS-18,Lot 2,"Lot2,TS-18,Boundary","*Lot:* 2
+*Trace:* 03-13.4
+*Type:* Boundary
+
+*Pre-condition:*
+Lead ปิดไม่ได้
+
+*Test Steps:*
+รอ 3 เดือน
+
+*Expected Result:*
+ระบบลบอัตโนมัติหลัง 3 เดือน
+
+*Test Data:*
+"
+Test,TC-18-15 Calendar — เลือกวันจริง + Note,Medium,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+กรอกวันจริง + โน้ต
+
+*Expected Result:*
+บันทึกได้
+
+*Test Data:*
+"
+Test,TC-18-16 แก้ไขเลขใบคำขอ/กรมธรรม์ใหม่,High,TS-18,Lot 2,"Lot2,TS-18,Positive","*Lot:* 2
+*Trace:* 03-13.1.3.3
+*Type:* Positive
+
+*Pre-condition:*
+สถานะไม่พบข้อมูล
+
+*Test Steps:*
+แก้เลขแล้ว save
+
+*Expected Result:*
+ระบบค้นหา UW ใหม่
+
+*Test Data:*
+"
+Test,TC-19-01 Automail Daily Report 09:00,High,TS-19,Lot 2,"Lot2,TS-19,Positive","*Lot:* 2
+*Trace:* 03-14.1
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล Lead
+
+*Test Steps:*
+รอ 09:00
+
+*Expected Result:*
+ส่ง Daily Report แนบ Excel/CSV
+
+*Test Data:*
+"
+Test,TC-19-02 Export Summary CSV,High,TS-19,Lot 2,"Lot2,TS-19,Positive","*Lot:* 2
+*Trace:* 03-14.2
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล
+
+*Test Steps:*
+กด Export CSV
+
+*Expected Result:*
+ได้ไฟล์ CSV
+
+*Test Data:*
+"
+Test,TC-19-03 Export Summary Excel,High,TS-19,Lot 2,"Lot2,TS-19,Positive","*Lot:* 2
+*Trace:* 03-14.2
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล
+
+*Test Steps:*
+กด Export Excel
+
+*Expected Result:*
+ได้ไฟล์ Excel
+
+*Test Data:*
+"
+Test,TC-19-04 Raw Data: Lead Source Performance,High,TS-19,Lot 2,"Lot2,TS-19,Positive","*Lot:* 2
+*Trace:* 03-14
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล
+
+*Test Steps:*
+เปิด Raw Data
+
+*Expected Result:*
+แสดงจำนวน Lead/Assign/ติดต่อได้/ปิดได้ ตามช่องทาง
+
+*Test Data:*
+"
+Test,TC-04-11 Refresh segment คำนวณสมาชิกใหม่,High,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment ที่มี filter
+
+*Test Steps:*
+กด refresh
+
+*Expected Result:*
+จำนวนสมาชิกถูก recompute ตามข้อมูลล่าสุด
+
+*Test Data:*
+"
+Test,TC-04-12 Delete segment,Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+กด delete + ยืนยัน
+
+*Expected Result:*
+segment ถูกลบ; ถ้าผูกกับ campaign ที่ active → เตือน/บล็อก
+
+*Test Data:*
+Segment ผูก campaign"
+Test,TC-04-13 แสดงจำนวนลูกค้าใน segment (count badge),Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment ที่มี filter
+
+*Test Steps:*
+เปิด segment
+
+*Expected Result:*
+badge แสดงจำนวนตรงกับผล filter จริง
+
+*Test Data:*
+"
+Test,TC-04-14 Customer 360 จากใน segment,High,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มีลูกค้าใน segment
+
+*Test Steps:*
+คลิกลูกค้า 1 ราย
+
+*Expected Result:*
+แสดงโปรไฟล์ 360 (ช่องทาง, กรมธรรม์, activity) ถูกต้อง
+
+*Test Data:*
+"
+Test,TC-04-15 Filter channel-presence (มี Email ไม่มี App / ยังไม่เป็น Ocean Connect),Highest,TS-04,Lot 3,"Lot3,TS-04,Positive","*Lot:* 3
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูลช่องทางลูกค้า
+
+*Test Steps:*
+สร้าง segment ""มี Email และยังไม่มี Ocean Club App""
+
+*Expected Result:*
+ได้เฉพาะลูกค้าที่ email=true AND app=false
+
+*Test Data:*
+Customer มี/ไม่มีแต่ละช่องทาง"
+Test,"TC-04-16 Filter numeric (Health Score, CLV≥100k, เบี้ย<20k)",Highest,TS-04,Lot 1,"Lot1,TS-04,Positive","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล CLV/Health Score
+
+*Test Steps:*
+สร้าง segment ""App=No, CLV≥100,000""
+
+*Expected Result:*
+ได้เฉพาะลูกค้าที่ค่าตรงตามตัวเลข
+
+*Test Data:*
+Customer CLV หลายระดับ"
+Test,TC-04-17 Filter behavioral — เข้าหน้าบทความภาษี/ออมทรัพย์,High,TS-04,Lot 1,"Lot1,TS-04,Boundary","*Lot:* 1
+*Trace:* 02-3/GAi
+*Type:* Boundary
+
+*Pre-condition:*
+มี event GA4
+
+*Test Steps:*
+filter จาก web-visit behavior
+
+*Expected Result:*
+เฉพาะลูกค้าที่มี event เข้าหน้าบทความนั้น (ตรวจ data source GA4)
+
+*Test Data:*
+GA4 event บทความ"
+Test,TC-07-10 Refresh / Delete message,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Message
+
+*Test Steps:*
+กด refresh แล้ว delete
+
+*Expected Result:*
+refresh โหลดค่าใหม่; delete ลบได้ (เตือนถ้าถูกใช้ใน campaign)
+
+*Test Data:*
+Message ผูก campaign"
+Test,TC-07-11 แสดง Message ID + จำนวน credit บนการ์ด,High,TS-07,Lot 3,"Lot3,TS-07,Positive","*Lot:* 3
+*Trace:* 02-6/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Message
+
+*Test Steps:*
+เปิดรายการ message
+
+*Expected Result:*
+แสดง Message ID (running no) + credit ที่ message จะใช้ ถูกต้อง
+
+*Test Data:*
+"
+Test,TC-06-13 Add contact source = เลือก Segment,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+ในcampaign กด Add contact source → เลือก segment
+
+*Expected Result:*
+สมาชิกของ segment เข้าสู่ flow เป็น contact ของ campaign
+
+*Test Data:*
+"
+Test,TC-06-14 Decision node แตกเส้นทาง,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี flow + contact
+
+*Test Steps:*
+วาง Decision (เช่น ""เปิดอ่าน email?"")
+
+*Expected Result:*
+contact ถูกแยกเข้า branch yes/no ถูกต้อง
+
+*Test Data:*
+"
+Test,TC-06-15 Condition node ตาม Contact tags,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+contact มี tag
+
+*Test Steps:*
+ตั้ง condition tag = ""VIP""
+
+*Expected Result:*
+เฉพาะ contact ที่มี tag ผ่านเข้า branch นั้น
+
+*Test Data:*
+Contact มี/ไม่มี tag"
+Test,TC-06-16 Action: Send email + email builder,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+-
+
+*Test Steps:*
+เพิ่ม action Send email → ออกแบบใน builder
+
+*Expected Result:*
+อีเมลถูกสร้าง/ส่งตามที่ออกแบบ (รูป+ข้อความ+ลิงก์)
+
+*Test Data:*
+"
+Test,TC-06-17 Action: Send text message (เลือก Message เดิม),Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Message
+
+*Test Steps:*
+เพิ่ม action → Select Message ที่มีอยู่
+
+*Expected Result:*
+ผูก message เดิมเข้า action ได้ ส่งถูกช่องทาง
+
+*Test Data:*
+"
+Test,TC-06-18 Action: Mobile app message (push),High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+contact มี app
+
+*Test Steps:*
+เพิ่ม action mobile app message
+
+*Expected Result:*
+push เข้า Ocean Club App ของ contact ที่มี app
+
+*Test Data:*
+"
+Test,TC-06-19 Action: Send a webhook,High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี endpoint
+
+*Test Steps:*
+ตั้ง webhook URL ใน action
+
+*Expected Result:*
+ระบบยิง HTTP request พร้อม payload contact เมื่อ contact ถึง node
+
+*Test Data:*
+webhook endpoint ทดสอบ"
+Test,TC-06-20 Action timing / delay ราย step,High,TS-06,Lot 3,"Lot3,TS-06,Boundary","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Boundary
+
+*Pre-condition:*
+flow มีหลาย action
+
+*Test Steps:*
+ตั้ง delay 2 วัน ก่อน action ถัดไป
+
+*Expected Result:*
+action ถัดไปทำงานหลังครบ delay ไม่ใช่ทันที
+
+*Test Data:*
+"
+Test,TC-06-21 Upload segment → Facebook Custom Audience (Lookalike),High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-4/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+จาก segment กด upload → FB
+
+*Expected Result:*
+audience ถูกสร้างใน FB Ads (custom + lookalike base)
+
+*Test Data:*
+"
+Test,TC-06-22 Upload segment → Google Customer Match,High,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-4/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มี Segment
+
+*Test Steps:*
+จาก segment กด upload → Google
+
+*Expected Result:*
+customer match list ถูกสร้างใน Google Ads
+
+*Test Data:*
+"
+Test,TC-06-23 E2E flow: Segment → Decision → Condition → multi Action,Highest,TS-06,Lot 3,"Lot3,TS-06,Positive","*Lot:* 3
+*Trace:* 02-5/GAi
+*Type:* Positive
+
+*Pre-condition:*
+ส่วนประกอบครบ
+
+*Test Steps:*
+ประกอบ flow ครบ แล้ว publish
+
+*Expected Result:*
+contact ไหลผ่านทุก node และได้รับ message ตาม branch ถูกต้อง
+
+*Test Data:*
+flow ครบทุก node"
+Test,TC-10-06 Total User ≠ Total Send,Highest,TS-10,Lot 3,"Lot3,TS-10,Boundary","*Lot:* 3
+*Trace:* 02-10/GAi
+*Type:* Boundary
+
+*Pre-condition:*
+campaign 1,000 contact ส่งจริง 980
+
+*Test Steps:*
+ตรวจ SUMMARY
+
+*Expected Result:*
+Total User=1,000, Total Send=980 (แยกชัด)
+
+*Test Data:*
+campaign 1000/ส่ง 980"
+Test,TC-10-07 Total Credit ต่อ campaign,Highest,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10/GAi
+*Type:* Positive
+
+*Pre-condition:*
+ส่ง SMS ไทยยาว multi-part 980 ราย
+
+*Test Steps:*
+ตรวจ Total Credit
+
+*Expected Result:*
+Total Credit = ผลรวม credit ทุก segment ของทุกข้อความ ถูกต้อง
+
+*Test Data:*
+SMS ไทยยาว"
+Test,TC-10-08-b Total Fail สรุปใน summary,Highest,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10/GAi
+*Type:* Positive
+
+*Pre-condition:*
+ส่ง fail 20 ราย
+
+*Test Steps:*
+ตรวจ Total Fail
+
+*Expected Result:*
+Total Fail=20 และ Total Send+Total Fail = Total User
+
+*Test Data:*
+ส่ง fail 20"
+Test,TC-10-09 Drill-down รายคลิกต่อ campaign,High,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10/GAi
+*Type:* Positive
+
+*Pre-condition:*
+campaign มีผลคลิก
+
+*Test Steps:*
+คลิกเข้า campaign 1 ใน SUMMARY
+
+*Expected Result:*
+แสดงรายชื่อ/จำนวนคลิก + Unique Click ของ campaign นั้น
+
+*Test Data:*
+"
+Test,TC-10-10 SUMMARY header ครบทุกคอลัมน์,High,TS-10,Lot 3,"Lot3,TS-10,Positive","*Lot:* 3
+*Trace:* 02-10/GAi
+*Type:* Positive
+
+*Pre-condition:*
+มีข้อมูล campaign
+
+*Test Steps:*
+เปิดหน้า SUMMARY
+
+*Expected Result:*
+มีครบ: Campaign ID, Name, Total User, Total Send, Total Credit, Total Fail, Total Click, Unique Click
+
+*Test Data:*
+"

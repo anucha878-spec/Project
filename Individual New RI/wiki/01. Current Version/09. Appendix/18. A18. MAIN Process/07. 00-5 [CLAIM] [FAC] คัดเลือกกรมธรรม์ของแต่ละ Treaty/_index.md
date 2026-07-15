@@ -1,0 +1,2109 @@
+# 00-5 [CLAIM] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty
+
+> **Source:** http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216960  
+> **Page ID:** 1131216960  
+> **Path:** Home / Current Version / 09. Appendix / A18. MAIN Process / 00-5 [CLAIM] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty
+
+---
+
+![](/download/attachments/1223589917/image2025-2-21%2014%3A30%3A26.png?version=1&modificationDate=1740123026313&api=v2)
+
+SRS V4.2
+![](/download/attachments/1223589917/2568-02-04%2010_31_11-Window.png?version=1&modificationDate=1738639906620&api=v2)
+
+นำเข้ากรมธรรม์ Claim
+รูปแบบการคำนวณ Claim
+แสดงรายละเอียด
+แบบ G RI Claim amount > (Refund (Advance Premium)) > RI Claim Expense
+แสดงรายละเอียด
+1. ตรวจสอบวันที่เกิดเหตุกับข้อมูลที่เคยส่งประกันต่อ
+2. นำรายการส่งประกันต่อที่พบมาประมวล RI Claim amount
+3. นำ Percent Claim ที่ได้จากการประมวลผล RI Claim amount รวมกับรายการก่อนหน้าทั้งหมดถ้าครบ 100% แล้วให้ประมวลผล Refund (Advance Premium) รอบที่ส่งประกันต่อหลังการเคลมทั้งหมดถ้ายังไม่ครบ 100% ให้ข้ามไปคำนวณข้อต่อไป
+4. ประมวลผล RI Claim amount (EXGRATIA) (suthanee.sa 2025/02/11)
+5. นำรายการเคลมไปประมวลผลต่อที่ RI Claim Expense
+
+แบบ H RI Claim Expense
+แสดงรายละเอียด
+1. ตรวจสอบวันที่เกิดเหตุกับข้อมูลที่เคยส่งประกันต่อ
+2. นำรายการส่งประกันต่อที่พบมาประมวล RI Claim Expense โดยให้ประมวลผลด้วยกรณีปฏิเสธ
+
+แบบ I Refund (Advance Premium) > RI Claim Expense
+แสดงรายละเอียด
+1. ตรวจสอบวันที่เกิดเหตุกับข้อมูลที่เคยส่งประกันต่อ
+2. ประมวลผล Refund (Advance Premium) รอบที่ส่งประกันต่อหลังการเคลมทั้งหมด
+3. ประมวล RI Claim Expense โดยให้ประมวลผลด้วยกรณีปฏิเสธ
+
+แบบ J Refund (Premium ทุกรอบที่ส่ง) > RI Claim Expense
+แสดงรายละเอียด
+1. ตรวจสอบวันที่เกิดเหตุกับข้อมูลที่เคยส่งประกันต่อ
+2. ประมวลผล Refund ในทุก ๆ รอบที่ส่งประกันต่อ ของทั้ง Base และ Rider
+3. ประมวล RI Claim Expense โดยให้ประมวลผลด้วยกรณีปฏิเสธ
+
+แบบ L RI Claim Exgratia > RI Claim Expense
+แสดงรายละเอียด
+1. ตรวจสอบวันที่เกิดเหตุกับข้อมูลที่เคยส่งประกันต่อ
+2. ประมวลผล RI Claim amount (EXGRATIA)
+3. ประมวล RI Claim Expense โดยให้ประมวลผลด้วยกรณีปฏิเสธ
+
+นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)
+เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ (Master Claim)
+
+ตรวจสอบจำนวนรายการ Claim
+| tx_ri_ord_master_claim_dt กรณีที่เป็น THREL_Ind_CI120_Ridercf_lookup_catalog.parent_id = 1007100 | ประเภทความคุ้มครอง Rider code | กลุ่มรายการเคลม (CI120) | สาเหตุการเคลม |  |  |
+| --- | --- | --- | --- | --- | --- |
+| **Claim No.** | **Policy No** | **rider code** | **coverage_type_code** | **benefit_group** | **claim_cause_no** | **คำนวณเคลม** | **ออก Report** |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่เหมือนกัน | แยกรายการตาม claim_cause_no | แยกรายการตาม claim_cause_no |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่มี | แยกรายการตาม benefit_group | แยกรายการตาม benefit_group |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | แยกรายการตาม claim_cause_no | แยกรายการตาม claim_cause_no |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | แยกรายการตาม benefit_group | แยกรายการตาม benefit_group |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | แยกรายการตาม benefit_group และ claim_cause_no | แยกรายการตาม benefit_group และ claim_cause_no |
+
+| tx_ri_ord_master_claim_dt กรณีที่ไม่ใช่ THREL_Ind_CI120_Ridercf_lookup_catalog.parent_id = 1003700 | ประเภทความคุ้มครอง Rider code | กลุ่มรายการเคลม | สาเหตุการเคลม |  |  |
+| --- | --- | --- | --- | --- | --- |
+| **Claim No.** | **Policy No** | **rider code** | **coverage_type_code** | **benefit_group** | **claim_cause_no** | **คำนวณเคลม** | **ออก Report** |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+
+| tx_ri_ord_master_claim_dt กรณีที่cf_lookup_catalog.parent_id <> 1003700 และ 1007100 | ประเภทความคุ้มครอง Rider code | กลุ่มรายการเคลม | สาเหตุการเคลม |  |  |
+| --- | --- | --- | --- | --- | --- |
+| **Claim No.** | **Policy No** | **rider code** | **coverage_type_code** | **benefit_group** | **claim_cause_no** | **คำนวณเคลม** | **ออก Report** |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | ไม่เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1003700
+2. ถ้ามี Treaty ตรงกัน ให้ตรวจสอบว่า [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_no มีทั้งหมดกี่รายการหากมีมากกว่า 1 รายการ แยกรายการประมวลผล โดยแยกรายการจาก [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).benefit_groupตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).benefit_group กับ [cf_lookup_catalog](http://wiki.thaisamut.co.th/x/PICeQQ) .parent_id = 1004900กรณีมีรายการ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).benefit_group = [cf_lookup_catalog](http://wiki.thaisamut.co.th/x/PICeQQ) .lookup_key****ให้เก็บค่าแต่ไม่ประมวลผล และออก Report ด้วย Table [tx_ri_est_claim_dt](http://wiki.thaisamut.co.th/x/JAFKQw).ri_claim_status = "Not Paid" และ [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw).report_status หรือ [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw).report_status เป็น NOCAL_NOSEND_REPORIDER (suthanee.sa 04/02/2025)
+3. หาก Treaty ไม่ตรงกับที่กำหนดไว้ ให้ประมวลผลตาม [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_no โดยรวมรายการ Claim ตามประเภทความคุ้มครอง
+
+ตรวจสอบ Treaty Bundle
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1004000
+2. ถ้ามี Treaty ตรงกัน หากมีรายการ Base ที่ตรงกับการส่งประกันต่อ โดยไม่สนใจว่าจะเป็นการ Claim Rider ตัวใด จะสามารถนำรายการนั้นไปประมวลผล Claim ได้ในทันที
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt)
+
+| ข้อมูล | Description | Table | Field |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Claim No. | เลขที่ สินไหม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_no |  |  |
+| Policy No. | เลขที่กรมธรรม์ | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | policy_no |  |  |
+| Plan Code | รหัสแบบประกัน | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | plan_code | กรณี Claim Base ค่าของ Rider จะเป็น 0 หรือค่าว่างนำค่า [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).plan_code เทียบกับ [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).plan_codeใช้เงื่อนไขดังนี้[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).policy_type = ORD[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).product_group = BASEดึงค่า [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).ms_policy_coverage_type_code |  |
+| Rider Code | รหัสแบบประกันสัญญาเพิ่มเติม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | rider_code | กรณี Claim Base ค่าของ Rider จะเป็น 0 หรือค่าว่างนำค่า [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code เทียบกับ [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).plan_codeใช้เงื่อนไขดังนี้[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).policy_type = ORD[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).product_group = RIDERดึงค่า [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).ms_policy_coverage_type_code |  |
+| Claim Amount | จำนวนเงิน | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_amount | (#COPAY Suthanee.sa 14/08/2025)ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).coverage_code ให้ใช้เฉพาะค่าที่ <> RTA (suthanee.sa 04/07/2025)ตรวจสอบ [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).copay_percentกรณี > 0(ให้นำ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_amount * [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).copay_percent) / 100Coverage Type Plan Code = LIFEให้เก็บค่าไว้ที่ {COPAY_AMOUNT_LIFE} Coverage Type Plan Code = ADD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_ADD} Coverage Type Plan Code = TPD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_TPD}Coverage Type Plan Code = TTD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_TTD}Coverage Type Plan Code = RIDER ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_RIDER}กรณีที่ <= 0 ให้บันทึกค่า 0 ใน{COPAY_AMOUNT_LIFE}, {COPAY_AMOUNT_ADD}, {COPAY_AMOUNT_TPD}, {COPAY_AMOUNT_TTD}, {COPAY_AMOUNT_RIDER} ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_amount เก็บตามเงื่อนไขดังนี้Coverage Type Plan Code = LIFEให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_LIFE}Coverage Type Plan Code = ADDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_ADD}Coverage Type Plan Code = TPDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_TPD}Coverage Type Plan Code = TTDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_TTD}Coverage Type Plan Code = RIDERให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_RIDER}จากนั้นนำค่าที่ได้มาคำนวณแล้วเก็บลง Parameter เดิม{ORI_CLAIM_AMOUNT_LIFE} - {COPAY_AMOUNT_LIFE} = {CLAIM_AMOUNT_LIFE} {ORI_CLAIM_AMOUNT_ADD} - {COPAY_AMOUNT_ADD} = {CLAIM_AMOUNT_ADD}{ORI_CLAIM_AMOUNT_TPD} - {COPAY_AMOUNT_TPD} = {CLAIM_AMOUNT_TPD}{ORI_CLAIM_AMOUNT_TTD} - {COPAY_AMOUNT_TTD} = {CLAIM_AMOUNT_TTD}{ORI_CLAIM_AMOUNT_RIDER} - {COPAY_AMOUNT_RIDER} = {CLAIM_AMOUNT_RIDER} | ใน 1 รายการ Claim จะมีได้มากกว่า 1 Record (suthanee.sa 04/07/2025)กรณีที่ไม่ใช่ RTA แปลว่าเป็นรายการเคลม ให้แยกเก็บตาม parameter เคลมได้เลยกรณีที่มี RTA แปลว่าให้แยกรายการนั้นไปเก็บที่ exgratia และคำนวณ exgratia ในรายการนั้นด้วย |
+| Claim Exgratia | ยอดเงินอนุโลม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_exgratiaclaim_amount | ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).coverage_codeถ้า = RTA ให้เก็บลง {EXGRATIA_AMOUNT}(suthanee.sa 04/07/2025) |
+| Claim Type | ประเภท สินไหม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_type | Treaty No.Reinsurer CodeTreaty Code1GibraltarGIB_Ind_ORD_Med2PacificPLR_Ind_CI7_Rider3PacificPLR_Ind_ORD4ScorSCOR_Ind_ORD_NonMed5ThaireTHREL_Grp_CL_Cbank_MRTA6ThaireTHREL_Grp_CL_Cbank_MLTA7ThaireTHREL_Grp_CL_Cbank_RGAshare8ThaireTHREL_Ind_CI17Bundle9ThaireTHREL_Ind_CI50_Rider10ThaireTHREL_Ind_ORD_201911ThaireTHREL_Ind_ORD_NonMed12ThaireTHREL_Ind_PA13ThaireTHREL_Ind_HSS_Rider14ThaireTHREL_Ind_CI3Bundle15ThaireTHREL_UL_SP16ThaireTHREL_UL_RP17ToaTOA_Grp_CL_Aunjai18ToaTOA_Grp_CL_NonCBank_MRTA19ToaTOA_Grp_CL_NonCBank_MLTA20ToaTOA_Ind_CB_Rider21ToaTOA_Ind_CL_Addendum22ToaTOA_Ind_ORD23ToaTOA_Ind_ORD_FAC24ThaireTHREL_Ind_CI120_Rider25Mapfre_reMapfre_Grp_CL_Aunjai26Mapfre_reMapfre_Grp_CL_NonCBank_MRTA27Mapfre_reMapfre_Grp_CL_NonCBank_MLTA28PacificPLR_Grp_MLTA **IRI-PS-006 นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)** แสดงรายละเอียด [WS_RI_10 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1096450882)[IRI-PS-006 นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946291)[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt)[.claim_type](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946291) claim_type ผลการ พิจารณาTreaty**1****2****3****4****5****6****7****8****9****10****11****12****13****14****15****16****17****18****19****20****21****22****23****24****25****26****27****28**DมรณะYRYYYYYYRYY RY YYYRYYYR****YYYYHค่ารักษา Nสินไหมทดแทน Y YYY Y YYYY YYY Tทุพพลภาพ Y = นำไปประมวลผลเพราะมีการส่งประกันต่อ (ส่ง Reinsurer)R = ไม่มีการส่งประกันต่อ (ส่ง Reinsurer) แต่ต้องแสดงใน Report |  |
+| No. | Reinsurer Code | Treaty Code |
+| 1 | Gibraltar | GIB_Ind_ORD_Med |
+| 2 | Pacific | PLR_Ind_CI7_Rider |
+| 3 | Pacific | PLR_Ind_ORD |
+| 4 | Scor | SCOR_Ind_ORD_NonMed |
+| 5 | Thaire | THREL_Grp_CL_Cbank_MRTA |
+| 6 | Thaire | THREL_Grp_CL_Cbank_MLTA |
+| 7 | Thaire | THREL_Grp_CL_Cbank_RGAshare |
+| 8 | Thaire | THREL_Ind_CI17Bundle |
+| 9 | Thaire | THREL_Ind_CI50_Rider |
+| 10 | Thaire | THREL_Ind_ORD_2019 |
+| 11 | Thaire | THREL_Ind_ORD_NonMed |
+| 12 | Thaire | THREL_Ind_PA |
+| 13 | Thaire | THREL_Ind_HSS_Rider |
+| 14 | Thaire | THREL_Ind_CI3Bundle |
+| 15 | Thaire | THREL_UL_SP |
+| 16 | Thaire | THREL_UL_RP |
+| 17 | Toa | TOA_Grp_CL_Aunjai |
+| 18 | Toa | TOA_Grp_CL_NonCBank_MRTA |
+| 19 | Toa | TOA_Grp_CL_NonCBank_MLTA |
+| 20 | Toa | TOA_Ind_CB_Rider |
+| 21 | Toa | TOA_Ind_CL_Addendum |
+| 22 | Toa | TOA_Ind_ORD |
+| 23 | Toa | TOA_Ind_ORD_FAC |
+| 24 | Thaire | THREL_Ind_CI120_Rider |
+| 25 | Mapfre_re | Mapfre_Grp_CL_Aunjai |
+| 26 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MRTA |
+| 27 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MLTA |
+| 28 | Pacific | PLR_Grp_MLTA |
+| claim_type | ผลการ พิจารณา | Treaty |
+| **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** | **24** | **25** | **26** | **27** | **28** |
+| D | มรณะ | Y | R | Y | Y | Y | Y | Y | Y | R | Y | Y |  | R | Y |  |  | Y | Y | Y | R | Y | Y | Y | R**** | Y | Y | Y | Y |
+| H | ค่ารักษา |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| N | สินไหมทดแทน |  | Y |  |  | Y | Y | Y |  | Y |  |  |  |  |  |  |  | Y | Y | Y | Y |  |  |  |  | Y | Y | Y |  |
+| T | ทุพพลภาพ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Event Date | วันที่เกิดเหตุ | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | event_date |  |  |
+| Claim Status | ผลการ พิจารณา | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_status | **IRI-PS-006 นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)** แสดงรายละเอียด [WS_RI_10 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1096450882)[IRI-PS-006 นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946291)[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt)[.claim_status](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946291)Claim Statusผลการ พิจารณาสถานะนำไปออก Reportสถานะนำไปประมวลผล 1อนุมัติYYแบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense2ปฎิเสธYYแบบ Hประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Expense3ปฎิเสธ / คืนเบี้ยYYแบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim Expense4WPNN 5PBNN 6ช่วยเหลือYYแบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Exgratiaคำควณ RI Claim ExpenseIส่งสอบNN |  |
+| Claim Status | ผลการ พิจารณา | สถานะนำไปออก Report | สถานะนำไปประมวลผล |  |
+| 1 | อนุมัติ | Y | Y | แบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| 2 | ปฎิเสธ | Y | Y | แบบ Hประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Expense |
+| 3 | ปฎิเสธ / คืนเบี้ย | Y | Y | แบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim Expense |
+| 4 | WP | N | N |  |
+| 5 | PB | N | N |  |
+| 6 | ช่วยเหลือ | Y | Y | แบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Exgratiaคำควณ RI Claim Expense |
+| I | ส่งสอบ | N | N |  |
+| Remark | หมายเหตุ ผลการพิจารณา | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | remark |  |  |
+| Remark Detail | รายละเอียด หมายเหตุ ผลการพิจารณา | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | remark_detail |  |  |
+| Approve Date | วันที่ พิจารณา | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | approve_date | ต้องอยู่ภายในช่วงของ Period การประมวลผล |  |
+| Inform Date | วันที่รับเรื่อง | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | inform_date |  |  |
+| Coverage Code(suthanee.sa 04/07/2025) | ประเภทเงินเคลม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | coverage_code |  |  |
+| Copay Percent (#COPAY Suthanee.sa 14/08/2025) | Copayment(%) ของ Customer | [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt) | copay_percent | นำข้อมูลดังนี้เข้าไปตรวจสอบ %Copay[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).policy_no = [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_no[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code = [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).rider_code[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).event_date อยู่ระหว่าง [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_year_start กับ [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_year_end[tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).record_status = Aนำค่าที่ได้ จัดเก็บลงใน {COPAY} | ตรวจสอบรายการ Revise ในรอบเดียวกัน[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rv_amount <> NULL หรือ 0 ให้นำ [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new มาใช้แทน![](/download/attachments/1275559989/Screenshot%202025-08-20%20103130.png?version=1&modificationDate=1756197573741&api=v2) |
+| Claim Type Code | ประเภทสินไหม | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | claim_type_code | เฉพาะรายการ rider_code <> 0 หรือ NULL ที่มี[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no as400_claim_no (suthanee.sa 18/09/2025) และ[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code |  |
+| Claim Type Abb | ประเภทเรียกร้อง | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | claim_type_abb | เฉพาะรายการ rider_code <> 0 หรือ NULL ที่มี[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no as400_claim_no (suthanee.sa 18/09/2025) และ[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code |  |
+
+1. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 1 , 6 กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% ให้ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100%ประมวลผล RI Claim Expense
+2. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 1 , 6 กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%  ให้ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%ตรวจสอบว่าตั้งแต่ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เช่น กรมธรรม์ A เคยส่ง ประกันต่อ (Reinsurer) มาแล้ว 5 เดือน โดย Base ส่งตั้งแต่เดือน 1 - 5 Rider ส่งตั้งแต่เดือน 2 - 5 ส่วน tx_ri_ord_master_claim_dt.event_date อยู่ในรอบเดือนที่ 3 หมายความว่า จะได้รายการที่ส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดย Rider ตั้งแต่เดือน 3 - 5 จะได้รายการที่เคยส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดยจะได้ Rider ได้ทั้งหมด 3 Record สำหรับนำไปประมวลผลต่อทำ Refund 100% หลังวันเกิดเหตุกรณีรายการของ Base ต้องคืนทั้ง Base และ Riderกรณีรายการของ Rider ตรวจสอบว่าเป็นเคส Package หรือไม่ ดังนี้**การหา package_code** <![CDATA[select t1.treaty_code,t2.package_code,* from ms_partner_code_hd t1 left join ms_partner_code_dt t2 on t1.ms_partner_code_hd_id = t2.ms_partner_code_hd_id where t1.treaty_code = :treaty_code and t2.plan_code = :plan_code and t2.package_code = &#39;P&#39;]]> กรณีพบว่าเป็นเคส Packageกรณีเป็น Rider TPD หรือ TTD คืนทั้ง Base และ Riderกรณี Rider อื่นๆคืนเฉพาะ Riderกรณีพบว่าเป็นเคส Non-package คืนเฉพาะ  Rider นำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+3. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 2 ให้ตรวจสอบข้อมูลและประมวลผล RI Claim Expense
+4. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 3 ตรวจสอบว่าตั้งแต่ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง ทำ Refund 100% หลังวันเกิดเหตุ กรณีรายการของ Base ต้องคืนทั้ง Base และ Rider กรณีรายการของ Rider ทำเฉพาะ Riderนำรายการที่ได้ ไปประมวลผล 23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+5. กรณีพบ รายการ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) มากกว่า 1 รายการ ด้วย claim_no เดียวกันพบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 1 และ 3 ให้ดำเนินการคำนวณ Claim และ refund ตามข้อ 1. หรือ 2 (suthanee.sa 17/09/2025) พบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_status = 2 และ 3 ให้ดำเนินการ refund ตามข้อ 4.
+
+นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)
+เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ (Health Claim)
+
+ตรวจสอบจำนวนรายการ Claim
+| tx_ri_ord_health_claim_dt (THREL_Ind_HSS_Rider)cf_lookup_catalog.parent_id = 1003700 | ประเภทความคุ้มครอง Rider code | ประเภทค่าใช้จ่าย |  |  |
+| --- | --- | --- | --- | --- |
+| **Claim No.** | **Policy No** | **rider code** | **coverage_type_code** | **coverage_type** | **คำนวณเคลม** | **ออก Report** |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | แยกรายการตาม coverage_type | แยกรายการตาม coverage_type |
+
+| tx_ri_ord_health_claim_dt (อื่น ๆ)cf_lookup_catalog.parent_id <> 1003700 | ประเภทความคุ้มครอง Rider code | ประเภทค่าใช้จ่าย |  |  |
+| --- | --- | --- | --- | --- |
+| **Claim No.** | **Policy No** | **rider code** | **coverage_type_code** | **coverage_type** | **คำนวณเคลม** | **ออก Report** |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่มี | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | SUM | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่มี | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+| เหมือนกัน | เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | ไม่เหมือนกัน | แยกรายการตาม rider code | 1 รายการ |
+
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1003700
+2. ถ้ามี Treaty ตรงกัน ให้ตรวจสอบว่า [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).notify_no มีทั้งหมดกี่รายการหากมีมากกว่า 1 รายการ แยกรายการประมวลผล โดยแยกรายการจาก [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).coverage_typeตรวจสอบ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).benefit_group กับ [cf_lookup_catalog](http://wiki.thaisamut.co.th/x/PICeQQ) .parent_id = 1004900กรณีมีรายการ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).benefit_group = [cf_lookup_catalog](http://wiki.thaisamut.co.th/x/PICeQQ) .lookup_key****ให้เก็บค่าแต่ไม่ประมวลผล และออก Report ด้วย Table [tx_ri_est_claim_dt](http://wiki.thaisamut.co.th/x/JAFKQw).ri_claim_status = "Not Paid" และ [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw).report_status หรือ [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw).report_status เป็น NOCAL_NOSEND_REPORIDER (suthanee.sa 04/02/2025)
+3. หาก Treaty ไม่ตรงกับที่กำหนดไว้ ให้ประมวลผลตาม [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).notify_no โดยรวมรายการ Claim ตามประเภทความคุ้มครอง
+
+ตรวจสอบ Treaty Bundle
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1004000
+2. ถ้ามี Treaty ตรงกัน หากมีรายการ Base ที่ตรงกับการส่งประกันต่อ โดยไม่สนใจว่าจะเป็นการ Claim Rider ตัวใด จะสามารถนำรายการนั้นไปประมวลผล Claim ได้ในทันที
+
+ตรวจสอบสถานที่รักษาตัว
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1003600
+2. ถ้ามี Treaty ตรงกัน ตรวจสอบ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).country ต้องเท่ากับ THAILAND เท่านั้น จึงจะนำไปประมวลผล Claim ต่อกรณีไม่เท่ากับ THAILAND ให้ข้ามการประมวลผลนั้นไป
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt)
+
+| ข้อมูล | Description | Table | Field |  |  |
+| --- | --- | --- | --- | --- | --- |
+| Policy No. | เลขที่กรมธรรม์ | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | policy_no |  |  |
+| Plan Name | ชื่อแบบประกัน | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | plan_code |  |  |
+| Plan Code / Rider Code | รหัสแบบประกัน / รหัสแบบประกันสัญญาเพิ่มเติม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_type | กรณี Claim Base ค่าของ Rider จะเป็น 0 หรือค่าว่างนำค่า [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).rider_code เทียบกับ [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).plan_codeใช้เงื่อนไขดังนี้[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).policy_type = ORD[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).product_group = RIDERดึงค่า [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).ms_policy_coverage_type_code |  |
+| Claim No. | เลขที่ สินไหม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | notify_no |  |  |
+| Notify Date | วันที่รับเรื่อง | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | notify_date |  |  |
+| Claim Type | ประเภท สินไหม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_type_detail | Treaty No.Reinsurer CodeTreaty Code1GibraltarGIB_Ind_ORD_Med2PacificPLR_Ind_CI7_Rider3PacificPLR_Ind_ORD4ScorSCOR_Ind_ORD_NonMed5ThaireTHREL_Grp_CL_Cbank_MRTA6ThaireTHREL_Grp_CL_Cbank_MLTA7ThaireTHREL_Grp_CL_Cbank_RGAshare8ThaireTHREL_Ind_CI17Bundle9ThaireTHREL_Ind_CI50_Rider10ThaireTHREL_Ind_ORD_201911ThaireTHREL_Ind_ORD_NonMed12ThaireTHREL_Ind_PA13ThaireTHREL_Ind_HSS_Rider14ThaireTHREL_Ind_CI3Bundle15ThaireTHREL_UL_SP16ThaireTHREL_UL_RP17ToaTOA_Grp_CL_Aunjai18ToaTOA_Grp_CL_NonCBank_MRTA19ToaTOA_Grp_CL_NonCBank_MLTA20ToaTOA_Ind_CB_Rider21ToaTOA_Ind_CL_Addendum22ToaTOA_Ind_ORD23ToaTOA_Ind_ORD_FAC24ThaireTHREL_Ind_CI120_Rider25Mapfre_reMapfre_Grp_CL_Aunjai26Mapfre_reMapfre_Grp_CL_NonCBank_MRTA27Mapfre_reMapfre_Grp_CL_NonCBank_MLTA28PacificPLR_Grp_MLTA **IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)** แสดงรายละเอียด [WS_RI_11 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159915)[IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946327)[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).claim_type_detail claim_type_detailTreaty**1****2****3****4****5****6****7****8****9****10****11****12****13****14****15****16****17****18****19****20****21****22****23****24****25****26****27****28**ORD-HSS Y IND-CB Y ค่าว่างYYYY YYY Y Y Y = นำไปประมวลผลเพราะมีการส่งประกันต่อ (ส่ง Reinsurer)R = ไม่มีการส่งประกันต่อ (ส่ง Reinsurer) แต่ต้องแสดงใน Report All Claim Type DABDisability Accidental Benefitผลประโยชน์จากอุบัติเหตุที่ทำให้เกิดความพิการHCHealth CareการดูแลสุขภาพDAB2Disability Accidental Benefit 2ผลประโยชน์เพิ่มเติมสำหรับความพิการจากอุบัติเหตุHC-เหมาจ่ายHealth Care เหมาจ่ายแผนประกันสุขภาพที่จ่ายครอบคลุมทุกค่าใช้จ่ายที่เกิดขึ้นORD-OPDOrdinary Out-Patient Departmentค่ารักษาพยาบาลผู้ป่วยนอกORD-HKIDSOrdinary Health Kidsประกันสุขภาพสำหรับเด็กORD-HSLOrdinary Hospital and Surgicalค่ารักษาพยาบาลในโรงพยาบาลและค่าผ่าตัดORD-HPOrdinary Health Protectionการคุ้มครองสุขภาพทั่วไปORD-HSSOrdinary Health Special SchemeโครงการประกันสุขภาพพิเศษORD-HSOrdinary Health Standardมาตรฐานการคุ้มครองสุขภาพทั่วไปORD-HSSHOrdinary Health Super Special Highแผนคุ้มครองสุขภาพพิเศษระดับสูงORD-HKOrdinary Health Kidsประกันสุขภาพสำหรับเด็ก (อาจเหมือนกับ ORD-HKIDS)ORD-HKOPDOrdinary Health Kids Out-Patient Departmentค่ารักษาพยาบาลผู้ป่วยนอกสำหรับเด็กORD-HSLXOrdinary Hospital and Surgical Extraค่ารักษาพยาบาลในโรงพยาบาลและค่าผ่าตัดเพิ่มเติมORD-HKDOrdinary Health Kids Dentalประกันสุขภาพเด็กที่รวมค่ารักษาฟันIND-HCIndustry Health CareการดูแลสุขภาพในอุตสาหกรรมIND-CBIndustry Critical Benefitผลประโยชน์สำหรับโรคร้ายแรงในอุตสาหกรรม |  |
+| No. | Reinsurer Code | Treaty Code |
+| 1 | Gibraltar | GIB_Ind_ORD_Med |
+| 2 | Pacific | PLR_Ind_CI7_Rider |
+| 3 | Pacific | PLR_Ind_ORD |
+| 4 | Scor | SCOR_Ind_ORD_NonMed |
+| 5 | Thaire | THREL_Grp_CL_Cbank_MRTA |
+| 6 | Thaire | THREL_Grp_CL_Cbank_MLTA |
+| 7 | Thaire | THREL_Grp_CL_Cbank_RGAshare |
+| 8 | Thaire | THREL_Ind_CI17Bundle |
+| 9 | Thaire | THREL_Ind_CI50_Rider |
+| 10 | Thaire | THREL_Ind_ORD_2019 |
+| 11 | Thaire | THREL_Ind_ORD_NonMed |
+| 12 | Thaire | THREL_Ind_PA |
+| 13 | Thaire | THREL_Ind_HSS_Rider |
+| 14 | Thaire | THREL_Ind_CI3Bundle |
+| 15 | Thaire | THREL_UL_SP |
+| 16 | Thaire | THREL_UL_RP |
+| 17 | Toa | TOA_Grp_CL_Aunjai |
+| 18 | Toa | TOA_Grp_CL_NonCBank_MRTA |
+| 19 | Toa | TOA_Grp_CL_NonCBank_MLTA |
+| 20 | Toa | TOA_Ind_CB_Rider |
+| 21 | Toa | TOA_Ind_CL_Addendum |
+| 22 | Toa | TOA_Ind_ORD |
+| 23 | Toa | TOA_Ind_ORD_FAC |
+| 24 | Thaire | THREL_Ind_CI120_Rider |
+| 25 | Mapfre_re | Mapfre_Grp_CL_Aunjai |
+| 26 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MRTA |
+| 27 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MLTA |
+| 28 | Pacific | PLR_Grp_MLTA |
+| claim_type_detail | Treaty |
+| **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** | **24** | **25** | **26** | **27** | **28** |
+| ORD-HSS |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| IND-CB |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| ค่าว่าง | Y | Y | Y | Y |  |  |  |  | Y | Y | Y |  |  |  |  |  |  |  |  | Y |  |  |  | Y |  |  |  |  |
+|  |  |  |
+| DAB | Disability Accidental Benefit | ผลประโยชน์จากอุบัติเหตุที่ทำให้เกิดความพิการ |
+| HC | Health Care | การดูแลสุขภาพ |
+| DAB2 | Disability Accidental Benefit 2 | ผลประโยชน์เพิ่มเติมสำหรับความพิการจากอุบัติเหตุ |
+| HC-เหมาจ่าย | Health Care เหมาจ่าย | แผนประกันสุขภาพที่จ่ายครอบคลุมทุกค่าใช้จ่ายที่เกิดขึ้น |
+| ORD-OPD | Ordinary Out-Patient Department | ค่ารักษาพยาบาลผู้ป่วยนอก |
+| ORD-HKIDS | Ordinary Health Kids | ประกันสุขภาพสำหรับเด็ก |
+| ORD-HSL | Ordinary Hospital and Surgical | ค่ารักษาพยาบาลในโรงพยาบาลและค่าผ่าตัด |
+| ORD-HP | Ordinary Health Protection | การคุ้มครองสุขภาพทั่วไป |
+| ORD-HSS | Ordinary Health Special Scheme | โครงการประกันสุขภาพพิเศษ |
+| ORD-HS | Ordinary Health Standard | มาตรฐานการคุ้มครองสุขภาพทั่วไป |
+| ORD-HSSH | Ordinary Health Super Special High | แผนคุ้มครองสุขภาพพิเศษระดับสูง |
+| ORD-HK | Ordinary Health Kids | ประกันสุขภาพสำหรับเด็ก (อาจเหมือนกับ ORD-HKIDS) |
+| ORD-HKOPD | Ordinary Health Kids Out-Patient Department | ค่ารักษาพยาบาลผู้ป่วยนอกสำหรับเด็ก |
+| ORD-HSLX | Ordinary Hospital and Surgical Extra | ค่ารักษาพยาบาลในโรงพยาบาลและค่าผ่าตัดเพิ่มเติม |
+| ORD-HKD | Ordinary Health Kids Dental | ประกันสุขภาพเด็กที่รวมค่ารักษาฟัน |
+| IND-HC | Industry Health Care | การดูแลสุขภาพในอุตสาหกรรม |
+| IND-CB | Industry Critical Benefit | ผลประโยชน์สำหรับโรคร้ายแรงในอุตสาหกรรม |
+| Event Date | วันที่เกิดเหตุ | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | accident_date |  |  |
+| Admit Date | วันที่เข้ารักษา | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | admit_date |  |  |
+| Discharge Date | วันที่ออกจากโรงพยาบาล | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | discharge_date |  |  |
+| Approve Claim | ผลการ พิจารณา | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | approve_claim | **IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)** แสดงรายละเอียด [WS_RI_11 ค้นหากรมธรรม์ส่งประกันต่อสามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159915)[IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946327)[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).approve_claim approveClaim ผลการ พิจารณาสถานะนำไปออก Reportสถานะนำไปประมวลผล A1อนุมัติโดย AuditorYYแบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim ExpenseC1ยกเลิก Fax ClaimN D1อยู่ในระยะรอคอยN D2โรคที่เป็นก่อนทำประกันN D3โรคยกเว้นของกรมธรรม์N D4กรมธรรม์สิ้นผลบังคับYYแบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim ExpenseD5นอนพักในโรงพยาบาลโดยไม่มีเหตุผลทางการแพทย์N D6บอกล้างกรมธรรม์YYแบบ J ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseD7ยกเลิกสัญญาแนบท้ายYYแบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim ExpenseD8เอกสารไม่สมบูรณ์N F1Fraud ClaimN R1คืนเอกสารให้ผู้เอาประกันN REให้เรียกร้องสินไหมโดยสำรองจ่ายค่ารักษาพยาบาลN W1รอเอกสารทางการแพทย์N W2รอความเห็นจากแพทย์ที่ปรึกษาN W4รอการอนุมัติจาก AuditorN W8รอผลการตรวจสอบN |  |
+| approveClaim | ผลการ พิจารณา | สถานะนำไปออก Report | สถานะนำไปประมวลผล |  |
+| A1 | อนุมัติโดย Auditor | Y | Y | แบบ Gประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| C1 | ยกเลิก Fax Claim | N |  |  |
+| D1 | อยู่ในระยะรอคอย | N |  |  |
+| D2 | โรคที่เป็นก่อนทำประกัน | N |  |  |
+| D3 | โรคยกเว้นของกรมธรรม์ | N |  |  |
+| D4 | กรมธรรม์สิ้นผลบังคับ | Y | Y | แบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim Expense |
+| D5 | นอนพักในโรงพยาบาลโดยไม่มีเหตุผลทางการแพทย์ | N |  |  |
+| D6 | บอกล้างกรมธรรม์ | Y | Y | แบบ J ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| D7 | ยกเลิกสัญญาแนบท้าย | Y | Y | แบบ Iประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Advance Premium)คำควณ RI Claim Expense |
+| D8 | เอกสารไม่สมบูรณ์ | N |  |  |
+| F1 | Fraud Claim | N |  |  |
+| R1 | คืนเอกสารให้ผู้เอาประกัน | N |  |  |
+| RE | ให้เรียกร้องสินไหมโดยสำรองจ่ายค่ารักษาพยาบาล | N |  |  |
+| W1 | รอเอกสารทางการแพทย์ | N |  |  |
+| W2 | รอความเห็นจากแพทย์ที่ปรึกษา | N |  |  |
+| W4 | รอการอนุมัติจาก Auditor | N |  |  |
+| W8 | รอผลการตรวจสอบ | N |  |  |
+| Approve Claim Detail | รายละเอียดผลการ พิจารณา | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | approve_claim_detail |  |  |
+| Approve Date | วันที่ พิจารณา | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | approve_date | ต้องอยู่ภายในช่วงของ Period การประมวลผล |  |
+| Pay Date | วันที่จ่าย | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | acpay_date |  |  |
+| Pay Amount | Pay amount money | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | pay_money_amount |  |  |
+| Actual Claim Amount | ยอดสินไหมรวมที่เกิดขึ้นจริง | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | actual_claim_ext_amount |  |  |
+| Coverage ID Type | ประเภทรายการความคุ้มครองค่าใช้จ่าย | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | coverage_type |  |  |
+| Claim EXT Amount | ยอดเรียกร้องสินไหม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_ext_amount | {EXGRATIA_AMOUNT} (suthanee.sa 19/01/2025) |  |
+| Claim Amount | ยอดที่สินไหมที่จ่าย | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_paid_amount | (#COPAY Suthanee.sa 14/08/2025)ตรวจสอบ [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).copay_percentกรณี > 0(ให้นำ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_amount * [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).copay_percent) / 100Coverage Type Plan Code = LIFEให้เก็บค่าไว้ที่ {COPAY_AMOUNT_LIFE} Coverage Type Plan Code = ADD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_ADD} Coverage Type Plan Code = TPD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_TPD}Coverage Type Plan Code = TTD ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_TTD}Coverage Type Plan Code = RIDER ให้เก็บค่าไว้ที่ {COPAY_AMOUNT_RIDER}กรณีที่ <= 0 ให้บันทึกค่า 0 ใน{COPAY_AMOUNT_LIFE}, {COPAY_AMOUNT_ADD}, {COPAY_AMOUNT_TPD}, {COPAY_AMOUNT_TTD}, {COPAY_AMOUNT_RIDER} ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_amount เก็บตามเงื่อนไขดังนี้Coverage Type Plan Code = LIFEให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_LIFE}Coverage Type Plan Code = ADDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_ADD}Coverage Type Plan Code = TPDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_TPD}Coverage Type Plan Code = TTDให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_TTD}Coverage Type Plan Code = RIDERให้เก็บค่าไว้ที่ {ORI_CLAIM_AMOUNT_RIDER}จากนั้นนำค่าที่ได้มาคำนวณแล้วเก็บลง Parameter เดิม{ORI_CLAIM_AMOUNT_LIFE} - {COPAY_AMOUNT_LIFE} = {CLAIM_AMOUNT_LIFE} {ORI_CLAIM_AMOUNT_ADD} - {COPAY_AMOUNT_ADD} = {CLAIM_AMOUNT_ADD}{ORI_CLAIM_AMOUNT_TPD} - {COPAY_AMOUNT_TPD} = {CLAIM_AMOUNT_TPD}{ORI_CLAIM_AMOUNT_TTD} - {COPAY_AMOUNT_TTD} = {CLAIM_AMOUNT_TTD}{ORI_CLAIM_AMOUNT_RIDER} - {COPAY_AMOUNT_RIDER} = {CLAIM_AMOUNT_RIDER} |  |
+| Copay Percent (#COPAY Suthanee.sa 14/08/2025) | Copayment(%) ของ Customer | [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt) | copay_percent | นำข้อมูลดังนี้เข้าไปตรวจสอบ %Copay[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).policy_no = [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_no[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).rider_code = [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).rider_code[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).event_date อยู่ระหว่าง [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_year_start กับ [tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).policy_year_end[tx_ri_copay_dt](http://wiki.thaisamut.co.th/display/RDSINRI/65.+tx_ri_copay_dt).record_status = Aนำค่าที่ได้ จัดเก็บลงใน {COPAY} | ตรวจสอบรายการ Revise ในรอบเดียวกัน[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).notify_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).claim_type = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rv_amount <> NULL หรือ 0 ให้นำ [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new มาใช้แทน![](/download/attachments/1275559989/Screenshot%202025-08-20%20103130.png?version=1&modificationDate=1756197573741&api=v2) |
+| Claim Type Code | ประเภทสินไหม | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | claim_type_code | เฉพาะรายการ rider_code <> 0 หรือ NULL ที่มี[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).notify_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no as400_claim_no (suthanee.sa 18/09/2025) และ[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).claim_type = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code |  |
+| Claim Type Abb | ประเภทเรียกร้อง | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | claim_type_abb | เฉพาะรายการ rider_code <> 0 หรือ NULL ที่มี[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).notify_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no as400_claim_no (suthanee.sa 18/09/2025) และ[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).claim_type = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).rider_code |  |
+
+1. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).approve_claim = A1 กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% ให้ตรวจสอบ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).accident_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amount รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100%ประมวลผล RI Claim Expense
+2. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).approve_claim = A1 กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%  ให้ตรวจสอบ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).accident_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amount รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%ตรวจสอบว่าตั้งแต่ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เช่น กรมธรรม์ A เคยส่ง ประกันต่อ (Reinsurer) มาแล้ว 5 เดือน โดย Base ส่งตั้งแต่เดือน 1 - 5 Rider ส่งตั้งแต่เดือน 2 - 5 ส่วน [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).event_date อยู่ในรอบเดือนที่ 3 หมายความว่า จะได้รายการที่ส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดย Rider ตั้งแต่เดือน 3 - 5 จะได้รายการที่เคยส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดยจะได้ Rider ได้ทั้งหมด 3 Record สำหรับนำไปประมวลผลต่อทำ Refund 100% หลังวันเกิดเหตุกรณีรายการของ Base ต้องคืนทั้ง Base และ Riderกรณีรายการของ Rider ตรวจสอบว่าเป็นเคส Package หรือไม่ ดังนี้**การหา package_code** <![CDATA[select t1.treaty_code,t2.package_code,* from ms_partner_code_hd t1 left join ms_partner_code_dt t2 on t1.ms_partner_code_hd_id = t2.ms_partner_code_hd_id where t1.treaty_code = :treaty_code and t2.plan_code = :plan_code and t2.package_code = &#39;P&#39;]]> กรณีพบว่าเป็นเคส Packageกรณีเป็น Rider TPD หรือ TTD คืนทั้ง Base และ Riderกรณี Rider อื่นๆคืนเฉพาะ Riderกรณีพบว่าเป็นเคส Non-package คืนเฉพาะ  Rider นำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+3. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).approve_claim = D4, D7ตรวจสอบว่าตั้งแต่ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).accident_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เลือกเฉพาะรายการหลังจากที่เกิด accident_date  กรณี D4 ให้นำเฉพาะรายการของ Rider ไปประมวลผลต่อกรณี D7 ให้นำรายการทั้ง Base และ Rider ไปประมวลผลต่อนำรายการที่ได้ ไปประมวลผล 23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expens
+4. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).approve_claim = D6ตรวจสอบว่าตั้งแต่ [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).accident_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เลือกทุกรายการที่ส่งประกันต่อ นำรายการที่ได้ ไปประมวลผล 23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expens
+
+นำเข้าข้อมูลกรมธรรม์ PA (Claim)
+เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (Claim)
+
+ตรวจสอบจำนวนรายการ Claim
+1. ตรวจสอบ Treaty ที่กำลังประมวลผล กับ cf_lookup_catalog.parent_id = 1003700
+2. ถ้ามี Treaty ตรงกัน ให้ตรวจสอบว่า [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_no มีทั้งหมดกี่รายการหากมีมากกว่า 1 รายการ แยกรายการประมวลผล โดยแยกรายการจาก [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).rider_code
+3. หาก Treaty ไม่ตรงกับที่กำหนดไว้ ให้ประมวลผลตาม [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_no โดยรวมรายการ Claim ตามประเภทความคุ้มครอง
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt)
+
+| ข้อมูล | Description | Table | Field | Condition |
+| --- | --- | --- | --- | --- |
+| Policy No | เลขที่กรมธรรม์ | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | policy_no |  |
+| Event Date | วันที่เกิดเหตุ | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | event_date |  |
+| Claim No. | เลขที่สินไหม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_no |  |
+| Claim Type | ประเภทสินไหม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_type | Treaty No.Reinsurer CodeTreaty Code1GibraltarGIB_Ind_ORD_Med2PacificPLR_Ind_CI7_Rider3PacificPLR_Ind_ORD4ScorSCOR_Ind_ORD_NonMed5ThaireTHREL_Grp_CL_Cbank_MRTA6ThaireTHREL_Grp_CL_Cbank_MLTA7ThaireTHREL_Grp_CL_Cbank_RGAshare8ThaireTHREL_Ind_CI17Bundle9ThaireTHREL_Ind_CI50_Rider10ThaireTHREL_Ind_ORD_201911ThaireTHREL_Ind_ORD_NonMed12ThaireTHREL_Ind_PA13ThaireTHREL_Ind_HSS_Rider14ThaireTHREL_Ind_CI3Bundle15ThaireTHREL_UL_SP16ThaireTHREL_UL_RP17ToaTOA_Grp_CL_Aunjai18ToaTOA_Grp_CL_NonCBank_MRTA19ToaTOA_Grp_CL_NonCBank_MLTA20ToaTOA_Ind_CB_Rider21ToaTOA_Ind_CL_Addendum22ToaTOA_Ind_ORD23ToaTOA_Ind_ORD_FAC24ThaireTHREL_Ind_CI120_Rider25Mapfre_reMapfre_Grp_CL_Aunjai26Mapfre_reMapfre_Grp_CL_NonCBank_MRTA27Mapfre_reMapfre_Grp_CL_NonCBank_MLTA28PacificPLR_Grp_MLTA **IRI-PS-007 นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim)** แสดงรายละเอียด [WS_RI_12 ค้นหากรมธรรม์ส่งประกันต่อ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850249)[IRI-PS-008 นำเข้าข้อมูลกรมธรรม์ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946362)[tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_type claim_type Treaty **1****2****3****4****5****6****7****8****9****10****11****12****13****14****15****16****17****18****19****20****21****22****23****24****25****26****27****28**PDAสินไหมมรณกรรม Y PDRสินไหมมรณกรรม (รับทราบ) Y PNAสินไหมทดแทน Y PNRสินไหมทดแทน (รับทราบ) Y Y = นำไปประมวลผลเพราะมีการส่งประกันต่อ (ส่ง Reinsurer)R = ไม่มีการส่งประกันต่อ (ส่ง Reinsurer) แต่ต้องแสดงใน Report |
+| No. | Reinsurer Code | Treaty Code |
+| 1 | Gibraltar | GIB_Ind_ORD_Med |
+| 2 | Pacific | PLR_Ind_CI7_Rider |
+| 3 | Pacific | PLR_Ind_ORD |
+| 4 | Scor | SCOR_Ind_ORD_NonMed |
+| 5 | Thaire | THREL_Grp_CL_Cbank_MRTA |
+| 6 | Thaire | THREL_Grp_CL_Cbank_MLTA |
+| 7 | Thaire | THREL_Grp_CL_Cbank_RGAshare |
+| 8 | Thaire | THREL_Ind_CI17Bundle |
+| 9 | Thaire | THREL_Ind_CI50_Rider |
+| 10 | Thaire | THREL_Ind_ORD_2019 |
+| 11 | Thaire | THREL_Ind_ORD_NonMed |
+| 12 | Thaire | THREL_Ind_PA |
+| 13 | Thaire | THREL_Ind_HSS_Rider |
+| 14 | Thaire | THREL_Ind_CI3Bundle |
+| 15 | Thaire | THREL_UL_SP |
+| 16 | Thaire | THREL_UL_RP |
+| 17 | Toa | TOA_Grp_CL_Aunjai |
+| 18 | Toa | TOA_Grp_CL_NonCBank_MRTA |
+| 19 | Toa | TOA_Grp_CL_NonCBank_MLTA |
+| 20 | Toa | TOA_Ind_CB_Rider |
+| 21 | Toa | TOA_Ind_CL_Addendum |
+| 22 | Toa | TOA_Ind_ORD |
+| 23 | Toa | TOA_Ind_ORD_FAC |
+| 24 | Thaire | THREL_Ind_CI120_Rider |
+| 25 | Mapfre_re | Mapfre_Grp_CL_Aunjai |
+| 26 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MRTA |
+| 27 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MLTA |
+| 28 | Pacific | PLR_Grp_MLTA |
+| claim_type |  | Treaty |
+|  | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** | **24** | **25** | **26** | **27** | **28** |
+| PDA | สินไหมมรณกรรม |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| PDR | สินไหมมรณกรรม (รับทราบ) |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| PNA | สินไหมทดแทน |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| PNR | สินไหมทดแทน (รับทราบ) |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |
+| Approve Status | สถานะอนุมัติ | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_status | **IRI-PS-008 นำเข้าข้อมูลกรมธรรม์ PA (Claim)** แสดงรายละเอียด [WS_RI_12 ค้นหากรมธรรม์ส่งประกันต่อ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850249)[IRI-PS-008 นำเข้าข้อมูลกรมธรรม์ PA (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946362)[tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_status approveClaim ผลการ พิจารณาสถานะนำไปออก Reportสถานะการนำไปประมวลผล AอนุมัติYYแบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim ExpenseFปฎิเสธYYแบบ H ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim ExpenseRรอผลพิจารณาNN |
+| approveClaim | ผลการ พิจารณา | สถานะนำไปออก Report | สถานะการนำไปประมวลผล |  |
+| A | อนุมัติ | Y | Y | แบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| F | ปฎิเสธ | Y | Y | แบบ H ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Expense |
+| R | รอผลพิจารณา | N | N |  |
+| Inform Date | วันรับเรื่อง | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | inform_date |  |
+| Approve Date | วันที่จ่าย/อนุมัติ | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | approve_date | ต้องอยู่ภายในช่วงของ Period การประมวลผล |
+| Base Plan Code | รหัสแบบประกันหลัก | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | plan_code | นำค่า [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).plan_code เทียบกับ [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).plan_codeใช้เงื่อนไขดังนี้[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).policy_type = PA[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).product_group = BASEดึงค่า [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).ms_policy_coverage_type_code |
+| Rider Code | รหัสแบบประกันสัญญาเพิ่มเติม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | rider_code | เฉพาะรายการที่เท่ากับ 0 หมายถึงรายการที่เป็น Baseเฉพาะรายการที่เท่ากับ 1 หมายถึงรายการที่คุ้มครอง Publicเฉพาะรายการที่เท่ากับ 4 หมายถึงรายการที่คุ้มครอง Holidayเฉพาะรายการที่เท่ากับ 8 หมายถึงรายการที่คุ้มครอง Motorcycleเฉพาะรายการที่เท่ากับ 9 หมายถึงรายการที่คุ้มครอง Murder |
+| Claim Exgratia | จำนวนเงินจ่ายเพิ่ม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_exgratia | {EXGRATIA_AMOUNT} |
+| Claim Amount | ยอดที่สินไหมที่จ่าย | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_paid_amount | เฉพาะรายการที่เท่ากับ 0 หมายถึงรายการที่เป็น Baseให้เก็บค่าไว้ที่ {CLAIM_AMOUNT_ADD}เฉพาะรายการที่เท่ากับ 1 หมายถึงรายการที่คุ้มครอง Publicให้เก็บค่าไว้ที่ {CLAIM_AMOUNT_PUB}เฉพาะรายการที่เท่ากับ 4 หมายถึงรายการที่คุ้มครอง Holidayให้เก็บค่าไว้ที่ {CLAIM_AMOUNT_HOL}เฉพาะรายการที่เท่ากับ 8 หมายถึงรายการที่คุ้มครอง Motorcycleให้เก็บค่าไว้ที่ {CLAIM_AMOUNT_MOT}เฉพาะรายการที่เท่ากับ 9 หมายถึงรายการที่คุ้มครอง Murderให้เก็บค่าไว้ที่ {CLAIM_AMOUNT_MUR} |
+
+1. ตรวจสอบเพิ่มเติมกรณี [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_status = A กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% และ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_code <> 6 ให้ตรวจสอบ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100%ประมวลผล RI Claim Expense
+2. ตรวจสอบเพิ่มเติมกรณี [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_status = A กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% (suthanee.sa 2025/05/09) และ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_code == 6 ให้ตรวจสอบ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amount (suthanee.sa 2025/05/09)ตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง ตรวจสอบรายการตาม [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date มาทำรายการ Refund (วันที่เกิดเหตุและหลังวันที่เกิดเหตุ 100%) (suthanee.sa 2025/05/09)นำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+3. ตรวจสอบเพิ่มเติมกรณี [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_status = A [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% และ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_code <> 6ตรวจสอบค่า {CLAIM_AMOUNT_ADD} และ {CLAIM_AMOUNT_PUB} และ {CLAIM_AMOUNT_HOL} และ {CLAIM_AMOUNT_MOT} และ {CLAIM_AMOUNT_MUR} = 0 ไม่ต้องคำนวณและไม่ต้องออก Report (suthanee.sa 18/07/2025)
+4. ตรวจสอบเพิ่มเติมกรณี [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_status = A กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%  ให้ตรวจสอบ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountรวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%ตรวจสอบรายการที่ตรงตามรอบ [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date มาทำรายการ Refundนำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refund
+5. ตรวจสอบเพิ่มเติมกรณี [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date = F ให้ตรวจสอบข้อมูลและประมวลผล RI Claim Expense
+
+นำเข้าข้อมูลกรมธรรม์ UL (Claim)
+เงื่อนไขการดึงข้อมูลกรมธรรม์ UL (Claim)
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt)
+
+| Description | Table | Field | Condition |  |
+| --- | --- | --- | --- | --- |
+| Policy No | เลขที่กรมธรรม์ | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | policy_no |  |
+| Base Plan Code | รหัสแบบประกันหลัก | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | plan_code | นำค่า [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).plan_code เทียบกับ [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).plan_codeใช้เงื่อนไขดังนี้[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).policy_type = UL[ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).product_group = BASEดึงค่า [ms_product](http://wiki.thaisamut.co.th/display/RDSINRI/08.+ms_product).ms_policy_coverage_type_code |
+| Claim No. | เลขที่สินไหม | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_running_no |  |
+| Claim Status | ผลการพิจารณา | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_process_status_code | **IRI-PS-009 นำเข้าข้อมูลกรมธรรม์ UL (Claim)** แสดงรายละเอียด [WS_RI_13 ค้นหากรมธรรม์ส่งประกันต่อ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850389)[IRI-PS-009 นำเข้าข้อมูลกรมธรรม์ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946395)[tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_codeapproveClaimผลการ พิจารณาสถานะนำไปออก Reportสถานะการนำไปประมวลผล AเอกสารครบNN APอนุมัติYYแบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim ExpenseAPKอนุมัติจ่ายสินไหมผู้รับผลประโยชน์ที่ไม่ได้ร่วมฆ่าYYแบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim ExpenseBNCไม่มีการเปลี่ยนแปลงข้อมูล ผรป.NN BVCยืนยันการเปลี่ยนแปลงข้อมูล ผรป.เรียบร้อยNN BWPรอยืนยันการเปลี่ยนแปลงข้อมูล ผรป.บางส่วนNN CคืนเอกสารNN CBยกเลิกโดยสาขาNN CCยกเลิกโดยสินไหมNN CHปฏิเสธการพิจารณาNN CSยกเลิกโดยระบบNN Dเอกสารไม่ครบNN EXช่วยเหลือYYแบบ Lประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Exgratiaคำควณ RI Claim ExpenseHรอการส่งเรื่องพิจารณาจากฝ่ายสินไหมNN IVสอบสวนNN Nเอกสารไม่ครบ (สินไหมส่งคืนเอกสาร)NN Pส่งข้อมูลเพื่อพิจารณาNN PAยืนยันบางส่วนNN PVCพิจารณาเปลี่ยนแปลงข้อมูล ผรป.เรียบร้อยNN PWPรอพิจารณาเปลี่ยนแปลงข้อมูล ผรป.บางส่วนNN PYเรียบร้อยแล้วNN RCยกเลิกสัญญาเพิ่มเติมNN RJปฏิเสธความคุ้มครองYYแบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseRJDปฏิเสธความคุ้มครองฆ่าตัวตายตายภายใน 1 ปีYYแบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseRJIปฏิเสธการจ่ายสินไหมเนื่องจากผู้รับประโยชน์ทั้งหมดฆ่าผู้เอาประกันYYแบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseRJLปฏิเสธความคุ้มครอง/กรมธรรม์สิ้นสุดผลบังคับYYแบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseRJPปฏิเสธเสนอพิจารณาNN RJSปฏิเสธการจ่ายสินไหม/คืนมูลค่าเวนคืนกรมธรรม์YYแบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseVPบอกล้างกรมธรรม์YY แบบ Jประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim ExpenseWAอยู่ระหว่างการพิจารณาNN WIดำเนินการขายกองทุนNN WPรอยืนยันจ่ายNN |
+| approveClaim | ผลการ พิจารณา | สถานะนำไปออก Report | สถานะการนำไปประมวลผล |  |
+| A | เอกสารครบ | N | N |  |
+| AP | อนุมัติ | Y | Y | แบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| APK | อนุมัติจ่ายสินไหมผู้รับผลประโยชน์ที่ไม่ได้ร่วมฆ่า | Y | Y | แบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| BNC | ไม่มีการเปลี่ยนแปลงข้อมูล ผรป. | N | N |  |
+| BVC | ยืนยันการเปลี่ยนแปลงข้อมูล ผรป.เรียบร้อย | N | N |  |
+| BWP | รอยืนยันการเปลี่ยนแปลงข้อมูล ผรป.บางส่วน | N | N |  |
+| C | คืนเอกสาร | N | N |  |
+| CB | ยกเลิกโดยสาขา | N | N |  |
+| CC | ยกเลิกโดยสินไหม | N | N |  |
+| CH | ปฏิเสธการพิจารณา | N | N |  |
+| CS | ยกเลิกโดยระบบ | N | N |  |
+| D | เอกสารไม่ครบ | N | N |  |
+| EX | ช่วยเหลือ | Y | Y | แบบ Lประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Exgratiaคำควณ RI Claim Expense |
+| H | รอการส่งเรื่องพิจารณาจากฝ่ายสินไหม | N | N |  |
+| IV | สอบสวน | N | N |  |
+| N | เอกสารไม่ครบ (สินไหมส่งคืนเอกสาร) | N | N |  |
+| P | ส่งข้อมูลเพื่อพิจารณา | N | N |  |
+| PA | ยืนยันบางส่วน | N | N |  |
+| PVC | พิจารณาเปลี่ยนแปลงข้อมูล ผรป.เรียบร้อย | N | N |  |
+| PWP | รอพิจารณาเปลี่ยนแปลงข้อมูล ผรป.บางส่วน | N | N |  |
+| PY | เรียบร้อยแล้ว | N | N |  |
+| RC | ยกเลิกสัญญาเพิ่มเติม | N | N |  |
+| RJ | ปฏิเสธความคุ้มครอง | Y | Y | แบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| RJD | ปฏิเสธความคุ้มครองฆ่าตัวตายตายภายใน 1 ปี | Y | Y | แบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| RJI | ปฏิเสธการจ่ายสินไหมเนื่องจากผู้รับประโยชน์ทั้งหมดฆ่าผู้เอาประกัน | Y | Y | แบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| RJL | ปฏิเสธความคุ้มครอง/กรมธรรม์สิ้นสุดผลบังคับ | Y | Y | แบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| RJP | ปฏิเสธเสนอพิจารณา | N | N |  |
+| RJS | ปฏิเสธการจ่ายสินไหม/คืนมูลค่าเวนคืนกรมธรรม์ | Y | Y | แบบ J (suthanee.sa 2025/02/11)ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| VP | บอกล้างกรมธรรม์ | Y | Y | แบบ Jประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ Refund (Premium ทุกรอบที่ส่ง)คำควณ RI Claim Expense |
+| WA | อยู่ระหว่างการพิจารณา | N | N |  |
+| WI | ดำเนินการขายกองทุน | N | N |  |
+| WP | รอยืนยันจ่าย | N | N |  |
+| Claim Type Desc | ประเภทสินไหม | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_type | Treaty No.Reinsurer CodeTreaty Code1GibraltarGIB_Ind_ORD_Med2PacificPLR_Ind_CI7_Rider3PacificPLR_Ind_ORD4ScorSCOR_Ind_ORD_NonMed5ThaireTHREL_Grp_CL_Cbank_MRTA6ThaireTHREL_Grp_CL_Cbank_MLTA7ThaireTHREL_Grp_CL_Cbank_RGAshare8ThaireTHREL_Ind_CI17Bundle9ThaireTHREL_Ind_CI50_Rider10ThaireTHREL_Ind_ORD_201911ThaireTHREL_Ind_ORD_NonMed12ThaireTHREL_Ind_PA13ThaireTHREL_Ind_HSS_Rider14ThaireTHREL_Ind_CI3Bundle15ThaireTHREL_UL_SP16ThaireTHREL_UL_RP17ToaTOA_Grp_CL_Aunjai18ToaTOA_Grp_CL_NonCBank_MRTA19ToaTOA_Grp_CL_NonCBank_MLTA20ToaTOA_Ind_CB_Rider21ToaTOA_Ind_CL_Addendum22ToaTOA_Ind_ORD23ToaTOA_Ind_ORD_FAC24ThaireTHREL_Ind_CI120_Rider25Mapfre_reMapfre_Grp_CL_Aunjai26Mapfre_reMapfre_Grp_CL_NonCBank_MRTA27Mapfre_reMapfre_Grp_CL_NonCBank_MLTA28PacificPLR_Grp_MLTA **IRI-PS-009 นำเข้าข้อมูลกรมธรรม์ UL (Claim)** แสดงรายละเอียด [WS_RI_13 ค้นหากรมธรรม์ส่งประกันต่อ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1113850389)[IRI-PS-009 นำเข้าข้อมูลกรมธรรม์ UL (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117946395)[tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_type_group_code claim_typeTreaty**1****2****3****4****5****6****7****8****9****10****11****12****13****14****15****16****17****18****19****20****21****22****23****24****25****26****27****28**Death Claim YY Health Claim YY Y = นำไปประมวลผลเพราะมีการส่งประกันต่อ (ส่ง Reinsurer)R = ไม่มีการส่งประกันต่อ (ส่ง Reinsurer) แต่ต้องแสดงใน Report |
+| No. | Reinsurer Code | Treaty Code |
+| 1 | Gibraltar | GIB_Ind_ORD_Med |
+| 2 | Pacific | PLR_Ind_CI7_Rider |
+| 3 | Pacific | PLR_Ind_ORD |
+| 4 | Scor | SCOR_Ind_ORD_NonMed |
+| 5 | Thaire | THREL_Grp_CL_Cbank_MRTA |
+| 6 | Thaire | THREL_Grp_CL_Cbank_MLTA |
+| 7 | Thaire | THREL_Grp_CL_Cbank_RGAshare |
+| 8 | Thaire | THREL_Ind_CI17Bundle |
+| 9 | Thaire | THREL_Ind_CI50_Rider |
+| 10 | Thaire | THREL_Ind_ORD_2019 |
+| 11 | Thaire | THREL_Ind_ORD_NonMed |
+| 12 | Thaire | THREL_Ind_PA |
+| 13 | Thaire | THREL_Ind_HSS_Rider |
+| 14 | Thaire | THREL_Ind_CI3Bundle |
+| 15 | Thaire | THREL_UL_SP |
+| 16 | Thaire | THREL_UL_RP |
+| 17 | Toa | TOA_Grp_CL_Aunjai |
+| 18 | Toa | TOA_Grp_CL_NonCBank_MRTA |
+| 19 | Toa | TOA_Grp_CL_NonCBank_MLTA |
+| 20 | Toa | TOA_Ind_CB_Rider |
+| 21 | Toa | TOA_Ind_CL_Addendum |
+| 22 | Toa | TOA_Ind_ORD |
+| 23 | Toa | TOA_Ind_ORD_FAC |
+| 24 | Thaire | THREL_Ind_CI120_Rider |
+| 25 | Mapfre_re | Mapfre_Grp_CL_Aunjai |
+| 26 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MRTA |
+| 27 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MLTA |
+| 28 | Pacific | PLR_Grp_MLTA |
+| claim_type | Treaty |
+| **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** | **24** | **25** | **26** | **27** | **28** |
+| Death Claim |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y | Y |  |  |  |  |  |  |  |  |  |  |  |  |
+| Health Claim |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y | Y |  |  |  |  |  |  |  |  |  |  |  |  |
+| Claim Type | รหัสประเภทสินไหม | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_type_group_code |  |
+| Claim Type Grpup | กลุ่มประเภทสินไหม | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_type_group_description |  |
+| Death Date | วันที่เสียชีวิต | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | death_date |  |
+| Occurrence Date | วันที่เกิดเหตุ | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | occurrence_date |  |
+| Approve Date | วันที่จ่าย/อนุมัติ | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | approver_date | ต้องอยู่ภายในช่วงของ Period การประมวลผล |
+| Claim Amount | ยอดที่สินไหมที่จ่าย | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | benefit_amount | กรณีที่ใน [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_running_no 1 เลขมีมากกว่า 1 รายการ ให้รวม benefit_amount ทั้งหมด{CLAIM_AMOUNT_LIFE} |
+| Claim Exgratia | ค่าสินไหมกรุณา | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | compromise_amount | {EXGRATIA_AMOUNT} |
+
+1. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = AP, APK กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% ให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อ กรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_date กรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100%ประมวลผล RI Claim Expense
+2. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = AP, APK กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100% ให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อ กรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_date กรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%ตรวจสอบว่าตั้งแต่ [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เช่น กรมธรรม์ A เคยส่ง ประกันต่อ (Reinsurer) มาแล้ว 5 เดือน โดย Base ส่งตั้งแต่เดือน 1 - 5 Rider ส่งตั้งแต่เดือน 2 - 5 ส่วน [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).event_date อยู่ในรอบเดือนที่ 3 หมายความว่า จะได้รายการที่ส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดย Rider ตั้งแต่เดือน 3 - 5 จะได้รายการที่เคยส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดยจะได้ Rider ได้ทั้งหมด 3 Record สำหรับนำไปประมวลผลต่อนำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+3. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = EX ให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อ กรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_date กรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateให้ตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครองให้ตรวจสอบข้อมูลและประมวลผล RI Claim Expense
+4. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = RJให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อ กรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_date กรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateให้ตรวจสอบข้อมูลและประมวลผล RI Claim Expenseให้ Refund ทุกรอบ 100% และบันทึกค่า Refund
+5. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = RJD, RJI, RJL, RJSให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อกรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_date กรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateตรวจสอบว่าตั้งแต่ [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง ให้ Refund ทุกรอบ 100% และบันทึกค่า Refund นำรายการที่ได้ ไปประมวลผล 23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+6. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_process_status_code = VP กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100% (suthanee.sa 19/01/2025)ให้ตรวจสอบวันที่เกิดเหตุของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อกรณี Claim Type = D ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).death_dateกรณี Claim Type = H ใช้ Field [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).occurrence_dateประมวลผล RI Claim amount (suthanee.sa 19/01/2025) รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100% (suthanee.sa 19/01/2025)ตรวจสอบว่าตั้งแต่ วันที่เกิดเหตุ จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เช่น กรมธรรม์ A เคยส่ง ประกันต่อ (Reinsurer) มาแล้ว 5 เดือน โดย Base ส่งตั้งแต่เดือน 1 - 5 Rider ส่งตั้งแต่เดือน 2 - 5 ส่วน ให้นำทุกรายการไปประมวลผลต่อให้ Refund ทุกรอบ 100% และบันทึกค่า Refund นำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+
+นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)
+เงื่อนไขการดึงข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt)
+
+| Description | Table | Field | Condition |  |
+| --- | --- | --- | --- | --- |
+| Claim No. | เลขที่สินไหม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_no |  |
+| Policy No | เลขที่กรมธรรม์ | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | policy_no |  |
+| Rider Code | รหัสแบบประกันสัญญาเพิ่มเติม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | rider_code | Infomation เนื่องจากใน Landing นี้เป็น Lading จาก IND จึงให้ข้อมูลเพิ่มเติมว่ามี Rider ที่เป็น ORD ด้วยกรณี Rider = 24 หมายถึง Rider ORDกรณี Rider = 35 หมายถึง Rider ORDกรณี Rider = 3 หมายถึง Rider IND |
+| Claim Amount | ยอดที่สินไหมที่จ่าย | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_amount | {CLAIM_AMOUNT_ADD} |
+| Event Date | วันที่เกิดเหตุ | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | event_date |  |
+| Claim Status | ผลการพิจารณา | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_status | **IRI-PS-013 นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)** แสดงรายละเอียด [WS_RI_17 ค้นหากรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500775)[IRI-PS-013 นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500801)[tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_status approveClaim ผลการ พิจารณาสถานะนำไปออก Reportสถานะการนำไปประมวลผล APอนุมัติYYแบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim ExpenseRJปฎิเสธYYแบบ Hประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Expense |
+| approveClaim | ผลการ พิจารณา | สถานะนำไปออก Report | สถานะการนำไปประมวลผล |  |
+| AP | อนุมัติ | Y | Y | แบบ G ประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim amount(คำนวณ Refund (Advance Premium)) เฉพาะรายการที่เคลมครบ 100%คำนวณ RI Claim Exgratia (suthanee.sa 2025/02/11)คำควณ RI Claim Expense |
+| RJ | ปฎิเสธ | Y | Y | แบบ Hประมวลผลรายการในรอบเดียวกับที่ส่งประกันต่อคำนวณ RI Claim Expense |
+| Approve Date | วันที่พิจารณา | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | approve_date | ต้องอยู่ภายในช่วงของ Period การประมวลผล |
+| Claim Exgratia | จำนวนเงินจ่ายเพิ่ม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_exgratia | {EXGRATIA_AMOUNT} |
+| Claim No. AS400 | เลขที่สินไหมที่ AD400 | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | as400_claim_no |  |
+| Claim Type | รหัสประเภทสินไหม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_type | Treaty No.Reinsurer CodeTreaty Code1GibraltarGIB_Ind_ORD_Med2PacificPLR_Ind_CI7_Rider3PacificPLR_Ind_ORD4ScorSCOR_Ind_ORD_NonMed5ThaireTHREL_Grp_CL_Cbank_MRTA6ThaireTHREL_Grp_CL_Cbank_MLTA7ThaireTHREL_Grp_CL_Cbank_RGAshare8ThaireTHREL_Ind_CI17Bundle9ThaireTHREL_Ind_CI50_Rider10ThaireTHREL_Ind_ORD_201911ThaireTHREL_Ind_ORD_NonMed12ThaireTHREL_Ind_PA13ThaireTHREL_Ind_HSS_Rider14ThaireTHREL_Ind_CI3Bundle15ThaireTHREL_UL_SP16ThaireTHREL_UL_RP17ToaTOA_Grp_CL_Aunjai18ToaTOA_Grp_CL_NonCBank_MRTA19ToaTOA_Grp_CL_NonCBank_MLTA20ToaTOA_Ind_CB_Rider21ToaTOA_Ind_CL_Addendum22ToaTOA_Ind_ORD23ToaTOA_Ind_ORD_FAC24ThaireTHREL_Ind_CI120_Rider25Mapfre_reMapfre_Grp_CL_Aunjai26Mapfre_reMapfre_Grp_CL_NonCBank_MRTA27Mapfre_reMapfre_Grp_CL_NonCBank_MLTA28PacificPLR_Grp_MLTA **IRI-PS-013 นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)** แสดงรายละเอียด [WS_RI_17 ค้นหากรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500775)[IRI-PS-013 นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1122500801)[tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_status claim_type Treaty **1****2****3****4****5****6****7****8****9****10****11****12****13****14****15****16****17****18****19****20****21****22****23****24****25****26****27****28**HEALTHสินไหมสุขภาพ Y DEATHสินไหมมรณกรรม/มรณกรรมอุบัติเหตุ/ค่าปลงศพ Y CHILDสินไหมคุ้มครองบุตร Y PBสินไหมผลประโยชน์ผู้ชำระเบี้ยประกันภัย PB (กรณีเสียชีวิต) Y DISMEMสินไหมทุพพลภาพ/สูญเสียอวัยวะ/โรคร้ายแรง/เงินปลอบขวัญ Y PBDสินไหมผลประโยชน์ผู้ชำระเบี้ยประกันภัย PB (กรณีทุพพลภาพสิ้นเชิงถาวร) Y Y = นำไปประมวลผลเพราะมีการส่งประกันต่อ (ส่ง Reinsurer)R = ไม่มีการส่งประกันต่อ (ส่ง Reinsurer) แต่ต้องแสดงใน Report |
+| No. | Reinsurer Code | Treaty Code |
+| 1 | Gibraltar | GIB_Ind_ORD_Med |
+| 2 | Pacific | PLR_Ind_CI7_Rider |
+| 3 | Pacific | PLR_Ind_ORD |
+| 4 | Scor | SCOR_Ind_ORD_NonMed |
+| 5 | Thaire | THREL_Grp_CL_Cbank_MRTA |
+| 6 | Thaire | THREL_Grp_CL_Cbank_MLTA |
+| 7 | Thaire | THREL_Grp_CL_Cbank_RGAshare |
+| 8 | Thaire | THREL_Ind_CI17Bundle |
+| 9 | Thaire | THREL_Ind_CI50_Rider |
+| 10 | Thaire | THREL_Ind_ORD_2019 |
+| 11 | Thaire | THREL_Ind_ORD_NonMed |
+| 12 | Thaire | THREL_Ind_PA |
+| 13 | Thaire | THREL_Ind_HSS_Rider |
+| 14 | Thaire | THREL_Ind_CI3Bundle |
+| 15 | Thaire | THREL_UL_SP |
+| 16 | Thaire | THREL_UL_RP |
+| 17 | Toa | TOA_Grp_CL_Aunjai |
+| 18 | Toa | TOA_Grp_CL_NonCBank_MRTA |
+| 19 | Toa | TOA_Grp_CL_NonCBank_MLTA |
+| 20 | Toa | TOA_Ind_CB_Rider |
+| 21 | Toa | TOA_Ind_CL_Addendum |
+| 22 | Toa | TOA_Ind_ORD |
+| 23 | Toa | TOA_Ind_ORD_FAC |
+| 24 | Thaire | THREL_Ind_CI120_Rider |
+| 25 | Mapfre_re | Mapfre_Grp_CL_Aunjai |
+| 26 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MRTA |
+| 27 | Mapfre_re | Mapfre_Grp_CL_NonCBank_MLTA |
+| 28 | Pacific | PLR_Grp_MLTA |
+| claim_type |  | Treaty |
+|  | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **10** | **11** | **12** | **13** | **14** | **15** | **16** | **17** | **18** | **19** | **20** | **21** | **22** | **23** | **24** | **25** | **26** | **27** | **28** |
+| HEALTH | สินไหมสุขภาพ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| DEATH | สินไหมมรณกรรม/มรณกรรมอุบัติเหตุ/ค่าปลงศพ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| CHILD | สินไหมคุ้มครองบุตร |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| PB | สินไหมผลประโยชน์ผู้ชำระเบี้ยประกันภัย PB (กรณีเสียชีวิต) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| DISMEM | สินไหมทุพพลภาพ/สูญเสียอวัยวะ/โรคร้ายแรง/เงินปลอบขวัญ |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| PBD | สินไหมผลประโยชน์ผู้ชำระเบี้ยประกันภัย PB (กรณีทุพพลภาพสิ้นเชิงถาวร) |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | Y |  |  |  |  |  |  |  |  |
+| Claim Type Desc | ประเภทสินไหม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | claim_type_desc |  |
+
+1. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_status = AP กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100% ให้ตรวจสอบ [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) ไม่เท่ากับ 100%ประมวลผล RI Claim Expense
+2. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_status = AP กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%  ให้ตรวจสอบ [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อประมวลผล RI Claim amountตรวจสอบข้อมูลและประมวลผล RI Claim Amount Exgratia ตามความคุ้มครอง รวมทุกรายการ Claim ที่เหมือนกันของกรมธรรม์นี้แล้ว [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%ตรวจสอบว่าตั้งแต่ [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง เช่น กรมธรรม์ A เคยส่ง ประกันต่อ (Reinsurer) มาแล้ว 5 เดือน โดย Base ส่งตั้งแต่เดือน 1 - 5 Rider ส่งตั้งแต่เดือน 2 - 5 ส่วน tx_ri_ord_master_claim_dt.event_date อยู่ในรอบเดือนที่ 3 หมายความว่า จะได้รายการที่ส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดย Rider ตั้งแต่เดือน 3 - 5 จะได้รายการที่เคยส่ง ประกันต่อ (Reinsurer) ที่ไม่มีผลแล้ว (จ่าย Advance Premium) โดยจะได้ Rider ได้ทั้งหมด 3 Record สำหรับนำไปประมวลผลต่อนำรายการที่ได้ ไปประมวลผล23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+3. ตรวจสอบเพิ่มเติมกรณี [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_status = RJ กรณี [{PER_CLAIM}](http://wiki.thaisamut.co.th/x/9IC5Qg) เท่ากับ 100%  ให้ตรวจสอบ [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).event_date ของรายการ ไปตรงกับรอบไหน ให้นำรายการนั้นมาประมวลผลต่อตรวจสอบว่าตั้งแต่ [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).event_date จนถึง Period ปัจจุบัน มีการส่ง **ประกันต่อ (Reinsurer)**ไปทั้งหมดกี่ครั้ง นำรายการที่ได้ ไปประมวลผล 23 การประมวลผล RI Premium refund24 การประมวลผล RI Extra Premium refund25 การประมวลผล Total RI premium refund26 การประมวลผล Total RI Extra Premium refund27 การประมวลผล RI Commission refund28 การประมวลผล RI Extra commission refund29 การประมวลผล Total RI Commission refund30 การประมวลผล Total RI Extra commission refundประมวลผล RI Claim Expense
+
+นำเข้าข้อมูลกรมธรรม์ Revised Claim
+เงื่อนไขการดึงข้อมูลกรมธรรม์ Revised Claim
+
+แสดงรายละเอียด
+- ดึงข้อมูลจาก Table [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms)
+
+| Description | Table | Field | Condition |  |
+| --- | --- | --- | --- | --- |
+| Claim No. | เลขที่สินไหม | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | claim_no |  |
+| Policy No | เลขที่กรมธรรม์ | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | policy_no |  |
+| Rider Code | รหัสแบบประกันสัญญาเพิ่มเติม | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | rider_code |  |
+| Claim Amount | จำนวนเงิน Copayment Client | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | cp_claim_amount rv_amount | เฉพาะรายการที่ไม่เท่ากับ NULL หรือ 0 |
+| Claim No. AS400 | เลขที่สินไหมที่ AD400 | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | as400_claim_no |  |
+| Copayment Client (%) | Copayment Client (%) ล่าสุด | [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms) | cp_client_new |  |
+
+- นำรายการ [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no ค้นหาใน [tx_ri_bdr_act_claim](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms)โดย [tx_ri_bdr_act_claim](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_no = [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).claim_noกรณีพบรายการ ให้ตรวจสอบข้อมูลอื่น ๆ ต่อที่ [tx_ri_bdr_act_claim](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).ri_act_policy_dt_idกรณีไม่พบรายการ ให้ค้นหาต่อใน [tx_ri_bdr_claim](http://wiki.thaisamut.co.th/display/RDSINRI/24.+tx_ri_bdr_claim)แล้วตรวจสอบข้อมูลอื่น ๆ ต่อที่ [tx_ri_bdr_claim](http://wiki.thaisamut.co.th/display/RDSINRI/24.+tx_ri_bdr_claim).ri_est_policy_dt_id***หมายเหตุ กรณีเจอรายการ claim_no เดียวกัน มากกว่า 1 รายการ ให้ใช้รายการที่มี Period มากที่สุด ![](/download/attachments/1275559989/Screenshot%202025-08-20%20103130.png?version=1&modificationDate=1756197573741&api=v2)
+- จากนั้นให้ดึงข้อมูลมูลเดิมทั้งหมด (จากข้อ 6. ดำเนินการดึงข้อมูลการประมวลผลในรอบนั้น และเพิ่มข้อมูลทั้งหมดใน tx_ri_act_claim_dt หรือ tx_ri_est_claim_dt) โดยมีเงื่อนไขพิเศษเฉพาะ Field ดังนี้ (ชุดข้อมูลคำนวณเคลมเดิม)TableFieldเงื่อนไขtx_ri_act_rider_auto_dt , tx_ri_act_rider_facult_dt , tx_ri_est_rider_auto_dt , tx_ri_est_rider_facult_dt claim_rider_facนำค่าที่ได้แปลงเป็นค่าติดลบแล้วเก็บใน Field เดิม เป็นชุดรายการสำหรับคืนclaim_tpd_facclaim_ttd_facclaim_add_facclaim_investigation_facclaim_legal_fee_facclaim_medical_facclaim_exgratia_factotal_claim_facclaim_riderclaim_tpdclaim_ttdclaim_addclaim_investigationclaim_legal_feeclaim_medicalclaim_exgratiatotal_claimtx_ri_act_claim_dt , tx_ri_est_claim_dtcompromise_amtpaid_lifepaid_riderpaid_addpaid_ttdpaid_tpdpaid_ex_gratiaclaim_exp_investigationclaim_exp_legal_feeclaim_exp_medicalclaim_exp_ex_gratia
+- จากนั้นดึงข้อมูลมูลเดิมทั้งหมด (จากข้อ 6. ดำเนินการดึงข้อมูลการประมวลผลในรอบนั้น และเพิ่มข้อมูลทั้งหมดใน tx_ri_act_claim_dt หรือ tx_ri_est_claim_dt) โดยมีเงื่อนไขพิเศษเฉพาะ Field ดังนี้ (ชุดข้อมูลคำนวณเคลมใหม่)
+
+| Table | Field | เงื่อนไข |
+| --- | --- | --- |
+| tx_ri_act_rider_auto_dt , tx_ri_act_rider_facult_dt , tx_ri_est_rider_auto_dt , tx_ri_est_rider_facult_dt | claim_investigation_fac | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_legal_fee_fac | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_medical_fac | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exgratia_fac | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| total_claim_fac | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_investigation | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_legal_fee | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_medical | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exgratia | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| total_claim | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| tx_ri_act_claim_dt , tx_ri_est_claim_dt | compromise_amt | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| paid_life | เก็บค่าใน {ORI_CLAIM_AMOUNT_LIFE}นำ {ORI_CLAIM_AMOUNT_LIFE} * [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new /100 เก็บลงใน {COPAY_AMOUNT_LIFE}จากนั้นนำ {ORI_CLAIM_AMOUNT_LIFE} - {COPAY_AMOUNT_LIFE}นำผลที่ได้เก็บลงใน {CLAIM_AMOUNT_LIFE} จากนั้นเรียก Process [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) ทำกระบวนการแบบเดิม |
+| paid_rider | เก็บค่าใน {ORI_CLAIM_AMOUNT_RIDER}นำ {ORI_CLAIM_AMOUNT_RIDER} * [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new /100 เก็บลงใน {COPAY_AMOUNT_RIDER}จากนั้นนำ {ORI_CLAIM_AMOUNT_RIDER} - {COPAY_AMOUNT_RIDER} นำผลที่ได้เก็บลงใน {CLAIM_AMOUNT_RIDER}จากนั้นเรียก Process [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) ทำกระบวนการแบบเดิม |
+| paid_add | เก็บค่าใน {ORI_CLAIM_AMOUNT_ADD}นำ {ORI_CLAIM_AMOUNT_ADD} * [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new /100 เก็บลงใน {COPAY_AMOUNT_ADD}จากนั้นนำ {ORI_CLAIM_AMOUNT_ADD} - {COPAY_AMOUNT_ADD} นำผลที่ได้เก็บลงใน {CLAIM_AMOUNT_ADD}จากนั้นเรียก Process [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) ทำกระบวนการแบบเดิม |
+| paid_ttd | เก็บค่าใน {ORI_CLAIM_AMOUNT_TTD}นำ {ORI_CLAIM_AMOUNT_TTD} * [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new /100 เก็บลงใน {COPAY_AMOUNT_TTD}จากนั้นนำ {ORI_CLAIM_AMOUNT_TTD} - {COPAY_AMOUNT_TTD} นำผลที่ได้เก็บลงใน {CLAIM_AMOUNT_TTD} จากนั้นเรียก Process [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) ทำกระบวนการแบบเดิม |
+| paid_tpd | เก็บค่าใน {ORI_CLAIM_AMOUNT_TPD}นำ {ORI_CLAIM_AMOUNT_TPD} * [tx_ri_claim_cms](http://wiki.thaisamut.co.th/display/RDSINRI/66.+tx_ri_claim_cms).cp_client_new /100 เก็บลงใน {COPAY_AMOUNT_TPD}จากนั้นนำ {ORI_CLAIM_AMOUNT_TPD} - {COPAY_AMOUNT_TPD}นำผลที่ได้เก็บลงใน {CLAIM_AMOUNT_TPD} จากนั้นเรียก Process [31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428) ทำกระบวนการแบบเดิม |
+| paid_ex_gratia | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exp_investigation | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exp_legal_fee | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exp_medical | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+| claim_exp_ex_gratia | ใช้ค่าเดิม ไม่ต้องคำนวณใหม่ |
+
+นำเข้าข้อมูลค่าส่งสอบจากระบบ CMS
+ข้อมูลจาก Table Claim
+เลือกใช้ข้อมูลจาก Table Claim
+
+แสดงรายละเอียด
+| ที่มาของข้อมูล | ข้อมูล | Description | Table | Field |
+| --- | --- | --- | --- | --- |
+| นำเข้าข้อมูลกรมธรรม์สามัญ ORD (Master Claim) | Claim No. | เลขที่เคลม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | claim_no |
+| Plan Code / Rider Code | รหัสแบบประกัน | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | plan_code |
+| [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | rider_code |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim) | Claim No. | เลขที่เคลม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_no |
+| Plan Code / Rider Code | รหัสแบบประกัน | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_type |
+| นำเข้าข้อมูลกรมธรรม์ PA (Claim) | Claim No. | เลขที่เคลม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | claim_no |
+| Plan Code / Rider Code | รหัสแบบประกัน | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | plan_code |
+| นำเข้าข้อมูลกรมธรรม์ UL (Claim) | Claim No. | เลขที่เคลม | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | claim_running_no |
+| Plan Code / Rider Code | รหัสแบบประกัน | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | plan_code |
+| นำเข้าข้อมูลกรมธรรม์ CB Rider (Claim) | Claim No. | เลขที่เคลม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | as400_claim_no |
+| Plan Code / Rider Code | รหัสแบบประกัน | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | rider_code |
+
+ดึงข้อมูลค่าส่งสอบจากระบบ CMS
+เงื่อนไขการดึงข้อมูลค่าส่งสอบจากระบบ CMS
+
+แสดงรายละเอียด
+| ข้อมูล | Description | Table | Field | Condition |
+| --- | --- | --- | --- | --- |
+| Claim No. | เลขที่เคลม | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | as400_claim_no | เทียบข้อมูลจาก Table Claim = Claim No. |
+| Rider Code | รหัสแบบประกัน | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | rider_code | เทียบข้อมูลจาก Table Claim = Plan Code / Rider Codeซึ่งกรณีที่เป็นการส่งสอบของ Base Plan [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt).rider_code = 0 |
+| Expense Code | รหัสค่าใช้จ่าย | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | ri_group_code |  |
+| Claim Expense | ค่าใช้จ่าย | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | total_amount | ตรวจสอบ [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt).ri_group_codeถ้า = 1 ให้ตรวจสอบ Coverage Typeถ้า = LIFE ให้เก็บค่าลงใน {EXPENSE_MED_LIFE}ถ้า = ADD ให้เก็บค่าลงใน {EXPENSE_MED_ADD}ถ้า = TPD ให้เก็บค่าลงใน {EXPENSE_MED_TPD}ถ้า = TTD ให้เก็บค่าลงใน {EXPENSE_MED_TTD}ถ้า = RIDER ให้เก็บค่าลงใน {EXPENSE_MED_RIDER} ถ้า = 2 ให้ตรวจสอบ Coverage Typeถ้า = LIFE ให้เก็บค่าลงใน {EXPENSE_LEG_LIFE}ถ้า = ADD ให้เก็บค่าลงใน {EXPENSE_LEG_ADD}ถ้า = TPD ให้เก็บค่าลงใน {EXPENSE_LEG_TPD}ถ้า = TTD ให้เก็บค่าลงใน {EXPENSE_LEG_TTD}ถ้า = RIDER ให้เก็บค่าลงใน {EXPENSE_LEG_RIDER}ถ้า = 3 ให้ตรวจสอบ Coverage Typeถ้า = LIFE ให้เก็บค่าลงใน {EXPENSE_INV_LIFE}ถ้า = ADD ให้เก็บค่าลงใน {EXPENSE_INV_ADD}ถ้า = TPD ให้เก็บค่าลงใน {EXPENSE_INV_TPD}ถ้า = TTD ให้เก็บค่าลงใน {EXPENSE_INV_TTD}ถ้า = RIDER ให้เก็บค่าลงใน {EXPENSE_INV_RIDER} |
+
+เปรียบเทียบข้อมูลเดิมที่เคยส่ง RE
+ตรวจสอบรายการกรมธรรม์ที่มีการ Claim ที่ได้มา กับรายการที่เคยส่ง **ประกันต่อ (Reinsurer)** มาก่อนแล้ว
+
+ตรวจสอบ**วันที่เกิดเหตุ / วันที่เสียชีวิต / วันที่เข้ารักษา**
+
+แสดงรายละเอียด
+| ที่มาของข้อมูล | ข้อมูล | Description | Table | Field |  |
+| --- | --- | --- | --- | --- | --- |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim) | Event Date | วันที่เกิดเหตุ | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | event_date |  |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim) | Event Date | วันที่เกิดเหตุ | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | accident_date |  |
+| Admit Date | วันที่เข้ารักษา | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | admit_date | ใช้ในกรณีที่ Treaty ที่กำลังประมวลผล อยู่ใน [cf_lookup_catalog](http://wiki.thaisamut.co.th/x/PICeQQ).parent_id = 1007300 เสมอ (suthanee.sa 05/03/2026) |
+| นำเข้าข้อมูลกรมธรรม์ PA (Claim) | Event Date | วันที่เกิดเหตุ | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | event_date |  |
+| นำเข้าข้อมูลกรมธรรม์ UL (Claim) | Death Date | วันที่เสียชีวิต | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | death_date | กรณี Claim Type = D ใช้ Field นี้ |
+| Occurrence Date | วันที่เกิดเหตุ | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | occurrence_date | กรณี Claim Type = H ใช้ Field นี้ |
+| นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim) | Event Date | วันที่เกิดเหตุ | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | event_date |  |
+
+ตรวจสอบรายการ Base หรือ Rider ที่มีการ Claim
+
+แสดงรายละเอียด
+| ที่มาของข้อมูล | ข้อมูล | Description | Table | Field |  |
+| --- | --- | --- | --- | --- | --- |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim) | Base Plan Code | รหัสแบบประกันหลัก | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | plan_code | กรณีที่มีทั้ง Base และ Rider หมายถึงการ Alter Rider |
+| Rider Code | รหัสแบบประกันเพิ่มเติม | [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt) | rider_code |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim) | Rider Code | รหัสแบบประกันเพิ่มเติม | [tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt) | claim_type |  |
+| นำเข้าข้อมูลกรมธรรม์ PA (Claim) | Base Plan Code | รหัสแบบประกันหลัก | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | plan_code | กรณีรายการที่ rider_code เท่ากับ 0 หมายถึง Claim Base |
+| Rider Code | รหัสแบบประกันเพิ่มเติม | [tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt) | rider_code | กรณีรายการที่ rider_code เท่ากับ 1 หมายถึง Claim Publicกรณีรายการที่ rider_code เท่ากับ 4 หมายถึง Claim Holidayกรณีรายการที่ rider_code เท่ากับ 8 หมายถึง Claim Motorcycleกรณีรายการที่ rider_code เท่ากับ 9 หมายถึง Claim Murder |
+| นำเข้าข้อมูลกรมธรรม์ UL (Claim) | Base Plan Code | รหัสแบบประกันหลัก | [tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt) | plan_code |  |
+| นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim) | Rider Code | รหัสแบบประกันเพิ่มเติม | [tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt) | rider_code | กรณี Rider = 24 หมายถึง Rider ORDกรณี Rider = 35 หมายถึง Rider ORDกรณี Rider = 3 หมายถึง Rider IND |
+
+กรณีที่เป็นการ **Claim Base ให้เริ่มทำที่ข้อ 3**
+
+โดยตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).plan_code = [ms_special_plancode](http://wiki.thaisamut.co.th/x/vgHTTQ).plan_code (suthanee.sa 16/12/2025)
+
+- กรณีพบ ให้ตรวจสอบ [tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).coverage_code กรณีไม่พบ ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติหากเท่ากับ "LA"ทำรายการ Calim Rider ที่อยู่ใน [ms_special_plancode](http://wiki.thaisamut.co.th/x/vgHTTQ).rider_code ด้วย (ถ้าเป็นการ Calim ที่ต้องทำทั้ง Base และ Rider อยู่แล้ว ไม่ต้องทำซ้ำ)หากไม่เท่ากับ "LA"ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ
+
+****
+
+กรณีที่เป็นการ **Claim******Rider ให้เริ่มทำที่ข้อ 5****
+
+กรณีที่เป็นการ **Claim Base** ค้นหาข้อมูลที่ช่วงวันที่อยู่ใน coverage_from - coverage_to จาก [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) หรือ [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw)
+
+แสดงรายละเอียด
+โดยหารายการในรายการ Actual ของ Treaty ที่กำลังประมวลผล
+
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| สถานะการใช้งานของรายการ | [tx_ri_act_hd](http://wiki.thaisamut.co.th/x/CYDKQQ) | usage_status | A **(หมายเหตุ :**ในรายการ Treaty เดียวกันเท่านั้น**)** |
+| รูปแบบของ Treaty Auto และ/หรือ Fac | [tx_ri_act_hd](http://wiki.thaisamut.co.th/x/CYDKQQ) | facult_flag | กรณีเป็น Treaty Auto ให้ค้นหาเฉพาะรายการที่เป็น False กรณีเป็น Treaty FAC ให้ค้นหาเฉพาะรายการที่เป็น True |
+| วันที่เริ่มความคุ้มครองในรอบ | [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) | coverage_from | น้อยกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+| วันที่สิ้นสุดความคุ้มครองในรอบ | [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) | coverage_to | มากกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+
+กรณีพบรายการที่ Actual แล้ว ให้ข้ามไปทำข้อ 4
+
+กรณีที่ไม่พบ ให้ตรวจสอบที่ estimate ของ Treaty ที่กำลังประมวลผล
+
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| สถานะการใช้งานของรายการ | [tx_ri_est_hd](http://wiki.thaisamut.co.th/x/B4DKQQ) | usage_status | A **(หมายเหตุ :**ในรายการ Treaty เดียวกันเท่านั้น**)** |
+| รูปแบบของ Treaty Auto และ/หรือ Fac | [tx_ri_act_hd](http://wiki.thaisamut.co.th/x/CYDKQQ) | facult_flag | กรณีเป็น Treaty Auto ให้ค้นหาเฉพาะรายการที่เป็น False กรณีเป็น Treaty FAC ให้ค้นหาเฉพาะรายการที่เป็น True |
+| วันที่เริ่มความคุ้มครองในรอบ | [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw) | coverage_from | น้อยกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+| วันที่สิ้นสุดความคุ้มครองในรอบ | [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw) | coverage_to | มากกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+
+กรณีไม่พบรายการเลย
+
+กรณีไม่รายการทั้ง Actual และ Estimate
+แสดงรายละเอียด
+1. ตรวจสอบที่มาของ Process ข้อมูล
+
+| ที่มาของข้อมูล | [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg).process |
+| --- | --- |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Master Claim) | IRI-PS-006 |
+| นำเข้าข้อมูลกรมธรรม์สามัญ (Health Claim) | IRI-PS-007 |
+| นำเข้าข้อมูลกรมธรรม์ PA (Claim) | IRI-PS-008 |
+| นำเข้าข้อมูลกรมธรรม์ UL (Claim) | IRI-PS-009 |
+| นำเข้าข้อมูลกรมธรรม์ส่งประกันต่อ CB Rider (Claim) | IRI-PS-013 |
+
+2. ตรวจสอบ Treaty ที่กำลังประมวลผลอยู่ที่ [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg) จะได้รายการ [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg).ms_claim_code_hd_id
+
+| Table | Field | ข้อมูลเปรียบเทียบ |
+| --- | --- | --- |
+| [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg) | treaty_code | Treaty ที่กำลังประมวลผล |
+| [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg) | process | ที่มาของ Process ข้อมูล |
+
+3. นำ [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg).ms_claim_code_hd_id ค้นหารายการใน [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg)
+
+ที่มี [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg).ms_claim_code_hd_id = [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg).ms_claim_code_hd_id
+
+4. จากนั้นเปรียบเทียบประเภทการเคลมเพื่อตรวจสอบว่ารายการนั้นต้องนำไปออก Report หรือไม่
+
+|  |  |  |
+| --- | --- | --- |
+| [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg) | ms_claim_code_hd_id | เท่ากับ [ms_claim_code_hd](http://wiki.thaisamut.co.th/x/GwAsRg).ms_claim_code_hd_id |
+| [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg) | claim_type_code | เท่ากับ Claim Type[tx_ri_ord_master_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/07.+tx_ri_ord_master_claim_dt).claim_type[tx_ri_ord_health_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/08.+tx_ri_ord_health_claim_dt).claim_type_detail[tx_ri_pa_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/09.+tx_ri_pa_claim_dt).claim_type[tx_ri_ul_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/10.+tx_ri_ul_claim_dt).claim_type[tx_ri_ind_cb_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/11.+tx_ri_ind_cb_claim_dt).claim_type |
+| [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg) | report_cal | เท่ากับ R |
+
+5. หากไม่พบว่ามี [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg).report_cal = R ไม่ต้องเก็บข้อมูลไว้
+
+กรณีมีรายการ [ms_claim_code_dt](http://wiki.thaisamut.co.th/x/GIA1Rg).report_cal = R ให้เก็บข้อมูลการเคลมไว้เพื่อนำไปออก Report
+
+ค้นหาข้อมูล Base ที่ส่ง **ประกันต่อ (Reinsurer)** ในรายการ โดยหาจากในรายการที่ได้มาจากข้อ 3
+
+แสดงรายละเอียด
+โดยหารายการในรายการ Actual
+
+Actual
+**Actual : BASE**
+
+แสดงรายละเอียด
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| Base Plan Code | [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | code_plan | เท่ากับ Base Plan Code ของรายการ Claim |
+| Base Plan Code | [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | code_plan_fac | เท่ากับ Base Plan Code ของรายการ Claim |
+
+**Actual : RIDER**
+
+แสดงรายละเอียด
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| Rider Code | [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | rider_code | เท่ากับ Rider Code ของรายการ Claim |
+| Rider Code | [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | rider_code_fac | เท่ากับ Rider Code ของรายการ Claim |
+
+กรณีพบใน Actual ให้ข้ามไปทำที่ข้อ 5ให้ตรวจสอบต่อที่ Estimate โดยให้ดึงรายการรอบอื่นที่ยังไม่เคยดึงข้อมูลใน Actual มาให้ครบทุกรอบด้วย (suthanee.sa 2025/02/11)
+
+กรณีไม่พบ ให้หาข้อมูลต่อใน Estimate
+
+Estimate
+**Estimate : BASE**
+
+แสดงรายละเอียด
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| Base Plan Code | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | code_plan | เท่ากับ Base Plan Code ของรายการ Claim |
+| Base Plan Code | [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | code_plan_fac | เท่ากับ Base Plan Code ของรายการ Claim |
+
+****Estimate**: RIDER**
+
+แสดงรายละเอียด
+| Description | Table | Field | Condition |
+| --- | --- | --- | --- |
+| Rider Code | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | rider_code | เท่ากับ Rider Code ของรายการ Claim |
+| Rider Code | [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | rider_code_fac | เท่ากับ Rider Code ของรายการ Claim |
+
+กรณีไม่พบรายการเลย ให้ข้ามการประมวลผลรายการ Claim นั้น (แปลว่าไม่มีการส่ง Base หรือ Rider ในรอบเดียวกับที่มีการ Claim)
+
+กรณีที่เป็นการ **Claim Rider**ค้นหาข้อมูลที่ช่วงวันที่อยู่ใน coverage_from - coverage_to จาก [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) หรือ [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) หรือ [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) หรือ [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw)
+
+แสดงรายละเอียด
+โดยหารายการในรายการ Actual ของ Treaty ที่กำลังประมวลผล
+
+| Description |  | Table | Field | Condition |
+| --- | --- | --- | --- | --- |
+| สถานะการใช้งานของรายการ |  | [tx_ri_act_hd](http://wiki.thaisamut.co.th/x/CYDKQQ) | usage_status | A **(หมายเหตุ :**ในรายการ Treaty เดียวกันเท่านั้น**)** |
+| รูปแบบของ Treaty Auto และ/หรือ Fac |  | [tx_ri_act_hd](http://wiki.thaisamut.co.th/x/CYDKQQ) | facult_flag | กรณีเป็น Treaty Auto ให้ค้นหาเฉพาะรายการที่เป็น False กรณีเป็น Treaty FAC ให้ค้นหาเฉพาะรายการที่เป็น True |
+| เลขที่กรมธรรม์ |  | [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) | policy_no | ตรงกับกรมธรรม์ที่สนใจรายการ Claim อยู่ |
+| วันที่เริ่มความคุ้มครองในรอบ | Auto | [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | coverage_from_rider | น้อยกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+| Fac | [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | coverage_from_rider |
+| วันที่สิ้นสุดความคุ้มครองในรอบ | Auto | [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | coverage_to_rider | มากกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+| Fac | [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | coverage_to_rider |
+
+กรณีพบรายการที่ Actual แล้ว ให้ข้ามไปทำข้อ 4
+
+กรณีที่ไม่พบ ให้ตรวจสอบที่ estimate ของ Treaty ที่กำลังประมวลผล
+
+| Description |  | Table | Field | Condition |
+| --- | --- | --- | --- | --- |
+| สถานะการใช้งานของรายการ |  | [tx_ri_est_hd](http://wiki.thaisamut.co.th/x/B4DKQQ) | usage_status | A **(หมายเหตุ :**ในรายการ Treaty เดียวกันเท่านั้น**)** |
+| รูปแบบของ Treaty Auto และ/หรือ Fac |  | [tx_ri_est_hd](http://wiki.thaisamut.co.th/x/B4DKQQ) | facult_flag | กรณีเป็น Treaty Auto ให้ค้นหาเฉพาะรายการที่เป็น False กรณีเป็น Treaty FAC ให้ค้นหาเฉพาะรายการที่เป็น True |
+| เลขที่กรมธรรม์ |  | [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw) | policy_no | ตรงกับกรมธรรม์ที่สนใจรายการ Claim อยู่ |
+| วันที่เริ่มความคุ้มครองในรอบ | Auto | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | coverage_from_rider | น้อยกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+|  | Fac | [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | coverage_from_rider |
+| วันที่สิ้นสุดความคุ้มครองในรอบ | Auto | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | coverage_to_rider | มากกว่าหรือเท่ากับ **วันที่เกิดเหตุ / วันที่เสียชีวิต**/ วันที่เข้ารักษา**** |
+|  | Fac | [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | coverage_to_rider |
+
+กรณีไม่พบรายการเลย ให้ข้ามการประมวลผลรายการ Claim นั้น (แปลว่าไม่มีการส่ง Base หรือ Rider ในรอบเดียวกับที่มีการ Claim)
+
+ดำเนินการดึงข้อมูลการประมวลผลในรอบนั้น
+
+แสดงรายละเอียด
+******กรณีที่รายการ Claim มีเงื่อนไขให้ต้องดึงรายการมากกว่า 1 รายการ ต้องไม่นำแต่ละรายการไปรวมกันเพื่อออก Report ทุกรายการที่เคยส่ง RE ต้องแยกกันคำนวณเสมอ******
+
+เช่น รายการ Claim สถานะ D6 วันที่ 03/02/2024 รายการที่เคยส่ง RE มีทั้งหมด 2 รายการ รอบที่ 1 : 10/02/2023 - 09/02/2024 รอบที่ 2 : 10/02/2025 - 09/02/2026
+
+จะต้องได้รายการนำไปประมวลผล Claim 2 รายการ และทำ Refund แยกกันแต่ละรายการ
+
+ข้อมูลทั้งหมด
+ข้อมูลหลัก
+| Parameter |  | Table หลัก |
+| --- | --- | --- |
+| ข้อมูลทั้งหมดจาก | ข้อมูลกรมธรรม์ | [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw) |
+| [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) |
+| ข้อมูล Base | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) |
+| ข้อมูล Rider | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) |
+
+Actual SA By Event Date
+| Parameter |  |  |
+| --- | --- | --- |
+| {ACTUAL_SA_LIFE_BY_EVENT} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | actual_sa_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | actual_sa_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | actual_sa_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | actual_sa_life_fac |
+| {ACTUAL_SA_ADD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_add_fac |
+| {ACTUAL_SA_TPD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_tpd_fac |
+| {ACTUAL_SA_TTD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_ttd_fac |
+| {ACTUAL_SA_RIDER_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_rider_fac |
+| {ACTUAL_SA_MURDER_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_murder_fac |
+| {ACTUAL_SA_MOTORCYCLE_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_motorcycle_fac |
+| {ACTUAL_SA_PUBLIC_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_public_fac |
+| {ACTUAL_SA_HOIDAY_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_holiday_fac |
+
+Previous Actual SA
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_ACTUAL_SA_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | previous_sa_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | previous_sa_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | previous_sa_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | previous_sa_life_fac |
+| {PREVIOUS_ACTUAL_SA_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_add_fac |
+| {PREVIOUS_ACTUAL_SA_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_tpd_fac |
+| {PREVIOUS_ACTUAL_SA_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_ttd_fac |
+| {PREVIOUS_ACTUAL_SA_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_rider_fac |
+
+Reserve amount
+| Parameter |  |  |
+| --- | --- | --- |
+| {RESERVE_RATE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | reserve_rate |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | reserve_rate_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | reserve_rate |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | reserve_rate_fac |
+| {RESERVE_AMOUNT_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | reserve_amount_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | reserve_amount_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | reserve_amount_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | reserve_amount_life_fac |
+| {RESERVE_AMOUNT_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_add_fac |
+| {RESERVE_AMOUNT_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_tpd_fac |
+| {RESERVE_AMOUNT_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_ttd_fac |
+| {RESERVE_AMOUNT_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_rider_fac |
+
+Net Amount at Risk
+| Parameter |  |  |
+| --- | --- | --- |
+| {NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_current_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_current_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_current_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_current_nar_life_fac |
+| {NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_add_fac |
+| {NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_tpd_fac |
+| {NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_ttd_fac |
+| {NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_rider_fac |
+| {NAR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_murder_fac |
+| {NAR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_motorcycle_fac |
+| {NAR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_public_fac |
+| {NAR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_holiday_fac |
+
+Previous NAR
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_previous_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_previous_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_previous_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_previous_nar_life_fac |
+| {PREVIOUS_NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_add_fac |
+| {PREVIOUS_NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_tpd_fac |
+| {PREVIOUS_NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_ttd_fac |
+| {PREVIOUS_NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_rider_fac |
+
+Total NAR
+| Parameter |  |  |
+| --- | --- | --- |
+| {TOTAL_NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | total_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | total_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | total_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | total_nar_life_fac |
+| {TOTAL_NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_add_fac |
+| {TOTAL_NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_tpd_fac |
+| {TOTAL_NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_ttd_fac |
+| {TOTAL_NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_rider_fac |
+| {TOTAL_NAR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_murder_fac |
+| {TOTAL_NAR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_motorcycle_fac |
+| {TOTAL_NAR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_public_fac |
+| {TOTAL_NAR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_holiday_fac |
+| {TOTAL_NAR_ALL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_all |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_all_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_all |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_all_fac |
+
+SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_sum_assured_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_sum_assured_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_sum_assured_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_sum_assured_life_fac |
+| {SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_add_fac |
+| {SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_tpd_fac |
+| {SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_ttd_fac |
+| {SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_rider_fac |
+| {SR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_murder_fac |
+| {SR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_motorcycle_fac |
+| {SR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_public_fac |
+| {SR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_holiday_fac |
+
+Previous SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | previous_sr_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | previous_sr_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | previous_sr_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | previous_sr_life_fac |
+| {PREVIOUS_SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_add_fac |
+| {PREVIOUS_SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_tpd_fac |
+| {PREVIOUS_SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_ttd_fac |
+| {PREVIOUS_SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_rider_fac |
+
+Total SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {TOTAL_SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | total_sr_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | total_sr_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | total_sr_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | total_sr_life_fac |
+| {TOTAL_SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_add_fac |
+| {TOTAL_SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_tpd_fac |
+| {TOTAL_SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_ttd_fac |
+| {TOTAL_SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_rider_fac |
+| {TOTAL_SR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_murder_fac |
+| {TOTAL_SR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_motorcycle_fac |
+| {TOTAL_SR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_public_fac |
+| {TOTAL_SR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_holiday_fac |
+| {TOTAL_SR_ALL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_all |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_all_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_all |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_all_fac |
+
+%RI Ratio
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_RATIO_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_ratio_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_ratio_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_ratio_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_ratio_life_fac |
+| {RI_RATIO_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_add_fac |
+| {RI_RATIO_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_tpd_fac |
+| {RI_RATIO_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_ttd_fac |
+| {RI_RATIO_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_rider_fac |
+| {RI_RATIO_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_murder_fac |
+| {RI_RATIO_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_motorcycle_fac |
+| {RI_RATIO_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_public_fac |
+| {RI_RATIO_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_holiday_fac |
+| {RI_RATIO_TOTAL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_total |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_total_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_total |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_total_fac |
+
+RI Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_PREMIUM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | premium_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | premium_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | premium_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | premium_life_fac |
+| {RI_PREMIUM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_add_fac |
+| {RI_PREMIUM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_tpd_fac |
+| {RI_PREMIUM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_ttd_fac |
+| {RI_PREMIUM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_fac |
+| {RI_PREM_RIDER_G1} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g1 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g1_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g1 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g1_fac |
+| {RI_PREM_RIDER_G2} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g2 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g2_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g2 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g2_fac |
+| {RI_PREM_RIDER_G3} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g3 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g3_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g3 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g3_fac |
+| {RI_PREM_RIDER_G4} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g4 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g4_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g4 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g4_fac |
+| {RI_PREM_RIDER_G5} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g5 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g5_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g5 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g5_fac |
+| {RI_PREM_RIDER_G6} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g6 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g6_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g6 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g6_fac |
+| {RI_PREM_RIDER_SP} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_sp |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_sp_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_sp |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_sp_fac |
+
+RI Extra Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_EXTRA_PREM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | premium_extra_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | premium_extra_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | premium_extra_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | premium_extra_life_fac |
+| {RI_EXTRA_PREM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_add_fac |
+| {RI_EXTRA_PREM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_tpd_fac |
+| {RI_EXTRA_PREM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_ttd_fac |
+| {RI_EXTRA_PREM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_rider_fac |
+| {RI_EXTRA_PREM_RIDER_G1} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group1 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group1_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group1 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group1_fac |
+| {RI_EXTRA_PREM_RIDER_G2} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group2 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group2_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group2 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group2_fac |
+| {RI_EXTRA_PREM_RIDER_G3} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group3 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group3_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group3 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group3_fac |
+| {RI_EXTRA_PREM_RIDER_G4} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group4 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group4_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group4 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group4_fac |
+| {RI_EXTRA_PREM_RIDER_G5} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group5 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group5_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group5 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group5_fac |
+| {RI_EXTRA_PREM_RIDER_G6} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group6 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group6_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group6 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group6_fac |
+| {RI_EXTRA_PREM_RIDER_G7} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_sp |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_sp_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_sp |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_sp_fac |
+| {RI_EXTRA_TOTAL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_total |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_total_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_total |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_total_fac |
+
+RI Commission
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_COMM_RATE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | com_rate |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | com_rate_fac |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | com_rate_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | com_rate_rider_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | com_rate |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | com_rate_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | com_rate_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | com_rate_rider_fac |
+| {RI_COMM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | comm_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | comm_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | comm_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | comm_life_fac |
+| {RI_COMM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_add_fac |
+| {RI_COMM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_tpd_fac |
+| {RI_COMM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_ttd_fac |
+| {RI_COMM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_rider_fac |
+
+RI Extra Commission
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_EXTRA_COMM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | comm_extra_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | comm_extra_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | comm_extra_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | comm_extra_life_fac |
+| {RI_EXTRA_COMM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_add_fac |
+| {RI_EXTRA_COMM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_tpd_fac |
+| {RI_EXTRA_COMM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_ttd_fac |
+| {RI_EXTRA_COMM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_rider_fac |
+
+Total RI premium
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_PREMIUM} | {RI_PREMIUM_LIFE} + {RI_PREMIUM_ADD} + {RI_PREMIUM_TPD} + {RI_PREMIUM_TTD} + {RI_PREMIUM_RIDER} |
+
+Total RI extra premium
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_EXTRA_PREMIUM} | {RI_EXTRA_PREM_LIFE} + {RI_EXTRA_PREM_ADD} + {RI_EXTRA_PREM_TPD} + {RI_EXTRA_PREM_TTD} + {RI_EXTRA_PREM_RIDER} |
+
+Total RI commission
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_COMMISSION} | {RI_COMM_LIFE} + {RI_COMM_ADD} + {RI_COMM_TPD} + {RI_COMM_TTD} + {RI_COMM_RIDER} |
+
+Total RI extra commission
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_EXTRA_COMMISSION} | {RI_EXTRA_COMM_LIFE} + {RI_EXTRA_COMM_ADD} + {RI_EXTRA_COMM_TPD} + {RI_EXTRA_COMM_TTD} + {RI_EXTRA_COMM_RIDER} |
+
+Net RI Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {NET_RI_PREM} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | net_ri_premium |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_add |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_tpd |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_ttd |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_rider |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+tx_ri_est_base_facult_dt) | net_ri_premium_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_add_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_tpd_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_ttd_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_rider_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | net_ri_premium |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_add |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_tpd |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_ttd |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_rider |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | net_ri_premium_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_add_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_tpd_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_ttd_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_rider_fac |
+
+เปรียบเทียบข้อมูลค่าใช้จ่ายกับค่า Claim ที่บันทึกไว้
+ตรวจสอบรายการค่าใช้จ่ายกับรายการ Claim ที่เคยบันทึกประวัติการเคลมไว้
+
+ตรวจสอบ Claim No + Policy No + Base หรือ Rider Code ของรายการค่าใช้จ่าย
+
+แสดงรายละเอียด
+| ข้อมูล | Table | Field |  |
+| --- | --- | --- | --- |
+| Claim No | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | as400_claim_no |  |
+| Policy No | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | policy_no |  |
+| Base หรือ Rider Code | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt) | rider_code | เทียบข้อมูลจาก Table Claim = Plan Code / Rider Codeซึ่งกรณีที่เป็นการส่งสอบของ Base Plan [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt).rider_code = 0 |
+
+ค้นหารายการใน [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw) หรือ [tx_ri_est_claim_dt](http://wiki.thaisamut.co.th/x/JAFKQw)
+
+แสดงรายละเอียด
+| ข้อมูล | Table | Field | Condition |
+| --- | --- | --- | --- |
+| id ของ tx_ri_est_policy_dt | [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw) | ri_act_policy_dt_id |  |
+| Claim No | [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw) | claim_no | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt).as400_claim_no |
+
+นำ [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw).ri_est_policy_dt_id ไปค้นหารายการที่ [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) หรือ [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw)
+
+แสดงรายละเอียด
+| ข้อมูล | Table | Field | Condition |
+| --- | --- | --- | --- |
+| id ของ tx_ri_est_policy_dt | [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) | ri_act_policy_dt_id | [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw).ri_act_policy_dt_id |
+| Claim No | [tx_ri_act_claim_dt](http://wiki.thaisamut.co.th/x/-AJcQw) | claim_no | [tx_ri_inv_claim_dt](http://wiki.thaisamut.co.th/display/RDSINRI/12.+tx_ri_inv_claim_dt).as400_claim_no |
+
+นำ [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw).ri_act_policy_dt_id ที่ได้ พร้อมกับ Base หรือ Rider Code ไปค้นหารายการที่
+
+แสดงรายละเอียด
+| [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw).ri_act_policy_dt_id | Base หรือ Rider Code | report_type |
+| --- | --- | --- |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/30.+tx_ri_act_base_auto_dt) | ri_act_policy_dt_id | code_plan | = Claim |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/31.+tx_ri_act_rider_auto_dt) | ri_act_policy_dt_id | rider_code | = Claim |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/32.+tx_ri_act_base_facult_dt) | ri_act_policy_dt_id | code_plan | = Claim |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/33.+tx_ri_act_rider_facult_dt) | ri_act_policy_dt_id | rider_code | = Claim |
+| [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/18.+tx_ri_est_base_auto_dt) | ri_est_policy_dt_id | code_plan | = Claim |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | ri_est_policy_dt_id | rider_code | = Claim |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+tx_ri_est_base_facult_dt) | ri_est_policy_dt_id | code_plan | = Claim |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | ri_est_policy_dt_id | rider_code | = Claim |
+
+กรณีไม่พบ
+
+| [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw).ri_act_policy_dt_id | Base หรือ Rider Code | report_type | report_status |
+| --- | --- | --- | --- |
+| [tx_ri_est_base_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/49.+tx_ri_est_base_auto_not_send) | ri_act_policy_dt_id | code_plan | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_est_rider_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/50.+tx_ri_est_rider_auto_not_send) | ri_act_policy_dt_id | rider_code | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_est_base_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/51.+tx_ri_est_base_facult_not_send) | ri_act_policy_dt_id | code_plan | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_est_rider_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/52.+tx_ri_est_rider_facult_not_send) | ri_act_policy_dt_id | rider_code | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_act_base_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/53.+tx_ri_act_base_auto_not_send) | ri_est_policy_dt_id | code_plan | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_act_rider_auto_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/54.+tx_ri_act_rider_auto_not_send) | ri_est_policy_dt_id | rider_code | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_act_base_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/55.+tx_ri_act_base_facult_not_send) | ri_est_policy_dt_id | code_plan | = Claim | = NOCAL_NOSEND_REPO |
+| [tx_ri_act_rider_facult_not_send](http://wiki.thaisamut.co.th/display/RDSINRI/56.+tx_ri_act_rider_facult_not_send) | ri_est_policy_dt_id | rider_code | = Claim | = NOCAL_NOSEND_REPO |
+
+ดึงข้อมูลการประมวลผลในรอบนั้น
+
+แสดงรายละเอียด
+******กรณีที่รายการ Claim มีเงื่อนไขให้ต้องดึงรายการมากกว่า 1 รายการ ต้องไม่นำแต่ละรายการไปรวมกันเพื่อออก Report ทุกรายการที่เคยส่ง RE ต้องแยกกันคำนวณเสมอ******
+
+*******กรณีการทำ Refund ของ PA ให้ทำ Refund จำนวนรายการตามรายการส่งประกันต่อที่ต้องทำ Refund เท่านั้น*** (suthanee.sa 17/07/2025)****
+
+เช่น รายการ Claim สถานะ D6 วันที่ 03/02/2024 รายการที่เคยส่ง RE มีทั้งหมด 2 รายการ รอบที่ 1 : 10/02/2023 - 09/02/2024 รอบที่ 2 : 10/02/2025 - 09/02/2026
+
+จะต้องได้รายการนำไปประมวลผล Claim 2 รายการ และทำ Refund แยกกันแต่ละรายการ
+
+ข้อมูลทั้งหมด
+ข้อมูลหลัก
+| Parameter |  | Table หลัก |
+| --- | --- | --- |
+| ข้อมูลทั้งหมดจาก | ข้อมูลกรมธรรม์ | [tx_ri_est_policy_dt](http://wiki.thaisamut.co.th/x/rQIAQw) |
+| [tx_ri_act_policy_dt](http://wiki.thaisamut.co.th/x/9gJcQw) |
+| ข้อมูล Base | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) |
+| ข้อมูล Rider | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) |
+
+Actual SA By Event Date
+| Parameter |  |  |
+| --- | --- | --- |
+| {ACTUAL_SA_LIFE_BY_EVENT} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | actual_sa_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | actual_sa_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | actual_sa_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | actual_sa_life_fac |
+| {ACTUAL_SA_ADD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_add_fac |
+| {ACTUAL_SA_TPD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_tpd_fac |
+| {ACTUAL_SA_TTD_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_ttd_fac |
+| {ACTUAL_SA_RIDER_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_rider_fac |
+| {ACTUAL_SA_MURDER_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_murder_fac |
+| {ACTUAL_SA_MOTORCYCLE_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_motorcycle_fac |
+| {ACTUAL_SA_PUBLIC_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_public_fac |
+| {ACTUAL_SA_HOIDAY_BY_EVENT} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | actual_sa_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | actual_sa_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | actual_sa_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | actual_sa_holiday_fac |
+
+Previous Actual SA
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_ACTUAL_SA_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | previous_sa_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | previous_sa_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | previous_sa_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | previous_sa_life_fac |
+| {PREVIOUS_ACTUAL_SA_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_add_fac |
+| {PREVIOUS_ACTUAL_SA_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_tpd_fac |
+| {PREVIOUS_ACTUAL_SA_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_ttd_fac |
+| {PREVIOUS_ACTUAL_SA_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sa_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sa_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sa_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sa_rider_fac |
+
+Reserve amount
+| Parameter |  |  |
+| --- | --- | --- |
+| {RESERVE_RATE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | reserve_rate |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | reserve_rate_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | reserve_rate |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | reserve_rate_fac |
+| {RESERVE_AMOUNT_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | reserve_amount_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | reserve_amount_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | reserve_amount_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | reserve_amount_life_fac |
+| {RESERVE_AMOUNT_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_add_fac |
+| {RESERVE_AMOUNT_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_tpd_fac |
+| {RESERVE_AMOUNT_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_ttd_fac |
+| {RESERVE_AMOUNT_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | reserve_amount_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | reserve_amount_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | reserve_amount_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | reserve_amount_rider_fac |
+
+Net Amount at Risk
+| Parameter |  |  |
+| --- | --- | --- |
+| {NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_current_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_current_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_current_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_current_nar_life_fac |
+| {NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_add_fac |
+| {NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_tpd_fac |
+| {NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_ttd_fac |
+| {NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_rider_fac |
+| {NAR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_murder_fac |
+| {NAR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_motorcycle_fac |
+| {NAR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_public_fac |
+| {NAR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_current_nar_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_current_nar_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_current_nar_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_current_nar_holiday_fac |
+
+Previous NAR
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_previous_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_previous_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_previous_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_previous_nar_life_fac |
+| {PREVIOUS_NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_add_fac |
+| {PREVIOUS_NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_tpd_fac |
+| {PREVIOUS_NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_ttd_fac |
+| {PREVIOUS_NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_previous_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_previous_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_previous_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_previous_nar_rider_fac |
+
+Total NAR
+| Parameter |  |  |
+| --- | --- | --- |
+| {TOTAL_NAR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | total_nar_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | total_nar_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | total_nar_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | total_nar_life_fac |
+| {TOTAL_NAR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_add_fac |
+| {TOTAL_NAR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_tpd_fac |
+| {TOTAL_NAR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_ttd_fac |
+| {TOTAL_NAR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_rider_fac |
+| {TOTAL_NAR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_murder_fac |
+| {TOTAL_NAR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_motorcycle_fac |
+| {TOTAL_NAR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_public_fac |
+| {TOTAL_NAR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_nar_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_holiday_fac |
+| {TOTAL_NAR_ALL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_nar_all |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_nar_all_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_all |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_nar_all_fac |
+
+SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_sum_assured_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_sum_assured_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_sum_assured_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_sum_assured_life_fac |
+| {SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_add_fac |
+| {SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_tpd_fac |
+| {SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_ttd_fac |
+| {SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_rider_fac |
+| {SR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_murder_fac |
+| {SR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_motorcycle_fac |
+| {SR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_public_fac |
+| {SR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_sum_assured_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_sum_assured_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_sum_assured_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_sum_assured_holiday_fac |
+
+Previous SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {PREVIOUS_SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | previous_sr_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | previous_sr_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | previous_sr_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | previous_sr_life_fac |
+| {PREVIOUS_SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_add_fac |
+| {PREVIOUS_SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_tpd_fac |
+| {PREVIOUS_SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_ttd_fac |
+| {PREVIOUS_SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | previous_sr_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | previous_sr_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | previous_sr_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | previous_sr_rider_fac |
+
+Total SR
+| Parameter |  |  |
+| --- | --- | --- |
+| {TOTAL_SR_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | total_sr_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | total_sr_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | total_sr_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | total_sr_life_fac |
+| {TOTAL_SR_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_add_fac |
+| {TOTAL_SR_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_tpd_fac |
+| {TOTAL_SR_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_ttd_fac |
+| {TOTAL_SR_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_rider_fac |
+| {TOTAL_SR_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_murder_fac |
+| {TOTAL_SR_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_motorcycle_fac |
+| {TOTAL_SR_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_public_fac |
+| {TOTAL_SR_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_holiday_fac |
+| {TOTAL_SR_ALL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | total_sr_all |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | total_sr_all_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | total_sr_all |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | total_sr_all_fac |
+
+%RI Ratio
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_RATIO_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | ri_ratio_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | ri_ratio_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | ri_ratio_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | ri_ratio_life_fac |
+| {RI_RATIO_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_add_fac |
+| {RI_RATIO_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_tpd_fac |
+| {RI_RATIO_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_ttd_fac |
+| {RI_RATIO_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_rider_fac |
+| {RI_RATIO_MURDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_murder |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_murder_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_murder |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_murder_fac |
+| {RI_RATIO_MOTORCYCLE} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_motorcycle |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_motorcycle_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_motorcycle |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_motorcycle_fac |
+| {RI_RATIO_PUBLIC} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_public |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_public_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_public |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_public_fac |
+| {RI_RATIO_HOLIDAY} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_holiday |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_holiday_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_holiday |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_holiday_fac |
+| {RI_RATIO_TOTAL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | ri_ratio_total |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | ri_ratio_total_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | ri_ratio_total |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | ri_ratio_total_fac |
+
+RI Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_PREMIUM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | premium_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | premium_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | premium_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | premium_life_fac |
+| {RI_PREMIUM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_add_fac |
+| {RI_PREMIUM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_tpd_fac |
+| {RI_PREMIUM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_ttd_fac |
+| {RI_PREMIUM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_fac |
+| {RI_PREM_RIDER_G1} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g1 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g1_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g1 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g1_fac |
+| {RI_PREM_RIDER_G2} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g2 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g2_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g2 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g2_fac |
+| {RI_PREM_RIDER_G3} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g3 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g3_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g3 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g3_fac |
+| {RI_PREM_RIDER_G4} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g4 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g4_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g4 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g4_fac |
+| {RI_PREM_RIDER_G5} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g5 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g5_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g5 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g5_fac |
+| {RI_PREM_RIDER_G6} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_g6 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_g6_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_g6 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_g6_fac |
+| {RI_PREM_RIDER_SP} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_rider_sp |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_rider_sp_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_rider_sp |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_rider_sp_fac |
+
+RI Extra Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_EXTRA_PREM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | premium_extra_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | premium_extra_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | premium_extra_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | premium_extra_life_fac |
+| {RI_EXTRA_PREM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_add_fac |
+| {RI_EXTRA_PREM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_tpd_fac |
+| {RI_EXTRA_PREM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_ttd_fac |
+| {RI_EXTRA_PREM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_rider_fac |
+| {RI_EXTRA_PREM_RIDER_G1} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group1 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group1_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group1 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group1_fac |
+| {RI_EXTRA_PREM_RIDER_G2} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group2 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group2_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group2 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group2_fac |
+| {RI_EXTRA_PREM_RIDER_G3} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group3 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group3_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group3 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group3_fac |
+| {RI_EXTRA_PREM_RIDER_G4} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group4 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group4_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group4 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group4_fac |
+| {RI_EXTRA_PREM_RIDER_G5} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group5 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group5_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group5 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group5_fac |
+| {RI_EXTRA_PREM_RIDER_G6} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_group6 |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_group6_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_group6 |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_group6_fac |
+| {RI_EXTRA_PREM_RIDER_G7} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_sp |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_sp_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_sp |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_sp_fac |
+| {RI_EXTRA_TOTAL} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | premium_extra_total |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | premium_extra_total_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | premium_extra_total |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | premium_extra_total_fac |
+
+RI Commission
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_COMM_RATE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | com_rate |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | com_rate_fac |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | com_rate_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | com_rate_rider_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | com_rate |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | com_rate_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | com_rate_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | com_rate_rider_fac |
+| {RI_COMM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | comm_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | comm_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | comm_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | comm_life_fac |
+| {RI_COMM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_add_fac |
+| {RI_COMM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_tpd_fac |
+| {RI_COMM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_ttd_fac |
+| {RI_COMM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_rider_fac |
+
+RI Extra Commission
+| Parameter |  |  |
+| --- | --- | --- |
+| {RI_EXTRA_COMM_LIFE} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | comm_extra_life |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/x/LAFKQw) | comm_extra_life_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | comm_extra_life |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | comm_extra_life_fac |
+| {RI_EXTRA_COMM_ADD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_add |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_add_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_add |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_add_fac |
+| {RI_EXTRA_COMM_TPD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_tpd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_tpd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_tpd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_tpd_fac |
+| {RI_EXTRA_COMM_TTD} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_ttd |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_ttd_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_ttd |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_ttd_fac |
+| {RI_EXTRA_COMM_RIDER} | [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/x/KQFKQw) | comm_extra_rider |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/x/LwFKQw) | comm_extra_rider_fac |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | comm_extra_rider |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | comm_extra_rider_fac |
+
+Total RI premium
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_PREMIUM} | {RI_PREMIUM_LIFE} + {RI_PREMIUM_ADD} + {RI_PREMIUM_TPD} + {RI_PREMIUM_TTD} + {RI_PREMIUM_RIDER} |
+
+Total RI extra premium
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_EXTRA_PREMIUM} | {RI_EXTRA_PREM_LIFE} + {RI_EXTRA_PREM_ADD} + {RI_EXTRA_PREM_TPD} + {RI_EXTRA_PREM_TTD} + {RI_EXTRA_PREM_RIDER} |
+
+Total RI commission
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_COMMISSION} | {RI_COMM_LIFE} + {RI_COMM_ADD} + {RI_COMM_TPD} + {RI_COMM_TTD} + {RI_COMM_RIDER} |
+
+Total RI extra commission
+| Parameter |  |
+| --- | --- |
+| {TOTAL_RI_EXTRA_COMMISSION} | {RI_EXTRA_COMM_LIFE} + {RI_EXTRA_COMM_ADD} + {RI_EXTRA_COMM_TPD} + {RI_EXTRA_COMM_TTD} + {RI_EXTRA_COMM_RIDER} |
+
+Net RI Premium
+| Parameter |  |  |
+| --- | --- | --- |
+| {NET_RI_PREM} | [tx_ri_est_base_auto_dt](http://wiki.thaisamut.co.th/x/JwFKQw) | net_ri_premium |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_add |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_tpd |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_ttd |
+| [tx_ri_est_rider_auto_dt](http://wiki.thaisamut.co.th/display/RDSINRI/19.+tx_ri_est_rider_auto_dt) | net_ri_premium_rider |
+| [tx_ri_est_base_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/20.+tx_ri_est_base_facult_dt) | net_ri_premium_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_add_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_tpd_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_ttd_fac |
+| [tx_ri_est_rider_facult_dt](http://wiki.thaisamut.co.th/display/RDSINRI/21.+tx_ri_est_rider_facult_dt) | net_ri_premium_rider_fac |
+| [tx_ri_act_base_auto_dt](http://wiki.thaisamut.co.th/x/-gJcQw) | net_ri_premium |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_add |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_tpd |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_ttd |
+| [tx_ri_act_rider_auto_dt](http://wiki.thaisamut.co.th/x/AANcQw) | net_ri_premium_rider |
+| [tx_ri_act_base_facult_dt](http://wiki.thaisamut.co.th/x/AgNcQw) | net_ri_premium_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_add_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_tpd_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_ttd_fac |
+| [tx_ri_act_rider_facult_dt](http://wiki.thaisamut.co.th/x/BANcQw) | net_ri_premium_rider_fac |
+
+ดึงข้อมูลนอกเหนือจากรายการที่ถูก Claim
+กรณีที่กรมธรรม์นั้นเป็นรายการ Base ที่ถูก Claim ต้องดึงข้อมูลของ Rider ที่อยู่ในกรมธรรม์นั้นมาแสดง
+
+กรณีที่กรมธรรม์นั้นเป็นรายการ Rider ที่ถูก Claim ต้องดึงข้อมูลของ Base ที่อยู่ในกรมธรรม์นั้นมาแสดง
+
+Click here to expand...
+โดยการใช้วิธีดึงข้อมูลจาก Table tx_ri_bdr_act_new_renew หรือ tx_ri_bdr_new_renew (ขึ้นอยู่กับในขั้นตอนการดึงข้อมูล ไปดึงมาได้จากรอบของ Table ใด)
+
+หมายเหตุ : ดึงเฉพาะรายรายการที่ไม่ใช่ค่าที่ถูก Claim
+
+| **Table ปลายทาง** | **Table ต้นทาง** |
+| --- | --- |
+| tx_ri_bdr_claim.actual_sa_add_report | tx_ri_bdr_new_renew.actual_sa_add_report |
+| tx_ri_bdr_claim.actual_sa_life | tx_ri_bdr_new_renew.actual_sa_life |
+| tx_ri_bdr_claim.actual_sa_rider_report | tx_ri_bdr_new_renew.actual_sa_rider_report |
+| tx_ri_bdr_claim.actual_sa_tpd_report | tx_ri_bdr_new_renew.actual_sa_tpd_report |
+| tx_ri_bdr_claim.actual_sa_ttd_report | tx_ri_bdr_new_renew.actual_sa_ttd_report |
+| tx_ri_bdr_claim.initial_sa_add_report | tx_ri_bdr_new_renew.initial_sa_add_report |
+| tx_ri_bdr_claim.initial_sa_rider_report | tx_ri_bdr_new_renew.initial_sa_rider_report |
+| tx_ri_bdr_claim.initial_sa_tpd_report | tx_ri_bdr_new_renew.initial_sa_tpd_report |
+| tx_ri_bdr_claim.initial_sa_ttd_report | tx_ri_bdr_new_renew.initial_sa_ttd_report |
+| tx_ri_bdr_claim.nar_add_report | tx_ri_bdr_new_renew.nar_add_report |
+| tx_ri_bdr_claim.nar_rider_report | tx_ri_bdr_new_renew.nar_rider_report |
+| tx_ri_bdr_claim.nar_tpd_report | tx_ri_bdr_new_renew.nar_tpd_report |
+| tx_ri_bdr_claim.nar_ttd_report | tx_ri_bdr_new_renew.nar_ttd_report |
+| tx_ri_bdr_claim.ri_current_nar_life | tx_ri_bdr_new_renew.ri_current_nar_life |
+| tx_ri_bdr_claim.ri_current_nar_rider | tx_ri_bdr_new_renew.ri_current_nar_rider |
+| tx_ri_bdr_claim.ri_initial_sa_life | tx_ri_bdr_new_renew.ri_initial_sa_life |
+| tx_ri_bdr_claim.ri_ratio_add | tx_ri_bdr_new_renew.ri_ratio_add |
+| tx_ri_bdr_claim.ri_ratio_add_fac | tx_ri_bdr_new_renew.ri_ratio_add_fac |
+| tx_ri_bdr_claim.ri_ratio_holiday | tx_ri_bdr_new_renew.ri_ratio_holiday |
+| tx_ri_bdr_claim.ri_ratio_life | tx_ri_bdr_new_renew.ri_ratio_life |
+| tx_ri_bdr_claim.ri_ratio_life_fac | tx_ri_bdr_new_renew.ri_ratio_life_fac |
+| tx_ri_bdr_claim.ri_ratio_motorcycle | tx_ri_bdr_new_renew.ri_ratio_motorcycle |
+| tx_ri_bdr_claim.ri_ratio_murder | tx_ri_bdr_new_renew.ri_ratio_murder |
+| tx_ri_bdr_claim.ri_ratio_public | tx_ri_bdr_new_renew.ri_ratio_public |
+| tx_ri_bdr_claim.ri_ratio_rider | tx_ri_bdr_new_renew.ri_ratio_rider |
+| tx_ri_bdr_claim.ri_ratio_rider_fac | tx_ri_bdr_new_renew.ri_ratio_rider_fac |
+| tx_ri_bdr_claim.ri_ratio_tpd | tx_ri_bdr_new_renew.ri_ratio_tpd |
+| tx_ri_bdr_claim.ri_ratio_ttd | tx_ri_bdr_new_renew.ri_ratio_ttd |
+| tx_ri_bdr_claim.ri_sum_assured_add | tx_ri_bdr_new_renew.ri_sum_assured_add |
+| tx_ri_bdr_claim.ri_sum_assured_life | tx_ri_bdr_new_renew.ri_sum_assured_life |
+| tx_ri_bdr_claim.ri_sum_assured_rider | tx_ri_bdr_new_renew.ri_sum_assured_rider |
+| tx_ri_bdr_claim.ri_sum_assured_tpd | tx_ri_bdr_new_renew.ri_sum_assured_tpd |
+| tx_ri_bdr_claim.ri_sum_assured_ttd | tx_ri_bdr_new_renew.ri_sum_assured_ttd |
+| tx_ri_bdr_claim.sr_add_report | tx_ri_bdr_new_renew.sr_add_report |
+| tx_ri_bdr_claim.sr_rider_report | tx_ri_bdr_new_renew.sr_rider_report |
+| tx_ri_bdr_claim.sr_tpd_report | tx_ri_bdr_new_renew.sr_tpd_report |
+| tx_ri_bdr_claim.sr_ttd_report | tx_ri_bdr_new_renew.sr_ttd_report |
+| tx_ri_bdr_claim.total_nar_add | tx_ri_bdr_new_renew.total_nar_add |
+| tx_ri_bdr_claim.total_nar_holiday | tx_ri_bdr_new_renew.total_nar_holiday |
+| tx_ri_bdr_claim.total_nar_life | tx_ri_bdr_new_renew.total_nar_life |
+| tx_ri_bdr_claim.total_nar_motorcycle | tx_ri_bdr_new_renew.total_nar_motorcycle |
+| tx_ri_bdr_claim.total_nar_murder | tx_ri_bdr_new_renew.total_nar_murder |
+| tx_ri_bdr_claim.total_nar_public | tx_ri_bdr_new_renew.total_nar_public |
+| tx_ri_bdr_claim.total_nar_rider | tx_ri_bdr_new_renew.total_nar_rider |
+| tx_ri_bdr_claim.total_nar_tpd | tx_ri_bdr_new_renew.total_nar_tpd |
+| tx_ri_bdr_claim.total_nar_ttd | tx_ri_bdr_new_renew.total_nar_ttd |
+| tx_ri_bdr_claim.total_sr_add | tx_ri_bdr_new_renew.total_sr_add |
+| tx_ri_bdr_claim.total_sr_add_fac | tx_ri_bdr_new_renew.total_sr_add_fac |
+| tx_ri_bdr_claim.total_sr_holiday | tx_ri_bdr_new_renew.total_sr_holiday |
+| tx_ri_bdr_claim.total_sr_life | tx_ri_bdr_new_renew.total_sr_life |
+| tx_ri_bdr_claim.total_sr_life_fac | tx_ri_bdr_new_renew.total_sr_life_fac |
+| tx_ri_bdr_claim.total_sr_motorcycle | tx_ri_bdr_new_renew.total_sr_motorcycle |
+| tx_ri_bdr_claim.total_sr_murder | tx_ri_bdr_new_renew.total_sr_murder |
+| tx_ri_bdr_claim.total_sr_public | tx_ri_bdr_new_renew.total_sr_public |
+| tx_ri_bdr_claim.total_sr_rider | tx_ri_bdr_new_renew.total_sr_rider |
+| tx_ri_bdr_claim.total_sr_rider_fac | tx_ri_bdr_new_renew.total_sr_rider_fac |
+| tx_ri_bdr_claim.total_sr_tpd | tx_ri_bdr_new_renew.total_sr_tpd |
+| tx_ri_bdr_claim.total_sr_ttd | tx_ri_bdr_new_renew.total_sr_ttd |
+| tx_ri_bdr_claim.oli_retention | tx_ri_bdr_new_renew.oli_retention |
+| tx_ri_bdr_claim.reserve_amount_life | tx_ri_bdr_new_renew.reserve_amount_life |
+| tx_ri_bdr_claim.emr_life | tx_ri_bdr_new_renew.emr_life |
+| tx_ri_bdr_claim.emr_add | tx_ri_bdr_new_renew.emr_add |
+| tx_ri_bdr_claim.emr_rider | tx_ri_bdr_new_renew.emr_rider |
+| tx_ri_bdr_claim.emr_tpd | tx_ri_bdr_new_renew.emr_tpd |
+| tx_ri_bdr_claim.emr_ttd | tx_ri_bdr_new_renew.emr_ttd |
+
+ประมวลผลต่อ
+นำข้อมูลที่ได้ทั้งหมดเก็บเป็นรายละเอียดของรายการ Claim นั้น และนำไปประมวลผลต่อที่
+
+[23 การประมวลผล RI Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453421)
+
+[24 การประมวลผล RI Extra Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911175)
+
+[25 การประมวลผล Total RI premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446351)
+
+[26 การประมวลผล Total RI Extra Premium refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446338)
+
+[27 การประมวลผล RI Commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453423)
+
+[28 การประมวลผล RI Extra commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453426)
+
+[29 การประมวลผล Total RI Commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446343)
+
+[30 การประมวลผล Total RI Extra commission refund](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446345)
+
+[31 การประมวลผล RI Claim amount](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453428)
+
+[32 การประมวลผล RI Claim expense](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453430)

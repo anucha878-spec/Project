@@ -1,0 +1,699 @@
+# 04. IRI_CFG_001_3 หน้าอนุมัติการเพิ่มหรือแก้ไข
+
+> **Source:** http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613397  
+> **Page ID:** 1098613397  
+> **Path:** Home / Current Version / 03. User Interface Specification / 02. หน้าจอข้อมูล Treaty (Auto) (cf02) / 04. IRI_CFG_001_3 หน้าอนุมัติการเพิ่มหรือแก้ไข
+
+---
+
+### สิทธิ์การเข้า
+
+- [เจ้าหน้าที่ฝ่ายคณิตศาสตร์ (Checker)](https://docs.google.com/spreadsheets/d/17bqeu7FPj5gvU25OJsIW8LxZau3TS5wf2E7bTMm-q6k/edit#gid=423528764)
+
+### Assumption
+
+- ผู้ใช้งานต้อง Log in เข้าใช้งานอย่างถูกต้อง
+- ผู้ใช้งานต้องมีสิทธิ์การเข้าถึงหน้าจอ การบันทึก/แก้ไข รายการ Treaty
+
+### Screen Overview
+
+- เพื่อ การบันทึก/แก้ไข รายการ Treaty
+
+### Pre-Condition
+
+1. ผู้ใช้งานต้องมีสิทธิ์การใช้งานของ Maker หรือ Checker และมองเห็น Icon ![](https://lh3.googleusercontent.com/hHVOgKc-ZtVZRjENTNUTB3Pk1Y3dnAc9cZTGdhtdu1336fu12ikqOq891KOix2CMsJAVdJv1Jj3zngDajVEtuVWtzdV4okvQ0zt8gOXSDCIlFrcGJ265oBIMZzqtLjtXXZ3ur1i1fE246Hb8iT-gvXU) ในหน้า [IRI_CFG_001 หน้ารวม + ค้นหา Treaty (cf02)](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613387)
+2. ผู้ใช้งานกด Icon ![](https://lh3.googleusercontent.com/hHVOgKc-ZtVZRjENTNUTB3Pk1Y3dnAc9cZTGdhtdu1336fu12ikqOq891KOix2CMsJAVdJv1Jj3zngDajVEtuVWtzdV4okvQ0zt8gOXSDCIlFrcGJ265oBIMZzqtLjtXXZ3ur1i1fE246Hb8iT-gvXU) ระบบจึงจะแสดงหน้าจอนี้
+
+หน้าจอของ Checker
+
+![](/download/attachments/1098613397/image2023-11-18%2022%3A3%3A27.png?version=1&modificationDate=1700319804794&api=v2)
+
+ตัวอย่างหน้าจอ พิจารณา / ดูรายละเอียด Treaty
+
+- ข้อมูลหลัก Treaty ****(CR#3)****
+
+![](/download/attachments/1098613397/image2025-9-15%207%3A24%3A28.png?version=1&modificationDate=1757895869543&api=v2)
+
+**Description**
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| **1** | **วัตถุประสงค์ (Objective)** | แสดงรายละเอียด ข้อมูลหลัก ของ treaty |  |
+| **2** | **ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization)** | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| **3** | **ข้อมูลที่ป้อนเข้าสู่ระบบ** | - |  |
+| **4** | **ข้อมูลที่ได้จากระบบ (Output)** | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| **5** | **การกระทำกับหน้าจอ (Actions)** | - |  |
+| **6** | **อธิบายรายละเอียด (Description)** | **Field****Type****แสดงข้อมูล****Treaty Code**Textแสดงข้อมูล Treaty Code ที่กำหนดไว้**Treaty Name**Textแสดงข้อมูล Treaty Name ที่กำหนดไว้**Reinsurer Code**Textแสดงข้อมูล Treaty Code ที่กำหนดไว้**ชื่อสัญญา**Textแสดงข้อมูล Reinsurer Name ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Minimum SAR (SA Re)**Numericแสดงข้อมูล Minimum SARR (SA Re) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Maximum SAR (SA Re)**Numericแสดงข้อมูล Maximum SARR (SA Re) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Minimum SA**Numericแสดงข้อมูล Minimum SA ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Maximum SA**Numericแสดงข้อมูล Maximum SA ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**โหมดคำนวณงวดชำระเบี้ย**Textแสดงข้อมูล โหมดคำนวณงวดชำระเบี้ย ที่กำหนดไว้**ตรวจสอบ Previous Policy**Textแสดงข้อมูล เงื่อนไขการตรวจสอบ Previous Policy ที่กำหนดไว้**ปีความคุ้มครองกรมธรรม์ปีเริ่มต้น**Textแสดงข้อมูล ปีความคุ้มครองเริ่มต้น ต่อด้วย "-" และ ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด **ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด**Text**การส่งกรมธรรม์หลัง treaty หมดอายุ**Textแสดงเงื่อนไขการส่งกรมธรรม์หลัง treaty หมดอายุที่เลือกไว้**Template SOA EST**Textแสดงชื่อ Template ที่เลือกไว้**Template SOA ACT**Textแสดงชื่อ Template ที่เลือกไว้**Template EST BDR Auto**Textแสดงชื่อ Template ที่เลือกไว้**Template EST BRD FAC**Textแสดงชื่อ Template ที่เลือกไว้**Template ACT BDR Auto**Textแสดงชื่อ Template ที่เลือกไว้**Template ACT BRD FAC**Textแสดงชื่อ Template ที่เลือกไว้**Reserve Duration **(CR#3)****Textแสดงข้อมูล Reserve Duration ที่กำหนดไว้**การ Prorate Reserve Rate **(CR#3)****Textแสดงข้อมูล การ Prorate Reserve Rate ที่กำหนดไว้ | Screen FieldDB TableDB Field**Treaty Code**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ)treaty_code**Treaty Name**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) treaty_name**Reinsurer Code**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) reinsurer_code**ชื่อสัญญา**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) contract_name**Effective Date From**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) effective_date_from**Effective Date To**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) effective_date_to**Minimum SAR (SA Re)**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) sar_min**Maximum SAR (SA Re)**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) sar_max**Minimum SA**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) sa_min**Maximum SA**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) sa_max**โหมดคำนวณงวดชำระเบี้ย**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) ri_premium_mode**ตรวจสอบ Previous Policy**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) check_previous**ปีความคุ้มครองกรมธรรม์ปีเริ่มต้น**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) begin_term**ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) end_term**การส่งกรมธรรม์หลัง treaty หมดอายุ**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) set_expire**Template SOA EST**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) est_soa_template_id**Template SOA ACT**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) act_soa_template_id**Template EST BDR Auto**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) est_auto_template_id**Template EST BRD FAC**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) est_fac_template_id**Template ACT BDR Auto**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) act_auto_template_id**Template ACT BRD FAC**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) act_fac_template_id **Reserve Duration **(CR#3)****[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) reserve_duration**การ Prorate Reserve Rate **(CR#3)****[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) prorate |
+| **Field** | **Type** | **แสดงข้อมูล** |
+| **Treaty Code** | Text | แสดงข้อมูล Treaty Code ที่กำหนดไว้ |
+| **Treaty Name** | Text | แสดงข้อมูล Treaty Name ที่กำหนดไว้ |
+| **Reinsurer Code** | Text | แสดงข้อมูล Treaty Code ที่กำหนดไว้ |
+| **ชื่อสัญญา** | Text | แสดงข้อมูล Reinsurer Name ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Minimum SAR (SA Re)** | Numeric | แสดงข้อมูล Minimum SARR (SA Re) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Maximum SAR (SA Re)** | Numeric | แสดงข้อมูล Maximum SARR (SA Re) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Minimum SA** | Numeric | แสดงข้อมูล Minimum SA ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Maximum SA** | Numeric | แสดงข้อมูล Maximum SA ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **โหมดคำนวณงวดชำระเบี้ย** | Text | แสดงข้อมูล โหมดคำนวณงวดชำระเบี้ย ที่กำหนดไว้ |
+| **ตรวจสอบ Previous Policy** | Text | แสดงข้อมูล เงื่อนไขการตรวจสอบ Previous Policy ที่กำหนดไว้ |
+| **ปีความคุ้มครองกรมธรรม์ปีเริ่มต้น** | Text | แสดงข้อมูล ปีความคุ้มครองเริ่มต้น ต่อด้วย "-" และ ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด |
+| **ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด** | Text |
+| **การส่งกรมธรรม์หลัง treaty หมดอายุ** | Text | แสดงเงื่อนไขการส่งกรมธรรม์หลัง treaty หมดอายุที่เลือกไว้ |
+| **Template SOA EST** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Template SOA ACT** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Template EST BDR Auto** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Template EST BRD FAC** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Template ACT BDR Auto** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Template ACT BRD FAC** | Text | แสดงชื่อ Template ที่เลือกไว้ |
+| **Reserve Duration **(CR#3)**** | Text | แสดงข้อมูล Reserve Duration ที่กำหนดไว้ |
+| **การ Prorate Reserve Rate **(CR#3)**** | Text | แสดงข้อมูล การ Prorate Reserve Rate ที่กำหนดไว้ |
+| Screen Field | DB Table | DB Field |
+| **Treaty Code** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | treaty_code |
+| **Treaty Name** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | treaty_name |
+| **Reinsurer Code** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | reinsurer_code |
+| **ชื่อสัญญา** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | contract_name |
+| **Effective Date From** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | effective_date_to |
+| **Minimum SAR (SA Re)** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | sar_min |
+| **Maximum SAR (SA Re)** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | sar_max |
+| **Minimum SA** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | sa_min |
+| **Maximum SA** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | sa_max |
+| **โหมดคำนวณงวดชำระเบี้ย** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | ri_premium_mode |
+| **ตรวจสอบ Previous Policy** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | check_previous |
+| **ปีความคุ้มครองกรมธรรม์ปีเริ่มต้น** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | begin_term |
+| **ปีความคุ้มครองกรมธรรม์ปีสิ้นสุด** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | end_term |
+| **การส่งกรมธรรม์หลัง treaty หมดอายุ** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | set_expire |
+| **Template SOA EST** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | est_soa_template_id |
+| **Template SOA ACT** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | act_soa_template_id |
+| **Template EST BDR Auto** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | est_auto_template_id |
+| **Template EST BRD FAC** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | est_fac_template_id |
+| **Template ACT BDR Auto** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | act_auto_template_id |
+| **Template ACT BRD FAC** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | act_fac_template_id |
+| **Reserve Duration **(CR#3)**** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | reserve_duration |
+| **การ Prorate Reserve Rate **(CR#3)**** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | prorate |
+
+- Setup Base Plan Code
+
+![](/download/attachments/1098613400/image2023-11-16%201%3A7%3A54.png?version=1&modificationDate=1700071674347&api=v2)
+
+**Description**
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Base Plan Code |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Base Plan Code ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**File Setup Base Plan Code**Text Linkแสดงข้อมูล File Setup Base Plan Code ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Base Plan Code ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 303 | Screen FieldDB TableDB Fieldดึงรายการข้อมูลที่เท่ากับ BASE[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ)product_group**Name**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) name**Effective Date From**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_from**Effective Date To**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_to**Update Date**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) updated_date**File Setup Base Plan Code**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Base Plan Code ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **File Setup Base Plan Code** | Text Link | แสดงข้อมูล File Setup Base Plan Code ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Base Plan Code ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 303 |
+| Screen Field | DB Table | DB Field |
+| ดึงรายการข้อมูลที่เท่ากับ BASE | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | product_group |
+| **Name** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | name |
+| **Effective Date From** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | updated_date |
+| **File Setup Base Plan Code** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | import_file_name |
+
+- Setup Rider Code
+
+![](https://lh6.googleusercontent.com/ZiJg5XUxUmg51holyS_BEMQeYoCG7bqIlcPcv4zY2q3i35v7ZiBLyEmyZGo55zn91jGlXOGG-Bxohf3jnERhG1buBMNckQC8ugKW6Ev_KbHqTcLSyLqt2sSiEt-WcgY4GSGOr_nZSEZGceOW-LMzaeE)
+
+**Description**
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Rider Code |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Rider Code ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**File Setup Base Rider Code**Text Linkแสดงข้อมูล File Setup Rider Code ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Base Plan Code ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 306 | Screen FieldDB TableDB Fieldดึงรายการข้อมูลที่เท่ากับ RIDER[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) product_group**Name**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) name**Effective Date From**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_from**Effective Date To**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_to**Update Date**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) updated_date**File Setup Base Rider Code**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Rider Code ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **File Setup Base Rider Code** | Text Link | แสดงข้อมูล File Setup Rider Code ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Base Plan Code ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 306 |
+| Screen Field | DB Table | DB Field |
+| ดึงรายการข้อมูลที่เท่ากับ RIDER | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | product_group |
+| **Name** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | name |
+| **Effective Date From** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | updated_date |
+| **File Setup Base Rider Code** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | import_file_name |
+
+- Setup Retention
+
+- Setup Retention - Surplus > Standard / Substandard
+
+![](/download/attachments/1098613400/image2023-11-16%2022%3A21%3A36.png?version=1&modificationDate=1700148096185&api=v2)
+
+**Description**
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Surplus > Standard / Substandard |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**Retention Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Standard / Substandard ที่กำหนดไว้**Standard Amount (BASE)**Numericแสดงข้อมูล Standard Amount (BASE) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Substandard Amount (BASE)**Numericแสดงข้อมูล Substandard Amount (BASE) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Amount (RIDER)**Numericแสดงข้อมูล Substandard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ)ms_medical_type**รูปแบบ Retention หลัก**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**Retention Name**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ)retention_name**Standard Amount (BASE)**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) standard_amount**Substandard Amount (BASE)**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) sub_standard_amount**Amount (RIDER)**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) rider_amount**Effective Date From**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) effective_date_from**Effective Date To**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) effective_date_to**Update Date**[tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **Retention Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Standard / Substandard ที่กำหนดไว้ |
+| **Standard Amount (BASE)** | Numeric | แสดงข้อมูล Standard Amount (BASE) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Substandard Amount (BASE)** | Numeric | แสดงข้อมูล Substandard Amount (BASE) ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Amount (RIDER)** | Numeric | แสดงข้อมูล Substandard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **Retention Name** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | retention_name |
+| **Standard Amount (BASE)** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | standard_amount |
+| **Substandard Amount (BASE)** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | sub_standard_amount |
+| **Amount (RIDER)** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | rider_amount |
+| **Effective Date From** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_retent_sub_std](http://wiki.thaisamut.co.th/x/ygCaQQ) | updated_date |
+
+- Setup Retention - Surplus > Amount
+
+![](https://lh4.googleusercontent.com/EwfDih6nnvUdMItsgEHeNpf1o4fm1l0O5k4FusS6rW0I_vtf0G0WEcnNxbzSSiSJuK40O9WwQUEXykNauwQQgBzPk3ZgFxyuYMJowqYsOVJIDcxEaXihAw3j3RUe_fKGhg7c8AinX4iIHW_UoEUC4Ok)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Surplus > Surplus > Amount |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**Retention Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Amount ที่กำหนดไว้**Retention Amount**Numericแสดงข้อมูล Standard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ** [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_medical_type**รูปแบบ Retention หลัก** [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง** [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**Retention Name** [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) retention_name**Retention Amount** [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) retention_amount**Effective Date From** [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) effective_date_from**Effective Date To** [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) effective_date_to**Update Date** [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **Retention Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Amount ที่กำหนดไว้ |
+| **Retention Amount** | Numeric | แสดงข้อมูล Standard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **Retention Name** | [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) | retention_name |
+| **Retention Amount** | [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) | retention_amount |
+| **Effective Date From** | [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_retent_amount](http://wiki.thaisamut.co.th/x/zgCaQQ) | updated_date |
+
+- Setup Retention - Surplus > Age Period
+
+![](https://lh4.googleusercontent.com/6VZDKAMqhsSRayMHK4AXoSr6C-uwTp2ttpfqz0dHI0ea0NcwtddNpSoCgW7vf_VrBDROTbey9mFoRi3rSXpFIEA0zitn-1WJ701l7XVDYhCVPHxthgFhRlbWORVy0RI1M98TTqbNyyJ6YkPU19ezxNo)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Surplus > Age Period |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Age Period ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**File Setup Base Plan Code**Text Linkแสดงข้อมูล File Setup Retention - Surplus > Age Period ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Retention - Surplus > Age Period ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 309 | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_medical_type**รูปแบบ Retention หลัก**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**Name**[tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ)retention_name**Effective Date From**[tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) effective_date_from**Effective Date To**[tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) effective_date_to**Update Date**[tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) updated_date**File Setup Base Plan Code**[tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Age Period ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **File Setup Base Plan Code** | Text Link | แสดงข้อมูล File Setup Retention - Surplus > Age Period ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup Retention - Surplus > Age Period ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 309 |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **Name** | [tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) | retention_name |
+| **Effective Date From** | [tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) | updated_date |
+| **File Setup Base Plan Code** | [tx_tmp_retent_age_hd](http://wiki.thaisamut.co.th/x/0ACaQQ) | import_file_name |
+
+- Setup Retention - Surplus > Insurance Policies
+
+![](https://lh3.googleusercontent.com/f4bakbBtRmDQUh7odhd277GKHn1090FSHFYjd6w6LuObOFN98H7iNovwhADyBt3ZG2LkMz9UXoBZSXpm5lotizuPvvL5Kg8ucodZ9HgWU5ASbOnm67wZ7QuuAnvoZmlHjVS20lkyPpTNUYucUV0T7Ag)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Surplus > Insurance Policies |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**Retention Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Insurance Policies ที่กำหนดไว้**Insurance** **Policies**Textแสดงข้อมูล Insurance Policies ที่กำหนดไว้**Retention Amount**Numericแสดงข้อมูล Standard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_medical_type**รูปแบบ Retention หลัก**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**Retention Name**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ)retention_name**Insurance** **Policies**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) ms_policy_type**Retention Amount**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) retention_amount**Effective Date From**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) effective_date_from**Effective Date To**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) effective_date_to**Update Date**[tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **Retention Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Surplus > Insurance Policies ที่กำหนดไว้ |
+| **Insurance** **Policies** | Text | แสดงข้อมูล Insurance Policies ที่กำหนดไว้ |
+| **Retention Amount** | Numeric | แสดงข้อมูล Standard Retention Amount ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **Retention Name** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | retention_name |
+| **Insurance** **Policies** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | ms_policy_type |
+| **Retention Amount** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | retention_amount |
+| **Effective Date From** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_insurance_policy](http://wiki.thaisamut.co.th/x/1wCaQQ) | updated_date |
+
+- Setup Retention - Quota share > Quota share Percentage
+
+![](https://lh4.googleusercontent.com/qHrAI-UQILmQAc4PGONDp5QYLi_TFm3m9sVS8F7uGbFAuwIDuGfxhTwwOT3sKxWItV4Ee-4fQQNddW8UN5U0EYsagm3DUKeCyN5D9hs2ixwOVuI0wH14xMtRIxfZmV0pkBmF6xmBbYKg66YD22vdPw4)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Quota share > Quota share Percentage |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**Retention Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Quota share > Quota share Percentage ที่กำหนดไว้**OLI Quota share**Numericแสดงข้อมูล OLI Quota share ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**RE Quota share**Numericแสดงข้อมูล RE Quota share ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_medical_type**รูปแบบ Retention หลัก**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**Retention Name**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ)retention_name**OLI Quota share**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) oli_qs_shared_percent**RE Quota share**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) re_qs_shared_percent**Effective Date From**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) effective_date_from**Effective Date To**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) effective_date_to**Update Date**[tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **Retention Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับการ Setup Retention - Quota share > Quota share Percentage ที่กำหนดไว้ |
+| **OLI Quota share** | Numeric | แสดงข้อมูล OLI Quota share ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **RE Quota share** | Numeric | แสดงข้อมูล RE Quota share ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **Retention Name** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | retention_name |
+| **OLI Quota share** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | oli_qs_shared_percent |
+| **RE Quota share** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | re_qs_shared_percent |
+| **Effective Date From** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_quota_share_percent](http://wiki.thaisamut.co.th/x/2wCaQQ) | updated_date |
+
+- Setup Retention - Surplus-QS / QS-Surplus > Percentage (Layer)
+
+![](/download/attachments/1098613397/Screenshot%202024-06-30%20210118.png?version=1&modificationDate=1719756093661&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup Retention - Surplus-QS / QS-Surplus > Percentage (Layer) |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****เคสตรวจสุขภาพ**Textแสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้**รูปแบบ Retention หลัก**Textแสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้**รูปแบบ Retention รอง**Textแสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้**1st layer of first**Numericแสดงข้อมูล 1st layer of first ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**1st layer OLI Percentage**Numericแสดงข้อมูล 1st layer OLI Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**1st layer RE Percentage**Numericแสดงข้อมูล 1st layer RE Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**2nd layer**Numericแสดงข้อมูล 2nd layer ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**2nd layer OLI Percentage**Numericแสดงข้อมูล 2nd layer OLI Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**2nd layer RE Percentage**Numericแสดงข้อมูล 2nd layer RE Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**เคสตรวจสุขภาพ**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_medical_type**รูปแบบ Retention หลัก**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_type**รูปแบบ Retention รอง**[tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) ms_retention_option**1st layer of first**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ)first_layer_of_first**1st layer OLI Percentage**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) oli_1_layer_percent**1st layer RE Percentage**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) re_1_layer_percent**2nd layer**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) second_layer**2nd layer OLI Percentage**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) oli_2_layer_percent**2nd layer RE Percentage**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) re_2_layer_percent**Effective Date From**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) effective_date_from**Effective Date To**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) effective_date_to**Update Date**[tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **เคสตรวจสุขภาพ** | Text | แสดงข้อมูล เคสตรวจสุขภาพ ที่กำหนดไว้ |
+| **รูปแบบ Retention หลัก** | Text | แสดงข้อมูล รูปแบบ Retention หลัก ที่กำหนดไว้ |
+| **รูปแบบ Retention รอง** | Text | แสดงข้อมูล รูปแบบ Retention รอง ที่กำหนดไว้ |
+| **1st layer of first** | Numeric | แสดงข้อมูล 1st layer of first ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **1st layer OLI Percentage** | Numeric | แสดงข้อมูล 1st layer OLI Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **1st layer RE Percentage** | Numeric | แสดงข้อมูล 1st layer RE Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **2nd layer** | Numeric | แสดงข้อมูล 2nd layer ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **2nd layer OLI Percentage** | Numeric | แสดงข้อมูล 2nd layer OLI Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **2nd layer RE Percentage** | Numeric | แสดงข้อมูล 2nd layer RE Percentage ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **เคสตรวจสุขภาพ** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_medical_type |
+| **รูปแบบ Retention หลัก** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_type |
+| **รูปแบบ Retention รอง** | [tx_tmp_retention](http://wiki.thaisamut.co.th/x/vwCaQQ) | ms_retention_option |
+| **1st layer of first** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | first_layer_of_first |
+| **1st layer OLI Percentage** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | oli_1_layer_percent |
+| **1st layer RE Percentage** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | re_1_layer_percent |
+| **2nd layer** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | second_layer |
+| **2nd layer OLI Percentage** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | oli_2_layer_percent |
+| **2nd layer RE Percentage** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | re_2_layer_percent |
+| **Effective Date From** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_quota_share_layer](http://wiki.thaisamut.co.th/x/3gCaQQ) | updated_date |
+
+- Setup RI Commission Rate
+
+- Setup RI Commission Rate - Policy Year
+
+![](/download/attachments/1098613397/image2024-7-16%2013%3A46%3A5.png?version=1&modificationDate=1721112353311&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Commission Rate - Policy Year |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท Commission Rate**Textแสดงข้อมูล ประเภท Commission Rate ที่กำหนดไว้**Commission Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้**BASE : 1st yr. RI Commission Rate** แสดงข้อมูล 1st yr. RI Commission Rate ที่กำหนดไว้ของ Plan Code Base[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**BASE : Renewal yr. RI Commission Rate** แสดงข้อมูล Renewal yr. RI Commission Rate ที่กำหนดไว้ของ Plan Code Base[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**RIDER : 1st yr. RI Commission Rate** แสดงข้อมูล 1st yr. RI Commission Rate ที่กำหนดไว้ของ Rider Code[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**RIDER : Renewal yr. RI Commission Rate** แสดงข้อมูล Renewal yr. RI Commission Rate ที่กำหนดไว้ของ Rider Code[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ตามเงื่อนไขของปุ่มที่กดเข้ามา[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**ประเภท Commission Rate**[tx_tmp_commission_rate](http://wiki.thaisamut.co.th/x/6wCaQQ)ms_comm_type**Commission Name**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ)commission_name**BASE : 1st yr. RI Commission Rate**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) first_year_comm_rate**BASE : Renewal yr. RI Commission Rate**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) renew_year_comm_rate**RIDER : 1st yr. RI Commission Rate**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) rider_first_year_comm_rate**RIDER : Renewal yr. RI Commission Rate**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) rider_renew_year_comm_rate**Effective Date From**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) effective_date_from**Effective Date To**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) effective_date_to**Update Date**[tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท Commission Rate** | Text | แสดงข้อมูล ประเภท Commission Rate ที่กำหนดไว้ |
+| **Commission Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้ |
+| **BASE : 1st yr. RI Commission Rate** |  | แสดงข้อมูล 1st yr. RI Commission Rate ที่กำหนดไว้ของ Plan Code Base[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **BASE : Renewal yr. RI Commission Rate** |  | แสดงข้อมูล Renewal yr. RI Commission Rate ที่กำหนดไว้ของ Plan Code Base[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **RIDER : 1st yr. RI Commission Rate** |  | แสดงข้อมูล 1st yr. RI Commission Rate ที่กำหนดไว้ของ Rider Code[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **RIDER : Renewal yr. RI Commission Rate** |  | แสดงข้อมูล Renewal yr. RI Commission Rate ที่กำหนดไว้ของ Rider Code[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ตามเงื่อนไขของปุ่มที่กดเข้ามา[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **ประเภท Commission Rate** | [tx_tmp_commission_rate](http://wiki.thaisamut.co.th/x/6wCaQQ) | ms_comm_type |
+| **Commission Name** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | commission_name |
+| **BASE : 1st yr. RI Commission Rate** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | first_year_comm_rate |
+| **BASE : Renewal yr. RI Commission Rate** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | renew_year_comm_rate |
+| **RIDER : 1st yr. RI Commission Rate** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | rider_first_year_comm_rate |
+| **RIDER : Renewal yr. RI Commission Rate** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | rider_renew_year_comm_rate |
+| **Effective Date From** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_comm_by_year](http://wiki.thaisamut.co.th/x/7QCaQQ) | updated_date |
+
+- Setup RI Commission Rate - Policy Term
+
+![](https://lh3.googleusercontent.com/-mH1bhv5aGZTxsaLMCmyl3pQgZ9RkA2d-id-_lWVzmSK7T6yadjZXyZ0zRJe2s_ILUBatU2cRkUweEOmG6dmUB5Zt7PN99Z2StU-ugRHiDkHr1kr_7IZ1poyoztbmvCYaq0qC2hlWTbsH_GpaDiHdPE)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Commission Rate - Policy Term |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท Commission Rate**Textแสดงข้อมูล ประเภท Commission Rate ที่กำหนดไว้**Icon** ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4)Iconเมื่อกด จะแสดง Popup เพื่อดูรายละเอียด RI Commission Rate - Policy Term**Commission Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**ประเภท Commission Rate**[tx_tmp_commission_rate](http://wiki.thaisamut.co.th/x/6wCaQQ) ms_comm_type**Commission Name**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) commission_name**Effective Date From**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) effective_date_from**Effective Date To**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) effective_date_to**Update Date**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) updated_date |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท Commission Rate** | Text | แสดงข้อมูล ประเภท Commission Rate ที่กำหนดไว้ |
+| **Icon** ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) | Icon | เมื่อกด จะแสดง Popup เพื่อดูรายละเอียด RI Commission Rate - Policy Term |
+| **Commission Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **ประเภท Commission Rate** | [tx_tmp_commission_rate](http://wiki.thaisamut.co.th/x/6wCaQQ) | ms_comm_type |
+| **Commission Name** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | commission_name |
+| **Effective Date From** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | updated_date |
+
+**หน้าจอดูรายละเอียด RI Commission Rate - Policy Term**
+
+![](https://lh5.googleusercontent.com/JMpaiT1BE6bPK8JJXyHDWv4xAGzVAzwgshnydkxwHnuWj9AgiBa8--k8GWSPnBpJcuH-rnk80ruzG1gGmTN1xfuIHNZn4IC7oKGxA_mXFCwams2O23QoSpfrvIT4l6_zQ4ryWKd8oHjHIQkCEcjbhec)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Commission Rate - Policy Term |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****Commission Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Policy Year From - To**Numericแสดงข้อมูล Policy Year From - To ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ)**Policy Term (Coverage Term) From - To**Numericแสดงข้อมูล Policy Term (Coverage Term) From - To ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ)**RI Commission Rate ในตาราง**Numericแสดงตารางข้อมูล RI Commission Rate ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) | Screen FieldDB TableDB Field**Commission Name**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) commission_name**Effective Date From**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) effective_date_from**Effective Date To**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) effective_date_to**Policy Year From - To**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) policy_year**Policy Term (Coverage Term) From - To**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) policy_term**RI Commission Rate ในตาราง**[tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) comm_rate |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **Commission Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ Commission Name ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Policy Year From - To** | Numeric | แสดงข้อมูล Policy Year From - To ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Policy Term (Coverage Term) From - To** | Numeric | แสดงข้อมูล Policy Term (Coverage Term) From - To ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **RI Commission Rate ในตาราง** | Numeric | แสดงตารางข้อมูล RI Commission Rate ที่กำหนดไว้[แสดงจำนวนเปอร์เซ็นต์](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| Screen Field | DB Table | DB Field |
+| **Commission Name** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | commission_name |
+| **Effective Date From** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | effective_date_to |
+| **Policy Year From - To** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | policy_year |
+| **Policy Term (Coverage Term) From - To** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | policy_term |
+| **RI Commission Rate ในตาราง** | [tx_tmp_comm_by_term](http://wiki.thaisamut.co.th/x/7wCaQQ) | comm_rate |
+
+- Setup RI Premium Rate
+
+- Setup RI Premium Rate - Set up By Treaty (CR#3)
+
+![](/download/attachments/1098613397/Screenshot%202024-10-08%20043930.png?version=1&modificationDate=1728338564600&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By Treaty |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท RI Premium Rate**Textแสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้**RI Premium Rate Type**Textแสดงข้อมูล RI Premium Rate Type ที่กำหนดไว้**Occupation Class**Numericแสดงข้อมูล Occupation Class ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Start Date**(CR#3)****Dateแสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Expire Date**(CR#3)****Dateแสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By Treaty ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Treaty ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 312 | Screen FieldDB TableDB Field**ประเภท RI Premium Rate**[tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) ms_prem_rate**RI Premium Rate Type**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ)policy_type**Occupation Class**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) occ_class**Effective Date From**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) effective_date_from**Effective Date To**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) effective_date_to**Start Date (CR#3)**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) start_date**Expire Date**(CR#3)****[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) expire**Update Date**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท RI Premium Rate** | Text | แสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้ |
+| **RI Premium Rate Type** | Text | แสดงข้อมูล RI Premium Rate Type ที่กำหนดไว้ |
+| **Occupation Class** | Numeric | แสดงข้อมูล Occupation Class ที่กำหนดไว้[แสดงตัวเลขจำนวนเต็ม](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Start Date**(CR#3)**** | Date | แสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Expire Date**(CR#3)**** | Date | แสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By Treaty ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Treaty ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 312 |
+| Screen Field | DB Table | DB Field |
+| **ประเภท RI Premium Rate** | [tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) | ms_prem_rate |
+| **RI Premium Rate Type** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | policy_type |
+| **Occupation Class** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | occ_class |
+| **Effective Date From** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | effective_date_to |
+| **Start Date (CR#3)** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | start_date |
+| **Expire Date**(CR#3)**** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | expire |
+| **Update Date** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_treaty_hd](http://wiki.thaisamut.co.th/x/Q4PGQQ) | import_file_name |
+
+- Setup RI Premium Rate - Set up By Product **(CR#3)**
+
+![](/download/attachments/1098613397/Screenshot%202024-10-08%20043944.png?version=1&modificationDate=1728338613385&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By Product |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****Icon ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) **(CR#3)****Iconกดปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) จากนั้นแสดง Popup ข้อมูล RI Premium Rate**ประเภท RI Premium Rate**Textแสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้**RI Premium Rate Name**Textแสดงข้อมูล RI Premium Rate Name ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้ (เป็นรายการล่าสุดที่อยู่ภายใต้ [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ).tx_tmp_plancode_hd_id เดียวกัน) (10/10/2024)[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By Product ตามเงื่อนไขของปุ่มที่กดเข้ามาเมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Product ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 315 | Screen FieldDB TableDB Field**ประเภท RI Premium Rate**[tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) ms_prem_rate**RI Premium Rate Name**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) name**Effective Date From**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_from**Effective Date To**[tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) effective_date_to**Update Date**[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **Icon ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) **(CR#3)**** | Icon | กดปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) จากนั้นแสดง Popup ข้อมูล RI Premium Rate |
+| **ประเภท RI Premium Rate** | Text | แสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้ |
+| **RI Premium Rate Name** | Text | แสดงข้อมูล RI Premium Rate Name ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้ (เป็นรายการล่าสุดที่อยู่ภายใต้ [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ).tx_tmp_plancode_hd_id เดียวกัน) (10/10/2024)[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By Product ตามเงื่อนไขของปุ่มที่กดเข้ามาเมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Product ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 315 |
+| Screen Field | DB Table | DB Field |
+| **ประเภท RI Premium Rate** | [tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) | ms_prem_rate |
+| **RI Premium Rate Name** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | name |
+| **Effective Date From** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_plancode_hd](http://wiki.thaisamut.co.th/x/uQCaQQ) | effective_date_to |
+| **Update Date** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | import_file_name |
+
+**Popup ข้อมูล RI Premium Rate **(CR#3)****
+
+![](/download/attachments/1098613397/Screenshot%202024-10-10%20155335.png?version=1&modificationDate=1728550789738&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By Product |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | กดดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****Start Date**Dateแสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Expire Date**Dateแสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date (10/10/2024)**Dateแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By Product ตามเงื่อนไขของปุ่มที่กดเข้ามาเมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Product ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 315 | Screen FieldDB TableDB Field**Start Date**[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)start_date**Expire Date**[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)expire_date**Update Date **(10/10/2024)****[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ)import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **Start Date** | Date | แสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Expire Date** | Date | แสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date (10/10/2024)** | Date | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By Product ตามเงื่อนไขของปุ่มที่กดเข้ามาเมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Product ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 315 |
+| Screen Field | DB Table | DB Field |
+| **Start Date** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | start_date |
+| **Expire Date** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | expire_date |
+| **Update Date **(10/10/2024)**** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_product_hd](http://wiki.thaisamut.co.th/x/R4PGQQ) | import_file_name |
+
+- Setup RI Premium Rate - Set up By แผนกรมธรรม์****(CR#3)****
+
+![](/download/attachments/1098613397/Screenshot%202024-10-08%20044017.png?version=1&modificationDate=1728338709755&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By แผนกรมธรรม์ |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Text****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท RI Premium Rate**Textแสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้**Plan Code**Textแสดงข้อมูล Plan Code ที่กำหนดไว้**Plan Name**Textแสดงข้อมูล Plan Name ที่กำหนดไว้**ทุนประกัน**Numericแสดงข้อมูล ทุนประกัน ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Start Date **(CR#3)****Dateแสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Expire Date **(CR#3)****Dateแสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By แผนกรมธรรม์ ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By แผนกรมธรรม์ ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 321 | Screen FieldDB TableDB Field**ประเภท RI Premium Rate**[tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) ms_prem_rate**Plan Code**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ)prem_plan_code**Plan Name**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) prem_plan_name**ทุนประกัน**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) sum_insured**Effective Date From**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) effective_date_from**Effective Date To**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) effective_date_to**Start Date **(CR#3)****[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) start_date**Expire Date **(CR#3)****[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) start_date**Update Date**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) import_file_name |
+| **Field** | **Text** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท RI Premium Rate** | Text | แสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้ |
+| **Plan Code** | Text | แสดงข้อมูล Plan Code ที่กำหนดไว้ |
+| **Plan Name** | Text | แสดงข้อมูล Plan Name ที่กำหนดไว้ |
+| **ทุนประกัน** | Numeric | แสดงข้อมูล ทุนประกัน ที่กำหนดไว้[แสดงจำนวนเงิน](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Start Date **(CR#3)**** | Date | แสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Expire Date **(CR#3)**** | Date | แสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By แผนกรมธรรม์ ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By แผนกรมธรรม์ ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 321 |
+| Screen Field | DB Table | DB Field |
+| **ประเภท RI Premium Rate** | [tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) | ms_prem_rate |
+| **Plan Code** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | prem_plan_code |
+| **Plan Name** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | prem_plan_name |
+| **ทุนประกัน** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | sum_insured |
+| **Effective Date From** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | effective_date_to |
+| **Start Date **(CR#3)**** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | start_date |
+| **Expire Date **(CR#3)**** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | start_date |
+| **Update Date** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_plan_hd](http://wiki.thaisamut.co.th/x/UoPGQQ) | import_file_name |
+
+- Setup RI Premium Rate - Set up By Package **(CR#3)**
+
+![](/download/attachments/1098613397/Screenshot%202024-10-08%20045143.png?version=1&modificationDate=1728338752520&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By Package |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท RI Premium Rate**Textแสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้**RI Premium Rate Name**Textแสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ RI Premium Rate ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Start Date **(CR#3)****Dateแสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Expire Date **(CR#3)****Dateแสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By Package ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Package ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 324 | Screen FieldDB TableDB Field**ประเภท RI Premium Rate**[tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) ms_prem_rate**RI Premium Rate Name**[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ)package_name**Effective Date From**[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) effective_date_from**Effective Date To**[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) effective_date_to**Start Date **(CR#3)****[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) start_date**Expire Date **(CR#3)****[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) expire_date**Update Date**[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท RI Premium Rate** | Text | แสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้ |
+| **RI Premium Rate Name** | Text | แสดงข้อมูล ชื่อที่ผู้ใช้งานตั้งให้กับ RI Premium Rate ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Start Date **(CR#3)**** | Date | แสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Expire Date **(CR#3)**** | Date | แสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By Package ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Package ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 324 |
+| Screen Field | DB Table | DB Field |
+| **ประเภท RI Premium Rate** | [tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) | ms_prem_rate |
+| **RI Premium Rate Name** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | package_name |
+| **Effective Date From** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | effective_date_to |
+| **Start Date **(CR#3)**** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | start_date |
+| **Expire Date **(CR#3)**** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | expire_date |
+| **Update Date** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_package_hd](http://wiki.thaisamut.co.th/x/W4PGQQ) | import_file_name |
+
+- Setup RI Premium Rate - Set up By กลุ่มโรค **(CR#3)**
+
+![](/download/attachments/1098613397/Screenshot%202024-10-08%20044110.png?version=1&modificationDate=1728338786872&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงรายละเอียด ข้อมูล Setup RI Premium Rate - Set up By กลุ่มโรค |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | **เรียงตาม Group Code [ASC]****Field****Type****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ประเภท RI Premium Rate**Textแสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้**Group Code**Textแสดงข้อมูล Group Code ที่กำหนดไว้**Group Name**Textแสดงข้อมูล Group Name ที่กำหนดไว้**Effective Date From**Dateแสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ)**Effective Date To**Dateแสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ)**Start Date **(CR#3)****Dateแสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Expire Date **(CR#3)****Dateแสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Update Date**Timestampแสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ)**Config File RI Premium Rate**Text Linkแสดงข้อมูล File Setup RI Premium Rate - Set up By Package ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Package ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 327 | Screen FieldDB TableDB Field**ประเภท RI Premium Rate**[tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) ms_prem_rate**Group Code**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) prem_group_code**Group Name**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) prem_group_name**Effective Date From**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) effective_date_from**Effective Date To**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) effective_date_to**Start Date **(CR#3)****[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) start_date**Expire Date **(CR#3)****[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) expire_date**Update Date**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) updated_date**Config File RI Premium Rate**[tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) import_file_name |
+| **Field** | **Type** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ประเภท RI Premium Rate** | Text | แสดงข้อมูล ประเภท RI Premium Rate ที่กำหนดไว้ |
+| **Group Code** | Text | แสดงข้อมูล Group Code ที่กำหนดไว้ |
+| **Group Name** | Text | แสดงข้อมูล Group Name ที่กำหนดไว้ |
+| **Effective Date From** | Date | แสดงข้อมูล Effective Date From ที่กำหนดไว้[แสดง Effective Date From](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Effective Date To** | Date | แสดงข้อมูล Effective Date To ที่กำหนดไว้[แสดง Effective Date To](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Start Date **(CR#3)**** | Date | แสดงข้อมูล Start Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Expire Date **(CR#3)**** | Date | แสดงข้อมูล Expire Date ที่กำหนดไว้[แสดง Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Update Date** | Timestamp | แสดงข้อมูล วันที่แก้ไขข้อมูลล่าสุด ที่กำหนดไว้[แสดง Update Date](http://wiki.thaisamut.co.th/x/CQCSQQ) |
+| **Config File RI Premium Rate** | Text Link | แสดงข้อมูล File Setup RI Premium Rate - Set up By Package ที่กำหนดไว้เมื่อคลิกที่ชื่อไฟล์ สามารถดาวน์โหลดไฟล์ Setup RI Premium Rate - Set up By Package ตาม Template ที่ Upload ได้Download File ตามเงื่อนไข [](http://wiki.thaisamut.co.th/x/TYLKQQ)[cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ) ที่ [cf_template_file](http://wiki.thaisamut.co.th/x/TYLKQQ).cf_template_file_id เท่ากับ 327 |
+| Screen Field | DB Table | DB Field |
+| **ประเภท RI Premium Rate** | [tx_tmp_premium_rate](http://wiki.thaisamut.co.th/x/CYPGQQ) | ms_prem_rate |
+| **Group Code** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | prem_group_code |
+| **Group Name** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | prem_group_name |
+| **Effective Date From** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | effective_date_from |
+| **Effective Date To** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | effective_date_to |
+| **Start Date **(CR#3)**** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | start_date |
+| **Expire Date **(CR#3)**** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | expire_date |
+| **Update Date** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | updated_date |
+| **Config File RI Premium Rate** | [tx_tmp_prem_by_grp_ci_hd](http://wiki.thaisamut.co.th/x/X4PGQQ) | import_file_name |
+
+- Setup Calculation
+
+![](/download/attachments/1098613400/image2023-11-18%2021%3A50%3A54.png?version=1&modificationDate=1700319052161&api=v2)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์(Objective) | แสดงข้อมูลรายการค่าคำนวนและการกำหนดสูตรทั้งหมดใน Treaty |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | - |  |
+| 4 | ข้อมูลที่ได้จากระบบ(Output) | กรณีดูรายละเอียดกดมาจากปุ่ม ![](https://lh3.googleusercontent.com/aeY-XCui_lspfsM4BU0p1hJnqeaHDDV5q6IKwJiq5FijacLvf90ELnG6PxfG41aifbzpF45Ti93MpceerLeMzS-C_PGNXwe-gpIvHneNjYGZwHIIdKXlgWvdqkiCJE659pGtfh4hmABWwkydDNh5OQ4) ระบบจะแสดงข้อมูลที่ถูกบันทึกไว้พร้อมใช้งาน (ตาราง Master Config) |  |
+| 5 | การกระทำกับหน้าจอ(Actions) | - |  |
+| 6 | อธิบายรายละเอียด (Description) | แสดงข้อมูลรายการค่าคำนวนตามรายการ Master ที่ต้องกำหนดสูตรทั้งหมดแสดงสูตรคำนวนของรายการค่าคำนวนตามที่ผู้ใช้งานกำหนดไว้ทั้งหมด | Screen FieldDB TableDB Field**ค่าคำนวน**[ms_calculation](http://wiki.thaisamut.co.th/x/DYDKQQ)ms_cal_key**กรณี**[ms_calculation](http://wiki.thaisamut.co.th/x/DYDKQQ) ms_cal_case**การนับเศษวัน**[tx_tmp_treaty_cal](http://wiki.thaisamut.co.th/x/ZIPGQQ)fraction_day**เลือกสูตร**[ms_formula](http://wiki.thaisamut.co.th/x/C4DKQQ)fomula_display |
+| Screen Field | DB Table | DB Field |
+| **ค่าคำนวน** | [ms_calculation](http://wiki.thaisamut.co.th/x/DYDKQQ) | ms_cal_key |
+| **กรณี** | [ms_calculation](http://wiki.thaisamut.co.th/x/DYDKQQ) | ms_cal_case |
+| **การนับเศษวัน** | [tx_tmp_treaty_cal](http://wiki.thaisamut.co.th/x/ZIPGQQ) | fraction_day |
+| **เลือกสูตร** | [ms_formula](http://wiki.thaisamut.co.th/x/C4DKQQ) | fomula_display |
+
+- พิจารณา
+
+![](https://lh3.googleusercontent.com/sAOSrcFEextJ_hWhcjjD45xbt3OpZc92gF0BQqJWG6IUfMG31x3hQFwGA7ggd8rLVAK0TiiM3tHrULwev1ZhrNbXklES9B-Coj5YowSyXvvljrfCecOh4wetXjpaDarymCYlEO2G65bZw1KWkI0Rvn4)
+
+Description
+
+| No. | หัวข้อ | รายละเอียด | Database |
+| --- | --- | --- | --- |
+| 1 | วัตถุประสงค์ (Objective) | กรณี Checker สำหรับพิจารณาการเพิ่มหรือแก้ไขข้อมูลใน Treaty |  |
+| 2 | ผู้ใช้งาน และ สิทธิ์ที่ได้รับ (Target Users and authorization) | เจ้าหน้าที่ฝ่ายคณิตศาสตร์ |  |
+| 3 | ข้อมูลที่ป้อนเข้าสู่ระบบ | **สำหรับ Checker**เลือก ผลพิจารณากรอกหมายเหตุ |  |
+| 4 | ข้อมูลที่ได้จากระบบ (Output) | - |  |
+| 5 | การกระทำกับหน้าจอ (Actions) | **สำหรับ Checker**เลือก ผลพิจารณากรอกหมายเหตุกดปุ่มปิดเพื่อออกจากหน้าพิจารณาการเพิ่มหรือแก้ไขข้อมูลกดปุ่มบันทึกเพื่อบันทึกผลการพิจารณา |  |
+| 6 | อธิบายรายละเอียด (Description) | **Field****แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล****ผลพิจารณา**บังคับเลือกแสดงเป็น DropdownLookup ที่ [cf_lookup_catalog](http://wiki.thaisamut.co.th/display/RDSINRI/cf_lookup_catalog).parent_id = 1000800**หมายเหตุ**[ตรวจสอบหมายเหตุ](http://wiki.thaisamut.co.th/x/QgGSQQ) ปุ่ม ปิดยกเลิกการพิจารณาการเพิ่มหรือแก้ไขข้อมูลปุ่ม บันทึก ให้แสดง popupเงื่อนไขการบันทึกกรณีเลือกเป็น "ส่งกลับแก้ไข" ให้ตรวจสอบช่องหมายเหตุต้องไม่เป็นค่าว่างถ้าว่าง ให้แสดงข้อความสีแดงใต้ช่องใส่หมายเหตุ "กรุณากรอกหมายเหตุ" ![](/download/attachments/1098613397/image2024-5-8%2016%3A34%3A7.png?version=1&modificationDate=1715160847842&api=v2)กรณีกดยืนยันข้อมูลการพิจารณาและเปลี่ยนสถานะรายการนั้นให้เป็นไปตามผลพิจารณากรณีเปลี่ยนสถานะเป็น อนุมัติ 'APRV' Lookup ที่ cf_lookup_catalog.parent_id = 1000800 ให้ระบบอัปเดทข้อมูลจาก Table Temp ทั้งหมด ไปยัง Table CF [Mapping Table](http://wiki.thaisamut.co.th/x/DYFMQg) กรณีกดยกเลิก ให้ปิด popup | Table บันทึกข้อมูลScreen FieldDB TableDB Field**ผลพิจารณา**[tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ)ms_process_status[tx_treaty_history](http://wiki.thaisamut.co.th/x/FIDKQQ)his_action**หมายเหตุ**[tx_treaty_history](http://wiki.thaisamut.co.th/x/FIDKQQ) his_remark |
+| **Field** | **แสดงข้อมูลและเงื่อนไขการตรวจสอบข้อมูล** |
+| **ผลพิจารณา** | บังคับเลือกแสดงเป็น DropdownLookup ที่ [cf_lookup_catalog](http://wiki.thaisamut.co.th/display/RDSINRI/cf_lookup_catalog).parent_id = 1000800 |
+| **หมายเหตุ** | [ตรวจสอบหมายเหตุ](http://wiki.thaisamut.co.th/x/QgGSQQ) |
+| Screen Field | DB Table | DB Field |
+| **ผลพิจารณา** | [tx_tmp_treaty](http://wiki.thaisamut.co.th/x/twCaQQ) | ms_process_status |
+| [tx_treaty_history](http://wiki.thaisamut.co.th/x/FIDKQQ) | his_action |
+| **หมายเหตุ** | [tx_treaty_history](http://wiki.thaisamut.co.th/x/FIDKQQ) | his_remark |

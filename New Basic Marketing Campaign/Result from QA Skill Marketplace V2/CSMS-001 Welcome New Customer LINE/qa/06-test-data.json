@@ -1,0 +1,305 @@
+{
+  "meta": {
+    "skill": "test-data-generator (Spec-Kit 06)",
+    "feature": "csms-001-welcome-line",
+    "date": "2026-07-09",
+    "policy": "SYNTHETIC ONLY — no production PII. All names/card_no/mobile are fabricated. Values not derivable from spec are marked BLOCKED (RQ), never invented.",
+    "inputs": ["qa/01-requirement-review.md", "qa/02-e2e-test-patterns.md", "qa/03-test-cases.md", "qa/04-coverage-review.md", "qa/05-risk-analysis.md", "spec.md"],
+    "run_date_assumption": "processing date = 2026-05-15 → T-1 = 2026-05-14 (used consistently below)"
+  },
+  "summary": {
+    "total_datasets": 30,
+    "priority_distribution": {"P0": 10, "P1": 11, "P2": 6, "P3": 3},
+    "risk_alignment": "All CRITICAL/HIGH risks (RISK-001..007) have full dataset coverage; MEDIUM/LOW partial.",
+    "data_readiness_score": 70,
+    "readiness_reason": "Synthetic datasets are complete and traceable, but 5 datasets are BLOCKED on RQ-001..005 (no valid expected value can be authored), and all require a batch harness (seed DB + Inquiry/ESB/email mocks) that is not yet provisioned — see 06b."
+  },
+  "datasets": [
+    {
+      "test_data_id": "TD-001", "related_tc": "TC-001", "related_req": "FR-001,002,006,014,015,016", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Positive", "priority": "P0",
+      "description": "Eligible ORD, issued 2026, T-1, Inforce, not DNC, not registered → should SEND.",
+      "expected_result": "1 SMS sent; WELCOME_NEW_CUST_LINE row sent_status='S', sms_sent_date set; CSMS_LOG has refer_no.",
+      "data_set": {"policy_no": "2445901", "policy_type": "ORD", "issue_date": "2026-05-14", "issued_year": 2026, "status": "Inforce", "title_name": "คุณ", "fname": "สมชาย", "lname": "ทดสอบหนึ่ง", "card_no": "C0000000001", "mobile_no": "0845012341", "in_dnc": false, "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}},
+      "setup": "Seed policy master + application ORD + customer analytics(card_no→name) + active LINE_LINK.",
+      "notes": "Canonical happy path."
+    },
+    {
+      "test_data_id": "TD-002", "related_tc": "TC-002", "related_req": "FR-002,006", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Positive", "priority": "P1",
+      "description": "Eligible IND (source type 'I') → SEND.",
+      "expected_result": "1 SMS; row S; policy_type=IND.",
+      "data_set": {"policy_no": "3100201", "policy_type": "IND", "source_type_code": "I", "issue_date": "2026-05-14", "status": "Inforce", "fname": "สมหญิง", "lname": "ทดสอบสอง", "card_no": "C0000000002", "mobile_no": "0812345671", "in_dnc": false, "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}},
+      "setup": "Seed application IND.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-003", "related_tc": "TC-003", "related_req": "FR-002,006", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Positive", "priority": "P1",
+      "description": "Eligible PA → SEND.",
+      "expected_result": "1 SMS; row S; policy_type=PA.",
+      "data_set": {"policy_no": "4500301", "policy_type": "PA", "issue_date": "2026-05-14", "status": "Inforce", "fname": "อาทิตย์", "lname": "ทดสอบสาม", "card_no": "C0000000003", "mobile_no": "0898765431", "in_dnc": false, "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}},
+      "setup": "Seed application PA.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-004", "related_tc": "TC-004", "related_req": "FR-006", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "BR-003 condition 2: no Ocean Club AND LINE blocked → SEND.",
+      "expected_result": "SMS sent (row S) — proves cond-2 sends.",
+      "data_set": {"policy_no": "2445902", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "fname": "บล็อก", "lname": "ไลน์", "card_no": "C0000000004", "mobile_no": "0845012342", "in_dnc": false, "inquiry_mock": {"line": "found_blocked", "ocean_club": "not_found"}},
+      "setup": "Inquiry mock returns isBlockLine=true, no ocean club.", "notes": "Cond-2 edge."
+    },
+    {
+      "test_data_id": "TD-005", "related_tc": "TC-005", "related_req": "FR-006", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "BR-003 condition 3a: LINE found and NOT blocked → DO NOT SEND.",
+      "expected_result": "0 ESB calls for this customer (ALT-001).",
+      "data_set": {"policy_no": "2445903", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "fname": "ลงทะเบียน", "lname": "แล้ว", "card_no": "C0000000005", "mobile_no": "0845012343", "in_dnc": false, "inquiry_mock": {"line": "found_unblocked", "ocean_club": "not_found"}},
+      "setup": "Inquiry: LINE found, isBlockLine=false.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-006", "related_tc": "TC-006", "related_req": "FR-006", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "BR-003 condition 3b: Ocean Club found → DO NOT SEND.",
+      "expected_result": "0 ESB calls for this customer.",
+      "data_set": {"policy_no": "2445904", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "fname": "โอเชียน", "lname": "คลับ", "card_no": "C0000000006", "mobile_no": "0845012344", "in_dnc": false, "inquiry_mock": {"line": "not_found", "ocean_club": "found"}},
+      "setup": "Inquiry: ocean_club found.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-007", "related_tc": "TC-007", "related_req": "FR-007", "related_risk": "RISK-001",
+      "category": "Business Rule", "priority": "P1",
+      "description": "code=E02 (customer not found) used as internal eligibility signal, no user message.",
+      "expected_result": "Treated per BR-003 (E02=not registered → send if cond1/2); no user-facing message for E02.",
+      "data_set": {"policy_no": "2445905", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "fname": "อีศูนย์สอง", "lname": "เคส", "card_no": "C0000000007", "mobile_no": "0845012345", "in_dnc": false, "inquiry_mock": {"line": "E02", "ocean_club": "E02"}},
+      "setup": "Inquiry returns code E02 both channels.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-008", "related_tc": "TC-008,TC-009", "related_req": "FR-003", "related_risk": "RISK boundary",
+      "category": "Boundary", "priority": "P1",
+      "description": "Year boundary: 2025-12-31 excluded vs 2026-01-01 included (both with issue_date=T-1 semantics for their run).",
+      "expected_result": "2025 policy NOT selected (no row); 2026 policy selected and sent.",
+      "data_set": {"below": {"policy_no": "2440001", "policy_type": "ORD", "issued_date_original": "2025-12-31", "issue_date": "2026-05-14", "status": "Inforce"}, "at": {"policy_no": "2460001", "policy_type": "ORD", "issued_date_original": "2026-01-01", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012346", "card_no": "C0000000008", "fname": "ปีใหม่", "lname": "สองหกศูนย์"}},
+      "setup": "Two policies distinguishing issued-year vs issue_date=T-1.", "notes": "BVA UR Go-live boundary."
+    },
+    {
+      "test_data_id": "TD-009", "related_tc": "TC-012,TC-013", "related_req": "FR-004", "related_risk": "RISK selection",
+      "category": "Negative", "priority": "P1",
+      "description": "mobile_no NULL and empty-string variants excluded at selection.",
+      "expected_result": "Neither selected; 0 ESB; no row.",
+      "data_set": {"null_case": {"policy_no": "2445906", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": null}, "empty_case": {"policy_no": "2445907", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": ""}},
+      "setup": "", "notes": "EC-001 two sub-conditions."
+    },
+    {
+      "test_data_id": "TD-010", "related_tc": "TC-011", "related_req": "FR-002", "related_risk": "RISK selection",
+      "category": "Negative", "priority": "P1",
+      "description": "Non-Inforce status excluded.",
+      "expected_result": "Not selected.",
+      "data_set": {"policy_no": "2445908", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Pending", "mobile_no": "0845012347", "card_no": "C0000000010", "fname": "รอ", "lname": "อนุมัติ"},
+      "setup": "", "notes": ""
+    },
+    {
+      "test_data_id": "TD-011", "related_tc": "TC-015", "related_req": "FR-005", "related_risk": "RISK-001",
+      "category": "Business Rule", "priority": "P1",
+      "description": "ORD in Do-Not-Contact (mapped 'O', remark_code='1') excluded.",
+      "expected_result": "Excluded; 0 ESB; counted as DNC in report.",
+      "data_set": {"policy_no": "2445909", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012348", "card_no": "C0000000011", "fname": "ห้าม", "lname": "ติดต่อ", "dnc": {"policy_type_mapped": "O", "remark_code": "1"}},
+      "setup": "Seed ili_policy_remark row.", "notes": ""
+    },
+    {
+      "test_data_id": "TD-012", "related_tc": "TC-016,TC-017,TC-018", "related_req": "FR-005", "related_risk": "RISK-001",
+      "category": "Business Rule", "priority": "P1",
+      "description": "IND('I'), IND('G'), PA in DNC (remark_code='4') excluded — proves mapping IND IN ('I','G'), PA='P'.",
+      "expected_result": "All three excluded; 0 ESB.",
+      "data_set": {"ind_i": {"policy_no": "3100202", "policy_type": "IND", "source_type_code": "I", "dnc": {"policy_type_mapped": "I", "remark_code": "4"}}, "ind_g": {"policy_no": "3100203", "policy_type": "IND", "source_type_code": "G", "dnc": {"policy_type_mapped": "G", "remark_code": "4"}}, "pa": {"policy_no": "4500302", "policy_type": "PA", "dnc": {"policy_type_mapped": "P", "remark_code": "4"}}, "common": {"issue_date": "2026-05-14", "status": "Inforce", "mobile_present": true}},
+      "setup": "Seed 3 DNC rows.", "notes": "Type-mapping decision coverage."
+    },
+    {
+      "test_data_id": "TD-013", "related_tc": "TC-019,TC-043", "related_req": "FR-008,016a", "related_risk": "RISK-006 (HIGH)",
+      "category": "Negative", "priority": "P1",
+      "description": "Inquiry returns E13 → skip immediately (no retry), log, write 'F' row.",
+      "expected_result": "Inquiry called once (no retry); 'F' row sms_sent_date NULL; skip-log present.",
+      "data_set": {"policy_no": "2445910", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012349", "card_no": "C0000000013", "fname": "อีสิบสาม", "lname": "เคส", "inquiry_mock": {"code": "E13"}},
+      "setup": "", "notes": "MSG-003 / ALT-004."
+    },
+    {
+      "test_data_id": "TD-014", "related_tc": "TC-020", "related_req": "FR-008a", "related_risk": "RISK-006 (HIGH)",
+      "category": "Edge", "priority": "P1",
+      "description": "Out-of-3-condition response (channel=null, isBlockLine=null) → skip+log, round continues.",
+      "expected_result": "'F' row; separate log; round status Completed.",
+      "data_set": {"policy_no": "2445911", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012350", "card_no": "C0000000014", "fname": "นอก", "lname": "เงื่อนไข", "inquiry_mock": {"channel": null, "isBlockLine": null}},
+      "setup": "", "notes": "EC-003."
+    },
+    {
+      "test_data_id": "TD-015", "related_tc": "TC-021", "related_req": "FR-011a", "related_risk": "RISK-006 (HIGH)",
+      "category": "Edge", "priority": "P1",
+      "description": "card_no has no matching customer name → skip+log, must NOT send nameless SMS.",
+      "expected_result": "0 ESB for it; 'F' row; skip-log.",
+      "data_set": {"policy_no": "2445912", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012351", "card_no": "C9999999999", "name_lookup": "not_found", "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}},
+      "setup": "card_no absent from ili_customer_data_analytics.", "notes": "EC-005."
+    },
+    {
+      "test_data_id": "TD-016", "related_tc": "TC-022", "related_req": "FR-008", "related_risk": "RISK-006 (HIGH)",
+      "category": "E2E Flow", "priority": "P0",
+      "description": "3 eligible; 2nd returns E13 → 1st & 3rd sent, 2nd skipped, round continues (SC-006).",
+      "expected_result": "2 ESB calls (rec 1,3 = S); 1 'F' row (rec 2); round Completed.",
+      "data_set": {"rec1": {"policy_no": "2445913", "card_no": "C0000000016", "mobile_no": "0845012352", "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}}, "rec2": {"policy_no": "2445914", "card_no": "C0000000017", "mobile_no": "0845012353", "inquiry_mock": {"code": "E13"}}, "rec3": {"policy_no": "2445915", "card_no": "C0000000018", "mobile_no": "0845012354", "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}}, "common": {"policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce"}},
+      "setup": "", "notes": "Round-continuity."
+    },
+    {
+      "test_data_id": "TD-017", "related_tc": "TC-023,TC-024,TC-025", "related_req": "FR-008b,018", "related_risk": "RISK-003 (HIGH)",
+      "category": "Boundary", "priority": "P0",
+      "description": "Line Connect fully down: retry exactly 3 (fail-all) → stop+email; separate case succeeds on attempt 2.",
+      "expected_result": "fail-all: 3 attempts, round Stopped-Alerted, 1 email, 0 ESB. recover: attempt2 ok, round continues, 0 email.",
+      "data_set": {"fail_all": {"inquiry_mock": {"mode": "always_fail", "error": "timeout/5xx"}}, "recover_on_2": {"inquiry_mock": {"mode": "fail_then_succeed", "fail_count": 1}}, "seed_policy": {"policy_no": "2445916", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012355", "card_no": "C0000000019"}},
+      "setup": "Controllable Inquiry failure mode.", "notes": "BVA retry=3; EC-007."
+    },
+    {
+      "test_data_id": "TD-018", "related_tc": "TC-026", "related_req": "FR-009", "related_risk": "RISK-002 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "Same customer, 2 policies in round → 1 SMS, MIN(issue_date) chosen.",
+      "expected_result": "Exactly 1 ESB call; logged record references issue_date=2026-05-13 policy.",
+      "data_set": {"polA": {"policy_no": "2445917", "policy_type": "ORD", "issue_date": "2026-05-13"}, "polB": {"policy_no": "2445918", "policy_type": "IND", "issue_date": "2026-05-14"}, "shared_customer": {"fname": "ซ้ำ", "lname": "รอบเดียว", "mobile_no": "0845012356", "card_no": "C0000000020"}, "note": "issue_date A<B → A selected"},
+      "setup": "Both eligible; dedup by (fname,lname,mobile_no).", "notes": "BR-004."
+    },
+    {
+      "test_data_id": "TD-019", "related_tc": "TC-027", "related_req": "FR-009 (EC-002)", "related_risk": "RQ-001",
+      "category": "Edge", "priority": "P2",
+      "description": "Dedup tie-break when issue_date equal — deterministic pick.",
+      "expected_result": "BLOCKED (RQ-001): assert exactly 1 SMS only; do NOT assert which policy_no until SA confirms A-007 (smallest policy_no).",
+      "data_set": {"polA": {"policy_no": "2445919", "policy_type": "ORD", "issue_date": "2026-05-14"}, "polB": {"policy_no": "2445920", "policy_type": "IND", "issue_date": "2026-05-14"}, "shared_customer": {"fname": "เท่ากัน", "lname": "วันเดียว", "mobile_no": "0845012357", "card_no": "C0000000021"}},
+      "setup": "", "notes": "[BLOCKED-RQ01] — expected policy_no not authored."
+    },
+    {
+      "test_data_id": "TD-020", "related_tc": "TC-028", "related_req": "FR-010", "related_risk": "RISK-002 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "Previously-sent history (NOT NULL) → not resent.",
+      "expected_result": "0 new ESB call.",
+      "data_set": {"history_row": {"policy_no": "2445921", "policy_type": "ORD", "fname": "เคย", "lname": "ส่งแล้ว", "sms_sent_date": "2026-05-01 10:00:05", "sent_status": "S"}, "new_selection": {"policy_no": "2445921", "policy_type": "ORD", "fname": "เคย", "lname": "ส่งแล้ว", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012358", "card_no": "C0000000022"}},
+      "setup": "Seed prior WELCOME_NEW_CUST_LINE row matching policy_no+type+fname+lname, sms_sent_date NOT NULL.", "notes": "ALT-002 / BR-005."
+    },
+    {
+      "test_data_id": "TD-021", "related_tc": "TC-029", "related_req": "FR-010,016a", "related_risk": "RISK-007 (HIGH)",
+      "category": "Edge", "priority": "P1",
+      "description": "Prior 'F' row (sms_sent_date NULL) must NOT block a legit send.",
+      "expected_result": "Record sent; new 'S' row created (F row does not block).",
+      "data_set": {"history_row": {"policy_no": "2445922", "policy_type": "ORD", "fname": "เอฟ", "lname": "ค้าง", "sms_sent_date": null, "sent_status": "F"}, "new_selection": {"policy_no": "2445922", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012359", "card_no": "C0000000023", "inquiry_mock": {"line": "not_found", "ocean_club": "not_found"}}},
+      "setup": "", "notes": "Dedup checks NOT NULL only."
+    },
+    {
+      "test_data_id": "TD-022", "related_tc": "TC-030,TC-031,TC-032", "related_req": "FR-011,012", "related_risk": "RISK message",
+      "category": "Business Rule", "priority": "P2",
+      "description": "Template order (schedule first, category fallback) + variable substitution var1=name, var2=link.",
+      "expected_result": "schedule case uses schedule text; fallback case uses category default; both have name+link substituted, no placeholder tokens.",
+      "data_set": {"schedule_case": {"has_schedule_template": true, "policy_no": "2445923", "fname": "สมชาย"}, "fallback_case": {"has_schedule_template": false, "category_default": "SMS_CATEGORY.msg_text present", "policy_no": "2445924", "fname": "สมหญิง"}, "link": "https://lin.ee/xd7mW2g", "common": {"policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_present": true}},
+      "setup": "Seed sms_message_schedule for schedule_case only.", "notes": "BR-006."
+    },
+    {
+      "test_data_id": "TD-023", "related_tc": "TC-033,TC-034", "related_req": "FR-012,012a", "related_risk": "RISK-004 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "Active link resolved from config; and the negative: no active link → stop round + email.",
+      "expected_result": "active: var2==config link. inactive: 0 ESB, round Stopped-Alerted, email step='no active link'.",
+      "data_set": {"active_link": {"config_type": "LINE_LINK", "config_value1": "CSMS_SNC_NewCust", "config_value2": "https://lin.ee/xd7mW2g", "active_flag": "Y", "begin_date": "2026-01-01", "expire_date": "2026-12-31"}, "inactive_link": {"config_type": "LINE_LINK", "config_value1": "CSMS_SNC_NewCust", "active_flag": "N", "expire_date": "2026-05-01"}, "seed_policy": {"policy_no": "2445925", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012360", "card_no": "C0000000024"}},
+      "setup": "Two config states run separately.", "notes": "EC-006 / SC-005."
+    },
+    {
+      "test_data_id": "TD-024", "related_tc": "TC-035,TC-037,TC-038", "related_req": "FR-013", "related_risk": "RISK-005",
+      "category": "Boundary", "priority": "P2",
+      "description": "CSV filename pattern MKT_CSMS_<abbr>_<12digits>.csv, UTF-8, created before send.",
+      "expected_result": "Filename matches regex; file is UTF-8; file-create precedes ESB call.",
+      "data_set": {"expected_pattern": "^MKT_CSMS_.+_[0-9]{12}\\.csv$", "sms_category_name_abbr": "MKTWelcomeNewCust", "thai_name_record": {"fname": "อักษรไทย", "lname": "ทดสอบ", "policy_no": "2445926", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012361", "card_no": "C0000000025"}},
+      "setup": "", "notes": "Year token asserted separately in TD-025 (BLOCKED)."
+    },
+    {
+      "test_data_id": "TD-025", "related_tc": "TC-036", "related_req": "FR-013", "related_risk": "RISK-005 (HIGH)",
+      "category": "Boundary", "priority": "P1",
+      "description": "CSV filename YEAR token — BE vs CE.",
+      "expected_result": "BLOCKED (RQ-002): FR-013 text→'69' (พ.ศ.), example→'26' (ค.ศ.). Do not author expected until SA confirms.",
+      "data_set": {"run_date": "2026-05-16 10:00:00", "candidate_be": "690516100000", "candidate_ce": "260516100000", "expected": "[BLOCKED-RQ02]"},
+      "setup": "", "notes": "Contradiction flagged in 00b/01."
+    },
+    {
+      "test_data_id": "TD-026", "related_tc": "TC-041,TC-042,TC-043,TC-045", "related_req": "FR-016,016a", "related_risk": "RISK-007 (HIGH)",
+      "category": "Positive", "priority": "P1",
+      "description": "History table field completeness + S/F/NULL + enum {S,F}.",
+      "expected_result": "All fields set incl created_by='SYSTEM_BATCH'; success→S+date; skip→F+NULL; distinct sent_status ⊆ {S,F}.",
+      "data_set": {"success_record": {"policy_no": "2445927", "policy_type": "ORD", "expected_sent_status": "S"}, "skip_record": {"policy_no": "2445928", "policy_type": "ORD", "expected_sent_status": "F", "expected_sms_sent_date": null}, "created_by_expected": "SYSTEM_BATCH"},
+      "setup": "Run producing one S and one F row.", "notes": "credit_amount value = TD-030 (BLOCKED)."
+    },
+    {
+      "test_data_id": "TD-027", "related_tc": "TC-046,TC-047,TC-048,TC-049,TC-051", "related_req": "FR-018", "related_risk": "RISK-003 (HIGH)",
+      "category": "Negative", "priority": "P0",
+      "description": "Round-level failure triggers → stop + email(IT+User) naming batch + failed step.",
+      "expected_result": "Each trigger → round Stopped-Alerted; 1 email; body contains 'BATCH-CSMS-WELCOME-LINE' + step; recipients incl IT+User.",
+      "data_set": {"triggers": [{"case": "csv_generate_fail", "expected_step": "generate file"}, {"case": "esb_unreachable", "expected_step": "ESB/SMS Gateway"}, {"case": "db_error", "expected_step": "data/DB"}], "batch_name": "BATCH-CSMS-WELCOME-LINE", "recipients_expected": ["IT team", "User"], "seed_policy": {"policy_no": "2445929", "policy_type": "ORD", "issue_date": "2026-05-14", "status": "Inforce", "mobile_no": "0845012362", "card_no": "C0000000027"}},
+      "setup": "Fault injection per case; email sink capturing recipients + body.", "notes": "BR-008 / MSG-001."
+    },
+    {
+      "test_data_id": "TD-028", "related_tc": "TC-052,TC-053,TC-054,TC-055", "related_req": "FR-019,020,020a,020b", "related_risk": "RISK-002 (HIGH)",
+      "category": "E2E Flow", "priority": "P0",
+      "description": "Manual Fix re-run: idempotent, T-1 semantics, 'F'-only-via-manual.",
+      "expected_result": "select 2026-05-15 → pulls issue_date 2026-05-14; only sms_sent_date IS NULL processed; prior 'S' untouched; daily run does not auto-retry 'F'.",
+      "data_set": {"manual_range": {"start": "2026-05-15", "end": "2026-05-15"}, "expected_issue_date_pulled": "2026-05-14", "existing_rows": [{"policy_no": "2445930", "sms_sent_date": "2026-05-15 10:00:05", "sent_status": "S", "note": "must NOT resend"}, {"policy_no": "2445931", "sms_sent_date": null, "sent_status": "F", "note": "should be reprocessed via manual"}]},
+      "setup": "Simulate a partially-failed 2026-05-15 round.", "notes": "EC-004 idempotency."
+    },
+    {
+      "test_data_id": "TD-029", "related_tc": "TC-056,TC-057,TC-058,TC-059", "related_req": "FR-019", "related_risk": "RISK date-validation",
+      "category": "Boundary", "priority": "P2",
+      "description": "Manual Fix date-range validation BVA.",
+      "expected_result": "start=today+1 → blocked; start=today → ok; end=start-1 → blocked; end=start → ok.",
+      "data_set": {"today": "2026-07-09", "start_gt_today": {"start": "2026-07-10", "expected": "invalid"}, "start_eq_today": {"start": "2026-07-09", "end": "2026-07-09", "expected": "valid"}, "end_lt_start": {"start": "2026-07-05", "end": "2026-07-04", "expected": "invalid"}, "end_eq_start": {"start": "2026-07-05", "end": "2026-07-05", "expected": "valid"}},
+      "setup": "Manual Fix screen (out-of-scope UI).", "notes": "Exact message text = TC-060 BLOCKED-RQ05."
+    },
+    {
+      "test_data_id": "TD-030", "related_tc": "TC-044,TC-050,TC-060", "related_req": "FR-017,018,019", "related_risk": "RQ-003,004,005",
+      "category": "Business Rule", "priority": "P3",
+      "description": "Aggregated BLOCKED datasets — values not authorable from spec.",
+      "expected_result": "BLOCKED: TC-044 credit_amount expected value (RQ-003) — assert presence+numeric only; TC-050 failure timeout SLA (RQ-004) — no oracle; TC-060 Manual-Fix message text (RQ-005) — assert 'a message appears' only.",
+      "data_set": {"credit_amount_expected": "[BLOCKED-RQ03]", "failure_timeout_sla": "[BLOCKED-RQ04]", "manual_fix_message": "[BLOCKED-RQ05]"},
+      "setup": "", "notes": "Do NOT invent — carry RQ."
+    }
+  ],
+  "e2e_flow_datasets": [
+    {
+      "flow": "FLOW-001 daily pipeline (TD-001 happy)",
+      "shared_keys": ["policy_no", "card_no", "mobile_no", "fname", "lname"],
+      "steps": [
+        {"step": "select", "tc": "TC-001", "input": "issue_date=2026-05-14, ORD, Inforce", "carried": "policy_no=2445901"},
+        {"step": "eligibility", "tc": "TC-001", "input": "inquiry not_found/not_found", "carried": "eligible=true"},
+        {"step": "build+send", "tc": "TC-032,TC-039", "input": "name=สมชาย, link=config", "carried": "sms_message"},
+        {"step": "log", "tc": "TC-041,TC-042", "input": "ESB success", "carried": "sent_status=S, sms_sent_date"}
+      ]
+    },
+    {
+      "flow": "FLOW-005 Manual Fix (TD-028)",
+      "shared_keys": ["processing_date", "issue_date", "policy_no", "sms_sent_date"],
+      "steps": [
+        {"step": "select range", "tc": "TC-052", "input": "2026-05-15", "carried": "issue_date=2026-05-14 (T-1)"},
+        {"step": "idempotent filter", "tc": "TC-054", "input": "rows in range", "carried": "only sms_sent_date IS NULL"},
+        {"step": "send missing", "tc": "TC-052", "input": "NULL-date rows", "carried": "new S rows; prior S untouched"}
+      ]
+    }
+  ],
+  "traceability": [
+    {"td": "TD-001", "tc": "TC-001", "req": "FR-001,002,006", "category": "Positive", "priority": "P0", "risk": "CRITICAL"},
+    {"td": "TD-004", "tc": "TC-004", "req": "FR-006", "category": "Business Rule", "priority": "P0", "risk": "CRITICAL"},
+    {"td": "TD-005", "tc": "TC-005", "req": "FR-006", "category": "Business Rule", "priority": "P0", "risk": "CRITICAL"},
+    {"td": "TD-006", "tc": "TC-006", "req": "FR-006", "category": "Business Rule", "priority": "P0", "risk": "CRITICAL"},
+    {"td": "TD-016", "tc": "TC-022", "req": "FR-008", "category": "E2E", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-017", "tc": "TC-023,024,025", "req": "FR-008b,018", "category": "Boundary", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-018", "tc": "TC-026", "req": "FR-009", "category": "Business Rule", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-020", "tc": "TC-028", "req": "FR-010", "category": "Business Rule", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-023", "tc": "TC-033,034", "req": "FR-012,012a", "category": "Business Rule", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-027", "tc": "TC-046..051", "req": "FR-018", "category": "Negative", "priority": "P0", "risk": "HIGH"},
+    {"td": "TD-028", "tc": "TC-052..055", "req": "FR-019,020", "category": "E2E", "priority": "P0", "risk": "HIGH"}
+  ],
+  "data_gaps_and_risks": [
+    "BLOCKED datasets (TD-019, TD-025, TD-030) cannot author expected values — RQ-001..005 must be answered by SA.",
+    "All datasets require a batch harness: seed DB (policy master/application/customer/DNC/config/history) + controllable Line Connect Inquiry mock + ESB & email sinks + Manual-Fix trigger. Not provisioned (see 06b).",
+    "credit_amount expected value unknown (RQ-003) — presence/type only.",
+    "Manual Fix is out-of-scope UI; TD-029 date validation runs on the central screen, exact message text pending RQ-005."
+  ],
+  "recommendations": [
+    "Provision the harness before execution; P0 datasets (TD-001,004,005,006,016,017,018,020,023,027,028) first.",
+    "Resolve RQ-002 (filename year) and RQ-004 (timeout) before asserting SC-005/SC-004.",
+    "Never use real customer PII — these synthetic card_no/mobile are reserved test values."
+  ]
+}

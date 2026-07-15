@@ -1,0 +1,300 @@
+{
+  "feature": "CSMS-003 Grace Period 7 Days",
+  "slug": "csms-003-grace-period",
+  "skill": "/test-data-generator",
+  "date": "2026-07-09",
+  "policy": "SYNTHETIC ONLY — no real PII. run_date baseline = 2026-05-19 (batch 10:00). grace_end computed so diff = grace_end - run_date (calendar, exclusive).",
+  "summary": {
+    "total_datasets": 30,
+    "priority_distribution": { "P0": 12, "P1": 9, "P2": 6, "P3": 3 },
+    "risk_alignment": "CRITICAL/HIGH (RISK-001..007) มี full dataset coverage",
+    "data_readiness_score": 72,
+    "readiness_reason": "Positive/Negative/Boundary/BusinessRule/E2E ครบ; หักจาก RQ-002 (dedup-status), RQ-003 (CSV column schema), RQ-004 (era) ที่ยังไม่ยืนยัน → dataset 4 ชุดเป็น [ASSUMPTION]"
+  },
+  "shared_reference": {
+    "run_date": "2026-05-19",
+    "config_reminder_days": 7,
+    "sms_template": "เรียน ผู้เอาประกันภัย กรมธรรม์เลขที่ ${var1} ครบกำหนดชำระเบี้ยฯ วันที่ ${var2} จะหมดระยะเวลาผ่อนผันในวันที่ ${var3} เพื่อความคุ้มครองที่ต่อเนื่อง ขอเชิญชำระเบี้ยฯ ได้ที่ธนาคาร/เคาน์เตอร์เซอร์วิส หรือคลิกดูรายละเอียดเพิ่มเติม สอบถามโทร. 1503",
+    "line_result_codes": { "E02": "not-registered -> include", "E00_false": "registered -> exclude", "E00_true": "[ASSUMPTION RQ-001]", "E13_or_empty": "abnormal -> skip+F" }
+  },
+  "datasets": [
+    {
+      "td_id": "TD-001", "related_tc": "TC-003", "related_req": "FR-003", "related_risk": "RISK-003 (CRITICAL)",
+      "category": "Boundary", "priority": "P0",
+      "description": "diff = 7 พอดี → คัดเข้า",
+      "expected_result": "policy คัดเข้ากลุ่มเป้าหมาย, ส่ง SMS",
+      "data": { "policy_no": "3556782", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000001", "mobile2": "", "remark_code": null, "cardNo": "CARD0000001", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-002", "related_tc": "TC-004", "related_req": "FR-003", "related_risk": "RISK-003 (CRITICAL)",
+      "category": "Boundary", "priority": "P0",
+      "description": "diff = 6 (min-1) → คัดออก",
+      "expected_result": "คัดออก, ไม่ส่ง, ไม่ log F",
+      "data": { "policy_no": "3556006", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "25/05/2026", "diff_days": 6, "mobile1": "0810000006", "cardNo": "CARD0000006", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-003", "related_tc": "TC-005", "related_req": "FR-003", "related_risk": "RISK-003 (CRITICAL)",
+      "category": "Boundary", "priority": "P0",
+      "description": "diff = 8 (max+1) → คัดออก",
+      "expected_result": "คัดออก, ไม่ส่ง",
+      "data": { "policy_no": "3556008", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "27/05/2026", "diff_days": 8, "mobile1": "0810000008", "cardNo": "CARD0000008", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-004", "related_tc": "TC-006", "related_req": "FR-003", "related_risk": "RISK-003 (CRITICAL)",
+      "category": "Boundary", "priority": "P2",
+      "description": "diff = 5 และ diff = 9 → คัดออกทั้งคู่ (ยืนยันช่วงแคบ =7 เท่านั้น)",
+      "expected_result": "คัดออกทั้งสอง",
+      "data": [
+        { "policy_no": "3556005", "policy_type": "IND", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "24/05/2026", "diff_days": 5, "mobile1": "0810000005", "cardNo": "CARD0000005", "line_result": "E02" },
+        { "policy_no": "3556009", "policy_type": "PA", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "28/05/2026", "diff_days": 9, "mobile1": "0810000009", "cardNo": "CARD0000009", "line_result": "E02" }
+      ]
+    },
+    {
+      "td_id": "TD-005", "related_tc": "TC-009", "related_req": "FR-004", "related_risk": "RISK-003",
+      "category": "Negative", "priority": "P0",
+      "description": "diff=7 แต่ status != Inforce → คัดออก",
+      "expected_result": "คัดออกไม่ว่า grace_end จะเป็นอย่างไร",
+      "data": { "policy_no": "3556100", "policy_type": "ORD", "status": "Lapsed", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000100", "cardNo": "CARD0000100", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-006", "related_tc": "TC-010", "related_req": "FR-004", "related_risk": "RISK-003",
+      "category": "Positive", "priority": "P1",
+      "description": "สามประเภท ORD/IND/PA diff=7 → คัดเข้าครบ",
+      "expected_result": "ทั้งสามคัดเข้า + ส่ง SMS",
+      "data": [
+        { "policy_no": "3556201", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000201", "cardNo": "CARD0000201", "line_result": "E02", "remark_code": null },
+        { "policy_no": "3556202", "policy_type": "IND", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000202", "cardNo": "CARD0000202", "line_result": "E02", "remark_code": null },
+        { "policy_no": "3556203", "policy_type": "PA", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000203", "cardNo": "CARD0000203", "line_result": "E02", "remark_code": null }
+      ]
+    },
+    {
+      "td_id": "TD-007", "related_tc": "TC-011", "related_req": "FR-004a", "related_risk": "RISK-006",
+      "category": "Positive", "priority": "P1",
+      "description": "mobile1 มีค่า → ใช้ mobile1",
+      "expected_result": "ส่งไป mobile1; log mobile_no=mobile1",
+      "data": { "policy_no": "3556301", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0811111111", "mobile2": "0822222222", "cardNo": "CARD0000301", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-008", "related_tc": "TC-012", "related_req": "FR-004a", "related_risk": "RISK-006",
+      "category": "Business Rule", "priority": "P1",
+      "description": "mobile1 ว่าง → ใช้ mobile2",
+      "expected_result": "ส่งไป mobile2; log mobile_no=mobile2",
+      "data": { "policy_no": "3556302", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "", "mobile2": "0823333333", "cardNo": "CARD0000302", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-009", "related_tc": "TC-013", "related_req": "FR-004a", "related_risk": "RISK-006 (HIGH)",
+      "category": "Negative", "priority": "P0",
+      "description": "mobile1 และ mobile2 ว่างทั้งคู่ → skip + log F",
+      "expected_result": "ไม่ส่ง; log sms_sent_status='F', refer_no=NULL; รอบต่อ",
+      "data": { "policy_no": "3556303", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "", "mobile2": null, "cardNo": "CARD0000303", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-010", "related_tc": "TC-014", "related_req": "FR-005", "related_risk": "RISK-004 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "ORD remark_code='1' (DNC) → คัดออก",
+      "expected_result": "คัดออก, ไม่ส่ง",
+      "data": { "policy_no": "3556401", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000401", "cardNo": "CARD0000401", "remark_code": "1", "line_result": "E02" }
+    },
+    {
+      "td_id": "TD-011", "related_tc": "TC-015", "related_req": "FR-005", "related_risk": "RISK-004 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "IND/PA remark_code='4' (DNC) → คัดออก",
+      "expected_result": "คัดออกทั้ง IND และ PA",
+      "data": [
+        { "policy_no": "3556402", "policy_type": "IND", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000402", "cardNo": "CARD0000402", "remark_code": "4", "line_result": "E02" },
+        { "policy_no": "3556403", "policy_type": "PA", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000403", "cardNo": "CARD0000403", "remark_code": "4", "line_result": "E02" }
+      ]
+    },
+    {
+      "td_id": "TD-012", "related_tc": "TC-016", "related_req": "FR-005", "related_risk": "RISK-004",
+      "category": "Business Rule", "priority": "P2",
+      "description": "remark ไม่ตรงประเภท (ORD='4', IND='1') → ยังคงอยู่ (ไม่คัดออก)",
+      "expected_result": "ทั้งสองคงอยู่ในกลุ่มเป้าหมาย",
+      "data": [
+        { "policy_no": "3556404", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000404", "cardNo": "CARD0000404", "remark_code": "4", "line_result": "E02" },
+        { "policy_no": "3556405", "policy_type": "IND", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000405", "cardNo": "CARD0000405", "remark_code": "1", "line_result": "E02" }
+      ]
+    },
+    {
+      "td_id": "TD-013", "related_tc": "TC-019", "related_req": "FR-006a", "related_risk": "RISK-006 (HIGH)",
+      "category": "Negative", "priority": "P0",
+      "description": "cardNo หาไม่พบ → skip + log F",
+      "expected_result": "skip; log 'F'; รอบต่อ",
+      "data": { "policy_no": "3556501", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000501", "cardNo": null, "line_result": "N/A" }
+    },
+    {
+      "td_id": "TD-014", "related_tc": "TC-020", "related_req": "FR-007", "related_risk": "RISK-004",
+      "category": "Business Rule", "priority": "P0",
+      "description": "LINE E02 → คัดเข้า",
+      "expected_result": "คัดเข้า + ส่ง SMS",
+      "data": { "policy_no": "3556601", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000601", "cardNo": "CARD0000601", "line_result": "E02", "isBlockLine": null }
+    },
+    {
+      "td_id": "TD-015", "related_tc": "TC-021", "related_req": "FR-007", "related_risk": "RISK-004 (HIGH)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "LINE E00 & isBlockLine=false → คัดออก (ลงทะเบียนแล้ว)",
+      "expected_result": "คัดออก, ไม่ส่ง",
+      "data": { "policy_no": "3556602", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000602", "cardNo": "CARD0000602", "line_result": "E00", "isBlockLine": false }
+    },
+    {
+      "td_id": "TD-016", "related_tc": "TC-022", "related_req": "FR-007", "related_risk": "RISK-006 (HIGH)",
+      "category": "Negative", "priority": "P0",
+      "description": "LINE ผิดปกติ (E13 / channel ว่าง / isBlockLine ว่าง) → skip + log F, ไม่ retry รายรายการ",
+      "expected_result": "ทุกเคส skip + 'F'; รอบต่อ",
+      "data": [
+        { "policy_no": "3556603", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000603", "cardNo": "CARD0000603", "line_result": "E13", "isBlockLine": null },
+        { "policy_no": "3556604", "policy_type": "IND", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000604", "cardNo": "CARD0000604", "line_result": "E00", "channel": "", "isBlockLine": "" }
+      ]
+    },
+    {
+      "td_id": "TD-017", "related_tc": "TC-023", "related_req": "FR-007", "related_risk": "RISK-004",
+      "category": "Negative", "priority": "P3",
+      "description": "[ASSUMPTION RQ-001] LINE E00 & isBlockLine=true — behavior undefined",
+      "expected_result": "spec ไม่ระบุ → รอ RQ-001 (บันทึกพฤติกรรมจริง, ห้ามแต่ง)",
+      "data": { "policy_no": "3556605", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "mobile1": "0810000605", "cardNo": "CARD0000605", "line_result": "E00", "isBlockLine": true }
+    },
+    {
+      "td_id": "TD-018", "related_tc": "TC-024", "related_req": "FR-008", "related_risk": "RISK-002 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "1 ลูกค้า (cardNo เดียว/เบอร์เดียว) 2 กรมธรรม์ diff=7 → ได้ 2 SMS (ห้าม dedup รายคน)",
+      "expected_result": "2 log rows, 2 policy_no distinct, 2 SMS; ข้อความอ้างข้อมูลราย policy",
+      "data": {
+        "cardNo": "CARD0000701", "mobile1": "0810000701",
+        "policies": [
+          { "policy_no": "3556701", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "line_result": "E02" },
+          { "policy_no": "3556702", "policy_type": "PA", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "line_result": "E02" }
+        ]
+      }
+    },
+    {
+      "td_id": "TD-019", "related_tc": "TC-025", "related_req": "FR-008", "related_risk": "RISK-002",
+      "category": "E2E Flow", "priority": "P2",
+      "description": "1 ลูกค้า 2 กรมธรรม์ ต่าง due_date → ทั้งคู่ส่งได้ (คนละรอบ Due)",
+      "expected_result": "ส่งทั้งสอง (due ต่างกัน ไม่ชน dedup)",
+      "data": {
+        "cardNo": "CARD0000702", "mobile1": "0810000702",
+        "policies": [
+          { "policy_no": "3556703", "policy_type": "ORD", "status": "Inforce", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "line_result": "E02" },
+          { "policy_no": "3556704", "policy_type": "ORD", "status": "Inforce", "due_date": "20/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "line_result": "E02" }
+        ]
+      }
+    },
+    {
+      "td_id": "TD-020", "related_tc": "TC-026", "related_req": "FR-008", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "dedup ใน-รอบ: มีประวัติ 'S' ของ policy_no+due_date เดิม → คัดออก",
+      "expected_result": "ไม่มี log row ใหม่ของ policy+due; ไม่ส่งซ้ำ",
+      "data": { "policy_no": "3556801", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "diff_days": 7, "existing_log": { "policy_no": "3556801", "due_date": "12/04/2026", "sms_sent_status": "S", "refer_no": "REF-EXIST-001" }, "line_result": "E02", "mobile1": "0810000801", "cardNo": "CARD0000801" }
+    },
+    {
+      "td_id": "TD-021", "related_tc": "TC-027", "related_req": "FR-008", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "E2E Flow", "priority": "P0",
+      "description": "รันวันถัดไป (2026-05-20) due_date เดิม → ไม่เลือกซ้ำ",
+      "expected_result": "policy ไม่ถูกเลือกซ้ำ",
+      "setup": "run day1 (2026-05-19) sent 'S'; then run day2 (2026-05-20)",
+      "data": { "policy_no": "3556802", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "line_result": "E02", "mobile1": "0810000802", "cardNo": "CARD0000802" }
+    },
+    {
+      "td_id": "TD-022", "related_tc": "TC-028", "related_req": "FR-014", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "E2E Flow", "priority": "P0",
+      "description": "Manual Fix ย้อนหลัง: บาง 'S' บางค้าง → ส่งเฉพาะค้าง ไม่ส่งซ้ำ 'S'",
+      "expected_result": "เฉพาะค้างได้ SMS; 'S' เดิมไม่ส่งซ้ำ; audit บันทึก",
+      "data": {
+        "fix_date": "2026-05-19", "actor": "IT_ADMIN",
+        "records": [
+          { "policy_no": "3556901", "due_date": "12/04/2026", "prior_status": "S", "expect": "ไม่ส่งซ้ำ" },
+          { "policy_no": "3556902", "due_date": "12/04/2026", "prior_status": "none", "line_result": "E02", "mobile1": "0810000902", "cardNo": "CARD0000902", "expect": "ส่งใหม่" }
+        ]
+      }
+    },
+    {
+      "td_id": "TD-023", "related_tc": "TC-029", "related_req": "FR-008/FR-014", "related_risk": "RISK-001 (CRITICAL)",
+      "category": "Business Rule", "priority": "P0",
+      "description": "[ASSUMPTION RQ-002] รายการเคย 'F' → Manual Fix ควรส่งใหม่ได้หรือถูก dedup กัน",
+      "expected_result": "รอ RQ-002 (dedup นับเฉพาะ 'S'?) — บันทึกพฤติกรรมจริง",
+      "data": { "policy_no": "3556903", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "prior_status": "F", "prior_reason": "cardNo not found (แก้แล้ว)", "line_result": "E02", "mobile1": "0810000903", "cardNo": "CARD0000903" }
+    },
+    {
+      "td_id": "TD-024", "related_tc": "TC-030", "related_req": "FR-010", "related_risk": "RISK-005",
+      "category": "Positive", "priority": "P1",
+      "description": "แทนค่า var1-3 ตรงตัวอย่างจริง",
+      "expected_result": "ข้อความตรง template: var1=3556782, var2=12/04/2026, var3=26/05/2026",
+      "data": { "policy_no": "3556782", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "expected_message": "เรียน ผู้เอาประกันภัย กรมธรรม์เลขที่ 3556782 ครบกำหนดชำระเบี้ยฯ วันที่ 12/04/2026 จะหมดระยะเวลาผ่อนผันในวันที่ 26/05/2026 เพื่อความคุ้มครองที่ต่อเนื่อง ขอเชิญชำระเบี้ยฯ ได้ที่ธนาคาร/เคาน์เตอร์เซอร์วิส หรือคลิกดูรายละเอียดเพิ่มเติม สอบถามโทร. 1503" }
+    },
+    {
+      "td_id": "TD-025", "related_tc": "TC-031", "related_req": "FR-009", "related_risk": "RISK-005 (HIGH)",
+      "category": "Positive", "priority": "P1",
+      "description": "ชื่อไฟล์ CSV รูปแบบมาตรฐาน (UTF-8)",
+      "expected_result": "filename ตรง [department]_[SystemCode]_[Category]_[YYMMDDhhmmss].csv",
+      "data": { "run_timestamp": "690519100000", "expected_filename": "MKT_CSMS_MKTGracePeriod7Days_690519100000.csv", "encoding": "UTF-8" }
+    },
+    {
+      "td_id": "TD-026", "related_tc": "TC-032", "related_req": "FR-009", "related_risk": "RISK-005 (HIGH)",
+      "category": "Negative", "priority": "P3",
+      "description": "[ASSUMPTION RQ-003] CSV column schema ไม่ระบุ",
+      "expected_result": "รอ RQ-003 (column spec) — ยังตรวจ schema ไม่ได้",
+      "data": { "note": "no column spec in spec.md" }
+    },
+    {
+      "td_id": "TD-027", "related_tc": "TC-035", "related_req": "FR-012", "related_risk": "RISK-006 (HIGH)",
+      "category": "Positive", "priority": "P0",
+      "description": "ส่งสำเร็จ → log ครบ field + 'S' + refer_no",
+      "expected_result": "log row: status='S', refer_no present, all fields populated",
+      "data": { "policy_no": "3556782", "policy_type": "ORD", "mobile_no": "0810000001", "due_date": "12/04/2026", "grace_end_date": "26/05/2026", "reminder_days": 7, "gateway_refer_no": "REF20260519000001", "created_by": "SYSTEM_BATCH (ASSUMPTION RQ-008)" }
+    },
+    {
+      "td_id": "TD-028", "related_tc": "TC-037", "related_req": "Edge/refer_no", "related_risk": "RISK-005",
+      "category": "Negative", "priority": "P2",
+      "description": "[ASSUMPTION RQ-005] refer_no รูปแบบผิด → log 'F'",
+      "expected_result": "log 'F'; นิยาม 'ผิดรูปแบบ' รอ RQ-005",
+      "data": { "policy_no": "3556782", "gateway_refer_no": "!!bad-format!!", "expected_status": "F" }
+    },
+    {
+      "td_id": "TD-029", "related_tc": "TC-038", "related_req": "Assumption/Gateway", "related_risk": "RISK-005",
+      "category": "Negative", "priority": "P2",
+      "description": "Gateway timeout/5xx → log 'F', ไม่ retry auto daily",
+      "expected_result": "status='F'; no auto-retry",
+      "data": { "policy_no": "3556783", "gateway_response": "HTTP 503 / timeout", "expected_status": "F" }
+    },
+    {
+      "td_id": "TD-030", "related_tc": "TC-039,TC-040", "related_req": "FR-013/Edge", "related_risk": "RISK-007 (HIGH)",
+      "category": "Negative", "priority": "P1",
+      "description": "ความล้มเหลวระดับรอบ: LINE ล่มทั้งระบบ (retry≤3→หยุด+email) และ CSV สร้างไม่สำเร็จ",
+      "expected_result": "email ถึง IT+User ≤15นาที; LINE-down หยุดรอบหลัง retry≤3; CSV-fail=รอบล้มเหลว",
+      "data": [
+        { "scenario": "line_down_all", "line_mock": "connection refused x4", "expected": "retry<=3 then stop round + email (backoff ASSUMPTION RQ-007)" },
+        { "scenario": "csv_write_fail", "fs_mock": "EACCES/ENOSPC", "expected": "round failure + email + Manual Fix" }
+      ]
+    }
+  ],
+  "e2e_flow_datasets": [
+    {
+      "flow": "FLOW-006 per-policy fan-out (TD-018)",
+      "shared_keys": ["cardNo", "mobile1"],
+      "steps": [
+        { "step": "select policy 3556701", "carried": "cardNo=CARD0000701 -> SMS#1" },
+        { "step": "select policy 3556702", "carried": "cardNo=CARD0000701 -> SMS#2 (no per-customer dedup)" }
+      ]
+    },
+    {
+      "flow": "FLOW-005 idempotent Manual Fix (TD-021, TD-022)",
+      "shared_keys": ["policy_no", "due_date"],
+      "steps": [
+        { "step": "day1 send -> log 'S'", "carried": "policy_no+due_date key" },
+        { "step": "day2 / manual re-run", "carried": "same key -> dedup excludes -> no duplicate" }
+      ]
+    }
+  ],
+  "data_gaps": [
+    "TD-023 (RQ-002 dedup-status) — P0 blocked จนกว่า SA ตอบ",
+    "TD-026 (RQ-003 CSV schema) — ตรวจ column ไม่ได้",
+    "TD-017 (RQ-001 E00&isBlockLine=true), TD-028 (RQ-005 refer_no format) — expected รอ RQ",
+    "created_by value (RQ-008), timezone (RQ-009), era (RQ-004) — ยังไม่ยืนยัน"
+  ],
+  "recommendations": [
+    "ปิด RQ-002/RQ-003 ก่อน execute (blocker automation ที่มีคุณค่า)",
+    "seed SMS_GRACE_PERIOD_LOG ล่วงหน้าสำหรับ dedup TC (TD-020,022,023)",
+    "mock LINE/Gateway/Email + CSV filesystem assert; ข้อมูลทั้งหมด synthetic, ไม่มี PII จริง",
+    "P0 dataset (12 ชุด) ต้องพร้อมก่อน 06a readiness gate"
+  ]
+}

@@ -1,0 +1,801 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - list:
+          - listitem [ref=e5]:
+            - link "WorkTime" [ref=e6] [cursor=pointer]:
+              - /url: /work_time/index/75852
+          - listitem [ref=e7]:
+            - link "My account" [ref=e8] [cursor=pointer]:
+              - /url: /my/account
+          - listitem [ref=e9]:
+            - link "Sign out" [ref=e10] [cursor=pointer]:
+              - /url: /logout
+      - generic [ref=e11]:
+        - text: Logged in as
+        - link "anucha.pi" [ref=e12] [cursor=pointer]:
+          - /url: /users/8
+      - list:
+        - listitem [ref=e13]:
+          - link "Home" [ref=e14] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e15]:
+          - link "My page" [ref=e16] [cursor=pointer]:
+            - /url: /my/page
+        - listitem [ref=e17]:
+          - link "Projects" [ref=e18] [cursor=pointer]:
+            - /url: /projects
+        - listitem [ref=e19]:
+          - link "Easy Gantt" [ref=e20] [cursor=pointer]:
+            - /url: /easy_gantt?set_filter=0
+            - img [ref=e21]
+            - generic [ref=e23]: Easy Gantt
+        - listitem [ref=e24]:
+          - link "Resources" [ref=e25] [cursor=pointer]:
+            - /url: /resource_bookings
+        - listitem [ref=e26]:
+          - link "Help" [ref=e27] [cursor=pointer]:
+            - /url: https://www.redmine.org/guide
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - link "Search" [ref=e32] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search
+            - text: ":"
+          - textbox "Search:" [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35] [cursor=pointer]: Project 20190033 - New Group RI
+          - text: ✓ ✓
+      - heading "Project 20190033 - New Group RI" [level=1] [ref=e36]
+      - list [ref=e38]:
+        - listitem [ref=e39]:
+          - link "+" [ref=e40] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e41]:
+          - link "Overview" [ref=e42] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program
+        - listitem [ref=e43]:
+          - link "Activity" [ref=e44] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/activity
+        - listitem [ref=e45]:
+          - link "Issues" [ref=e46] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues
+        - listitem [ref=e47]:
+          - link "Spent time" [ref=e48] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/time_entries
+        - listitem [ref=e49]:
+          - link "Gantt" [ref=e50] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/gantt
+        - listitem [ref=e51]:
+          - link "WorkTime" [ref=e52] [cursor=pointer]:
+            - /url: /work_time/show/project-20190033-group-ri-program
+        - listitem [ref=e53]:
+          - link "Resources" [ref=e54] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/resource_bookings
+        - listitem [ref=e55]:
+          - link "Calendar" [ref=e56] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/calendar
+        - listitem [ref=e57]:
+          - link "News" [ref=e58] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/news
+        - listitem [ref=e59]:
+          - link "Documents" [ref=e60] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/documents
+        - listitem [ref=e61]:
+          - link "Wiki" [ref=e62] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/wiki
+        - listitem [ref=e63]:
+          - link "Files" [ref=e64] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/files
+        - listitem [ref=e65]:
+          - link "Easy Gantt" [ref=e66] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_gantt
+        - listitem [ref=e67]:
+          - link "Easy WBS" [ref=e68] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_wbs
+        - listitem [ref=e69]:
+          - link "Settings" [ref=e70] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/settings
+    - generic [ref=e71]:
+      - link [ref=e74] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e75]
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - img [ref=e79]
+          - text: Successful update.
+        - generic [ref=e81]:
+          - link "Edit" [ref=e82] [cursor=pointer]:
+            - /url: /issues/75852/edit
+            - img [ref=e83]
+            - generic [ref=e85]: Edit
+          - link "Log time" [ref=e86] [cursor=pointer]:
+            - /url: /issues/75852/time_entries/new
+            - img [ref=e87]
+            - generic [ref=e89]: Log time
+          - link "Unwatch" [ref=e90] [cursor=pointer]:
+            - /url: /watchers/watch?object_id=75852&object_type=issue
+            - img [ref=e91]
+            - generic [ref=e93]: Unwatch
+          - link "Copy" [ref=e94] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/75852/copy
+            - img [ref=e95]
+            - generic [ref=e97]: Copy
+          - generic "Actions" [ref=e100] [cursor=pointer]:
+            - img [ref=e101]
+        - 'heading "Defect #75852" [level=2] [ref=e103]'
+        - text: open
+        - generic [ref=e104]:
+          - generic [ref=e106]:
+            - paragraph [ref=e107]:
+              - 'link "WBS #19821" [ref=e108] [cursor=pointer]':
+                - /url: /issues/19821
+              - text: ": Change Request (CR)"
+            - generic [ref=e109]:
+              - paragraph [ref=e110]:
+                - 'link "Task #63684" [ref=e111] [cursor=pointer]':
+                  - /url: /issues/63684
+                - text: ": CR#6 เรื่องคำนวณเบี้ยแยกสมาชิก (เพิ่มการหยิบ Rate เบี้ยจากระบบประกันกลุ่ม)"
+              - heading "[CR#6][TC-CR1-011] RI Premium ไม่คำนวณแยก Layer (GIB L2/L3) — engine ยุบทุก member เข้า L1 ใช้ % เดียว (15%)" [level=3] [ref=e113]
+          - paragraph [ref=e114]:
+            - text: Added by
+            - link "Anucha Pimsoi" [ref=e115] [cursor=pointer]:
+              - /url: /users/8
+            - link "about 1 month" [ref=e116] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/activity?from=2026-05-26
+            - text: ago. Updated
+            - link "less than a minute" [ref=e117] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/activity?from=2026-07-07
+            - text: ago.
+          - generic [ref=e118]:
+            - generic [ref=e119]:
+              - generic [ref=e120]:
+                - generic [ref=e121]:
+                  - generic [ref=e122]: "Status:"
+                  - generic [ref=e123]: Resolved
+                - generic [ref=e124]:
+                  - generic [ref=e125]: "Priority:"
+                  - generic [ref=e126]: Normal
+                - generic [ref=e127]:
+                  - generic [ref=e128]: "Assignee:"
+                  - link "Anucha Pimsoi" [ref=e130] [cursor=pointer]:
+                    - /url: /users/8
+              - generic [ref=e131]:
+                - generic [ref=e132]:
+                  - generic [ref=e133]: "Start date:"
+                  - generic [ref=e134]: 26-05-2026
+                - generic [ref=e136]: "Due date:"
+                - generic [ref=e137]:
+                  - generic [ref=e138]: "% Done:"
+                  - generic [ref=e139]:
+                    - table [ref=e140]:
+                      - rowgroup [ref=e141]:
+                        - row "100%" [ref=e142]:
+                          - cell "100%" [ref=e143]
+                    - paragraph [ref=e144]: 100%
+                - generic [ref=e146]: "Estimated time:"
+            - generic [ref=e147]:
+              - generic [ref=e148]:
+                - generic [ref=e149]:
+                  - generic [ref=e150]: "Application:"
+                  - generic [ref=e151]: Group RI
+                - generic [ref=e153]: "Screen:"
+                - generic [ref=e154]:
+                  - generic [ref=e155]: "Phase:"
+                  - generic [ref=e156]: UAT
+                - generic [ref=e157]:
+                  - generic [ref=e158]: "Environment:"
+                  - generic [ref=e159]: UAT
+                - generic [ref=e160]:
+                  - generic [ref=e161]: "Root Cause:"
+                  - generic [ref=e162]: Application Defect
+                - generic [ref=e164]: "SA Plan Start Date:"
+                - generic [ref=e166]: "SA Plan Finish Date:"
+              - generic [ref=e167]:
+                - generic [ref=e169]: "Dev Plan Start Date:"
+                - generic [ref=e171]: "Dev Plan Finish Date:"
+                - generic [ref=e173]: "Tester Plan Start Date:"
+                - generic [ref=e175]: "Tester Plan Finish Date:"
+                - generic [ref=e177]: "Ticket ID:"
+                - generic [ref=e178]:
+                  - generic [ref=e179]: "Urgency:"
+                  - generic [ref=e180]: "No"
+          - separator [ref=e181]
+          - generic [ref=e182]:
+            - link "Quote" [ref=e184] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e185]
+              - generic [ref=e187]: Quote
+            - paragraph [ref=e188]:
+              - strong [ref=e189]: Description
+            - generic [ref=e190]:
+              - paragraph [ref=e191]:
+                - text: Defect พบจาก UAT — CR#1 "After Golive Lot1" / Test Case TC-CR1-011 (Estimate, Layer differentiation) ภายใต้ CR#6 (
+                - link "#63684" [ref=e192] [cursor=pointer]:
+                  - /url: /issues/63684
+                - text: "ข้อ 8: เงื่อนไขการคำนวณสมาชิก GIB Level 2 และ 3)"
+              - heading "================================================================= ■ SUMMARY" [level=1] [ref=e193]:
+                - text: =================================================================
+                - text: ■ SUMMARY
+              - paragraph [ref=e194]: เครื่องคำนวณ RI Premium (Estimate) ไม่ apply percent_re แยกตาม Layer (GIB band) ของ treaty — นำเบี้ยของสมาชิกทุกชั้นมารวมไว้ที่ L1 ทั้งหมด แล้วใช้ % cede ของ L1 (15%) เพียงชั้นเดียว ทำให้สมาชิกที่ทุนประกัน (Sum Assured) ตกชั้น L2 (ต้อง cede 100%) และ L3 (ต้อง cede 0%) ไม่ถูกคำนวณตามเงื่อนไข treaty ที่กำหนดไว้
+              - heading "================================================================= ■ ENVIRONMENT" [level=1] [ref=e195]:
+                - text: =================================================================
+                - text: ■ ENVIRONMENT
+              - list [ref=e196]:
+                - listitem [ref=e197]: "Database : groupri @ 10.14.8.58 (PostgreSQL 18)"
+                - listitem [ref=e198]: "Treaty : GIB_Grp_Direct_EB (cf_rig_treaty_id = 2, method QSSUR, ri_com_rate 50%)"
+                - listitem [ref=e199]: "Policy : GL5505 | Closing period: 202604 | Policy Year 2 (Non-Unit Rate, rate_flag=1)"
+                - listitem [ref=e200]: "Estimate run : tx_rig_est_hd.rig_est_hd_id = 439 (status SUCCESS, created 2026-05-26 by QA)"
+                - listitem [ref=e201]: "Test data : cer_no 00701-00708 (created_by = 'QA_TC_CR1_010_018')"
+              - heading "================================================================= ■ TREATY CONDITION ที่ถูกต้อง (cf_rig_treaty_cond_dt, cond_hd_id = 2)" [level=1] [ref=e202]:
+                - text: =================================================================
+                - text: ■ TREATY CONDITION ที่ถูกต้อง (cf_rig_treaty_cond_dt, cond_hd_id = 2)
+              - generic [ref=e203]: Layer Sum Assured range percent_re (cede) L1 0 - 5,000,000 15% L2 5,000,000.01 - 20,000,000 100% L3 > 20,000,000 0% (เกิน capacity ไม่รับต่อ)
+              - paragraph [ref=e204]: "TEST MEMBERS (ฝั่ง Life) และชั้นที่ควรตก:"
+              - generic [ref=e205]: cer SA (Life) expected layer 00701 4,000,000 L1 00702 12,000,000 L2 00703 22,000,000 L3 00708 5,000,000 L1
+              - heading "================================================================= ■ STEPS TO REPRODUCE" [level=1] [ref=e206]:
+                - text: =================================================================
+                - text: ■ STEPS TO REPRODUCE
+              - list [ref=e207]:
+                - listitem [ref=e208]:
+                  - text: โหลด test member 00701-00708 เข้า Landing (tx_rig_landing_cert_inforce) ของ policy GL5505 PY2
+                  - list [ref=e209]:
+                    - listitem [ref=e210]: 00702 ทุน Life 12,000,000 (ต้องตก L2), 00703 ทุน Life 22,000,000 (ต้องตก L3)
+                - listitem [ref=e211]: รัน Estimate (snapshot -> staging -> RI calc) ของ treaty GIB_Grp_Direct_EB period 202604
+                - listitem [ref=e212]: ตรวจ RI Premium รายชั้นที่ตาราง tx_rig_est_policy_dt ของ GL5505
+              - heading "================================================================= ■ EXPECTED vs ACTUAL (RI Premium Life — tx_rig_est_policy_dt, hd = 439)" [level=1] [ref=e213]:
+                - text: =================================================================
+                - text: ■ EXPECTED vs ACTUAL (RI Premium Life — tx_rig_est_policy_dt, hd = 439)
+              - paragraph [ref=e214]:
+                - text: Expected = เบี้ย layer จาก staging x percent_re
+                - text: L1 = 654,085 x 15% = 98,112.75
+                - text: L2 = 14,400 x 100% = 14,400.00
+                - text: L3 = 26,400 x 0% = 0.00
+              - generic [ref=e215]: Layer Expected Actual Diff L1 98,112.75 104,232.75 +6,120.00 L2 14,400.00 0.00 -14,400.00 L3 0.00 0.00 0.00 Total 112,512.75 104,232.75 -8,280.00
+              - paragraph [ref=e216]:
+                - text: ค่า Actual L1 = 104,232.75 = (654,085 + 14,400 + 26,400) x 15% = 694,885 (เบี้ย Life รวมทุกชั้น) x 15%
+                - text: => ยืนยันว่า engine นำเบี้ยรวมทุกชั้นมาคูณ % ของ L1 ชั้นเดียว
+              - heading "================================================================= ■ ROOT CAUSE (วิเคราะห์)" [level=1] [ref=e217]:
+                - text: =================================================================
+                - text: ■ ROOT CAUSE (วิเคราะห์)
+              - list [ref=e218]:
+                - listitem [ref=e219]: Step 2 (Premium Rate ระดับสมาชิก) ถูกต้อง — prem = SA/1000 x rate (Life 1.2, Acc 3.0)
+                - listitem [ref=e220]:
+                  - text: "Step 3 (staging tx_stg_est_prem_layer) แยกชั้นถูกต้อง:"
+                  - text: L1 life_prem 654,085 / L2 14,400 / L3 26,400 (และ L2 life_insure=12,000,000 = 00702, L3=22,000,000 = 00703)
+                - listitem [ref=e221]:
+                  - text: "Step 4 (tx_rig_est_policy_dt — RI cede) ยุบทุก member กลับเป็น L1:"
+                  - text: L1 = 104,232.75, L2 = 0, L3 = 0
+                - listitem [ref=e222]:
+                  - text: "สรุป: ข้อมูล layer mapping ที่ถูกต้องจาก staging (Step 3) ไม่ถูกส่งต่อเข้าการคิด cede ราย layer (Step 4)"
+                  - text: engine ใช้ percent_re ของ L1 (15%) กับสมาชิกทุกคนแทนที่จะใช้ % ตามชั้นจริง
+              - heading "================================================================= ■ IMPACT" [level=1] [ref=e223]:
+                - text: =================================================================
+                - text: ■ IMPACT
+              - list [ref=e224]:
+                - listitem [ref=e225]:
+                  - text: RI Premium Life ของ GL5505 ขาดไป net 8,280.00
+                  - list [ref=e226]:
+                    - listitem [ref=e227]: "member 00702 (L2): ควร cede 100% = 14,400 แต่ถูกคิดแค่ 15% = 2,160 (ขาด 12,240)"
+                    - listitem [ref=e228]: "member 00703 (L3): ควร cede 0% = 0 แต่ถูก cede 15% = 3,960 (เกิน 3,960 — ไม่ควรรับต่อเลย)"
+                - listitem [ref=e229]: RI Commission (50%) และรายงาน BDR (tx_rig_est_bdr) คำนวณผิดตามยอดเบี้ยที่ผิด
+                - listitem [ref=e230]: ฝั่ง Accident มี logic เดียวกัน — แต่ใน run นี้สมาชิก acc ทุกคนตก L1 อยู่แล้วจึงยังไม่เห็นส่วนต่าง
+                - listitem [ref=e231]: กระทบทุก policy/treaty ที่มีสมาชิกตก GIB Level 2/3 (ตรงกับขอบเขต CR#6 ข้อ 8)
+              - heading "================================================================= ■ EVIDENCE (SQL ตรวจสอบ — groupri@10.14.8.58)" [level=1] [ref=e232]:
+                - text: =================================================================
+                - text: ■ EVIDENCE (SQL ตรวจสอบ — groupri@10.14.8.58)
+              - generic [ref=e233]: "-- 1) RI premium รายชั้น (Actual ที่ผิด) SELECT dt.policy_no, dt.level, dt.ri_prem_life, dt.ri_prem_acc FROM tx_rig_est_policy_dt dt JOIN tx_rig_est_policy_hd hd ON hd.rig_est_policy_hd_id = dt.rig_est_policy_hd_id WHERE hd.rig_est_hd_id = 439 AND dt.policy_no = 'GL5505' ORDER BY dt.level; -- 2) staging layer premium (Input — ถูกต้อง) SELECT level, life_prem, accident_prem FROM tx_stg_est_prem_layer WHERE rig_process_hd_id = 14430 AND policy_no = 'GL5505' ORDER BY level; -- 3) treaty layer percent (Config) SELECT d.layer, d.minimum, d.maximum, d.percent_re FROM cf_rig_treaty_cond_dt d JOIN cf_rig_treaty_cond_hd h ON h.cf_rig_treaty_cond_id = d.cf_rig_treaty_cond_hd_id WHERE h.cf_rig_treaty_id = 2 ORDER BY d.layer;"
+              - heading "================================================================= ■ REFERENCE" [level=1] [ref=e234]:
+                - text: =================================================================
+                - text: ■ REFERENCE
+              - list [ref=e235]:
+                - listitem [ref=e236]: "Test Case : TC-CR1-011 (Estimate — Layer differentiation L1/L2/L3) => FAIL"
+                - listitem [ref=e237]:
+                  - text: "Related CR :"
+                  - link "#63684" [ref=e238] [cursor=pointer]:
+                    - /url: /issues/63684
+                  - text: ข้อ 8 "เพิ่มเงื่อนไขการอ่าน Rate และนำมาคำนวณในกรณีมีสมาชิกอยู่ใน GIB Level 2 และ 3"
+                - listitem [ref=e239]: "Step ที่ผิด : Step 4 (RI cede / layer mapping). ยืนยันแล้วว่า Step 2 (premium rate) และ Step 3 (staging layer) ถูกต้อง"
+          - separator [ref=e240]
+          - generic [ref=e241]:
+            - link "Add" [ref=e243] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/issues/new?back_url=%2Fissues%2F75852&issue%5Bparent_issue_id%5D=75852&issue%5Btracker_id%5D=1
+            - paragraph [ref=e244]:
+              - strong [ref=e245]: Subtasks
+          - separator [ref=e246]
+          - generic [ref=e247]:
+            - link "Add" [ref=e249] [cursor=pointer]:
+              - /url: "#"
+            - paragraph [ref=e250]:
+              - strong [ref=e251]: Related issues
+        - generic [ref=e252]:
+          - list [ref=e254]:
+            - listitem [ref=e255]:
+              - link "History" [ref=e256] [cursor=pointer]:
+                - /url: /issues/75852?tab=history
+            - listitem [ref=e257]:
+              - link "Notes" [ref=e258] [cursor=pointer]:
+                - /url: /issues/75852?tab=notes
+            - listitem [ref=e259]:
+              - link "Property changes" [ref=e260] [cursor=pointer]:
+                - /url: /issues/75852?tab=properties
+          - generic [ref=e261]:
+            - generic [ref=e263]:
+              - generic [ref=e264]:
+                - generic [ref=e265]:
+                  - link "Quote" [ref=e266] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e267]
+                  - link "Edit" [ref=e269] [cursor=pointer]:
+                    - /url: /journals/382670/edit
+                    - img [ref=e270]
+                  - generic "Actions" [ref=e274] [cursor=pointer]:
+                    - img [ref=e275]
+                - link "#1" [ref=e277] [cursor=pointer]:
+                  - /url: "#note-1"
+              - heading "Updated by Anucha Pimsoi about 1 month ago" [level=4] [ref=e278]:
+                - text: Updated by
+                - link "Anucha Pimsoi" [ref=e279] [cursor=pointer]:
+                  - /url: /users/8
+                - link "about 1 month" [ref=e280] [cursor=pointer]:
+                  - /url: /projects/project-20190033-group-ri-program/activity?from=2026-05-27
+                - text: ago
+              - generic [ref=e281]:
+                - paragraph [ref=e282]: "h3. Re-test 2026-05-27 — Estimate run hd 452 (GIB, period 202604): per-layer calc ยังผิด พฤติกรรมเปลี่ยนจาก run 439"
+                - paragraph [ref=e283]:
+                  - text: ตรวจสอบ ri_prem_life ใน tx_rig_est_policy_dt ของ run ใหม่ rig_est_hd_id=452 (treaty GIB_Grp_Direct_EB, period 202604, status SUCCESS) —
+                  - emphasis [ref=e284]: defect ยังไม่หาย
+                - paragraph [ref=e285]:
+                  - emphasis [ref=e286]: "Logic ที่ยืนยันได้:"
+                  - text: "@ri_prem_life = (life_prem ของ layer นั้นใน tx_stg_est_prem_layer) × percent_re ของ layer@ — GIB cede% จาก cf_rig_treaty_cond_dt (hd_id=2): L1=15% / L2=100% / L3=0%"
+                  - text: พิสูจน์ตรงเป๊ะถึงสตางค์กับ policy ที่มี
+                  - emphasis [ref=e287]: layer เดียว
+                  - text: "ใน run เดียวกัน:"
+                - list [ref=e288]:
+                  - listitem [ref=e289]: "GH4193 L1: 12,675.00 × 15% = 1,901.25 ✓"
+                  - listitem [ref=e290]: "GH5313 L1: 249,600.00 × 15% = 37,440.00 ✓"
+                  - listitem [ref=e291]: "GH5327 L1: 2,704,053.00 × 15% = 405,607.95 ✓"
+                - paragraph [ref=e292]:
+                  - emphasis [ref=e293]: "ผลที่ผิด — policy ที่มีหลาย layer ผิดทุกตัว:"
+                - paragraph [ref=e294]:
+                  - text: "|"
+                  - emphasis [ref=e295]: . Policy |
+                  - text: . Layer |
+                  - emphasis [ref=e296]: . base life_prem |
+                  - text: . cede% |
+                  - emphasis [ref=e297]: . ควรเป็น |
+                  - text: . ค่าจริง (policy_dt) |_. ส่วนต่าง |
+                  - text: "| GL5557 (dt_id 51601) | L1 | 42,892.30 | 15% | 6,433.85 | 139,193.10 | +132,759.26 (≈21.6 เท่า) |"
+                  - text: "| GL5557 (dt_id 51602) | L2 | 36,400.00 | 100% | 36,400.00 | 46,080.00 | +9,680.00 |"
+                  - text: "| GL5505 | L1 | 654,085.00 | 15% | 98,112.75 | 97,932.75 | -180.00 |"
+                  - text: "| GL5505 | L2 | 14,400.00 | 100% | 14,400.00 | 39,200.00 | +24,800.00 |"
+                  - text: "| GL5505 | L3 | 26,400.00 | 0% | 0.00 | 0.00 | 0.00 ✓ |"
+                  - text: "| GL5092 | L1 | 11,211,860.00 | 15% | 1,681,779.00 | 0.00 | -1,681,779.00 |"
+                - paragraph [ref=e298]:
+                  - text: "หมายเหตุ: GL5557 L1 ค่าจริง (139,193.10)"
+                  - emphasis [ref=e299]: มากกว่าเบี้ย life รวมทุก layer ของทั้ง policy
+                  - text: (42,892.30 + 36,400.00 = 79,292.30) ซึ่งเป็นไปไม่ได้ทางคณิตศาสตร์ถ้า cede ≤ 100%
+                - paragraph [ref=e300]:
+                  - emphasis [ref=e301]: "เทียบกับ run 439 เดิม:"
+                  - text: เดิม engine ยุบทุก member เข้า L1 @15% และ L2/L3 = 0. ตอนนี้ (hd 452) L2 มีค่าแล้ว (ไม่ใช่ 0) แต่ค่ายังผิด → เหมือนการแก้ที่ยัง
+                  - emphasis [ref=e302]: ไม่สมบูรณ์
+                  - text: ": เริ่มแบ่ง layer แล้วแต่คำนวณเบี้ยราย layer ผิด"
+                - paragraph [ref=e303]:
+                  - emphasis [ref=e304]: "สรุป:"
+                  - text: ri_prem_life ถูกต้องเฉพาะ policy ที่ไม่ต้องแบ่ง layer; ทุก policy ที่ต้องแบ่ง GIB L1/L2/L3 ยังคำนวณผิด →
+                  - emphasis [ref=e305]: TC-CR1-011 ยัง FAIL
+                  - text: . นอกจากนี้ GL5092 ถูก zero ทั้ง policy (ควรเป็นอีกประเด็นแยก น่าจะโดน filter สถานะ — ควรตรวจเพิ่ม)
+                - paragraph [ref=e306]:
+                  - emphasis [ref=e307]: "ข้อจำกัดหลักฐาน:"
+                  - text: "tx_rig_est_pol_mem ว่างเปล่าสำหรับ hd 452 (member-level output ไม่ถูก populate) จึง reconcile ราย member ไม่ได้; ใช้ base จาก tx_stg_est_prem_layer (rig_process_hd_id=14587, period 202604 — ยืนยัน source จาก timing: staging สร้าง 09:27:06 ก่อน hd 452 09:27:28)"
+                - paragraph [ref=e308]:
+                  - emphasis [ref=e309]: "ข้อเสนอแนะ Dev:"
+                  - text: ตรวจขั้นตอนคำนวณ ri_prem ราย layer (Step 4 → tx_rig_est_policy_dt) สำหรับ multi-layer GIB; และตรวจสาเหตุที่ pol_mem ไม่ถูก populate + GL5092 ถูก zero
+            - generic [ref=e311]:
+              - generic [ref=e312]:
+                - generic [ref=e313]:
+                  - link "Quote" [ref=e314] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e315]
+                  - link "Edit" [ref=e317] [cursor=pointer]:
+                    - /url: /journals/382954/edit
+                    - img [ref=e318]
+                  - generic "Actions" [ref=e322] [cursor=pointer]:
+                    - img [ref=e323]
+                - link "#2" [ref=e325] [cursor=pointer]:
+                  - /url: "#note-2"
+              - heading "Updated by Anucha Pimsoi about 1 month ago" [level=4] [ref=e326]:
+                - text: Updated by
+                - link "Anucha Pimsoi" [ref=e327] [cursor=pointer]:
+                  - /url: /users/8
+                - link "about 1 month" [ref=e328] [cursor=pointer]:
+                  - /url: /projects/project-20190033-group-ri-program/activity?from=2026-05-27
+                - text: ago
+              - generic [ref=e329]:
+                - paragraph [ref=e330]: h3. Root-cause deep-dive (hd 452 / GL5557) — base เบี้ยที่ใช้คำนวณราย layer ผิด ไม่ใช่แค่ "ไม่แบ่ง layer"
+                - paragraph [ref=e331]: เจาะหาที่มาของ ri_prem_life L1 = 139,193.10 (policy_dt_id 51601) เพื่อระบุจุดที่ Dev ต้องแก้
+                - paragraph [ref=e332]:
+                  - emphasis [ref=e333]: "1) สูตรที่ถูกต้อง (พิสูจน์จาก single-layer policy 3 ตัวใน run เดียวกัน ตรงเป๊ะถึงสตางค์):"
+                  - text: "@ri_prem_life = prem_layer.life_prem × percent_re@ (เช่น GH5327: 2,704,053.00 × 15% = 405,607.95)"
+                - paragraph [ref=e334]:
+                  - emphasis [ref=e335]: "2) ค่า L1 ของ GL5557 \"เป็นไปไม่ได้\" ทางคณิตศาสตร์ = หลักฐานชี้ขาดว่าเป็น defect (ไม่ใช่ปัดเศษ/proration):"
+                - list [ref=e336]:
+                  - listitem [ref=e337]:
+                    - text: ri_prem_life L1 ที่ออกมา =
+                    - emphasis [ref=e338]: 139,193.10
+                  - listitem [ref=e339]:
+                    - text: เบี้ย life รวม "ทั้ง policy" (Σ cert.life_prem ทุก 360 ราย จาก tx_est_snap_cert_inforce) =
+                    - emphasis [ref=e340]: 79,292.30
+                  - listitem [ref=e341]: → ri_prem ของ layer เดียว มากกว่าเบี้ยจริงทั้ง policy 1.76 เท่า ทั้งที่ cede ≤ 100% เป็นไปไม่ได้
+                - paragraph [ref=e342]:
+                  - emphasis [ref=e343]: "3) base ที่ engine ใช้จริง ≠ prem_layer.life_prem:"
+                - list [ref=e344]:
+                  - listitem [ref=e345]: ถ้าใช้ถูก L1 ต้อง = 42,892.30 × 15% = 6,433.85 แต่ได้ 139,193.10 (สูงกว่า 21.6 เท่า)
+                  - listitem [ref=e346]: "implied base (÷ cede): L1 = 927,954.00 / L2 = 46,080.00 → ไม่ตรงกับฐานใดๆ ที่ยังเหลือในระบบ: เบี้ยจริง 79,292 / เบี้ยสะสม sum_life_prem 11,940,652.80 / SA×age-rate / SA×layer-rate ก็ไม่ตรงสักตัว"
+                  - listitem [ref=e347]: "ตัด \"ใช้ตารางอัตราอายุ\" ทิ้งได้: tx_est_snap_prem_rate age 68 ชาย = life 2.0 / acc 3.5 แต่ค่าที่ implied = life 2.304 / acc 0.756 (acc < life กลับด้านกับ rate table)"
+                - paragraph [ref=e348]:
+                  - emphasis [ref=e349]: "4) อัตราส่วน life:acc ภายใน layer ยังถูก (rate ไม่ได้สลับ) แต่ขนาดถูก inflate ด้วยตัวคูณแปลกปลอมที่ไม่คงที่:"
+                - list [ref=e350]:
+                  - listitem [ref=e351]: "L2: ri_life/ri_acc = 46,080/15,120 = 3.0476 = prem_layer life_rate/acc_rate (0.256/0.084) พอดี"
+                  - listitem [ref=e352]:
+                    - text: ตัวคูณส่วนเกิน =
+                    - emphasis [ref=e353]: ×9 ที่ L2
+                    - text: และ
+                    - emphasis [ref=e354]: ≈×15 ที่ L1 (life)
+                    - text: → ไม่คงที่ระหว่าง layer
+                - paragraph [ref=e355]:
+                  - emphasis [ref=e356]: "สรุป Root Cause:"
+                  - text: ขั้นตอน Step 4 (tx_rig_est_policy_dt) สำหรับ policy ที่กระจายหลาย layer
+                  - emphasis [ref=e357]: ไม่ได้ใช้ prem_layer.life_prem (เบี้ยจริงราย layer) เป็นฐาน
+                  - text: แต่ recompute จาก SA × rate แล้วคูณ factor แปลกปลอมที่ไม่คงที่ → ผล inflate เกินเบี้ยจริงทั้ง policy. single-layer policy ผ่านเพราะ "บังเอิญ" เบี้ยจริง = SA×rate พอดี (GH5327 ตรงเป๊ะ) แต่ GL5557 เบี้ยจริง 42,892.30 ≠ SA×rate 60,884.48 จึงโผล่ bug.
+                - paragraph [ref=e358]:
+                  - emphasis [ref=e359]: "ข้อสังเกตประกอบให้ Dev ตรวจเพิ่ม:"
+                - list [ref=e360]:
+                  - listitem [ref=e361]: tx_rig_est_pol_mem (member-level layer output) ว่างเปล่าสำหรับ hd 452 → loop คำนวณราย member อาจไม่เขียนผล/ทำงานผิด
+                  - listitem [ref=e362]: "Period ไม่ sync ทั้ง pipeline: output closing_period = 202604 แต่ snapshot/member/rate ปัจจุบัน = 202605 → ควรบังคับ period เดียวกันทั้ง chain เพื่อให้ตรวจสอบย้อนได้"
+                  - listitem [ref=e363]: prem_layer.life_prem_rate ของ GL5557 = 0.2560 ไม่ทำให้เกิด life_prem 42,892.30 (เป็น rate mock/placeholder) — ความไม่สอดคล้องระหว่าง "rate ที่เก็บ" กับ "เบี้ยที่เก็บ" คือทริกเกอร์ของ bug
+                - paragraph [ref=e364]: "(ตรวจด้วย DB-side scripts: inspect-base-452.js, inspect-gl5557-cert.js, inspect-gl5557-rate.js, verify-ri-prem-452.js — groupri@10.14.8.58)"
+            - generic [ref=e366]:
+              - generic [ref=e367]:
+                - generic [ref=e368]:
+                  - link "Quote" [ref=e369] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e370]
+                  - link "Edit" [ref=e372] [cursor=pointer]:
+                    - /url: /journals/383511/edit
+                    - img [ref=e373]
+                  - generic "Actions" [ref=e377] [cursor=pointer]:
+                    - img [ref=e378]
+                - link "#3" [ref=e380] [cursor=pointer]:
+                  - /url: "#note-3"
+              - heading "Updated by Anucha Pimsoi about 1 month ago" [level=4] [ref=e381]:
+                - text: Updated by
+                - link "Anucha Pimsoi" [ref=e382] [cursor=pointer]:
+                  - /url: /users/8
+                - link "about 1 month" [ref=e383] [cursor=pointer]:
+                  - /url: /projects/project-20190033-group-ri-program/activity?from=2026-05-27
+                - text: ago
+              - generic [ref=e384]:
+                - paragraph [ref=e385]: h3. ⚠️ CORRECTION (2026-05-27) — ถอน note ก่อนหน้า + สรุปใหม่หลังได้สูตรทางการจาก User
+                - paragraph [ref=e386]:
+                  - emphasis [ref=e387]: ขอแก้ไข note ก่อนหน้าของ issue นี้ (note re-test hd452 + root-cause "stale/spurious factor") ซึ่งสรุปผิด
+                  - text: เนื่องจากตอนนั้นยังไม่มีสูตรทางการครบ หลังได้สูตร Estimate Premium ที่ถูกต้อง (มี
+                  - emphasis [ref=e388]: Factor Mode of Payment
+                  - text: + การแบ่ง layer แบบ
+                  - emphasis [ref=e389]: marginal slicing
+                  - text: +
+                  - emphasis [ref=e390]: Layer1 = Total − L2 − L3 residual
+                  - text: ) ตรวจซ้ำแล้วได้ผลดังนี้
+                - paragraph [ref=e391]:
+                  - emphasis [ref=e392]: "สูตรทางการ (ยืนยันแล้ว):"
+                - list [ref=e393]:
+                  - listitem [ref=e394]: Premium Life (รวมทุก layer) = Round(FactorMode × (Σ life_prem + Σ life_extra), 2)
+                  - listitem [ref=e395]: Premium Life L2 = Σ สมาชิกใน L2 [FactorMode × rate × (SA−5M)/1000 + FactorMode × extra × (SA−5M)/SA] + Σ สมาชิกใน L3 [FactorMode × rate × 15M/1000 + ...]
+                  - listitem [ref=e396]: Premium Life L3 = Σ สมาชิกใน L3 [FactorMode × rate × (SA−20M)/1000 + ...]
+                  - listitem [ref=e397]: Premium Life L1 = Round(Total − L2 − L3, 2) (เศษเหลือ)
+                  - listitem [ref=e398]: ri_prem_life[layer] = Premium Life[layer] × percent_re[layer] (GIB 15/100/0)
+                  - listitem [ref=e399]: "FactorMode = ตามงวดชำระ: รายเดือน(mode_pay=12)→12, รายปี(=1)→1"
+                - paragraph [ref=e400]:
+                  - emphasis [ref=e401]: "1) GL5557 (hd 452) — ไม่ใช่ defect คำนวณถูกต้อง:"
+                  - text: "FactorMode=12. ตรวจตรงทุกค่าถึงสตางค์:"
+                - list [ref=e402]:
+                  - listitem [ref=e403]: ri_life L1 = 927,954.00×15% = 139,193.10 ✓ | L2 = 46,080.00×100% = 46,080.00 ✓ | L3 = 0 ✓
+                  - listitem [ref=e404]: ri_acc L1 = 242,625.60×15% = 36,393.84 ✓ | L2 = 15,120.00 ✓
+                  - listitem [ref=e405]: (โดย Total life = 12×(79,292.30+1,877.20)=974,034 ; L2 = 12×0.256×15,000 = 46,080 ; L1 = 974,034−46,080 = 927,954)
+                  - listitem [ref=e406]:
+                    - text: ⇒ ที่ note ก่อนหน้าบอกว่า GL5557 "stale/พอง 21 เท่า"
+                    - emphasis [ref=e407]: ไม่ถูกต้อง
+                    - text: — ค่าที่ดูพองเกิดจาก FactorMode=12 (งวดรายเดือน) ที่ผมมองข้ามไป + การไม่ใช้ marginal slicing/residual ในการตรวจ
+                - paragraph [ref=e408]:
+                  - emphasis [ref=e409]: "2) GL5505 — defect ของจริง (สาระเดิมของ issue นี้ยังคงอยู่):"
+                  - text: FactorMode=1 (รายปี), สมาชิก 00702 (SA 12M, rate 1.40) + 00703 (SA 22M, rate 1.40)
+                - list [ref=e410]:
+                  - listitem [ref=e411]:
+                    - emphasis [ref=e412]: "ค่าที่ถูกต้องตามสูตร:"
+                    - text: L2 = 1.40×(7,000+15,000) = 30,800 ; L3 prem = 1.40×2,000 = 2,800 (×0%=0) ; L1 = 694,885−30,800−2,800 = 661,285 →
+                    - emphasis [ref=e413]: "ri: L1 = 99,192.75 / L2 = 30,800.00 / L3 = 0"
+                  - listitem [ref=e414]:
+                    - emphasis [ref=e415]: "hd 439 (run ที่ log issue นี้): ยุบเข้า L1 จริง"
+                    - text: — ri L1 = 104,232.75 = เบี้ยรวม 694,885 × 15% เป๊ะ, L2/L3 = 0 ⇒
+                    - emphasis [ref=e416]: defect ยืนยัน
+                  - listitem [ref=e417]:
+                    - emphasis [ref=e418]: "hd 452: layer split เริ่มทำงานแต่ยังเพี้ยน"
+                    - text: "— ri L1 = 97,932.75 (ควร 99,192.75, ขาด 1,260) / L2 = 39,200 (ควร 30,800, เกิน 8,400) / L3 = 0. หมายเหตุ: hd 452 รัน 09:27"
+                    - emphasis [ref=e419]: ก่อน
+                    - text: test member ถูก backfill (~11:00) จึงใช้ข้อมูล member ไม่สมบูรณ์
+                  - listitem [ref=e420]:
+                    - emphasis [ref=e421]: ยังไม่มี run ใดให้ค่าที่ถูกต้อง (99,192.75 / 30,800 / 0)
+                - paragraph [ref=e422]:
+                  - emphasis [ref=e423]: "ข้อเสนอแนะ Dev:"
+                  - text: re-run Estimate ของ GL5505 บนข้อมูล member หลัง backfill แล้วเทียบกับค่าที่ถูกต้องข้างต้น (L1 99,192.75 / L2 30,800 / L3 0). ถ้าได้ตามนี้ = defect แก้สมบูรณ์; ถ้า L2 ยังเป็น 39,200 = ยังมี bug ในขั้น Premium Life L2 (marginal slicing).
+                - paragraph [ref=e424]: "(verify scripts DB-side: verify-gl5557-formula.js, verify-gl5505-formula.js, inspect-gl5505-members.js — groupri@10.14.8.58)"
+            - generic [ref=e426]:
+              - generic [ref=e427]:
+                - generic [ref=e428]:
+                  - link "Quote" [ref=e429] [cursor=pointer]:
+                    - /url: "#"
+                    - img [ref=e430]
+                  - link "Edit" [ref=e432] [cursor=pointer]:
+                    - /url: /journals/440890/edit
+                    - img [ref=e433]
+                  - generic "Actions" [ref=e437] [cursor=pointer]:
+                    - img [ref=e438]
+                - link "#4" [ref=e440] [cursor=pointer]:
+                  - /url: "#note-4"
+              - heading "Updated by Anucha Pimsoi less than a minute ago" [level=4] [ref=e441]:
+                - text: Updated by
+                - link "Anucha Pimsoi" [ref=e442] [cursor=pointer]:
+                  - /url: /users/8
+                - link "less than a minute" [ref=e443] [cursor=pointer]:
+                  - /url: /projects/project-20190033-group-ri-program/activity?from=2026-07-07
+                - text: ago
+              - list [ref=e444]:
+                - listitem [ref=e445]:
+                  - strong [ref=e446]: Status
+                  - text: changed from New to Resolved
+                - listitem [ref=e447]:
+                  - strong [ref=e448]: "% Done"
+                  - text: changed from 0 to 100
+              - generic [ref=e449]:
+                - paragraph [ref=e450]: h3. QA Regression 2026-07-07 — per-layer cede fix ยืนยันแล้ว (speckit-qa regression)
+                - paragraph [ref=e451]: "รัน regression ของ defect fix นี้ (DB reconciliation groupri@10.14.8.58, read-only) สรุป:"
+                - paragraph [ref=e452]:
+                  - emphasis [ref=e453]: "ผล:"
+                  - text: per-layer cede ของ engine
+                  - emphasis [ref=e454]: ทำงานถูกต้องแล้ว
+                  - text: "— ยืนยันบน policy GIB multi-layer ที่มีข้อมูลปัจจุบันครบทุกตัว ตรงถึงสตางค์ ไม่ยุบเข้า L1:"
+                - list [ref=e455]:
+                  - listitem [ref=e456]:
+                    - emphasis [ref=e457]: GL5557
+                    - text: "(รายเดือน F=12): ri_life L1 139,193.10 / L2 46,080.00 ; ri_acc L1 36,393.84 / L2 15,120.00 — ตรง formula เป๊ะ"
+                  - listitem [ref=e458]:
+                    - emphasis [ref=e459]: GH5558
+                    - text: "(รายปี F=1): ri_life L1 124,800.00 / L2 325.00 / L3 0 — ตรง formula เป๊ะ"
+                - paragraph [ref=e460]:
+                  - emphasis [ref=e461]: "GL5505 (policy ต้นเรื่อง):"
+                  - text: re-test ตรงไม่ได้ — test member 00702 (SA 12M) / 00703 (SA 22M) ถูกถอดออกจาก DB แล้ว (เหลือสมาชิก L1-band 651 ราย) ; run ล่าสุด hd547 = L1 96,492.75 = 643,285 × 15% (single-layer ถูกต้อง) แต่ path multi-layer ไม่ถูก exercise → SC-001 (L1 99,192.75 / L2 30,800 / L3 0) reproduce ไม่ได้
+                - paragraph [ref=e462]:
+                  - emphasis [ref=e463]: "Transitions:"
+                  - text: TC-CR1-011 Fail→Blocked (fixture ถูกถอด) ; GL5557/GH5558 Pass→Pass ; single-layer Pass→Pass —
+                  - emphasis [ref=e464]: ไม่มี Pass→Fail = ไม่มี regression ใหม่
+                - paragraph [ref=e465]:
+                  - emphasis [ref=e466]: "Root Cause (ยืนยัน):"
+                  - text: Application Defect — Step 4 (tx_rig_est_policy_dt) ไม่ apply percent_re ราย layer + ไม่ทำ marginal SA slicing → multi-layer ยุบเข้า L1@15%.
+                  - emphasis [ref=e467]: แก้แล้ว
+                - paragraph [ref=e468]:
+                  - emphasis [ref=e469]: "Verdict: CONDITIONAL-GO"
+                  - text: "→ resolve โดยรับหลักฐาน equivalent-policy (GL5557 + GH5558) เป็นข้อพิสูจน์ว่า engine layer-cede แก้สมบูรณ์. หากต้องปิดบน GL5505 เอง: re-inject fixture เข้า period 202607 (สคริปต์ inject-tc-cr1-010-018-202607.js — dry-run validated) แล้วรัน Estimate เทียบ SC-001."
+                - paragraph [ref=e470]:
+                  - emphasis [ref=e471]: "หลักฐานเต็ม: verify-regression-run_2026-07-07.md + evidence-75852.png (แนบภายหลัง) — DB scripts: verify-gl5557-formula.js / verify-gh5558-formula.js / regression-75852.js"
+        - generic [ref=e472]:
+          - link "Edit" [ref=e473] [cursor=pointer]:
+            - /url: /issues/75852/edit
+            - img [ref=e474]
+            - generic [ref=e476]: Edit
+          - link "Log time" [ref=e477] [cursor=pointer]:
+            - /url: /issues/75852/time_entries/new
+            - img [ref=e478]
+            - generic [ref=e480]: Log time
+          - link "Unwatch" [ref=e481] [cursor=pointer]:
+            - /url: /watchers/watch?object_id=75852&object_type=issue
+            - img [ref=e482]
+            - generic [ref=e484]: Unwatch
+          - link "Copy" [ref=e485] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/75852/copy
+            - img [ref=e486]
+            - generic [ref=e488]: Copy
+          - generic "Actions" [ref=e491] [cursor=pointer]:
+            - img [ref=e492]
+        - text: pre pre
+        - paragraph [ref=e494]:
+          - text: "Also available in:"
+          - link "Atom" [ref=e496] [cursor=pointer]:
+            - /url: /issues/75852.atom?key=881dc94c9b277513bc1d8f7b47fc07d134487396
+          - generic [ref=e497]:
+            - text: "|"
+            - link "PDF" [ref=e498] [cursor=pointer]:
+              - /url: /issues/75852.pdf
+    - generic [ref=e499]:
+      - text: Powered by
+      - link "Redmine" [ref=e500] [cursor=pointer]:
+        - /url: https://www.redmine.org/
+      - text: © 2006-2025 Jean-Philippe Lang
+  - log [ref=e501]
+  - log [ref=e502]
+  - log [ref=e503]
+  - log [ref=e504]
+  - log [ref=e505]
+  - log [ref=e506]
+  - log [ref=e507]
+  - log [ref=e508]
+  - log [ref=e509]
+  - log [ref=e510]
+  - log [ref=e511]
+  - log [ref=e512]
+  - log [ref=e513]
+  - log [ref=e514]
+  - log [ref=e515]
+  - log [ref=e516]
+  - log [ref=e517]
+  - log [ref=e518]
+  - log [ref=e519]
+  - log [ref=e520]
+  - log [ref=e521]
+  - log [ref=e522]
+  - log [ref=e523]
+  - log [ref=e524]
+  - log [ref=e525]
+  - log [ref=e526]
+  - log [ref=e527]
+  - log [ref=e528]
+  - log [ref=e529]
+  - log [ref=e530]
+  - log [ref=e531]
+  - log [ref=e532]
+  - log [ref=e533]
+  - log [ref=e534]
+  - log [ref=e535]
+  - log [ref=e536]
+  - log [ref=e537]
+  - log [ref=e538]
+  - log [ref=e539]
+  - log [ref=e540]
+  - log [ref=e541]
+  - log [ref=e542]
+  - log [ref=e543]
+  - log [ref=e544]
+  - log [ref=e545]
+  - log [ref=e546]
+  - log [ref=e547]
+  - log [ref=e548]
+  - log [ref=e549]
+  - log [ref=e550]
+  - log [ref=e551]
+  - log [ref=e552]
+  - log [ref=e553]
+  - log [ref=e554]
+  - log [ref=e555]
+  - log [ref=e556]
+  - log [ref=e557]
+  - log [ref=e558]
+  - log [ref=e559]
+  - log [ref=e560]
+  - log [ref=e561]
+  - log [ref=e562]
+  - log [ref=e563]
+  - log [ref=e564]
+  - log [ref=e565]
+  - log [ref=e566]
+  - log [ref=e567]
+  - log [ref=e568]
+  - log [ref=e569]
+  - log [ref=e570]
+  - log [ref=e571]
+  - log [ref=e572]
+  - log [ref=e573]
+  - log [ref=e574]
+  - log [ref=e575]
+  - log [ref=e576]
+  - log [ref=e577]
+  - log [ref=e578]
+  - log [ref=e579]
+  - log [ref=e580]
+  - log [ref=e581]
+  - log [ref=e582]
+  - log [ref=e583]
+  - log [ref=e584]
+  - log [ref=e585]
+  - log [ref=e586]
+  - log [ref=e587]
+  - log [ref=e588]
+  - log [ref=e589]
+  - log [ref=e590]
+  - log [ref=e591]
+  - log [ref=e592]
+  - log [ref=e593]
+  - log [ref=e594]
+  - log [ref=e595]
+  - log [ref=e596]
+  - log [ref=e597]
+  - log [ref=e598]
+  - log [ref=e599]
+  - log [ref=e600]
+  - log [ref=e601]
+  - log [ref=e602]
+  - log [ref=e603]
+  - log [ref=e604]
+  - log [ref=e605]
+  - log [ref=e606]
+  - log [ref=e607]
+  - log [ref=e608]
+  - log [ref=e609]
+  - log [ref=e610]
+  - log [ref=e611]
+  - log [ref=e612]
+  - log [ref=e613]
+  - log [ref=e614]
+  - log [ref=e615]
+  - log [ref=e616]
+  - log [ref=e617]
+  - log [ref=e618]
+  - log [ref=e619]
+  - log [ref=e620]
+  - log [ref=e621]
+  - log [ref=e622]
+  - log [ref=e623]
+  - log [ref=e624]
+  - log [ref=e625]
+  - log [ref=e626]
+  - log [ref=e627]
+  - log [ref=e628]
+  - log [ref=e629]
+  - log [ref=e630]
+  - log [ref=e631]
+  - log [ref=e632]
+  - log [ref=e633]
+  - log [ref=e634]
+  - log [ref=e635]
+  - log [ref=e636]
+  - log [ref=e637]
+  - log [ref=e638]
+  - log [ref=e639]
+  - log [ref=e640]
+  - log [ref=e641]
+  - log [ref=e642]
+  - log [ref=e643]
+  - log [ref=e644]
+  - log [ref=e645]
+  - log [ref=e646]
+  - log [ref=e647]
+  - log [ref=e648]
+  - log [ref=e649]
+  - log [ref=e650]
+  - log [ref=e651]
+  - log [ref=e652]
+  - log [ref=e653]
+  - log [ref=e654]
+  - log [ref=e655]
+  - log [ref=e656]
+  - log [ref=e657]
+  - log [ref=e658]
+  - log [ref=e659]
+  - log [ref=e660]
+  - log [ref=e661]
+  - log [ref=e662]
+  - log [ref=e663]
+  - log [ref=e664]
+  - log [ref=e665]
+  - log [ref=e666]
+  - log [ref=e667]
+  - log [ref=e668]
+  - log [ref=e669]
+  - log [ref=e670]
+  - log [ref=e671]
+  - log [ref=e672]
+  - log [ref=e673]
+  - log [ref=e674]
+  - log [ref=e675]
+  - status [ref=e676]
+  - status [ref=e677]

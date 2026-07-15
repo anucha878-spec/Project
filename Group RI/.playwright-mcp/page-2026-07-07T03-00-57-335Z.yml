@@ -1,0 +1,456 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - list:
+          - listitem [ref=e5]:
+            - link "WorkTime" [ref=e6] [cursor=pointer]:
+              - /url: /work_time/index/85944
+          - listitem [ref=e7]:
+            - link "My account" [ref=e8] [cursor=pointer]:
+              - /url: /my/account
+          - listitem [ref=e9]:
+            - link "Sign out" [ref=e10] [cursor=pointer]:
+              - /url: /logout
+      - generic [ref=e11]:
+        - text: Logged in as
+        - link "anucha.pi" [ref=e12] [cursor=pointer]:
+          - /url: /users/8
+      - list:
+        - listitem [ref=e13]:
+          - link "Home" [ref=e14] [cursor=pointer]:
+            - /url: /
+        - listitem [ref=e15]:
+          - link "My page" [ref=e16] [cursor=pointer]:
+            - /url: /my/page
+        - listitem [ref=e17]:
+          - link "Projects" [ref=e18] [cursor=pointer]:
+            - /url: /projects
+        - listitem [ref=e19]:
+          - link "Easy Gantt" [ref=e20] [cursor=pointer]:
+            - /url: /easy_gantt?set_filter=0
+            - img [ref=e21]
+            - generic [ref=e23]: Easy Gantt
+        - listitem [ref=e24]:
+          - link "Resources" [ref=e25] [cursor=pointer]:
+            - /url: /resource_bookings
+        - listitem [ref=e26]:
+          - link "Help" [ref=e27] [cursor=pointer]:
+            - /url: https://www.redmine.org/guide
+    - generic [ref=e28]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - generic [ref=e31]:
+            - link "Search" [ref=e32] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/search
+            - text: ":"
+          - textbox "Search:" [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35] [cursor=pointer]: Project 20190033 - New Group RI
+          - text: ✓ ✓
+      - heading "Project 20190033 - New Group RI" [level=1] [ref=e36]
+      - list [ref=e38]:
+        - listitem [ref=e39]:
+          - link "+" [ref=e40] [cursor=pointer]:
+            - /url: "#"
+        - listitem [ref=e41]:
+          - link "Overview" [ref=e42] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program
+        - listitem [ref=e43]:
+          - link "Activity" [ref=e44] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/activity
+        - listitem [ref=e45]:
+          - link "Issues" [ref=e46] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues
+        - listitem [ref=e47]:
+          - link "Spent time" [ref=e48] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/time_entries
+        - listitem [ref=e49]:
+          - link "Gantt" [ref=e50] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/gantt
+        - listitem [ref=e51]:
+          - link "WorkTime" [ref=e52] [cursor=pointer]:
+            - /url: /work_time/show/project-20190033-group-ri-program
+        - listitem [ref=e53]:
+          - link "Resources" [ref=e54] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/resource_bookings
+        - listitem [ref=e55]:
+          - link "Calendar" [ref=e56] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/calendar
+        - listitem [ref=e57]:
+          - link "News" [ref=e58] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/news
+        - listitem [ref=e59]:
+          - link "Documents" [ref=e60] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/documents
+        - listitem [ref=e61]:
+          - link "Wiki" [ref=e62] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/wiki
+        - listitem [ref=e63]:
+          - link "Files" [ref=e64] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/files
+        - listitem [ref=e65]:
+          - link "Easy Gantt" [ref=e66] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_gantt
+        - listitem [ref=e67]:
+          - link "Easy WBS" [ref=e68] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/easy_wbs
+        - listitem [ref=e69]:
+          - link "Settings" [ref=e70] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/settings
+    - generic [ref=e71]:
+      - link [ref=e74] [cursor=pointer]:
+        - /url: "#"
+        - img [ref=e75]
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - link "Edit" [ref=e79] [cursor=pointer]:
+            - /url: /issues/85944/edit
+            - img [ref=e80]
+            - generic [ref=e82]: Edit
+          - link "Log time" [ref=e83] [cursor=pointer]:
+            - /url: /issues/85944/time_entries/new
+            - img [ref=e84]
+            - generic [ref=e86]: Log time
+          - link "Watch" [ref=e87] [cursor=pointer]:
+            - /url: /watchers/watch?object_id=85944&object_type=issue
+            - img [ref=e88]
+            - generic [ref=e90]: Watch
+          - link "Copy" [ref=e91] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/85944/copy
+            - img [ref=e92]
+            - generic [ref=e94]: Copy
+          - generic "Actions" [ref=e97] [cursor=pointer]:
+            - img [ref=e98]
+        - 'heading "Defect #85944" [level=2] [ref=e100]'
+        - text: open
+        - generic [ref=e101]:
+          - generic [ref=e103]:
+            - paragraph [ref=e104]:
+              - 'link "Task #63668" [ref=e105] [cursor=pointer]':
+                - /url: /issues/63668
+              - text: ": After Golive"
+            - generic [ref=e106]:
+              - paragraph [ref=e107]:
+                - 'link "Task #85909" [ref=e108] [cursor=pointer]':
+                  - /url: /issues/85909
+                - text: ": [UAT] ทดสอบ CR และ Issue Prod"
+              - generic [ref=e109]:
+                - paragraph [ref=e110]:
+                  - 'link "Task #85910" [ref=e111] [cursor=pointer]':
+                    - /url: /issues/85910
+                  - text: ": [UAT] Format Template"
+                - 'heading "[UAT BDR Estimate Report] Thaire : RIG-RP-010 BDR Est_Thaire_{YYYY}{MM} (EDW)" [level=3] [ref=e113]'
+          - paragraph [ref=e114]:
+            - text: Added by
+            - link "Watcharaporn Sayowan" [ref=e115] [cursor=pointer]:
+              - /url: /users/125
+            - link "36 minutes" [ref=e116] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/activity?from=2026-07-07
+            - text: ago.
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - generic [ref=e119]:
+                - generic [ref=e120]:
+                  - generic [ref=e121]: "Status:"
+                  - generic [ref=e122]: New
+                - generic [ref=e123]:
+                  - generic [ref=e124]: "Priority:"
+                  - generic [ref=e125]: Normal
+                - generic [ref=e126]:
+                  - generic [ref=e127]: "Assignee:"
+                  - link "Bodin Itthiphonchayanan" [ref=e129] [cursor=pointer]:
+                    - /url: /users/158
+              - generic [ref=e130]:
+                - generic [ref=e131]:
+                  - generic [ref=e132]: "Start date:"
+                  - generic [ref=e133]: 07-07-2026
+                - generic [ref=e135]: "Due date:"
+                - generic [ref=e136]:
+                  - generic [ref=e137]: "% Done:"
+                  - generic [ref=e138]:
+                    - table [ref=e139]:
+                      - rowgroup [ref=e140]:
+                        - row [ref=e141]:
+                          - cell [ref=e142]
+                    - paragraph [ref=e143]: 0%
+                - generic [ref=e145]: "Estimated time:"
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - generic [ref=e148]:
+                  - generic [ref=e149]: "Application:"
+                  - generic [ref=e150]: Group RI
+                - generic [ref=e152]: "Screen:"
+                - generic [ref=e153]:
+                  - generic [ref=e154]: "Phase:"
+                  - generic [ref=e155]: UAT
+                - generic [ref=e156]:
+                  - generic [ref=e157]: "Environment:"
+                  - generic [ref=e158]: UAT
+                - generic [ref=e159]:
+                  - generic [ref=e160]: "Root Cause:"
+                  - generic [ref=e161]: UX/UI
+                - generic [ref=e163]: "SA Plan Start Date:"
+                - generic [ref=e165]: "SA Plan Finish Date:"
+              - generic [ref=e166]:
+                - generic [ref=e168]: "Dev Plan Start Date:"
+                - generic [ref=e170]: "Dev Plan Finish Date:"
+                - generic [ref=e172]: "Tester Plan Start Date:"
+                - generic [ref=e174]: "Tester Plan Finish Date:"
+                - generic [ref=e176]: "Ticket ID:"
+                - generic [ref=e177]:
+                  - generic [ref=e178]: "Urgency:"
+                  - generic [ref=e179]: "No"
+          - separator [ref=e180]
+          - generic [ref=e181]:
+            - link "Quote" [ref=e183] [cursor=pointer]:
+              - /url: "#"
+              - img [ref=e184]
+              - generic [ref=e186]: Quote
+            - paragraph [ref=e187]:
+              - strong [ref=e188]: Description
+            - generic [ref=e189]:
+              - paragraph [ref=e190]:
+                - text: Issue UAT ข้อ 28
+                - link "https://docs.google.com/spreadsheets/d/1zUk8oWdq9gBoCZ9KtS6Yr5lHXBU5ZvH-A4J7h6D8R50/edit?gid=692906144#gid=692906144" [ref=e191] [cursor=pointer]:
+                  - /url: https://docs.google.com/spreadsheets/d/1zUk8oWdq9gBoCZ9KtS6Yr5lHXBU5ZvH-A4J7h6D8R50/edit?gid=692906144#gid=692906144
+              - paragraph [ref=e192]:
+                - text: รายงาน BDR Estimate EDW
+                - text: Treaty Code THREL_Grp_PA
+              - list [ref=e193]:
+                - listitem [ref=e194]:
+                  - paragraph [ref=e195]: เปิดไฟล์ไม่ได้ ขึ้นแจ้งเตือนตามรูปแนบ period 202512 , 202601
+                - listitem [ref=e196]:
+                  - paragraph [ref=e197]: รบกวนตรวจสอบ การ sort ข้อมูล เงื่อนไข Group By ข้อมูลเบี้ยก่อน แล้วตามด้วย ข้อมูลเคลม
+          - separator [ref=e198]
+          - paragraph [ref=e199]:
+            - strong [ref=e200]: Files
+          - generic [ref=e201]:
+            - link "Edit attached files" [ref=e203] [cursor=pointer]:
+              - /url: /attachments/issues/85944/edit
+              - img [ref=e204]
+            - table [ref=e206]:
+              - rowgroup [ref=e207]:
+                - row "clipboard-202607070924-789aw.png (15.9 KB) Watcharaporn Sayowan, 07-07-2026 09:24" [ref=e208]:
+                  - cell "clipboard-202607070924-789aw.png (15.9 KB)" [ref=e209]:
+                    - link "clipboard-202607070924-789aw.png" [ref=e210] [cursor=pointer]:
+                      - /url: /attachments/111495
+                      - img [ref=e211]
+                      - generic [ref=e213]: clipboard-202607070924-789aw.png
+                    - text: (15.9 KB)
+                    - link "Download" [ref=e214] [cursor=pointer]:
+                      - /url: /attachments/download/111495/clipboard-202607070924-789aw.png
+                      - img [ref=e215]
+                  - cell [ref=e217]
+                  - cell "Watcharaporn Sayowan, 07-07-2026 09:24" [ref=e218]
+                  - cell [ref=e219]:
+                    - link "Delete" [ref=e220] [cursor=pointer]:
+                      - /url: /attachments/111495
+                      - img [ref=e221]
+            - link "clipboard-202607070924-789aw.png" [ref=e225] [cursor=pointer]:
+              - /url: /attachments/111495
+              - img "clipboard-202607070924-789aw.png" [ref=e226]
+          - separator [ref=e227]
+          - generic [ref=e228]:
+            - link "Add" [ref=e230] [cursor=pointer]:
+              - /url: /projects/project-20190033-group-ri-program/issues/new?back_url=%2Fissues%2F85944&issue%5Bparent_issue_id%5D=85944&issue%5Btracker_id%5D=1
+            - paragraph [ref=e231]:
+              - strong [ref=e232]: Subtasks
+          - separator [ref=e233]
+          - generic [ref=e234]:
+            - link "Add" [ref=e236] [cursor=pointer]:
+              - /url: "#"
+            - paragraph [ref=e237]:
+              - strong [ref=e238]: Related issues
+        - generic [ref=e239]:
+          - link "Edit" [ref=e240] [cursor=pointer]:
+            - /url: /issues/85944/edit
+            - img [ref=e241]
+            - generic [ref=e243]: Edit
+          - link "Log time" [ref=e244] [cursor=pointer]:
+            - /url: /issues/85944/time_entries/new
+            - img [ref=e245]
+            - generic [ref=e247]: Log time
+          - link "Watch" [ref=e248] [cursor=pointer]:
+            - /url: /watchers/watch?object_id=85944&object_type=issue
+            - img [ref=e249]
+            - generic [ref=e251]: Watch
+          - link "Copy" [ref=e252] [cursor=pointer]:
+            - /url: /projects/project-20190033-group-ri-program/issues/85944/copy
+            - img [ref=e253]
+            - generic [ref=e255]: Copy
+          - generic "Actions" [ref=e258] [cursor=pointer]:
+            - img [ref=e259]
+        - text: pre pre
+        - paragraph [ref=e261]:
+          - text: "Also available in:"
+          - link "Atom" [ref=e263] [cursor=pointer]:
+            - /url: /issues/85944.atom?key=881dc94c9b277513bc1d8f7b47fc07d134487396
+          - generic [ref=e264]:
+            - text: "|"
+            - link "PDF" [ref=e265] [cursor=pointer]:
+              - /url: /issues/85944.pdf
+    - generic [ref=e266]:
+      - text: Powered by
+      - link "Redmine" [ref=e267] [cursor=pointer]:
+        - /url: https://www.redmine.org/
+      - text: © 2006-2025 Jean-Philippe Lang
+  - log [ref=e268]
+  - log [ref=e269]
+  - log [ref=e270]
+  - log [ref=e271]
+  - log [ref=e272]
+  - log [ref=e273]
+  - log [ref=e274]
+  - log [ref=e275]
+  - log [ref=e276]
+  - log [ref=e277]
+  - log [ref=e278]
+  - log [ref=e279]
+  - log [ref=e280]
+  - log [ref=e281]
+  - log [ref=e282]
+  - log [ref=e283]
+  - log [ref=e284]
+  - log [ref=e285]
+  - log [ref=e286]
+  - log [ref=e287]
+  - log [ref=e288]
+  - log [ref=e289]
+  - log [ref=e290]
+  - log [ref=e291]
+  - log [ref=e292]
+  - log [ref=e293]
+  - log [ref=e294]
+  - log [ref=e295]
+  - log [ref=e296]
+  - log [ref=e297]
+  - log [ref=e298]
+  - log [ref=e299]
+  - log [ref=e300]
+  - log [ref=e301]
+  - log [ref=e302]
+  - log [ref=e303]
+  - log [ref=e304]
+  - log [ref=e305]
+  - log [ref=e306]
+  - log [ref=e307]
+  - log [ref=e308]
+  - log [ref=e309]
+  - log [ref=e310]
+  - log [ref=e311]
+  - log [ref=e312]
+  - log [ref=e313]
+  - log [ref=e314]
+  - log [ref=e315]
+  - log [ref=e316]
+  - log [ref=e317]
+  - log [ref=e318]
+  - log [ref=e319]
+  - log [ref=e320]
+  - log [ref=e321]
+  - log [ref=e322]
+  - log [ref=e323]
+  - log [ref=e324]
+  - log [ref=e325]
+  - log [ref=e326]
+  - log [ref=e327]
+  - log [ref=e328]
+  - log [ref=e329]
+  - log [ref=e330]
+  - log [ref=e331]
+  - log [ref=e332]
+  - log [ref=e333]
+  - log [ref=e334]
+  - log [ref=e335]
+  - log [ref=e336]
+  - log [ref=e337]
+  - log [ref=e338]
+  - log [ref=e339]
+  - log [ref=e340]
+  - log [ref=e341]
+  - log [ref=e342]
+  - log [ref=e343]
+  - log [ref=e344]
+  - log [ref=e345]
+  - log [ref=e346]
+  - log [ref=e347]
+  - log [ref=e348]
+  - log [ref=e349]
+  - log [ref=e350]
+  - log [ref=e351]
+  - log [ref=e352]
+  - log [ref=e353]
+  - log [ref=e354]
+  - log [ref=e355]
+  - log [ref=e356]
+  - log [ref=e357]
+  - log [ref=e358]
+  - log [ref=e359]
+  - log [ref=e360]
+  - log [ref=e361]
+  - log [ref=e362]
+  - log [ref=e363]
+  - log [ref=e364]
+  - log [ref=e365]
+  - log [ref=e366]
+  - log [ref=e367]
+  - log [ref=e368]
+  - log [ref=e369]
+  - log [ref=e370]
+  - log [ref=e371]
+  - log [ref=e372]
+  - log [ref=e373]
+  - log [ref=e374]
+  - log [ref=e375]
+  - log [ref=e376]
+  - log [ref=e377]
+  - log [ref=e378]
+  - log [ref=e379]
+  - log [ref=e380]
+  - log [ref=e381]
+  - log [ref=e382]
+  - log [ref=e383]
+  - log [ref=e384]
+  - log [ref=e385]
+  - log [ref=e386]
+  - log [ref=e387]
+  - log [ref=e388]
+  - log [ref=e389]
+  - log [ref=e390]
+  - log [ref=e391]
+  - log [ref=e392]
+  - log [ref=e393]
+  - log [ref=e394]
+  - log [ref=e395]
+  - log [ref=e396]
+  - log [ref=e397]
+  - log [ref=e398]
+  - log [ref=e399]
+  - log [ref=e400]
+  - log [ref=e401]
+  - log [ref=e402]
+  - log [ref=e403]
+  - log [ref=e404]
+  - log [ref=e405]
+  - log [ref=e406]
+  - log [ref=e407]
+  - log [ref=e408]
+  - log [ref=e409]
+  - log [ref=e410]
+  - log [ref=e411]
+  - log [ref=e412]
+  - log [ref=e413]
+  - log [ref=e414]
+  - log [ref=e415]
+  - log [ref=e416]
+  - log [ref=e417]
+  - log [ref=e418]
+  - log [ref=e419]
+  - log [ref=e420]
+  - log [ref=e421]
+  - log [ref=e422]
+  - log [ref=e423]
+  - log [ref=e424]
+  - status [ref=e425]
+  - status [ref=e426]

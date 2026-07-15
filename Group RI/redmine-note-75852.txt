@@ -1,0 +1,27 @@
+h3. ⚠️ CORRECTION (2026-05-27) — ถอน note ก่อนหน้า + สรุปใหม่หลังได้สูตรทางการจาก User
+
+*ขอแก้ไข note ก่อนหน้าของ issue นี้ (note re-test hd452 + root-cause "stale/spurious factor") ซึ่งสรุปผิด* เนื่องจากตอนนั้นยังไม่มีสูตรทางการครบ หลังได้สูตร Estimate Premium ที่ถูกต้อง (มี *Factor Mode of Payment* + การแบ่ง layer แบบ *marginal slicing* + *Layer1 = Total − L2 − L3 residual*) ตรวจซ้ำแล้วได้ผลดังนี้
+
+*สูตรทางการ (ยืนยันแล้ว):*
+* Premium Life (รวมทุก layer) = Round(FactorMode × (Σ life_prem + Σ life_extra), 2)
+* Premium Life L2 = Σ สมาชิกใน L2 [FactorMode × rate × (SA−5M)/1000 + FactorMode × extra × (SA−5M)/SA] + Σ สมาชิกใน L3 [FactorMode × rate × 15M/1000 + ...]
+* Premium Life L3 = Σ สมาชิกใน L3 [FactorMode × rate × (SA−20M)/1000 + ...]
+* Premium Life L1 = Round(Total − L2 − L3, 2)   (เศษเหลือ)
+* ri_prem_life[layer] = Premium Life[layer] × percent_re[layer]   (GIB 15/100/0)
+* FactorMode = ตามงวดชำระ: รายเดือน(mode_pay=12)→12, รายปี(=1)→1
+
+*1) GL5557 (hd 452) — ไม่ใช่ defect คำนวณถูกต้อง:* FactorMode=12. ตรวจตรงทุกค่าถึงสตางค์:
+* ri_life L1 = 927,954.00×15% = 139,193.10 ✓ | L2 = 46,080.00×100% = 46,080.00 ✓ | L3 = 0 ✓
+* ri_acc  L1 = 242,625.60×15% = 36,393.84 ✓ | L2 = 15,120.00 ✓
+* (โดย Total life = 12×(79,292.30+1,877.20)=974,034 ; L2 = 12×0.256×15,000 = 46,080 ; L1 = 974,034−46,080 = 927,954)
+* ⇒ ที่ note ก่อนหน้าบอกว่า GL5557 "stale/พอง 21 เท่า" *ไม่ถูกต้อง* — ค่าที่ดูพองเกิดจาก FactorMode=12 (งวดรายเดือน) ที่ผมมองข้ามไป + การไม่ใช้ marginal slicing/residual ในการตรวจ
+
+*2) GL5505 — defect ของจริง (สาระเดิมของ issue นี้ยังคงอยู่):* FactorMode=1 (รายปี), สมาชิก 00702 (SA 12M, rate 1.40) + 00703 (SA 22M, rate 1.40)
+* *ค่าที่ถูกต้องตามสูตร:* L2 = 1.40×(7,000+15,000) = 30,800 ; L3 prem = 1.40×2,000 = 2,800 (×0%=0) ; L1 = 694,885−30,800−2,800 = 661,285 → *ri: L1 = 99,192.75 / L2 = 30,800.00 / L3 = 0*
+* *hd 439 (run ที่ log issue นี้): ยุบเข้า L1 จริง* — ri L1 = 104,232.75 = เบี้ยรวม 694,885 × 15% เป๊ะ, L2/L3 = 0 ⇒ *defect ยืนยัน*
+* *hd 452: layer split เริ่มทำงานแต่ยังเพี้ยน* — ri L1 = 97,932.75 (ควร 99,192.75, ขาด 1,260) / L2 = 39,200 (ควร 30,800, เกิน 8,400) / L3 = 0. หมายเหตุ: hd 452 รัน 09:27 *ก่อน* test member ถูก backfill (~11:00) จึงใช้ข้อมูล member ไม่สมบูรณ์
+* *ยังไม่มี run ใดให้ค่าที่ถูกต้อง (99,192.75 / 30,800 / 0)*
+
+*ข้อเสนอแนะ Dev:* re-run Estimate ของ GL5505 บนข้อมูล member หลัง backfill แล้วเทียบกับค่าที่ถูกต้องข้างต้น (L1 99,192.75 / L2 30,800 / L3 0). ถ้าได้ตามนี้ = defect แก้สมบูรณ์; ถ้า L2 ยังเป็น 39,200 = ยังมี bug ในขั้น Premium Life L2 (marginal slicing).
+
+(verify scripts DB-side: verify-gl5557-formula.js, verify-gl5505-formula.js, inspect-gl5505-members.js — groupri@10.14.8.58)

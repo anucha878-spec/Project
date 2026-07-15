@@ -1,0 +1,5 @@
+*.stackdump
+.DS_Store
+node_modules/
+sync-from-source-v2.sh
+.sync-lib/

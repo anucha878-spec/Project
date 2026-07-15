@@ -1,0 +1,17 @@
+# 13 การประมวลผล %RI Ratio
+
+> **Source:** http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453416  
+> **Page ID:** 1119453416  
+> **Path:** Home / Current Version / 09. Appendix / A18. MAIN Process / 13 การประมวลผล %RI Ratio
+
+---
+
+***การปัดทศนิยม ให้คำนวณค่าตามสูตรทั้งหมดจนเสร็จแล้ว กรณีมีทศนิยมหลายจุด ให้ตัดเหลือเพียง 3 จุด แล้วปัดตามเงื่อนไข 0-4 ปัดลง 5-9 ปัดขึ้น ให้เหลือทศนิยม 2 จุด***
+
+การประมวลผล %RI Ratio
+การประมวลผล %RI Ratio มีขั้นตอนดังนี้
+1. คำนวณด้วยชุดข้อมูล Current_Policy_New , Current_Policy_Renew และ Current_Policy_Renew_RI [การดึงข้อมูลกรมธรรม์](http://wiki.thaisamut.co.th/x/joCWQg)
+2. ดึงข้อมูลที่ใช้ในการคำนวณดึงข้อมูล Total SR ที่ได้จาก [การประมวลผล Total SR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471590)ดึงข้อมูล Total NAR ที่ได้จาก [การประมวลผล Total NAR](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471692)
+3. ตรวจสอบ [cf_treaty_cal](http://wiki.thaisamut.co.th/display/RDSINRI/27.+cf_treaty_cal).ms_formula_id = [ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/03.+ms_formular).ms_formula_id และ [cf_treaty_cal](http://wiki.thaisamut.co.th/display/RDSINRI/27.+cf_treaty_cal).ms_calculation_id = [ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/03.+ms_formular).ms_calculation_id
+4. นำข้อมูลที่ได้มาเข้าสูตรคำนวณตาม ms_formula_id, ms_calculation_id ดังนี้ข้อมูลประเภทความคุ้มครอง[ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/03.+ms_formular).ms_formula_id[ms_formular](http://wiki.thaisamut.co.th/display/RDSINRI/03.+ms_formular).ms_calculation_idสูตร (Round 2 ตำแหน่งเสมอ)ตัวอย่างการคำนวณหมายเหตุ%RI RatioLIFE30002872000183ไม่กำหนดTotal SR LIFE = 4,000,000 Total NAR LIFE = 5,500,000= ROUND((4000000 / 5500000) * 100,2) = 72.73                       30002882000183ROUND((Total SR LIFE / Total NAR LIFE) * 100,2) ROUND(({TOTAL_SR_LIFE} / {TOTAL_NAR_LIFE}) * 100,2)  %RI RatioADD30002892000184ไม่กำหนด 3000290 2000184ROUND((Total SR ADD / Total NAR ADD) * 100,2) ROUND(({TOTAL_SR_ADD} / {TOTAL_NAR_ADD}) * 100,2)  %RI RatioTPD30002912000185ไม่กำหนด 30002922000185ROUND((Total SR TPD / Total NAR TPD) * 100,2) ROUND(({TOTAL_SR_TPD} / {TOTAL_NAR_TPD}) * 100,2)  %RI RatioTTD30002932000186ไม่กำหนด 30002942000186ROUND((Total SR TTD / Total NAR TTD) * 100,2) ROUND(({TOTAL_SR_TTD} / {TOTAL_NAR_TTD}) * 100,2)  %RI RatioRIDER30002952000187ไม่กำหนด   30002962000187ROUND((Total SR RIDER / Total NAR RIDER) * 100,2) ROUND(({TOTAL_SR_RIDER} / {TOTAL_NAR_RIDER}) * 100,2)  %RI RatioMURDER30002972000188ไม่กำหนด 30002982000188ROUND(Total SAR MURDER / Total NAR MURDER * 100 ,2) (PA)ROUND(({TOTAL_SR_MURDER} / {TOTAL_NAR_MURDER}) * 100,2) %RI RatioMOTORCYCLE30002992000189ไม่กำหนด 30003002000189ROUND(Total SAR MOTERCYCLE / Total NAR MOTERCYCLE * 100 ,2) (PA)ROUND(({TOTAL_SR_MOTORCYCLE} / {TOTAL_NAR_MOTORCYCLE}) * 100,2) %RI RatioPUBLIC30003012000190ไม่กำหนด 30003022000190ROUND(Total SAR PUBLIC / Total NAR PUBLIC * 100 ,2) (PA)ROUND(({TOTAL_SR_PUBLIC} / {TOTAL_NAR_PUBLIC}) * 100,2) %RI RatioHOLIDAY30003032000191ไม่กำหนด 30003042000191ROUND(Total SAR HOLIDAY / Total NAR HOLIDAY * 100 ,2) (PA)ROUND(({TOTAL_SR_HOLIDAY} / {TOTAL_NAR_HOLIDAY}) * 100,2)
+5. นำค่า %RI Ratio ที่ได้จากการคำนวณ มาบันทึกตาม Parameter ดังนี้ข้อมูลประเภทความคุ้มครองParameter %RI RatioLIFE{RI_RATIO_LIFE}%RI RatioADD{RI_RATIO_ADD}%RI RatioTPD{RI_RATIO_TPD}%RI RatioTTD{RI_RATIO_TTD}%RI RatioRIDER {RI_RATIO_RIDER}%RI RatioMURDER{RI_RATIO_MURDER}%RI RatioMOTORCYCLE{RI_RATIO_MOTORCYCLE}%RI RatioPUBLIC{RI_RATIO_PUBLIC}%RI RatioHOLIDAY{RI_RATIO_HOLIDAY}

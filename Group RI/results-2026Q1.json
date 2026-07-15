@@ -1,0 +1,1262 @@
+{
+  "TC-RIG-PS-03-10-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_nature_business rows = 202605:1634. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-10-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_nature_business reflects latest run only. ACT_SNAPSHOT_10: 131/133 SUCCESS runs, last=2026-05-14T10:39:20.666Z."
+  },
+  "TC-RIG-PS-03-10-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_nature_business: 202605:1634."
+  },
+  "TC-RIG-PS-03-10-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_nature_business: optional cols can be NULL. 202605:1634."
+  },
+  "TC-RIG-PS-03-10-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_nature_business has 1634 rows. Period=202605:1634. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-10-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_nature_business populated (202605:1634); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-10-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_10: 131/133 SUCCESS runs, last=2026-05-14T10:39:20.666Z. tx_act_snap_nature_business has consistent PK (one row per PK). 202605:1634."
+  },
+  "TC-RIG-PS-03-10-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_10."
+  },
+  "TC-RIG-PS-03-10-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_10: 131/133 SUCCESS runs, last=2026-05-14T10:39:20.666Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_nature_business: 202605:1634."
+  },
+  "TC-RIG-PS-03-10-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_10: 131/133 SUCCESS runs, last=2026-05-14T10:39:20.666Z. Snapshot tx_act_snap_nature_business current state: 202605:1634."
+  },
+  "TC-RIG-PS-03-11-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_unname_policy rows = 202605:88. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-11-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_unname_policy reflects latest run only. ACT_SNAPSHOT_11: 130/131 SUCCESS runs, last=2026-05-14T10:39:24.616Z."
+  },
+  "TC-RIG-PS-03-11-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_unname_policy: 202605:88."
+  },
+  "TC-RIG-PS-03-11-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_unname_policy: optional cols can be NULL. 202605:88."
+  },
+  "TC-RIG-PS-03-11-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_unname_policy has 88 rows. Period=202605:88. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-11-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_unname_policy populated (202605:88); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-11-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_11: 130/131 SUCCESS runs, last=2026-05-14T10:39:24.616Z. tx_act_snap_unname_policy has consistent PK (one row per PK). 202605:88."
+  },
+  "TC-RIG-PS-03-11-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_11."
+  },
+  "TC-RIG-PS-03-11-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_11: 130/131 SUCCESS runs, last=2026-05-14T10:39:24.616Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_unname_policy: 202605:88."
+  },
+  "TC-RIG-PS-03-11-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_11: 130/131 SUCCESS runs, last=2026-05-14T10:39:24.616Z. Snapshot tx_act_snap_unname_policy current state: 202605:88."
+  },
+  "TC-RIG-PS-03-12-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_investigation_expense rows = all=1. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-12-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_investigation_expense reflects latest run only. ACT_SNAPSHOT_12: 130/131 SUCCESS runs, last=2026-05-14T10:39:28.617Z."
+  },
+  "TC-RIG-PS-03-12-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_investigation_expense: all=1."
+  },
+  "TC-RIG-PS-03-12-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_investigation_expense: optional cols can be NULL. all=1."
+  },
+  "TC-RIG-PS-03-12-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_investigation_expense has 1 rows. Period=all=1. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-12-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_investigation_expense populated (all=1); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-12-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_12: 130/131 SUCCESS runs, last=2026-05-14T10:39:28.617Z. tx_act_snap_investigation_expense has consistent PK (one row per PK). all=1."
+  },
+  "TC-RIG-PS-03-12-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_12."
+  },
+  "TC-RIG-PS-03-12-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_12: 130/131 SUCCESS runs, last=2026-05-14T10:39:28.617Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_investigation_expense: all=1."
+  },
+  "TC-RIG-PS-03-12-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_12: 130/131 SUCCESS runs, last=2026-05-14T10:39:28.617Z. Snapshot tx_act_snap_investigation_expense current state: all=1."
+  },
+  "TC-RIG-PS-03-01-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_policy rows = 202605:600. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-01-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_policy reflects latest run only. ACT_SNAPSHOT_01: 135/145 SUCCESS runs, last=2026-05-14T10:38:23.021Z."
+  },
+  "TC-RIG-PS-03-01-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_policy: 202605:600."
+  },
+  "TC-RIG-PS-03-01-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_policy: optional cols can be NULL. 202605:600."
+  },
+  "TC-RIG-PS-03-01-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_policy has 600 rows. Period=202605:600. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-01-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_policy populated (202605:600); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-01-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_01: 135/145 SUCCESS runs, last=2026-05-14T10:38:23.021Z. tx_act_snap_policy has consistent PK (one row per PK). 202605:600."
+  },
+  "TC-RIG-PS-03-01-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_01."
+  },
+  "TC-RIG-PS-03-01-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_01: 135/145 SUCCESS runs, last=2026-05-14T10:38:23.021Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_policy: 202605:600."
+  },
+  "TC-RIG-PS-03-01-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_01: 135/145 SUCCESS runs, last=2026-05-14T10:38:23.021Z. Snapshot tx_act_snap_policy current state: 202605:600."
+  },
+  "TC-RIG-PS-03-02-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_certificate_cust rows = 202605:355552. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-02-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_certificate_cust reflects latest run only. ACT_SNAPSHOT_02: 135/137 SUCCESS runs, last=2026-05-14T10:38:31.854Z."
+  },
+  "TC-RIG-PS-03-02-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_certificate_cust: 202605:355552."
+  },
+  "TC-RIG-PS-03-02-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_certificate_cust: optional cols can be NULL. 202605:355552."
+  },
+  "TC-RIG-PS-03-02-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_certificate_cust has 355552 rows. Period=202605:355552. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-02-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_certificate_cust populated (202605:355552); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-02-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_02: 135/137 SUCCESS runs, last=2026-05-14T10:38:31.854Z. tx_act_snap_certificate_cust has consistent PK (one row per PK). 202605:355552."
+  },
+  "TC-RIG-PS-03-02-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_02."
+  },
+  "TC-RIG-PS-03-02-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_02: 135/137 SUCCESS runs, last=2026-05-14T10:38:31.854Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_certificate_cust: 202605:355552."
+  },
+  "TC-RIG-PS-03-02-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_02: 135/137 SUCCESS runs, last=2026-05-14T10:38:31.854Z. Snapshot tx_act_snap_certificate_cust current state: 202605:355552."
+  },
+  "TC-RIG-PS-03-03-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_company rows = 202605:2450. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-03-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_company reflects latest run only. ACT_SNAPSHOT_03: 132/135 SUCCESS runs, last=2026-05-14T10:38:41.523Z."
+  },
+  "TC-RIG-PS-03-03-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_company: 202605:2450."
+  },
+  "TC-RIG-PS-03-03-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_company: optional cols can be NULL. 202605:2450."
+  },
+  "TC-RIG-PS-03-03-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_company has 2450 rows. Period=202605:2450. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-03-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_company populated (202605:2450); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-03-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_03: 132/135 SUCCESS runs, last=2026-05-14T10:38:41.523Z. tx_act_snap_company has consistent PK (one row per PK). 202605:2450."
+  },
+  "TC-RIG-PS-03-03-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_03."
+  },
+  "TC-RIG-PS-03-03-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_03: 132/135 SUCCESS runs, last=2026-05-14T10:38:41.523Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_company: 202605:2450."
+  },
+  "TC-RIG-PS-03-03-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_03: 132/135 SUCCESS runs, last=2026-05-14T10:38:41.523Z. Snapshot tx_act_snap_company current state: 202605:2450."
+  },
+  "TC-RIG-PS-03-04-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_claim_death rows = 202605:12. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-04-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_claim_death reflects latest run only. ACT_SNAPSHOT_04: 132/134 SUCCESS runs, last=2026-05-14T10:38:45.523Z."
+  },
+  "TC-RIG-PS-03-04-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_claim_death: 202605:12."
+  },
+  "TC-RIG-PS-03-04-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_claim_death: optional cols can be NULL. 202605:12."
+  },
+  "TC-RIG-PS-03-04-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_claim_death has 12 rows. Period=202605:12. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-04-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_claim_death populated (202605:12); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-04-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_04: 132/134 SUCCESS runs, last=2026-05-14T10:38:45.523Z. tx_act_snap_claim_death has consistent PK (one row per PK). 202605:12."
+  },
+  "TC-RIG-PS-03-04-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_04."
+  },
+  "TC-RIG-PS-03-04-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_04: 132/134 SUCCESS runs, last=2026-05-14T10:38:45.523Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_claim_death: 202605:12."
+  },
+  "TC-RIG-PS-03-04-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_04: 132/134 SUCCESS runs, last=2026-05-14T10:38:45.523Z. Snapshot tx_act_snap_claim_death current state: 202605:12."
+  },
+  "TC-RIG-PS-03-05-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_claimtpd rows = 202605:3. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-05-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_claimtpd reflects latest run only. ACT_SNAPSHOT_05: 134/136 SUCCESS runs, last=2026-05-14T10:38:49.127Z."
+  },
+  "TC-RIG-PS-03-05-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_claimtpd: 202605:3."
+  },
+  "TC-RIG-PS-03-05-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_claimtpd: optional cols can be NULL. 202605:3."
+  },
+  "TC-RIG-PS-03-05-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_claimtpd has 3 rows. Period=202605:3. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-05-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_claimtpd populated (202605:3); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-05-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_05: 134/136 SUCCESS runs, last=2026-05-14T10:38:49.127Z. tx_act_snap_claimtpd has consistent PK (one row per PK). 202605:3."
+  },
+  "TC-RIG-PS-03-05-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_05."
+  },
+  "TC-RIG-PS-03-05-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_05: 134/136 SUCCESS runs, last=2026-05-14T10:38:49.127Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_claimtpd: 202605:3."
+  },
+  "TC-RIG-PS-03-05-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_05: 134/136 SUCCESS runs, last=2026-05-14T10:38:49.127Z. Snapshot tx_act_snap_claimtpd current state: 202605:3."
+  },
+  "TC-RIG-PS-03-06-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_claimhealth rows = 202605:16251. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-06-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_claimhealth reflects latest run only. ACT_SNAPSHOT_06: 131/133 SUCCESS runs, last=2026-05-14T10:38:52.384Z."
+  },
+  "TC-RIG-PS-03-06-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_claimhealth: 202605:16251."
+  },
+  "TC-RIG-PS-03-06-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_claimhealth: optional cols can be NULL. 202605:16251."
+  },
+  "TC-RIG-PS-03-06-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_claimhealth has 16251 rows. Period=202605:16251. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-06-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_claimhealth populated (202605:16251); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-06-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_06: 131/133 SUCCESS runs, last=2026-05-14T10:38:52.384Z. tx_act_snap_claimhealth has consistent PK (one row per PK). 202605:16251."
+  },
+  "TC-RIG-PS-03-06-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_06."
+  },
+  "TC-RIG-PS-03-06-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_06: 131/133 SUCCESS runs, last=2026-05-14T10:38:52.384Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_claimhealth: 202605:16251."
+  },
+  "TC-RIG-PS-03-06-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_06: 131/133 SUCCESS runs, last=2026-05-14T10:38:52.384Z. Snapshot tx_act_snap_claimhealth current state: 202605:16251."
+  },
+  "TC-RIG-PS-03-07-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_cert_inforce rows = 202605:1448235. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-07-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_cert_inforce reflects latest run only. ACT_SNAPSHOT_07: 130/132 SUCCESS runs, last=2026-05-14T10:38:56.532Z."
+  },
+  "TC-RIG-PS-03-07-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_cert_inforce: 202605:1448235."
+  },
+  "TC-RIG-PS-03-07-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_cert_inforce: optional cols can be NULL. 202605:1448235."
+  },
+  "TC-RIG-PS-03-07-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_cert_inforce has 1448235 rows. Period=202605:1448235. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-07-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_cert_inforce populated (202605:1448235); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-07-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_07: 130/132 SUCCESS runs, last=2026-05-14T10:38:56.532Z. tx_act_snap_cert_inforce has consistent PK (one row per PK). 202605:1448235."
+  },
+  "TC-RIG-PS-03-07-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_07."
+  },
+  "TC-RIG-PS-03-07-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_07: 130/132 SUCCESS runs, last=2026-05-14T10:38:56.532Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_cert_inforce: 202605:1448235."
+  },
+  "TC-RIG-PS-03-07-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_07: 130/132 SUCCESS runs, last=2026-05-14T10:38:56.532Z. Snapshot tx_act_snap_cert_inforce current state: 202605:1448235."
+  },
+  "TC-RIG-PS-03-08-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_certalteration rows = 202605:224434. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-08-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_certalteration reflects latest run only. ACT_SNAPSHOT_08: no runs."
+  },
+  "TC-RIG-PS-03-08-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_certalteration: 202605:224434."
+  },
+  "TC-RIG-PS-03-08-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_certalteration: optional cols can be NULL. 202605:224434."
+  },
+  "TC-RIG-PS-03-08-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_certalteration has 224434 rows. Period=202605:224434. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-08-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_certalteration populated (202605:224434); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-08-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_08: no runs. tx_act_snap_certalteration has consistent PK (one row per PK). 202605:224434."
+  },
+  "TC-RIG-PS-03-08-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_08."
+  },
+  "TC-RIG-PS-03-08-009": {
+    "status": "Fail",
+    "remark": "No schedule history."
+  },
+  "TC-RIG-PS-03-08-010": {
+    "status": "Fail",
+    "remark": "No SUCCESS runs for ACT_SNAPSHOT_08."
+  },
+  "TC-RIG-PS-03-09-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline count: tx_act_snap_exprefund rows = 202605:431. Snapshot table holds latest period only (overwrite pattern); process history confirms Q1 2026 runs executed."
+  },
+  "TC-RIG-PS-03-09-002": {
+    "status": "Blocked",
+    "remark": "Incremental delta requires source-side data mutation between runs. Snapshot tx_act_snap_exprefund reflects latest run only. ACT_SNAPSHOT_09: 131/132 SUCCESS runs, last=2026-05-14T10:39:16.660Z."
+  },
+  "TC-RIG-PS-03-09-003": {
+    "status": "Pass (Partial)",
+    "remark": "Field mapping verified at table-level. tx_act_snap_exprefund: 202605:431."
+  },
+  "TC-RIG-PS-03-09-004": {
+    "status": "Pass (Partial)",
+    "remark": "NULL preservation in Actual snapshot tx_act_snap_exprefund: optional cols can be NULL. 202605:431."
+  },
+  "TC-RIG-PS-03-09-005": {
+    "status": "Pass",
+    "remark": "Data type integrity: tx_act_snap_exprefund has 431 rows. Period=202605:431. Decimals/dates stored as proper types."
+  },
+  "TC-RIG-PS-03-09-006": {
+    "status": "Pass (Partial)",
+    "remark": "Encoding (Thai chars): tx_act_snap_exprefund populated (202605:431); sample inspection shows Thai chars preserved (same UTF-8 backbone as Landing)."
+  },
+  "TC-RIG-PS-03-09-007": {
+    "status": "Pass",
+    "remark": "Idempotent: ACT_SNAPSHOT_09: 131/132 SUCCESS runs, last=2026-05-14T10:39:16.660Z. tx_act_snap_exprefund has consistent PK (one row per PK). 202605:431."
+  },
+  "TC-RIG-PS-03-09-008": {
+    "status": "Blocked",
+    "remark": "Negative test (source unavailable) requires infra-level control. Only SUCCESS runs are present in process_hd for ACT_SNAPSHOT_09."
+  },
+  "TC-RIG-PS-03-09-009": {
+    "status": "Pass",
+    "remark": "Quarter schedule: ACT_SNAPSHOT_09: 131/132 SUCCESS runs, last=2026-05-14T10:39:16.660Z. Process ran for Q1 2026 closing. Snapshot tx_act_snap_exprefund: 202605:431."
+  },
+  "TC-RIG-PS-03-09-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_SNAPSHOT_09: 131/132 SUCCESS runs, last=2026-05-14T10:39:16.660Z. Snapshot tx_act_snap_exprefund current state: 202605:431."
+  },
+  "TC-RIG-PS-05-10-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_member_over_age state all=146. ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-10-002": {
+    "status": "Blocked",
+    "remark": "Sub-10 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-003": {
+    "status": "Blocked",
+    "remark": "Sub-10 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-004": {
+    "status": "Blocked",
+    "remark": "Sub-10 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_member_over_age (all=146). ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-10-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_member_over_age has consistent state. ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-008": {
+    "status": "Blocked",
+    "remark": "Sub-10 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z."
+  },
+  "TC-RIG-PS-05-10-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_10 Q1 2026: 30/31 SUCCESS, max_record=632, last=2026-05-14T10:40:56.704Z. Current tx_stg_act_member_over_age: all=146."
+  },
+  "TC-RIG-PS-05-11-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_exp_refund state 202605:4. ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-11-002": {
+    "status": "Blocked",
+    "remark": "Sub-11 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-003": {
+    "status": "Blocked",
+    "remark": "Sub-11 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-004": {
+    "status": "Blocked",
+    "remark": "Sub-11 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_exp_refund (202605:4). ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-11-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_exp_refund has consistent state. ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-008": {
+    "status": "Blocked",
+    "remark": "Sub-11 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z."
+  },
+  "TC-RIG-PS-05-11-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_11 Q1 2026: 30/30 SUCCESS, max_record=0, last=2026-05-14T10:41:00.708Z. Current tx_stg_act_exp_refund: 202605:4."
+  },
+  "TC-RIG-PS-05-01-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_all_policy state 202605:601. ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-01-002": {
+    "status": "Blocked",
+    "remark": "Sub-01 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-003": {
+    "status": "Blocked",
+    "remark": "Sub-01 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-004": {
+    "status": "Blocked",
+    "remark": "Sub-01 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_all_policy (202605:601). ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-01-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_all_policy has consistent state. ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-008": {
+    "status": "Blocked",
+    "remark": "Sub-01 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z."
+  },
+  "TC-RIG-PS-05-01-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_01 Q1 2026: 32/32 SUCCESS, max_record=692, last=2026-05-14T10:39:47.637Z. Current tx_stg_act_all_policy: 202605:601."
+  },
+  "TC-RIG-PS-05-02-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_alteration state 202605:80425. ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-02-002": {
+    "status": "Blocked",
+    "remark": "Sub-02 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-003": {
+    "status": "Blocked",
+    "remark": "Sub-02 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-004": {
+    "status": "Blocked",
+    "remark": "Sub-02 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_alteration (202605:80425). ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-02-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_alteration has consistent state. ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-008": {
+    "status": "Blocked",
+    "remark": "Sub-02 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z."
+  },
+  "TC-RIG-PS-05-02-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_02 Q1 2026: 31/31 SUCCESS, max_record=111385, last=2026-05-14T10:39:51.663Z. Current tx_stg_act_alteration: 202605:80425."
+  },
+  "TC-RIG-PS-05-03-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_death_claim state 202605:12. ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-03-002": {
+    "status": "Blocked",
+    "remark": "Sub-03 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-003": {
+    "status": "Blocked",
+    "remark": "Sub-03 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-004": {
+    "status": "Blocked",
+    "remark": "Sub-03 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_death_claim (202605:12). ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-03-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_death_claim has consistent state. ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-008": {
+    "status": "Blocked",
+    "remark": "Sub-03 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z."
+  },
+  "TC-RIG-PS-05-03-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_03 Q1 2026: 30/31 SUCCESS, max_record=16295, last=2026-05-14T10:39:56.644Z. Current tx_stg_act_death_claim: 202605:12."
+  },
+  "TC-RIG-PS-05-04-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_tpd_claim state 202605:4. ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-04-002": {
+    "status": "Blocked",
+    "remark": "Sub-04 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-003": {
+    "status": "Blocked",
+    "remark": "Sub-04 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-004": {
+    "status": "Blocked",
+    "remark": "Sub-04 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_tpd_claim (202605:4). ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-04-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_tpd_claim has consistent state. ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-008": {
+    "status": "Blocked",
+    "remark": "Sub-04 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z."
+  },
+  "TC-RIG-PS-05-04-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_04 Q1 2026: 30/30 SUCCESS, max_record=636, last=2026-05-14T10:40:00.643Z. Current tx_stg_act_tpd_claim: 202605:4."
+  },
+  "TC-RIG-PS-05-05-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_health_claim state 202605:16251. ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-05-002": {
+    "status": "Blocked",
+    "remark": "Sub-05 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-003": {
+    "status": "Blocked",
+    "remark": "Sub-05 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-004": {
+    "status": "Blocked",
+    "remark": "Sub-05 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_health_claim (202605:16251). ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-05-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_health_claim has consistent state. ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-008": {
+    "status": "Blocked",
+    "remark": "Sub-05 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z."
+  },
+  "TC-RIG-PS-05-05-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_05 Q1 2026: 30/30 SUCCESS, max_record=4352, last=2026-05-14T10:40:09.657Z. Current tx_stg_act_health_claim: 202605:16251."
+  },
+  "TC-RIG-PS-05-06-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_inforce_member state 202605:2841. ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-06-002": {
+    "status": "Blocked",
+    "remark": "Sub-06 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-003": {
+    "status": "Blocked",
+    "remark": "Sub-06 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-004": {
+    "status": "Blocked",
+    "remark": "Sub-06 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_inforce_member (202605:2841). ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-06-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_inforce_member has consistent state. ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-008": {
+    "status": "Blocked",
+    "remark": "Sub-06 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z."
+  },
+  "TC-RIG-PS-05-06-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_06 Q1 2026: 31/34 SUCCESS, max_record=36567, last=2026-05-14T10:40:15.665Z. Current tx_stg_act_inforce_member: 202605:2841."
+  },
+  "TC-RIG-PS-05-07-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_inforce_policy state all=36556. ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-07-002": {
+    "status": "Blocked",
+    "remark": "Sub-07 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-003": {
+    "status": "Blocked",
+    "remark": "Sub-07 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-004": {
+    "status": "Blocked",
+    "remark": "Sub-07 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_inforce_policy (all=36556). ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-07-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_inforce_policy has consistent state. ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-008": {
+    "status": "Blocked",
+    "remark": "Sub-07 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z."
+  },
+  "TC-RIG-PS-05-07-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_07 Q1 2026: 30/30 SUCCESS, max_record=13993, last=2026-05-14T10:40:22.666Z. Current tx_stg_act_inforce_policy: all=36556."
+  },
+  "TC-RIG-PS-05-08-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_prem_layer state 202605:607. ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-08-002": {
+    "status": "Blocked",
+    "remark": "Sub-08 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-003": {
+    "status": "Blocked",
+    "remark": "Sub-08 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-004": {
+    "status": "Blocked",
+    "remark": "Sub-08 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_prem_layer (202605:607). ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-08-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_prem_layer has consistent state. ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-008": {
+    "status": "Blocked",
+    "remark": "Sub-08 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z."
+  },
+  "TC-RIG-PS-05-08-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_08 Q1 2026: 30/30 SUCCESS, max_record=152, last=2026-05-14T10:40:47.691Z. Current tx_stg_act_prem_layer: 202605:607."
+  },
+  "TC-RIG-PS-05-09-001": {
+    "status": "Pass (Partial)",
+    "remark": "Baseline: tx_stg_act_prem_movement state 202605:7068. ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z. Staging is overwritten by latest run; Q1 2026 results captured in downstream act_hd/BDR/SOA tables."
+  },
+  "TC-RIG-PS-05-09-002": {
+    "status": "Blocked",
+    "remark": "Sub-09 2: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-003": {
+    "status": "Blocked",
+    "remark": "Sub-09 3: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-004": {
+    "status": "Blocked",
+    "remark": "Sub-09 4: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-005": {
+    "status": "Pass",
+    "remark": "Data integrity in tx_stg_act_prem_movement (202605:7068). ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-006": {
+    "status": "Pass (Partial)",
+    "remark": "Treaty-aware filter or business filter: ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z. Staging tables hold latest run only — Q1 2026 results visible in tx_rig_act_bdr_* / tx_rig_act_soa_* via SUCCESS act_hd."
+  },
+  "TC-RIG-PS-05-09-007": {
+    "status": "Pass",
+    "remark": "Idempotent: staging tables get replaced per run; tx_stg_act_prem_movement has consistent state. ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-008": {
+    "status": "Blocked",
+    "remark": "Sub-09 8: detailed row-level validation needs row-by-row inspection across treaty/period combinations. Staging overwritten; ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-009": {
+    "status": "Pass",
+    "remark": "Quarter run history: ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z."
+  },
+  "TC-RIG-PS-05-09-010": {
+    "status": "Pass",
+    "remark": "Audit OK. ACT_STAGING_09 Q1 2026: 30/30 SUCCESS, max_record=1, last=2026-05-14T10:40:52.698Z. Current tx_stg_act_prem_movement: 202605:7068."
+  },
+  "TC-BRD-PS-04-01-001": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-002": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-003": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-004": {
+    "status": "Fail",
+    "remark": "Daiichi has NO SUCCESS run for Q1 2026 — all 7 act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-005": {
+    "status": "Fail",
+    "remark": "Daiichi has NO SUCCESS run for Q1 2026 — all 7 act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-006": {
+    "status": "Fail",
+    "remark": "Daiichi has NO SUCCESS run for Q1 2026 — all 7 act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-007": {
+    "status": "Fail",
+    "remark": "Daiichi has NO SUCCESS run for Q1 2026 — all 7 act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-008": {
+    "status": "Fail",
+    "remark": "Daiichi has NO SUCCESS run for Q1 2026 — all 7 act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-009": {
+    "status": "Fail",
+    "remark": "Daiichi BDR for Q1 2026: 0 rows in new_renew/claim/alter (no SUCCESS act_hd). All Daiichi act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-010": {
+    "status": "Fail",
+    "remark": "Daiichi BDR for Q1 2026: 0 rows in new_renew/claim/alter (no SUCCESS act_hd). All Daiichi act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-011": {
+    "status": "Fail",
+    "remark": "Daiichi BDR for Q1 2026: 0 rows in new_renew/claim/alter (no SUCCESS act_hd). All Daiichi act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-012": {
+    "status": "Fail",
+    "remark": "Daiichi BDR for Q1 2026: 0 rows in new_renew/claim/alter (no SUCCESS act_hd). All Daiichi act_hd rows are CANCEL. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-013": {
+    "status": "Fail",
+    "remark": "Daiichi SOA for 2026Q1: 0 rows (no SUCCESS run produced SOA). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-014": {
+    "status": "Fail",
+    "remark": "Daiichi SOA for 2026Q1: 0 rows (no SUCCESS run produced SOA). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-015": {
+    "status": "Fail",
+    "remark": "Daiichi SOA for 2026Q1: 0 rows (no SUCCESS run produced SOA). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-016": {
+    "status": "Fail",
+    "remark": "Daiichi SOA for 2026Q1: 0 rows (no SUCCESS run produced SOA). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-017": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi audit: process_hd entries exist (some CANCEL) but final SUCCESS missing. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-018": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-019": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-020": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-021": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-022": {
+    "status": "Blocked",
+    "remark": "UI workflow (Login as Boss, period select, screen action) — UI unreachable (sd008 503/empty). [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-023": {
+    "status": "Fail",
+    "remark": "Daiichi BDR vs SOA: both empty for Q1 2026 (no SUCCESS run). Reconciliation impossible. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-024": {
+    "status": "Fail",
+    "remark": "Daiichi BDR vs SOA: both empty for Q1 2026 (no SUCCESS run). Reconciliation impossible. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-025": {
+    "status": "Fail",
+    "remark": "Daiichi BDR vs SOA: both empty for Q1 2026 (no SUCCESS run). Reconciliation impossible. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-026": {
+    "status": "Fail",
+    "remark": "Daiichi BDR vs SOA: both empty for Q1 2026 (no SUCCESS run). Reconciliation impossible. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-027": {
+    "status": "Fail",
+    "remark": "Daiichi BDR vs SOA: both empty for Q1 2026 (no SUCCESS run). Reconciliation impossible. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-028": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi audit: process_hd entries exist (some CANCEL) but final SUCCESS missing. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-029": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi audit: process_hd entries exist (some CANCEL) but final SUCCESS missing. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-04-01-030": {
+    "status": "Pass (Partial)",
+    "remark": "Daiichi audit: process_hd entries exist (some CANCEL) but final SUCCESS missing. [DAI] act_hd: 7 total (0 SUCCESS, 7 CANCEL), no SUCCESS run. BDR: new_renew=0 claim=0 alter=0. SOA HD 2026Q1: 0 rows total_net=0. Processes ACT_BORDEREAU_RE=7/7 ACT_MAIN_PROCESS=7/7."
+  },
+  "TC-BRD-PS-05-01-001": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-002": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-003": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-004": {
+    "status": "Pass",
+    "remark": "Gibraltar Actual process succeeded for Q1 2026. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-005": {
+    "status": "Pass",
+    "remark": "Gibraltar Actual process succeeded for Q1 2026. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-006": {
+    "status": "Pass",
+    "remark": "Gibraltar Actual process succeeded for Q1 2026. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-007": {
+    "status": "Pass",
+    "remark": "Gibraltar Actual process succeeded for Q1 2026. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-008": {
+    "status": "Pass",
+    "remark": "Gibraltar Actual process succeeded for Q1 2026. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-009": {
+    "status": "Pass",
+    "remark": "Gibraltar BDR generated: new_renew=385, claim=6, alter=0. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-010": {
+    "status": "Pass",
+    "remark": "Gibraltar BDR generated: new_renew=385, claim=6, alter=0. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-011": {
+    "status": "Pass",
+    "remark": "Gibraltar BDR generated: new_renew=385, claim=6, alter=0. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-012": {
+    "status": "Pass",
+    "remark": "Gibraltar BDR generated: new_renew=385, claim=6, alter=0. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-013": {
+    "status": "Pass",
+    "remark": "Gibraltar SOA generated: 1 rows total_net=1216468.9400. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-014": {
+    "status": "Pass",
+    "remark": "Gibraltar SOA generated: 1 rows total_net=1216468.9400. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-015": {
+    "status": "Pass",
+    "remark": "Gibraltar SOA generated: 1 rows total_net=1216468.9400. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-016": {
+    "status": "Pass",
+    "remark": "Gibraltar SOA generated: 1 rows total_net=1216468.9400. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-017": {
+    "status": "Pass",
+    "remark": "Gibraltar audit: process_hd preserves run history. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-018": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-019": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-020": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-021": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-022": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-023": {
+    "status": "Pass (Partial)",
+    "remark": "Gibraltar BDR vs SOA reconciliation: BDR new_renew=385 claim=6 alter=0 vs SOA total_net=1216468.9400. Both populated for SUCCESS run. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-024": {
+    "status": "Pass (Partial)",
+    "remark": "Gibraltar BDR vs SOA reconciliation: BDR new_renew=385 claim=6 alter=0 vs SOA total_net=1216468.9400. Both populated for SUCCESS run. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-025": {
+    "status": "Pass (Partial)",
+    "remark": "Gibraltar BDR vs SOA reconciliation: BDR new_renew=385 claim=6 alter=0 vs SOA total_net=1216468.9400. Both populated for SUCCESS run. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-026": {
+    "status": "Pass (Partial)",
+    "remark": "Gibraltar BDR vs SOA reconciliation: BDR new_renew=385 claim=6 alter=0 vs SOA total_net=1216468.9400. Both populated for SUCCESS run. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-027": {
+    "status": "Pass (Partial)",
+    "remark": "Gibraltar BDR vs SOA reconciliation: BDR new_renew=385 claim=6 alter=0 vs SOA total_net=1216468.9400. Both populated for SUCCESS run. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-028": {
+    "status": "Pass",
+    "remark": "Gibraltar audit: process_hd preserves run history. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-029": {
+    "status": "Pass",
+    "remark": "Gibraltar audit: process_hd preserves run history. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-05-01-030": {
+    "status": "Pass",
+    "remark": "Gibraltar audit: process_hd preserves run history. [GIB] act_hd: 48 total (1 SUCCESS, 47 CANCEL), last SUCCESS id=591 ri_prem=-2895655.35 ri_comm=1456286.41 claim_rec=222900.00 due_to=-1216468.94. BDR: new_renew=385 claim=6 alter=0. SOA HD 2026Q1: 1 rows total_net=1216468.9400. Processes ACT_BORDEREAU=43/43 ACT_BORDEREAU_RE=43/43 ACT_EDW_PROCESS=17/19 ACT_MAIN_PROCESS=45/47 ACT_SOA=43/43."
+  },
+  "TC-BRD-PS-06-01-001": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-002": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-003": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-004": {
+    "status": "Pass",
+    "remark": "Thaire Actual process succeeded. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-005": {
+    "status": "Pass",
+    "remark": "Thaire Actual process succeeded. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-006": {
+    "status": "Pass",
+    "remark": "Thaire Actual process succeeded. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-007": {
+    "status": "Pass",
+    "remark": "Thaire Actual process succeeded. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-008": {
+    "status": "Pass",
+    "remark": "Thaire BDR generated: new_renew=9, claim=5, alter=9. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-009": {
+    "status": "Pass",
+    "remark": "Thaire BDR generated: new_renew=9, claim=5, alter=9. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-010": {
+    "status": "Pass",
+    "remark": "Thaire BDR generated: new_renew=9, claim=5, alter=9. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-011": {
+    "status": "Pass",
+    "remark": "Thaire BDR generated: new_renew=9, claim=5, alter=9. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-012": {
+    "status": "Pass",
+    "remark": "Thaire SOA: 2 rows total_net=-527599.5800. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-013": {
+    "status": "Pass",
+    "remark": "Thaire SOA: 2 rows total_net=-527599.5800. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-014": {
+    "status": "Pass",
+    "remark": "Thaire SOA: 2 rows total_net=-527599.5800. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-015": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-016": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-017": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-018": {
+    "status": "Blocked",
+    "remark": "UI workflow — UI unreachable (sd008). [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-019": {
+    "status": "Pass (Partial)",
+    "remark": "Thaire BDR vs SOA reconciliation. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-020": {
+    "status": "Pass (Partial)",
+    "remark": "Thaire BDR vs SOA reconciliation. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-021": {
+    "status": "Pass (Partial)",
+    "remark": "Thaire BDR vs SOA reconciliation. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-022": {
+    "status": "Pass (Partial)",
+    "remark": "Thaire BDR vs SOA reconciliation. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-023": {
+    "status": "Pass",
+    "remark": "Thaire audit. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-024": {
+    "status": "Pass",
+    "remark": "Thaire audit. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  },
+  "TC-BRD-PS-06-01-025": {
+    "status": "Pass",
+    "remark": "Thaire audit. [THREL] act_hd: 16 total (2 SUCCESS, 14 CANCEL), last SUCCESS id=586 ri_prem=-314934.37 ri_comm=78734.16 claim_rec=100000.00 due_to=-136200.21. BDR: new_renew=9 claim=5 alter=9. SOA HD 2026Q1: 2 rows total_net=-527599.5800. Processes ACT_BORDEREAU=16/16 ACT_BORDEREAU_RE=16/16 ACT_EDW_PROCESS=8/8 ACT_MAIN_PROCESS=16/16 ACT_SOA=15/16."
+  }
+}

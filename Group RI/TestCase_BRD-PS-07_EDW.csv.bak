@@ -1,0 +1,28 @@
+﻿Test Checklist ID,System,Feature,Screen,Sub Category,Test Condition,Test Objective,Test Step,Expected Result,Test Data,Priority,Test Status,Tested By,Tested Date(YYYY-MM-DD),Redmine No.,Remark
+TC-BRD-PS-07-01-001,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Data Transfer,"User triggers send EDW from any of PS-01 to PS-06","ระบบ ETL transfer data from GRP to EDW","1) User in GRP confirms send
+2) Trigger EDW transfer
+3) Verify data in EDW staging","Data appears in EDW-ETL(RI) staging",Approved data,High,,,,,Transfer
+TC-BRD-PS-07-01-002,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Standard Template Conversion,"Data in EDW staging","Convert to EDW Standard Template","Verify converted fields per EDW spec","Conversion per spec",N/A,High,,,,,Convert
+TC-BRD-PS-07-01-003,Group RI (GRP) + EDW,BRD PS-07 EDW,หน้าจอ EDW Summary,"Data converted","Summary displayed on EDW screen","Login EDW; view summary","Summary shows: per Reinsurer, per Treaty, RI Premium, RI Commission, RI Claim Recovery, Total balance",N/A,High,,,,,Summary
+TC-BRD-PS-07-01-004,Group RI (GRP) + EDW,BRD PS-07 EDW,หน้าจอ EDW Summary,"Summary aggregation","Aggregate by Period, Reinsurer, Treaty","Verify aggregations","Sum correct",N/A,High,,,,,Aggregate
+TC-BRD-PS-07-01-005,Group RI (GRP) + EDW,BRD PS-07 EDW,หน้าจอ EDW Summary,"User confirms","User confirms to send data to Actuarial + Accounting","Click confirm","Data sent forward",N/A,High,,,,,Confirm
+TC-BRD-PS-07-01-006,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Send to Actuarial,"Confirmed data","Send to Actuarial Department for IFRS17 + Model","Verify Actuarial receives","Received by Actuarial",N/A,High,,,,,Actuarial
+TC-BRD-PS-07-01-007,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Send to Accounting,"Confirmed data","Send to Accounting for GL Posting","Verify Accounting receives","Received by Accounting",N/A,High,,,,,Accounting
+TC-BRD-PS-07-01-008,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Estimated vs Actual,"Data classification","Estimated vs Actual data handled differently","Verify Estimate -> Generate Reference No; Actual -> Send to Finance","Per BRD",N/A,High,,,,,Classification
+TC-BRD-PS-07-01-009,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Reference No Generation,"Estimated data","Accounting generates reference No","Verify reference No","Generated; unique",Estimate,High,,,,,Reference
+TC-BRD-PS-07-01-010,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Finance Process,"Actual data","Accounting sends to Finance for receive/pay","Verify Finance receives","Received",Actual,High,,,,,Finance
+TC-BRD-PS-07-01-011,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Money Transfer,"Finance processes payment","Receive/Pay reinsurance money","External step (manual)","Money moved",N/A,Medium,,,,,External
+TC-BRD-PS-07-01-012,Group RI (GRP) + EDW,BRD PS-07 EDW,Background / Confirmation Receipt,"Finance sends back receipt","Receipt to User RI","Verify receipt notification","Received by User RI",N/A,Medium,,,,,Receipt
+TC-BRD-PS-07-01-013,Group RI (GRP) + EDW,BRD PS-07 EDW,UI / Select Treaty/Process,"User selects which treaty/process to send","Multi-select","Click checkbox; verify","Selected items sent",N/A,High,,,,,Select
+TC-BRD-PS-07-01-014,Group RI (GRP) + EDW,BRD PS-07 EDW,UI / Send All vs Selected,"Send all treaties at once","Bulk","Click 'Send All'","All treaties sent",N/A,High,,,,,Bulk
+TC-BRD-PS-07-01-015,Group RI (GRP) + EDW,BRD PS-07 EDW,Validation / Data Integrity,"Data before send","Validate completeness","Trigger validation","Pass",N/A,High,,,,,Validation
+TC-BRD-PS-07-01-016,Group RI (GRP) + EDW,BRD PS-07 EDW,Validation / Source Match,"GRP-side data vs EDW-side data","Cross-check","Sum on both sides","Equal",N/A,High,,,,,Cross-check
+TC-BRD-PS-07-01-017,Group RI (GRP) + EDW,BRD PS-07 EDW,Edge / Re-send,"User re-sends same period","Replace or version","Re-send","Per design",N/A,High,,,,,Re-send
+TC-BRD-PS-07-01-018,Group RI (GRP) + EDW,BRD PS-07 EDW,Edge / Send Fails,"EDW transfer fails","Graceful + retry","Simulate failure","Error message; retry option",N/A,High,,,,,Failure
+TC-BRD-PS-07-01-019,Group RI (GRP) + EDW,BRD PS-07 EDW,Audit,"Send complete","Audit log","Check log","Send event logged with user, period, treaty",N/A,High,,,,,Audit
+TC-BRD-PS-07-01-020,Group RI (GRP) + EDW,BRD PS-07 EDW,Notification,"Send complete","Notify all parties (Actuarial, Accounting, User RI)","Verify emails","All received",N/A,High,,,,,Notification
+TC-BRD-PS-07-01-021,Group RI (GRP) + EDW,BRD PS-07 EDW,Performance,"Large data volume","Performance SLA","Send large dataset; time","Within SLA",Volume,Medium,,,,,Perf
+TC-BRD-PS-07-01-022,Group RI (GRP) + EDW,BRD PS-07 EDW,Security,"User permissions","Only authorized users can send","Test with read-only user","Send button disabled",N/A,High,,,,,Auth
+TC-BRD-PS-07-01-023,Group RI (GRP) + EDW,BRD PS-07 EDW,Reconciliation,"Verify Reinsurer balance","Check Total balance per Reinsurer","Verify reconciliation","Balance reconciled",N/A,High,,,,,Reconciliation
+TC-BRD-PS-07-01-024,Group RI (GRP) + EDW,BRD PS-07 EDW,GL Posting,"Accounting GL Posting","Per BRD GL Posting Y/N flag","Verify per process","Per BRD",N/A,High,,,,,GL
+TC-BRD-PS-07-01-025,Group RI (GRP) + EDW,BRD PS-07 EDW,Edge / Cancel Send,"User cancels pending send","Rollback","Click cancel","Send cancelled; data reverted",N/A,Medium,,,,,Cancel

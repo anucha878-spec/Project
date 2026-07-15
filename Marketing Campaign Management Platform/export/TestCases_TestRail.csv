@@ -1,0 +1,182 @@
+﻿Section,Lot,Title,Type,Priority,Preconditions,Steps,Expected Result,References,Test Data
+TS-01,Lot 1,TC-01-01 ดึง Customer Daily สำเร็จ,Positive,P1,มีข้อมูลใน CIS/DW,รอ batch 23:00 หรือ trigger ดึงข้อมูล,"ข้อมูล Customer ถูก Insert/Update เข้า MCMP ครบ (Inforce + ไม่ Inforce, ทุกแบบประกัน)",01-1,Customer ปกติ
+TS-01,Lot 1,TC-01-02 Update ข้อมูลที่เปลี่ยนแปลง (ไม่สร้างซ้ำ),Positive,P1,Customer เดิมมีในระบบ + ต้นทางแก้ไข,"1. แก้ข้อมูล Customer ที่ต้นทาง
+2. รัน batch",ระเบียนเดิมถูก Update ไม่เกิด record ซ้ำ,01-1,Customer เดิม + แก้ไข
+TS-01,Lot 3,TC-01-03 ดึง Contact Center / FB Inbox Realtime,Positive,P2,มี case ใหม่ใน NBS,สร้าง case ใหม่ใน NBS,ข้อมูลเข้า MCMP แบบ Realtime,01-1-(2),
+TS-01,Lot 2,TC-01-04 ตัวแทน OSSS อัปเดต Near-realtime,Positive,P2,OSSS มีการแก้ไขข้อมูล,แก้คุณวุฒิ/ตำแหน่งใน OSSS,MCMP อัปเดตตามอัตโนมัติ,01-1-(5),
+TS-01,Lot 1,TC-01-05 ดึงข้อมูลไม่สำเร็จ → ไป 01-4,Negative,P1,-,ทำให้ source ล่ม/ไฟล์เสีย แล้วรัน batch,ระบบจับ error ข้ามไปขั้นแจ้งผล ไม่บันทึกข้อมูลผิด,01-2,
+TS-01,Lot 1,TC-01-06 ดึงสำเร็จ → จัดเก็บ + แจ้งผล,Positive,P1,source ปกติ,รัน batch,บันทึกลงระบบส่วนกลาง + ส่ง Automail สำเร็จ,01-2/01-3,
+TS-01,Lot 1,TC-01-07 Automail แจ้งผลสำเร็จ 08:00,Positive,P2,batch เสร็จ,ตรวจเวลา/ผู้รับ/Template,อีเมลส่งถึงฝ่ายการตลาด 08:00 ตาม Template_Marketing Campaign,01-4,
+TS-01,Lot 1,TC-01-08 ไม่พบไฟล์ใน Path → Automail 09:00,Negative,P2,-,ลบไฟล์ออกจาก Path แล้วรัน batch,ส่ง Automail แจ้งฝ่ายที่เกี่ยวข้อง 09:00,01-0-(5),
+TS-01,Lot 1,TC-01-09 ดึง RFM แบบ Manual,Positive,P2,มีไฟล์ RFM,กดปุ่มประมวลผลบนหน้าจอ,ข้อมูล RFM ถูกนำเข้า,01-1-(6),RFM Actuary
+TS-02,Lot 3,TC-02-01 Upload csv ถูกต้อง,Positive,P1,ไฟล์ csv 4MB column ครบ,Upload ผ่าน UI,นำเข้าสำเร็จ ไป 01-3,01-5,csv 4MB ถูกต้อง
+TS-02,Lot 3,TC-02-02 Upload ไฟล์ไม่ใช่ csv,Negative,P1,ไฟล์ .xlsx/.pdf,Upload,Popup: อัปโหลดเป็น csv เท่านั้น,01-7(1),xlsx/pdf
+TS-02,Lot 3,TC-02-03 Upload ไฟล์ = 5MB พอดี,Boundary,P2,ไฟล์ csv 5.00MB,Upload,นำเข้าสำเร็จ (ขอบเขตยอมรับ),01-7(1),csv 5.00MB
+TS-02,Lot 3,TC-02-04 Upload ไฟล์ > 5MB,Boundary,P1,ไฟล์ csv 5.01MB,Upload,Popup: เกินขนาดที่กำหนด,01-7(1),csv 5.01MB
+TS-02,Lot 3,TC-02-05 คอลัมน์ไม่ครบ/ชื่อผิด,Negative,P1,csv ตัดคอลัมน์ออก,Upload,Popup: โครงสร้าง/ชื่อคอลัมน์ไม่ถูกต้อง,01-7(2),csv column ผิด
+TS-02,Lot 3,TC-02-06 ข้อมูลซ้ำกับที่เคยอัปโหลด,Negative,P1,เคย upload ไฟล์นี้แล้ว,Upload ไฟล์เดิมซ้ำ,Popup: พบข้อมูลซ้ำ ไม่บันทึก,01-7(3),csv ซ้ำ
+TS-02,Lot 3,TC-02-07 เกิด error ระหว่างบันทึก,Negative,P2,จำลอง DB error,Upload,Popup: เกิดข้อผิดพลาด กรุณาลองใหม่,01-7(4),
+TS-02,Lot 3,TC-02-08 ไฟล์ว่าง / 0 byte,Negative,P2,csv ว่าง,Upload,ระบบปฏิเสธอย่างเหมาะสม ไม่ crash,01-7,csv 0 byte
+TS-02,Lot 3,TC-02-09 csv อักขระพิเศษ/ภาษาไทย,Boundary,P2,csv UTF-8 ไทย,Upload,นำเข้าได้ถูกต้อง ไม่เพี้ยน,01-5,csv ไทย UTF-8
+TS-03,Lot 3,TC-03-01 Maker upload → แสดงรายการตรวจ,Positive,P1,สิทธิ์ Maker,Upload + เปิดดูรายการ,ระบบแสดงรายการข้อมูลให้ผู้บริหารตรวจ,01-0-4-1/2,
+TS-03,Lot 3,TC-03-02 Checker Approve → บันทึกเข้า CIS,Positive,P1,สิทธิ์ Approver,กด Approve,บันทึกข้อมูลเข้า CIS + ส่ง Email แจ้งผล,01-0-4-3/4,
+TS-03,Lot 3,TC-03-03 Checker Reject + ระบุเหตุผล,Negative,P1,สิทธิ์ Approver,กด Reject + กรอกเหตุผล,ไม่บันทึกข้อมูล + Email แจ้งผลพร้อมเหตุผล,01-0-4-3/5,
+TS-03,Lot 3,TC-03-04 Maker ไม่สามารถ Approve งานตัวเอง,Negative,P1,login เป็น Maker,พยายามอนุมัติงานตนเอง,ระบบไม่อนุญาต (แยกบทบาท Maker/Checker),01-0-4,
+TS-03,Lot 3,TC-03-05 Reject โดยไม่กรอกเหตุผล,Negative,P2,สิทธิ์ Approver,กด Reject เว้นเหตุผลว่าง,ระบบบังคับให้กรอกเหตุผล,01-0-4-5,
+TS-04,Lot 1,TC-04-01 สร้าง Segment ชื่อใหม่,Positive,P1,-,สร้าง Segment ชื่อไม่ซ้ำ,บันทึกสำเร็จ,02-3.1,
+TS-04,Lot 1,TC-04-02 ตั้งชื่อ Segment ซ้ำ,Negative,P1,มี Segment ชื่อนี้แล้ว,สร้างชื่อที่มีอยู่แล้ว,"ระบบปฏิเสธ ""ห้ามตั้งชื่อซ้ำ""",02-3.1,
+TS-04,Lot 1,TC-04-03 Active/Inactive โดยไม่ลบ,Positive,P2,มี Segment,toggle สถานะ,สถานะเปลี่ยน ข้อมูลยังอยู่,02-3.1,
+TS-04,Lot 1,TC-04-04 Clone Segment,Positive,P2,มี Segment,กด Clone,ได้ Segment ใหม่ที่ copy เงื่อนไข,02-3.1,
+TS-04,Lot 1,TC-04-05 Filter หลาย Attribute ผสมกัน,Positive,P1,-,เลือก gender + age range + province,ได้กลุ่มลูกค้าตรงทุกเงื่อนไข (AND),02-3.2,Customer หลากหลาย
+TS-04,Lot 1,TC-04-06 Filter ด้วย RFM Group,Positive,P1,มีข้อมูล RFM,เลือก RFM = Champions,ได้เฉพาะลูกค้ากลุ่มนั้น,02-3.2,RFM 11 กลุ่ม
+TS-04,Lot 1,TC-04-07 Exclude Consent = No,Negative,P1,-,เปิด exclude Consent No,ลูกค้า Consent=No ไม่อยู่ในกลุ่ม,02-3.2,Customer Consent=No
+TS-04,Lot 1,TC-04-08 Exclude Do-not-contact list,Negative,P1,-,เปิด exclude do-not-contact,เบอร์ที่อยู่ใน do-not-contact ถูกตัดออก,02-3.2,Customer ใน do-not-contact
+TS-04,Lot 1,TC-04-09 แสดง metadata Segment,Positive,P3,มี Segment,เปิดดู Segment,"แสดง Created by/on, Modified, running no ถูกต้อง",02-3.3,
+TS-04,Lot 1,TC-04-10 Export Raw Data by Campaign,Positive,P2,มี Segment,กด Export,ได้ไฟล์ Raw Data ตาม Template,02-3.4,
+TS-05,Lot 1,TC-05-01 ส่ง Audience ไป Facebook Ads,Positive,P2,มี Segment,เลือก Segment + Manual คลิกส่ง FB Ads,FB Ads รับข้อมูลทำ Customer Match,02-4,
+TS-05,Lot 1,TC-05-02 ส่ง Audience ไป Google Ads,Positive,P2,มี Segment,เลือก Segment + ส่ง Google Ads,Google Ads รับข้อมูล,02-4,
+TS-05,Lot 1,TC-05-03 ส่งเฉพาะ Mobile No. แยกตาม Segment,Positive,P2,มี Segment,ส่ง Audience,ส่งเฉพาะ Mobile No. ของ Customer ตาม Segment,02-4,
+TS-06,Lot 3,TC-06-01 สร้าง Campaign ชื่อไม่ซ้ำ,Positive,P1,-,สร้าง Campaign,บันทึกสำเร็จ,02-5.1,
+TS-06,Lot 3,TC-06-02 ตั้งชื่อ Campaign ซ้ำ,Negative,P1,มีชื่อนี้แล้ว,สร้างชื่อซ้ำ,ปฏิเสธ,02-5.1,
+TS-06,Lot 3,TC-06-03 เลือกหลายช่องทาง,Positive,P1,มี Message ทุกช่องทาง,เลือกครบ 4 ช่องทาง,ผูก Message ได้ทุกช่องทาง,02-5.1,
+TS-06,Lot 3,TC-06-04 ส่งทันที (Immediate),Positive,P1,Campaign อนุมัติแล้ว,"เลือก ""ส่งทันที""",ส่งทันทีหลังอนุมัติ,02-5.1,
+TS-06,Lot 3,TC-06-05 ส่งตามเวลาที่กำหนด,Positive,P1,-,ตั้งเวลาในอนาคต,ส่งตรงเวลาที่กำหนด,02-5.1,
+TS-06,Lot 3,TC-06-06 แก้เวลาส่งก่อนถึงกำหนด,Positive,P2,Campaign ตั้งเวลาไว้,แก้เวลาก่อนส่ง,เวลาส่งอัปเดต,02-5.1,
+TS-06,Lot 3,TC-06-07 หลาย Tag / Tag ซ้ำชื่อได้,Positive,P3,-,ใส่ 2 Tag ชื่อซ้ำ Campaign อื่น,ระบบยอมรับ,02-5.1,
+TS-06,Lot 3,TC-06-08 สถานะ Publish/Off,Positive,P2,มี Campaign,เปลี่ยนสถานะ,แสดงสถานะถูกต้อง,02-5.1,
+TS-06,Lot 3,TC-06-09 Retarget จากกลุ่ม Open/Click,Positive,P2,Campaign ส่งแล้ว,สร้าง retarget ตาม Action=Click,ส่งข้อมูลกลุ่มไป FB/Google,02-5.1,
+TS-06,Lot 3,TC-06-10 นับ Sent = เฉพาะที่ส่งสำเร็จ,Positive,P1,ส่ง 100 สำเร็จ 95,ตรวจตัวเลข Sent,Sent = 95,02-5/02-10,ส่ง 100 fail 5
+TS-06,Lot 3,TC-06-11 นับ Open = เฉพาะคนเปิดอ่าน,Positive,P1,40 คนเปิด,ตรวจ Open,Open = 40,02-10.2,
+TS-06,Lot 3,TC-06-12 นับ Unique Click (ไม่นับซ้ำ),Boundary,P1,1 คนคลิก 3 ครั้ง,ตรวจ Unique Click,Unique Click +1,02-10.4,
+TS-07,Lot 3,TC-07-01 สร้าง Message ชื่อไม่ซ้ำ,Positive,P2,-,สร้าง Message,สำเร็จ,02-6.1,
+TS-07,Lot 3,TC-07-02 SMS = Text + Link เท่านั้น,Positive,P2,-,สร้าง Message SMS,บังคับรูปแบบ Text+Link,02-6.1,
+TS-07,Lot 3,TC-07-03 Email/Line = Image + Text + Link,Positive,P2,-,สร้าง Message Email,รองรับรูปภาพ+ข้อความ+ลิงก์,02-6.1,
+TS-07,Lot 3,TC-07-04 Personalization variable,Positive,P1,มีข้อมูลลูกค้า,"ใส่ตัวแปร {ชื่อ},{เลขกรมธรรม์}",Preview/ส่งจริงแสดงข้อมูลลูกค้าจริง,02-6.1,Customer ชื่อ+กรมธรรม์
+TS-07,Lot 3,TC-07-05 แปลง Link เป็น Shortlink (Infobip),Positive,P2,-,ติ๊ก shorten link,Link ถูกย่อ,02-6.1,
+TS-07,Lot 3,TC-07-06 นับ Character & Credit SMS,Positive,P2,-,พิมพ์ข้อความ SMS,แสดงจำนวนตัวอักษร + credit ที่ใช้,02-6,
+TS-07,Lot 3,TC-07-07 SMS ภาษาไทยยาว (multi-part),Boundary,P2,-,ใส่ข้อความไทยยาว,credit คำนวณตามจำนวน segment ถูกต้อง,02-6,SMS ไทยยาว
+TS-07,Lot 3,TC-07-08 Preview ข้อความ,Positive,P3,-,กด Preview,แสดงตัวอย่างตรงช่องทาง,02-6.1,
+TS-07,Lot 3,TC-07-09 Clone Message,Positive,P3,มี Message,Clone,ได้ Message ใหม่,02-6.1,
+TS-08,Lot 3,TC-08-01 Maker สร้าง+ผูก Segment → ขออนุมัติ,Positive,P1,สิทธิ์ Maker,สร้าง Campaign + ผูก Segment + ส่งขออนุมัติ,"สถานะ ""รออนุมัติ""",02-7-1,
+TS-08,Lot 3,TC-08-02 Approver อนุมัติ → ส่งตาม 02-8,Positive,P1,สิทธิ์ Approver,กด Approve,ระบบดำเนินการส่ง Campaign,02-7-2,
+TS-08,Lot 3,TC-08-03 Approver ไม่อนุมัติ → ไม่ส่ง,Negative,P1,สิทธิ์ Approver,กด Reject,ระบบไม่ส่ง Campaign,02-7-2,
+TS-08,Lot 3,TC-08-04 Maker ไม่สามารถอนุมัติงานตนเอง,Negative,P1,login Maker,พยายามอนุมัติ,ไม่อนุญาต,02-7,
+TS-08,Lot 3,TC-08-05 แก้ Campaign หลังอนุมัติแล้ว,Negative,P2,Campaign อนุมัติแล้ว,พยายามแก้หลัง Approve,ตรวจ behavior (ควรล็อก/ขออนุมัติใหม่) — ต้อง clarify,02-7,
+TS-09,Lot 3,TC-09-01 ส่งตรงตามเวลาที่ตั้ง,Positive,P1,Campaign อนุมัติ + ตั้งเวลา,ถึงเวลา schedule,ส่งครบทุกช่องทางที่ระบุ,02-8,
+TS-09,Lot 3,TC-09-02 ยึดเบอร์/อีเมลจาก CIS,Positive,P1,ลูกค้ามีข้อมูลหลายแหล่ง,ส่ง Campaign,ใช้เบอร์/อีเมลจาก CIS เท่านั้น,02-8,Customer หลายแหล่ง
+TS-09,Lot 3,TC-09-03 ส่งไม่สำเร็จบางราย → สรุปจำนวน+user,Negative,P1,-,จำลองส่ง fail 5 ราย,ระบบสรุปจำนวน + รายชื่อที่ fail,02-8,ส่ง fail 5
+TS-09,Lot 3,TC-09-04 ส่ง SMS ผ่าน Infobip,Positive,P2,-,ส่งช่องทาง SMS,ลูกค้าได้รับ SMS,02-8,
+TS-09,Lot 3,TC-09-05 ลูกค้าได้รับครบทุกช่องทาง,Positive,P2,-,ตรวจปลายทาง,ได้รับตามช่องทางที่ระบุ,02-9,
+TS-09,Lot 3,TC-09-06 ลูกค้าใน do-not-contact ไม่ได้รับ,Negative,P1,มีลูกค้า do-not-contact ใน segment,ส่ง Campaign,ไม่ส่งให้รายนั้น,02-8,Customer do-not-contact
+TS-10,Lot 3,TC-10-01 เก็บจำนวนผู้รับต่อ Campaign,Positive,P1,ส่งเสร็จ,ตรวจตัวเลข,บันทึกจำนวนถูกต้อง,02-10.1,
+TS-10,Lot 3,TC-10-02 เก็บวัน-เวลาเปิดอ่านราย user,Positive,P2,user เปิดอ่าน,ตรวจ log,บันทึก timestamp ราย user,02-10.5,
+TS-10,Lot 3,TC-10-03 Export Raw Data by User,Positive,P2,มีข้อมูล,กด Export,ได้ไฟล์ตาม Template,02-10,
+TS-10,Lot 3,TC-10-04 Automail Monthly Report,Positive,P2,สิ้นเดือน,วันที่ 1 เดือนถัดไป 13:00,ส่งสรุปรายเดือนตรงเวลา,02-10,
+TS-10,Lot 3,TC-10-05 เก็บข้อมูลจนกว่าจะสั่งลบ,Positive,P3,ผ่านไปหลายเดือน,ตรวจข้อมูล,ข้อมูลยังอยู่,02-10,
+TS-11,Lot 2,TC-11-01 ดึง LC ด้วยตนเอง,Positive,P1,เชื่อม OSSS,เลือก LC + ดึง,"ข้อมูล LC เข้าระบบครบ (Agent Code, ชื่อ, ตำแหน่ง, คุณวุฒิ, ผลงาน, สาขา, จังหวัด)",03-01.1,
+TS-11,Lot 2,TC-11-02 เลือก 10 รายชื่อ/จังหวัด พอดี,Boundary,P1,-,เลือก 10 ชื่อใน 1 จังหวัด,ยอมรับ,03-01.1,
+TS-11,Lot 2,TC-11-03 เลือก 11 รายชื่อ/จังหวัด,Boundary,P1,-,เลือก 11 ชื่อ,ปฏิเสธ/เตือนเกินกำหนด,03-01.1,
+TS-11,Lot 2,TC-11-04 เลือก 10 จังหวัด/ครั้ง พอดี,Boundary,P1,-,เลือก 10 จังหวัด,ยอมรับ,03-01.1,
+TS-11,Lot 2,TC-11-05 เลือก 11 จังหวัด/ครั้ง,Boundary,P1,-,เลือก 11 จังหวัด,ปฏิเสธ,03-01.1,
+TS-11,Lot 2,TC-11-06 ดึงหลายครั้งต่อวัน,Positive,P2,-,ดึงซ้ำหลายครั้ง,ไม่จำกัดจำนวนครั้ง,03-01.1,
+TS-11,Lot 2,TC-11-07 LC แก้ข้อมูลใน OSSS → auto update,Positive,P2,LC มีในระบบ,แก้คุณวุฒิใน OSSS,MCMP อัปเดตอัตโนมัติ,03-01.4,
+TS-12,Lot 2,TC-12-01 Lead จาก Website (auto),Positive,P1,เชื่อมเว็บไซต์,submit web form,บันทึกเข้าระบบอัตโนมัติ,03-05.1,
+TS-12,Lot 2,TC-12-02 Lead จาก Facebook (manual),Positive,P1,สิทธิ์ User,บันทึกทีละราย,บันทึกสำเร็จ,03-05.2,
+TS-12,Lot 2,TC-12-03 Contact Center ผ่าน VPN/VDI (WFH),Positive,P2,WFH + VPN,บันทึก Lead,บันทึกได้,03-05.3,
+TS-12,Lot 2,TC-12-04 บันทึก Contact Center ไม่ผ่าน VPN (WFH),Negative,P2,WFH ไม่ต่อ VPN,พยายามบันทึก,ไม่สามารถบันทึก,03-05.3,
+TS-12,Lot 2,TC-12-05 Import Lead Excel/CSV (CRM),Positive,P1,มีไฟล์,Import,นำเข้าหลายรายการ,03-05.4,ไฟล์ Lead CRM
+TS-12,Lot 2,TC-12-06 Dedup 1 ช่องทาง — ยึดล่าสุด #2,Positive,P1,-,กรอกซ้ำ 2 ครั้งจาก Web,เก็บข้อมูล #2 (ล่าสุด),03-05.6.1,Lead ซ้ำ Web
+TS-12,Lot 2,TC-12-07 Dedup 1 ช่องทาง — แบบประกันต่างกัน,Positive,P1,-,#1 และ #2 แบบประกันต่างกัน,แสดงทั้ง 2 แบบประกัน,03-05.6.1,
+TS-12,Lot 2,TC-12-08 Dedup 1 ช่องทาง — แบบประกันเดียวกัน,Positive,P2,-,#1=#2 แบบประกันเดียวกัน,แสดงแบบประกันเดียว,03-05.6.1,
+TS-12,Lot 2,TC-12-09 Dedup 2 ช่องทาง (Web+FB),Positive,P1,-,เบอร์เดียวกันจาก Web และ FB,ยึดล่าสุด + ระบุว่ามาจาก 2 ช่องทาง,03-05.6.2,Lead Web+FB
+TS-12,Lot 2,TC-12-10 Dedup 2 ช่องทาง — แบบประกันต่างกัน,Positive,P2,-,แบบประกันต่างกัน,แสดงทั้ง 2 แบบประกัน,03-05.6.2,
+TS-12,Lot 2,TC-12-11 Lead ซ้ำ assign LC คนเดียว,Positive,P1,-,Lead ซ้ำหลายครั้ง,assign LC คนเดียวกัน,03-05.6,
+TS-12,Lot 2,TC-12-12 นับจำนวนครั้ง/ช่องทางที่ฝาก Lead,Positive,P2,-,ฝาก 3 ครั้ง,แสดงจำนวนครั้ง + ช่องทาง,03-05.6,
+TS-13,Lot 2,TC-13-01 ลูกค้าซื้อผ่าน Online,Positive,P2,Lead บันทึกแล้ว,เลือกช่องทาง Online,ระบบส่งข้อมูลไป Google Sheet Digital Sale → 03-07,03-06,
+TS-13,Lot 2,TC-13-02 ลูกค้าซื้อผ่านตัวแทน,Positive,P2,Lead บันทึกแล้ว,เลือกช่องทางตัวแทน,เข้าสู่เงื่อนไข Auto Assign 03-08,03-06,
+TS-13,Lot 2,TC-13-03 ส่ง Email ให้ Digital Sale (Realtime),Positive,P2,Lead online,บันทึก Lead online,"ส่ง Email Realtime (ชื่อ, เบอร์, ช่วงเวลา, จังหวัด, อีเมล, แบบประกัน)",03-07,
+TS-13,Lot 2,TC-13-04 ข้อมูลใน Email Digital Sale ครบถ้วน,Positive,P3,-,ตรวจเนื้อหา Email,มีข้อมูลครบตาม BRD,03-07,
+TS-14,Lot 2,TC-14-01 Assign ตามจังหวัด (ลำดับ 1),Positive,P1,มี LC จังหวัด A,Lead จังหวัด A เข้าระบบ,assign ให้ LC จังหวัด A,03-08.3.1,LC จังหวัด A
+TS-14,Lot 2,TC-14-02 ผลงานทุกงวด > บางงวด,Positive,P1,2 LC จังหวัดเดียวกัน,Lead เข้า,เลือก LC ผลงานทุกงวดก่อน,03-08.3.2/3,LC ผลงานต่างระดับ
+TS-14,Lot 2,TC-14-03 Tie-break จำนวนกรมธรรม์ใหม่ 3 งวด (ไม่รวม PA),Positive,P1,ผลงานเท่ากัน,Lead เข้า,เรียงตามจำนวนกรมธรรม์ใหม่มาก→น้อย,03-08,LC กรมธรรม์ต่างกัน
+TS-14,Lot 2,TC-14-04 Tie-break รายได้สะสม 3 งวด,Positive,P2,จำนวนกรมธรรม์เท่ากัน,Lead เข้า,เรียงตามรายได้สะสมมาก→น้อย,03-08,
+TS-14,Lot 2,TC-14-05 Round Robin — LC ล่าสุดไปท้ายคิว,Positive,P1,มีหลาย LC ในคิว,assign Lead ติดกันหลายราย,กระจายหมุนเวียน ไม่กระจุก,03-08,
+TS-14,Lot 2,TC-14-06 Assign Near-realtime,Positive,P1,-,บันทึก Lead,assign ภายในเวลาสั้น,03-08,
+TS-14,Lot 2,TC-14-07 Assign ในวันหยุด,Positive,P1,-,บันทึก Lead วันหยุด,ยัง assign ได้เหมือนวันทำการ,03-08,
+TS-14,Lot 2,TC-14-08 ไม่พบ candidate → Email การตลาด,Negative,P1,Lead จังหวัดไม่มี LC,Lead เข้า,ส่ง Email ให้การตลาด Manual Assign,03-08,Lead จังหวัดไม่มี LC
+TS-14,Lot 2,TC-14-09 พบ candidate >1 → ตามเงื่อนไข/Manual,Positive,P1,หลาย LC เข้าเงื่อนไข,Lead เข้า,ใช้เกณฑ์ลำดับ หรือเข้าสู่ Manual Assign,03-08,
+TS-14,Lot 2,TC-14-10 Lead Scoring = Hot,Positive,P1,-,Lead ระบุช่วงเวลา 09:00-12:00,Scoring = Hot Lead,03-08,Lead Hot
+TS-14,Lot 2,TC-14-11 Lead Scoring = Warm,Positive,P1,-,Lead ไม่ระบุช่วงเวลา,Scoring = Warm Lead,03-08,Lead Warm
+TS-14,Lot 2,TC-14-12 Assign LC คนเดียวต่อ 1 Lead,Positive,P1,-,Lead ใหม่,assign 1 LC เท่านั้น,03-08,
+TS-14,Lot 2,TC-14-13 Dedup เบอร์ทุกช่องทาง/ทุกเวลา,Positive,P1,-,เบอร์ซ้ำเข้าหลายช่องทาง,จับได้ว่าเป็น Lead ซ้ำ,03-08,
+TS-14,Lot 2,TC-14-14 Notify New Lead หลัง assign,Positive,P1,assign สำเร็จ,ตรวจ LC Connect,แจ้งเตือน LC ผ่าน LC Connect,03-08→03-10,
+TS-15,Lot 2,TC-15-01 แสดงรายการ Lead ที่ยังไม่มี LC,Positive,P2,มี Lead ค้าง,เปิดหน้า Manual Assign,แสดงข้อมูล Lead ครบ,03-09.1,
+TS-15,Lot 2,TC-15-02 เลือก Lead + LC + Assign,Positive,P1,มี Lead + LC,"เลือก Lead, เลือก LC, Assign",assign สำเร็จ,03-09.2/3,
+TS-15,Lot 2,TC-15-03 บันทึก Agent Code + วันเวลา + ผู้ assign,Positive,P1,assign แล้ว,ตรวจ audit log,บันทึกครบ,03-09.4,
+TS-15,Lot 2,TC-15-04 แจ้งเตือน New Lead หลัง Manual Assign,Positive,P1,assign สำเร็จ,ตรวจ LC Connect,LC ได้รับแจ้งเตือน,03-09.5,
+TS-15,Lot 2,TC-15-05 Assign Lead ที่มี LC อยู่แล้ว (ซ้ำ),Negative,P2,Lead มี LC แล้ว,พยายาม assign ซ้ำ,ป้องกัน/เตือน,03-09,
+TS-16,Lot 2,TC-16-01 เข้าถึง Lead จากเมนู My Lead,Positive,P2,LC มี Lead,เปิด My Lead,เห็นรายการ Lead,03-11.1,
+TS-16,Lot 2,TC-16-02 เข้าถึง Lead จาก Notification,Positive,P2,มีแจ้งเตือน,กดแจ้งเตือน,เข้าหน้า Lead,03-11.1,
+TS-16,Lot 2,TC-16-03 Lead Status ถูกต้อง,Positive,P2,-,ดูรายการ,แสดงสถานะ ยังไม่ติดต่อ/ติดต่อแล้ว ถูกต้อง,03-11.2,
+TS-16,Lot 2,TC-16-04 ปุ่มโทรออกจาก Lead Detail,Positive,P2,-,กดปุ่มโทร,โทรออกได้,03-11.3,
+TS-16,Lot 2,TC-16-05 ข้อความแจ้งเตือน New Lead ถูกต้อง,Positive,P2,-,ดูข้อความแจ้งเตือน,"""Lead ใหม่: คุณ[ชื่อ] สนใจ[แบบประกัน]...""",03-10.1,
+TS-16,Lot 2,TC-16-06 UI ตรงตาม Mockup หน้า 7,Positive,P3,-,เทียบ Mockup,UI ตรง Mock Up - Lead Management.pdf,03-11.4,
+TS-17,Lot 2,TC-17-01 Hot — เริ่มนับ SLA จากเวลานัด,Positive,P1,Lead Hot,"นัด 13:00, LC บันทึกผล 13:30",ผ่าน SLA,03-12.1,Hot นัด 13:00
+TS-17,Lot 2,TC-17-02 Hot — เกิน 24 ชม.,Boundary,P1,Lead Hot,"นัด 13:00 D1, บันทึก 14:00 D2",เกิน SLA → ดึง Lead คืน,03-12,
+TS-17,Lot 2,TC-17-03 Hot — ครบ 24 ชม. พอดี,Boundary,P1,Lead Hot,"นัด 13:00 D1, บันทึก 13:00 D2",ตรวจ behavior ที่ขอบเขต (ต้อง clarify inclusive/exclusive),03-12,
+TS-17,Lot 2,TC-17-04 Warm — assign ในเวลา 9-18,Positive,P1,Lead Warm,"assign 10:00, บันทึก 12:00",นับจาก 10:00 ผ่าน SLA,03-12.1,Warm assign 10:00
+TS-17,Lot 2,TC-17-05 Warm — assign 07:00 (ก่อน 9:00),Boundary,P1,Lead Warm,assign 07:00,SLA เริ่มนับ 09:00 วันเดียวกัน,03-12,Warm assign 07:00
+TS-17,Lot 2,TC-17-06 Warm — assign 19:00 (หลัง 18:00),Boundary,P1,Lead Warm,assign 19:00,SLA เริ่มนับ 09:00 วันถัดไป,03-12,Warm assign 19:00
+TS-17,Lot 2,TC-17-07 Warm — assign 18:00 พอดี,Boundary,P2,Lead Warm,assign 18:00,ระบุชัดว่าเริ่มนับเมื่อใด (ขอบเขต),03-12,
+TS-17,Lot 2,TC-17-08 ติดต่อตาม SLA → ไป 03-13,Positive,P1,-,บันทึกผลในเวลา,ดำเนินต่อบันทึกผล,03-12.2,
+TS-17,Lot 2,TC-17-09 ไม่ติดต่อใน SLA → ดึง Lead คืน auto,Negative,P1,-,ปล่อยเกิน SLA,ระบบดึง Lead คืน Re-assign ตาม 03-08,03-12.3,
+TS-17,Lot 2,TC-17-10 ระงับ LC 5 วัน,Positive,P2,LC เกิน SLA,เลือก 5 วัน,LC ไม่ได้รับ Lead 5 วัน,03-12.3,
+TS-17,Lot 2,TC-17-11 ระงับ LC ถาวร,Boundary,P2,LC เกิน SLA,เลือกถาวร,LC ไม่ได้รับ Lead จนกว่าจะปลด,03-12.3,
+TS-17,Lot 2,TC-17-12 Re-assign LC ใหม่ก็ไม่ติดต่อ → Email 09:00,Negative,P1,LC ใหม่เกิน SLA,รอ,Email แจ้งการตลาด 09:00 ทุกวัน,03-12.4,
+TS-17,Lot 2,TC-17-13 นับ SLA ข้ามวันหยุด,Boundary,P2,SLA คร่อมวันหยุด,รอ,ตรวจการนับ 24 ชม. ต่อเนื่อง (ต้อง clarify),03-12,
+TS-17,Lot 2,TC-17-14 ติดต่อได้ + นัดใหม่ → SLA เริ่มจากวันนัด,Positive,P1,"บันทึกผล ""ติดต่อได้""",นัดวันใหม่,SLA เริ่มจากวันนัด 9-18 ภายใน 24 ชม.,03-13/03-12,
+TS-18,Lot 2,TC-18-01 ติดต่อได้: ขอตัดสินใจก่อน + Calendar,Positive,P1,Lead assign แล้ว,เลือกเหตุผล + นัดวัน,บันทึก + แจ้งเตือนล่วงหน้า 1 ชม. ก่อนนัด,03-13.1.1,
+TS-18,Lot 2,TC-18-02 ติดต่อได้: ไม่ซื้อ + เหตุผล,Positive,P2,-,เลือกเหตุผลไม่ซื้อ,บันทึกผล,03-13.1.2,
+TS-18,Lot 2,TC-18-03 ซื้อ — พบใบคำขอ+กรมธรรม์,Positive,P1,มีใน UW,"กรอกเลข, ระบบ lookup","สถานะ = ""อนุมัติ""",03-13.1.3.1,เลขพบทั้งคู่
+TS-18,Lot 2,TC-18-04 ซื้อ — พบใบคำขอ ไม่พบกรมธรรม์,Boundary,P1,มีใบคำขอ,กรอกเลข,แสดงสถานะตามระบบ UW,03-13.1.3.2,พบใบคำขอ ไม่พบกรมธรรม์
+TS-18,Lot 2,TC-18-05 ซื้อ — ไม่พบทั้งคู่,Negative,P1,-,กรอกเลขไม่มีใน UW,"สถานะ = ""ไม่พบข้อมูล"" + แก้ไขเลขได้",03-13.1.3.3,เลขไม่พบ
+TS-18,Lot 2,TC-18-06 ซื้อ — ส่ง Auto Email HRA + CC การตลาด,Positive,P1,บันทึกการซื้อ,save,"ส่ง Email ถึง HRA, CC การตลาด",03-13.1.3,
+TS-18,Lot 2,TC-18-07 ติดต่อไม่ได้ ครั้งที่ 1 + เหตุผล,Positive,P1,-,บันทึก ไม่ได้ฝากลีด,บันทึก + ต้องกรอกวันติดตาม ≤7 วัน,03-13.2,
+TS-18,Lot 2,TC-18-08 ติดต่อไม่ได้ ครั้งที่ 2,Positive,P2,-,บันทึกครั้งที่ 2 (ไม่รับสาย >2 ครั้ง),บันทึกผล,03-13.2,
+TS-18,Lot 2,TC-18-09 วันติดตามเกิน 7 วัน,Boundary,P1,-,เลือกวันที่ +8 วัน,ปฏิเสธ (ไม่เกิน 7 วัน),03-13.3,
+TS-18,Lot 2,TC-18-10 วันติดตาม = 7 วันพอดี,Boundary,P2,-,+7 วัน,ยอมรับ,03-13.3,
+TS-18,Lot 2,TC-18-11 กฎ 3 ครั้ง — ครั้งที่ 1 เกิน SLA → ดึงคืน,Negative,P1,-,เกิน SLA ครั้งที่ 1,ดึง Lead กลับ Re-assign,03-13,
+TS-18,Lot 2,TC-18-12 กฎ 3 ครั้ง — ครบ 3 ครั้ง → ปิดเคส,Positive,P1,บันทึก 2 ครั้งแล้ว,บันทึกครั้งที่ 3,ปิดเคส (ไม่ว่าซื้อหรือไม่),03-13,
+TS-18,Lot 2,TC-18-13 SLA นับใหม่หลังบันทึกแต่ละครั้ง,Positive,P1,-,บันทึกครั้งที่ 1→2,SLA เริ่มนับใหม่หลังครั้งก่อน,03-13,
+TS-18,Lot 2,TC-18-14 Retention — เก็บ 3 เดือนแล้วลบ,Boundary,P2,Lead ปิดไม่ได้,รอ 3 เดือน,ระบบลบอัตโนมัติหลัง 3 เดือน,03-13.4,
+TS-18,Lot 2,TC-18-15 Calendar — เลือกวันจริง + Note,Positive,P3,-,กรอกวันจริง + โน้ต,บันทึกได้,03-13,
+TS-18,Lot 2,TC-18-16 แก้ไขเลขใบคำขอ/กรมธรรม์ใหม่,Positive,P2,สถานะไม่พบข้อมูล,แก้เลขแล้ว save,ระบบค้นหา UW ใหม่,03-13.1.3.3,
+TS-19,Lot 2,TC-19-01 Automail Daily Report 09:00,Positive,P2,มีข้อมูล Lead,รอ 09:00,ส่ง Daily Report แนบ Excel/CSV,03-14.1,
+TS-19,Lot 2,TC-19-02 Export Summary CSV,Positive,P2,มีข้อมูล,กด Export CSV,ได้ไฟล์ CSV,03-14.2,
+TS-19,Lot 2,TC-19-03 Export Summary Excel,Positive,P2,มีข้อมูล,กด Export Excel,ได้ไฟล์ Excel,03-14.2,
+TS-19,Lot 2,TC-19-04 Raw Data: Lead Source Performance,Positive,P2,มีข้อมูล,เปิด Raw Data,แสดงจำนวน Lead/Assign/ติดต่อได้/ปิดได้ ตามช่องทาง,03-14,
+TS-04,Lot 1,TC-04-11 Refresh segment คำนวณสมาชิกใหม่,Positive,P2,มี Segment ที่มี filter,กด refresh,จำนวนสมาชิกถูก recompute ตามข้อมูลล่าสุด,02-3/GAi,
+TS-04,Lot 1,TC-04-12 Delete segment,Positive,P1,มี Segment,กด delete + ยืนยัน,segment ถูกลบ; ถ้าผูกกับ campaign ที่ active → เตือน/บล็อก,02-3/GAi,Segment ผูก campaign
+TS-04,Lot 1,TC-04-13 แสดงจำนวนลูกค้าใน segment (count badge),Positive,P1,มี Segment ที่มี filter,เปิด segment,badge แสดงจำนวนตรงกับผล filter จริง,02-3/GAi,
+TS-04,Lot 1,TC-04-14 Customer 360 จากใน segment,Positive,P2,มีลูกค้าใน segment,คลิกลูกค้า 1 ราย,"แสดงโปรไฟล์ 360 (ช่องทาง, กรมธรรม์, activity) ถูกต้อง",02-3/GAi,
+TS-04,Lot 3,TC-04-15 Filter channel-presence (มี Email ไม่มี App / ยังไม่เป็น Ocean Connect),Positive,P1,มีข้อมูลช่องทางลูกค้า,"สร้าง segment ""มี Email และยังไม่มี Ocean Club App""",ได้เฉพาะลูกค้าที่ email=true AND app=false,02-3/GAi,Customer มี/ไม่มีแต่ละช่องทาง
+TS-04,Lot 1,"TC-04-16 Filter numeric (Health Score, CLV≥100k, เบี้ย<20k)",Positive,P1,มีข้อมูล CLV/Health Score,"สร้าง segment ""App=No, CLV≥100,000""",ได้เฉพาะลูกค้าที่ค่าตรงตามตัวเลข,02-3/GAi,Customer CLV หลายระดับ
+TS-04,Lot 1,TC-04-17 Filter behavioral — เข้าหน้าบทความภาษี/ออมทรัพย์,Boundary,P2,มี event GA4,filter จาก web-visit behavior,เฉพาะลูกค้าที่มี event เข้าหน้าบทความนั้น (ตรวจ data source GA4),02-3/GAi,GA4 event บทความ
+TS-07,Lot 3,TC-07-10 Refresh / Delete message,Positive,P2,มี Message,กด refresh แล้ว delete,refresh โหลดค่าใหม่; delete ลบได้ (เตือนถ้าถูกใช้ใน campaign),02-6/GAi,Message ผูก campaign
+TS-07,Lot 3,TC-07-11 แสดง Message ID + จำนวน credit บนการ์ด,Positive,P2,มี Message,เปิดรายการ message,แสดง Message ID (running no) + credit ที่ message จะใช้ ถูกต้อง,02-6/GAi,
+TS-06,Lot 3,TC-06-13 Add contact source = เลือก Segment,Positive,P1,มี Segment,ในcampaign กด Add contact source → เลือก segment,สมาชิกของ segment เข้าสู่ flow เป็น contact ของ campaign,02-5/GAi,
+TS-06,Lot 3,TC-06-14 Decision node แตกเส้นทาง,Positive,P1,มี flow + contact,"วาง Decision (เช่น ""เปิดอ่าน email?"")",contact ถูกแยกเข้า branch yes/no ถูกต้อง,02-5/GAi,
+TS-06,Lot 3,TC-06-15 Condition node ตาม Contact tags,Positive,P1,contact มี tag,"ตั้ง condition tag = ""VIP""",เฉพาะ contact ที่มี tag ผ่านเข้า branch นั้น,02-5/GAi,Contact มี/ไม่มี tag
+TS-06,Lot 3,TC-06-16 Action: Send email + email builder,Positive,P1,-,เพิ่ม action Send email → ออกแบบใน builder,อีเมลถูกสร้าง/ส่งตามที่ออกแบบ (รูป+ข้อความ+ลิงก์),02-5/GAi,
+TS-06,Lot 3,TC-06-17 Action: Send text message (เลือก Message เดิม),Positive,P1,มี Message,เพิ่ม action → Select Message ที่มีอยู่,ผูก message เดิมเข้า action ได้ ส่งถูกช่องทาง,02-5/GAi,
+TS-06,Lot 3,TC-06-18 Action: Mobile app message (push),Positive,P2,contact มี app,เพิ่ม action mobile app message,push เข้า Ocean Club App ของ contact ที่มี app,02-5/GAi,
+TS-06,Lot 3,TC-06-19 Action: Send a webhook,Positive,P2,มี endpoint,ตั้ง webhook URL ใน action,ระบบยิง HTTP request พร้อม payload contact เมื่อ contact ถึง node,02-5/GAi,webhook endpoint ทดสอบ
+TS-06,Lot 3,TC-06-20 Action timing / delay ราย step,Boundary,P2,flow มีหลาย action,ตั้ง delay 2 วัน ก่อน action ถัดไป,action ถัดไปทำงานหลังครบ delay ไม่ใช่ทันที,02-5/GAi,
+TS-06,Lot 3,TC-06-21 Upload segment → Facebook Custom Audience (Lookalike),Positive,P2,มี Segment,จาก segment กด upload → FB,audience ถูกสร้างใน FB Ads (custom + lookalike base),02-4/GAi,
+TS-06,Lot 3,TC-06-22 Upload segment → Google Customer Match,Positive,P2,มี Segment,จาก segment กด upload → Google,customer match list ถูกสร้างใน Google Ads,02-4/GAi,
+TS-06,Lot 3,TC-06-23 E2E flow: Segment → Decision → Condition → multi Action,Positive,P1,ส่วนประกอบครบ,ประกอบ flow ครบ แล้ว publish,contact ไหลผ่านทุก node และได้รับ message ตาม branch ถูกต้อง,02-5/GAi,flow ครบทุก node
+TS-10,Lot 3,TC-10-06 Total User ≠ Total Send,Boundary,P1,"campaign 1,000 contact ส่งจริง 980",ตรวจ SUMMARY,"Total User=1,000, Total Send=980 (แยกชัด)",02-10/GAi,campaign 1000/ส่ง 980
+TS-10,Lot 3,TC-10-07 Total Credit ต่อ campaign,Positive,P1,ส่ง SMS ไทยยาว multi-part 980 ราย,ตรวจ Total Credit,Total Credit = ผลรวม credit ทุก segment ของทุกข้อความ ถูกต้อง,02-10/GAi,SMS ไทยยาว
+TS-10,Lot 3,TC-10-08-b Total Fail สรุปใน summary,Positive,P1,ส่ง fail 20 ราย,ตรวจ Total Fail,Total Fail=20 และ Total Send+Total Fail = Total User,02-10/GAi,ส่ง fail 20
+TS-10,Lot 3,TC-10-09 Drill-down รายคลิกต่อ campaign,Positive,P2,campaign มีผลคลิก,คลิกเข้า campaign 1 ใน SUMMARY,แสดงรายชื่อ/จำนวนคลิก + Unique Click ของ campaign นั้น,02-10/GAi,
+TS-10,Lot 3,TC-10-10 SUMMARY header ครบทุกคอลัมน์,Positive,P2,มีข้อมูล campaign,เปิดหน้า SUMMARY,"มีครบ: Campaign ID, Name, Total User, Total Send, Total Credit, Total Fail, Total Click, Unique Click",02-10/GAi,
