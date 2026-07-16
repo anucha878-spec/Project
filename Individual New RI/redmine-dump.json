@@ -1,0 +1,567 @@
+[
+  {
+    "id": 33160,
+    "tracker": "WBS",
+    "status": "New",
+    "subject": "New RI",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 24975,
+    "assigned": "Aukkarapol Toetubtim",
+    "created": "2025-12-12T14:19:53+07:00",
+    "updated": "2026-02-05T22:20:40+07:00",
+    "description": "",
+    "custom": [],
+    "attachments": [],
+    "journals": []
+  },
+  {
+    "id": 33162,
+    "tracker": "WBS",
+    "status": "In Progress",
+    "subject": "Database",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33160,
+    "assigned": "Aukkarapol Toetubtim",
+    "created": "2025-12-12T14:22:05+07:00",
+    "updated": "2026-01-20T10:37:10+07:00",
+    "description": "",
+    "custom": [],
+    "attachments": [],
+    "journals": []
+  },
+  {
+    "id": 33163,
+    "tracker": "WBS",
+    "status": "In Progress",
+    "subject": "Functional",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33160,
+    "assigned": "Aukkarapol Toetubtim",
+    "created": "2025-12-12T14:22:37+07:00",
+    "updated": "2026-02-05T22:20:40+07:00",
+    "description": "",
+    "custom": [],
+    "attachments": [],
+    "journals": []
+  },
+  {
+    "id": 33432,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "Alter Add Field cf_reserve_rate_dt",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33162,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T14:41:29+07:00",
+    "updated": "2026-01-20T10:35:39+07:00",
+    "description": "เพิ่ม Field\r\n* product_group\r\n\r\nhttp://wiki.thaisamut.co.th/display/RDSINRI/cf_reserve_rate_dt",
+    "custom": [],
+    "attachments": [
+      "Screenshot from 2026-01-06 11-05-51.png"
+    ],
+    "journals": [
+      {
+        "by": "Piya Kaewket",
+        "on": "2026-01-06T11:11:47+07:00",
+        "notes": "ปรับเพิ่มเรียบร้อยครับ \nhttps://10.100.2.187:8443/tickets/msa-reinsurance.git/873\n``` \ncommit 67f3174b9959e242a1d5fe7dfc011e8a86bc9f23 (HEAD -> ticket/873, origin/ticket/873)\nAuthor: piya.ka <piya.ka@ocean.co.th>\nDate:   Tue Jan 6 12:50:15 2026 +0700\n\n    REDMINE-33432 (2) Alter Add Field cf_reserve_rate_dt\n\ncommit 0d2af0028b9ab378544affcdc1399dae583dc842 \nAuthor: piya.ka <piya.ka@ocean.co.th>\nDate:   Tue Jan 6 11:06:30 2026 +0700\n\n    REDMINE-33432 Alter Add Field cf_reserve_rate_dt\n\n```"
+      }
+    ]
+  },
+  {
+    "id": 33165,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "Create Table Master ms_special_plancode",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33162,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-12T14:27:11+07:00",
+    "updated": "2026-01-20T10:35:39+07:00",
+    "description": "http://wiki.thaisamut.co.th/display/RDSINRI/28.+ms_special_plancode\r\n\r\nhttps://docs.google.com/spreadsheets/d/1c6OhFMDl9XHfilA_gwk6KTC6qLCy-G_RMxqHT8MepYI/edit?gid=1724088385#gid=1724088385",
+    "custom": [],
+    "attachments": [
+      "Screenshot from 2026-01-06 13-04-38.png",
+      "Screenshot from 2026-01-06 13-04-33.png",
+      "Screenshot from 2026-01-06 13-04-26.png"
+    ],
+    "journals": [
+      {
+        "by": "Piya Kaewket",
+        "on": "2026-01-06T13:05:26+07:00",
+        "notes": "ปรับเพิ่มเรียบร้อยครับ \nhttps://10.100.2.187:8443/tickets/msa-reinsurance.git/874\n``` \ncommit 3648d90d204a5d926f1c1f8bafe0941ad116c2e9 (HEAD -> ticket/874, origin/ticket/874)\nAuthor: piya.ka <piya.ka@ocean.co.th>\nDate:   Tue Jan 6 13:14:06 2026 +0700\n\n    REDMINE-33165 (3) Create Table Master ms_special_plancode\n\ncommit 0de0a877c4b5ac540a3f217d9fcbf44847c5c45c\nAuthor: piya.ka <piya.ka@ocean.co.th>\nDate:   Tue Jan 6 13:12:56 2026 +0700\n\n    REDMINE-33165 (2) Create Table Master ms_special_plancode\n\ncommit e09aeb43d9fff641c72c602b3f9c3d28126eb3fb\nAuthor: piya.ka <piya.ka@ocean.co.th>\nDate:   Tue Jan 6 13:04:03 2026 +0700\n\n    REDMINE-33165 Create Table Master ms_special_plancode\n\n```"
+      }
+    ]
+  },
+  {
+    "id": 33815,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "Update ข้อมูล (ไม่ใช่ Changelog)",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33162,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-16T14:26:33+07:00",
+    "updated": "2026-01-20T10:37:19+07:00",
+    "description": "Step 1\r\n``` sql\r\nUPDATE cf_reserve_rate_dt\r\nSET    product_group = 'BASE'\r\nWHERE  cf_reserve_rate_hd_id NOT IN (1536, 1541);\r\n```\r\n\r\nStep 2\r\n``` sql\r\nUPDATE cf_reserve_rate_dt\r\nSET    product_group = 'RIDER' \r\nWHERE  cf_reserve_rate_hd_id IN (1536, 1541);\r\n```\r\n",
+    "custom": [],
+    "attachments": [],
+    "journals": []
+  },
+  {
+    "id": 33456,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "Changelog cf_template_field",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33162,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T15:23:13+07:00",
+    "updated": "2026-01-20T10:35:39+07:00",
+    "description": "``` sql\r\nInsert into cf_template_field(cf_template_file_id,cf_template_sheet_id,seq_no,field_name,data_type,format_data_type,nullable_flag,db_table,db_table,db_field,display_flag,order_by_flag,desc_or_asc,seq_order,created_date,created_by,updated_date,updated_by,text_align) VALUES(328,2028,8,'product_group','Varchar','','FALSE','cf_reserve_rate_dt','product_group','TRUE','FALSE',NULL,NULL,now(),'SYSTEM',now(),'SYSTEM','left');\r\nInsert into cf_template_field(cf_template_file_id,cf_template_sheet_id,seq_no,field_name,data_type,format_data_type,nullable_flag,db_table,db_table,db_field,display_flag,order_by_flag,desc_or_asc,seq_order,created_date,created_by,updated_date,updated_by,text_align) VALUES(329,2029,8,'product_group','Varchar','','FALSE','cf_reserve_rate_dt','product_group','TRUE','FALSE',NULL,NULL,now(),'SYSTEM',now(),'SYSTEM','left');\r\n```\r\n",
+    "custom": [],
+    "attachments": [
+      "Screenshot from 2026-01-06 11-02-06.png",
+      "Screenshot from 2026-01-06 11-02-15.png"
+    ],
+    "journals": [
+      {
+        "by": "Piya Kaewket",
+        "on": "2026-01-06T11:11:06+07:00",
+        "notes": "ปรับเพิ่มเรียบร้อยครับ \r\nhttps://10.100.2.187:8443/tickets/msa-reinsurance.git/873\r\n``` \r\ncommit af062310f184317768d8099631b23a96e5163f58\r\nAuthor: piya.ka <piya.ka@ocean.co.th>\r\nDate:   Tue Jan 6 11:02:39 2026 +0700\r\n\r\n    REDMINE-33456 Changelog cf_template_field\r\n\r\n```"
+      }
+    ]
+  },
+  {
+    "id": 33441,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "แก้ไข Template File สำหรับ Upload และ Download Template Reserve Rate",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T14:57:18+07:00",
+    "updated": "2026-01-20T10:34:24+07:00",
+    "description": "01. IRI_CFG_002 หน้าจัดการข้อมูล Reserve Rate\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1098613411\r\n\r\nเช็กดูเงื่อนไขไฟล์\r\n* การนำเข้าไฟล์\r\n* การดาวน์โหลดไฟล์ตัวอย่าง\r\n* การดาวน์โหลดไฟล์ Reserve ",
+    "custom": [],
+    "attachments": [
+      "Screenshot from 2026-01-06 13-28-12.png",
+      "Screenshot from 2026-01-06 13-28-23.png",
+      "Screenshot from 2026-01-06 13-27-59.png",
+      "Screenshot from 2026-01-06 13-27-33.png",
+      "Screenshot from 2026-01-06 13-25-46.png",
+      "Screenshot from 2026-01-06 13-26-09.png",
+      "Screenshot from 2026-01-06 13-24-52.png",
+      "Screenshot from 2026-01-06 13-24-33.png",
+      "Screenshot from 2026-01-06 13-23-24.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-06T13:33:48+07:00",
+        "notes": "หลังจากที่เพิ่ม config ระบบสามารถทำงานได้เลย  ไม่มีการแก้ไขโปรแกรมส่วนนี้\nhttps://redmine.ochi.link/issues/33456\n\nเลือกรายการ plan code = E26\n{{thumbnail(Screenshot from 2026-01-06 13-23-24.png, size=300, title=Thumbnail)}}\n\n\nดาวน์โหลดไฟล์ Reserve\n{{thumbnail(Screenshot from 2026-01-06 13-24-33.png, size=300, title=Thumbnail)}}\n\nดาวน์โหลดไฟล์ตัวอย่าง\n{{thumbnail(Screenshot from 2026-01-06 13-24-52.png, size=300, title=Thumbnail)}}\n{{thumbnail(Screenshot from 2026-01-06 13-25-46.png, size=300, title=Thumbnail)}}\n\n\nข้อมูลก่อนนำเข้าไฟล์\n{{thumbnail(Screenshot from 2026-01-06 13-26-09.png, size=300, title=Thumbnail)}}\n\nข้อมูลที่จะนำเข้านำเข้าไฟล์\n{{thumbnail(Screenshot from 2026-01-06 13-27-33.png, size=300, title=Thumbnail)}}\n\nนำเข้าข้อมูล\n{{thumbnail(Screenshot from 2026-01-06 13-27-59.png, size=300, title=Thumbnail)}}\n\n{{thumbnail(Screenshot from 2026-01-06 13-28-12.png, size=300, title=Thumbnail)}}\n\n{{thumbnail(Screenshot from 2026-01-06 13-28-23.png, size=300, title=Thumbnail)}}\n"
+      }
+    ]
+  },
+  {
+    "id": 33558,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "03-1 การประมวลผล Reserve amount",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T17:03:09+07:00",
+    "updated": "2026-01-20T10:34:25+07:00",
+    "description": "เพิ่มการตรวจสอบ Plan Code และ Product Group เพื่อหา Rate\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471525\r\n\r\n{{thumbnail(2568-12-15 16_55_05-Window.png)}}\r\n\r\n{{thumbnail(2568-12-15 16_54_53-Window.png)}}",
+    "custom": [],
+    "attachments": [
+      "2568-12-15 16_54_53-Window.png",
+      "2568-12-15 16_55_05-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T10:55:12+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\n\r\n``` html\r\ncommit 05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 10:50:35 2026 +0700\r\n\r\n    Task #33421 Task #33423 Task #33558  Task #33561 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/api/MsSpecialPlancodeTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/api/ReserveRateBean.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/models/ReserveRateTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/utils/CommonUtils.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/CfReserveRateDtDao.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/MsSpecialPlancodeDao.java\r\n```\r\n\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEF11, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT3, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT2, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFTB, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:LIFE\r\nserver.log-INFO  [090126-10:41:26.621][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1704128 ,PlanCode:A55 ,ProductGroup:BASE, Period:202601 | Check isSendReinsurer | Result :false\r\n--\r\nserver.log-INFO  [090126-10:41:26.623][pool-7-threa][na] LogHelper: Tracking EstimateAtuto TreatyCode :THREL_Ind_ORD_2019, Period :202601 | Process32Function | Process 32 Function | Id Card :2050161368219, PolicyNo :1704129, Time usage: 72 ms\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.625][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, MapKey:3000148L, 2000119L, Formula:({INITIAL_SA_LIFE} * {RESERVE_RATE}) / 1000,  INITIAL_SA_LIFE:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n```\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:ADD, MapKey:3000432L, 2000102L, isEventDate:false, Formula:{INITIAL_SA_ADD} * {DEATH_BENEFIT}, INITIAL_SA_ADD:500000.000, Result:500000.00\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Actual SA, Time:8 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.662][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, MapKey:3000150L, 2000120L, Formula:({INITIAL_SA_ADD} * {RESERVE_RATE}) / 1000,  INITIAL_SA_ADD:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n\r\n```\r\n"
+      }
+    ]
+  },
+  {
+    "id": 33792,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-16T13:32:04+07:00",
+    "updated": "2026-01-20T10:34:26+07:00",
+    "description": "เพิ่มเงื่อนไขการทำ Alter Rider กรณีที่มีการทำ Alter Base พิเศษ\r\nโดยตรวจสอบ tx_ri_ord_alteration_dt.plan_code = ms_special_plancode.plan_code\r\n* กรณีพบ ให้ทำรายการ Alter Rider ที่อยู่ใน ms_special_plancode.rider_code ด้วย (ถ้าเป็นการ Alter ที่ต้องทำทั้ง Base และ Rider อยู่แล้ว ไม่ต้องทำซ้ำ)\r\n* กรณีไม่พบ ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471548",
+    "custom": [],
+    "attachments": [
+      "2568-12-16 13_23_34-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T18:31:58+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/a5037014b9315cb0a7f20207082ebf9348aa86aa\r\n\r\n``` html\r\ncommit a5037014b9315cb0a7f20207082ebf9348aa86aa (HEAD -> master)\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 17:07:40 2026 +0700\r\n\r\n    Task #33792 Task #33795 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/EstimateComponent.java\r\n```\r\n\r\nเนื่องจาก data test case alter ยังไม่มีที่ as400\r\nรอ unit test หลังมีข้อมูลเทส"
+      }
+    ]
+  },
+  {
+    "id": 33561,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "04 การประมวลผล Previous Reserve amount",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T17:04:43+07:00",
+    "updated": "2026-01-20T10:34:25+07:00",
+    "description": "เพิ่มการตรวจสอบ Plan Code และ Product Group เพื่อหา Rate\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471456\r\n\r\n{{thumbnail(2568-12-15 16_55_05-Window.png)}}\r\n\r\n{{thumbnail(2568-12-15 16_54_53-Window.png)}}",
+    "custom": [],
+    "attachments": [],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T10:55:23+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\n\r\n``` html\r\ncommit 05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 10:50:35 2026 +0700\r\n\r\n    Task #33421 Task #33423 Task #33558  Task #33561 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/api/MsSpecialPlancodeTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/api/ReserveRateBean.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/models/ReserveRateTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/utils/CommonUtils.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/CfReserveRateDtDao.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/MsSpecialPlancodeDao.java\r\n```\r\n\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEF11, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT3, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT2, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFTB, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:LIFE\r\nserver.log-INFO  [090126-10:41:26.621][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1704128 ,PlanCode:A55 ,ProductGroup:BASE, Period:202601 | Check isSendReinsurer | Result :false\r\n--\r\nserver.log-INFO  [090126-10:41:26.623][pool-7-threa][na] LogHelper: Tracking EstimateAtuto TreatyCode :THREL_Ind_ORD_2019, Period :202601 | Process32Function | Process 32 Function | Id Card :2050161368219, PolicyNo :1704129, Time usage: 72 ms\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.625][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, MapKey:3000148L, 2000119L, Formula:({INITIAL_SA_LIFE} * {RESERVE_RATE}) / 1000,  INITIAL_SA_LIFE:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n```\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:ADD, MapKey:3000432L, 2000102L, isEventDate:false, Formula:{INITIAL_SA_ADD} * {DEATH_BENEFIT}, INITIAL_SA_ADD:500000.000, Result:500000.00\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Actual SA, Time:8 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.662][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, MapKey:3000150L, 2000120L, Formula:({INITIAL_SA_ADD} * {RESERVE_RATE}) / 1000,  INITIAL_SA_ADD:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n\r\n```\r\n"
+      }
+    ]
+  },
+  {
+    "id": 33795,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-4 [ALTER] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-16T13:33:51+07:00",
+    "updated": "2026-01-20T10:34:27+07:00",
+    "description": "เพิ่มเงื่อนไขการทำ Alter Rider กรณีที่มีการทำ Alter Base พิเศษ\r\nโดยตรวจสอบ tx_ri_ord_alteration_dt.plan_code = ms_special_plancode.plan_code\r\n* กรณีพบ ให้ทำรายการ Alter Rider ที่อยู่ใน ms_special_plancode.rider_code ด้วย (ถ้าเป็นการ Alter ที่ต้องทำทั้ง Base และ Rider อยู่แล้ว ไม่ต้องทำซ้ำ)\r\n* กรณีไม่พบ ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216958",
+    "custom": [],
+    "attachments": [
+      "2568-12-16 13_23_34-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T18:32:20+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/a5037014b9315cb0a7f20207082ebf9348aa86aa\r\n\r\n``` html\r\ncommit a5037014b9315cb0a7f20207082ebf9348aa86aa (HEAD -> master)\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 17:07:40 2026 +0700\r\n\r\n    Task #33792 Task #33795 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/EstimateComponent.java\r\n```\r\n\r\nเนื่องจาก data test case alter ยังไม่มีที่ as400\r\nรอ unit test หลังมีข้อมูลเทส"
+      }
+    ]
+  },
+  {
+    "id": 33808,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-2 [CLAIM] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-16T14:12:45+07:00",
+    "updated": "2026-01-20T10:34:27+07:00",
+    "description": "โดยตรวจสอบ tx_ri_ord_master_claim_dt.plan_code = ms_special_plancode.plan_code (suthanee.sa 16/12/2025)\r\n\r\n* กรณีพบ ให้ตรวจสอบ tx_ri_ord_master_claim_dt.coverage_code กรณีไม่พบ ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\n> * หากเท่ากับ \"LA\"\r\n> > * ทำรายการ Calim Rider ที่อยู่ใน ms_special_plancode.rider_code ด้วย (ถ้าเป็นการ Calim ที่ต้องทำทั้ง Base และ Rider อยู่แล้ว ไม่ต้องทำซ้ำ)\r\n> * หากไม่เท่ากับ \"LA\"\r\n> > * ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216954",
+    "custom": [],
+    "attachments": [
+      "2568-12-16 14_02_17-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Supakit Singwieng",
+        "on": "2026-01-09T18:24:28+07:00",
+        "notes": "ดำเนินการแล้วครับ\r\n**ยังไม่มี data สำหรับทดสอบ\r\n\r\nhttps://10.100.2.187:8443/tickets/msa-reinsurance.git/875\r\nhttps://10.100.2.187:8443/commit/msa-reinsurance.git/9781b65b80cc32b5d9bd1fcae0d4e80d443f454e\r\n```\r\nBranch   : HEAD -> ticket/875, origin/ticket/875\r\nReversion: 9781b65b80cc32b5d9bd1fcae0d4e80d443f454e\r\nDate     : Fri, 9 Jan 2026 18:13:51 +0700\r\nAuthor   : supakit.si\r\nComment  : Task #33808 00-2 [CLAIM] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty\r\n\r\nM       src/main/java/thaisamut/msa/reinsurance/components/EstimateComponent.java\r\nM       src/main/java/thaisamut/msa/reinsurance/core/models/estimate/EstimateClaimBean.java\r\nM       src/main/java/thaisamut/msa/reinsurance/jdbi/dao/TxRiOrdMasterClaimDtDao.java\r\n\r\n```"
+      }
+    ]
+  },
+  {
+    "id": 33809,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-5 [CLAIM] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-16T14:13:23+07:00",
+    "updated": "2026-01-20T10:34:28+07:00",
+    "description": "โดยตรวจสอบ tx_ri_ord_master_claim_dt.plan_code = ms_special_plancode.plan_code (suthanee.sa 16/12/2025)\r\n\r\n* กรณีพบ ให้ตรวจสอบ tx_ri_ord_master_claim_dt.coverage_code กรณีไม่พบ ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\n> * หากเท่ากับ \"LA\"\r\n> > * ทำรายการ Calim Rider ที่อยู่ใน ms_special_plancode.rider_code ด้วย (ถ้าเป็นการ Calim ที่ต้องทำทั้ง Base และ Rider อยู่แล้ว ไม่ต้องทำซ้ำ)\r\n> * หากไม่เท่ากับ \"LA\"\r\n> > * ให้เริ่มทำข้อ 3 ที่รายการ Base ตามปกติ\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216960",
+    "custom": [],
+    "attachments": [],
+    "journals": [
+      {
+        "by": "Supakit Singwieng",
+        "on": "2026-01-09T18:25:12+07:00",
+        "notes": "ดำเนินการแล้วที่ https://redmine.ochi.link/issues/33808?"
+      }
+    ]
+  },
+  {
+    "id": 33923,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "[EDW PH6] 01. Current Monthly NAR",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Anucha Pimsoi",
+    "created": "2025-12-16T15:33:03+07:00",
+    "updated": "2026-01-20T10:34:29+07:00",
+    "description": "04 การประมวลผล Previous Reserve amount\r\n05 การประมวลผล Reserve amount\r\n\r\nhttp://wiki.thaisamut.co.th/display/RDSINRI/01.+Current+Monthly+NAR",
+    "custom": [],
+    "attachments": [
+      "2568-12-16 15_31_02-Window.png",
+      "2568-12-16 15_31_12-Window.png",
+      "2568-12-16 15_31_21-Window.png",
+      "Screenshot from 2026-01-09 21-19-15.png",
+      "Screenshot from 2026-01-09 21-15-29.png",
+      "Screenshot from 2026-01-09 21-14-21.png"
+    ],
+    "journals": [
+      {
+        "by": "Theeradech Taweeboonrungrueng",
+        "on": "2026-01-09T23:11:15+07:00",
+        "notes": "https://10.100.2.187:8443/tickets/msa-reinsurance.git/876\r\nปรับเงื่อนไข เงื่อนไขหลัก\r\n04 การประมวลผล Previous Reserve amount\r\n05 การประมวลผล Reserve amount\r\nใช้ Rider Code ไปเทียบกับ ms_product.plan_code เพื่อหา ms_product_id\r\nขั้นตอนการหา Rate\r\nถ้าพบ Config File\r\nให้ค้นหา Rate แบบเดียวกับกรณี Base\r\nถ้าไม่พบ Config File\r\nตรวจสอบว่า Base Plan ของ Rider นั้น\r\nตรงกับ ms_special_plancode.plan_code\r\nและ ms_special_plancode.status = 'A' หรือไม่\r\nถ้าตรง → ให้ค้นหา Rate แบบเดียวกับ Base\r\nถ้าไม่ตรง / ไม่พบ → ไม่ต้องค้นหา Rate และกำหนด Rate = 0\r\n```xml\r\ncommit 8ece5ce59d6dd5d08820181e3fda9d1fe04a05c6 (HEAD -> ticket/876, origin/ticket/876)\r\nAuthor: theeradech.ta <theeradech.ta@ocean.co.th>\r\nDate:   Fri Jan 9 23:03:40 2026 +0700\r\n\r\n    ปรับเงื่อนไข เงื่อนไขหลัก\r\n    \r\n    04 การประมวลผล Previous Reserve amount\r\n    05 การประมวลผล Reserve amount\r\n    \r\n    ใช้ Rider Code ไปเทียบกับ ms_product.plan_code เพื่อหา ms_product_id\r\n    \r\n    ขั้นตอนการหา Rate\r\n    \r\n    ถ้าพบ Config File\r\n    \r\n    ให้ค้นหา Rate แบบเดียวกับกรณี Base\r\n    \r\n    ถ้าไม่พบ Config File\r\n    \r\n    ตรวจสอบว่า Base Plan ของ Rider นั้น\r\n    \r\n    ตรงกับ ms_special_plancode.plan_code\r\n    \r\n    และ ms_special_plancode.status = 'A' หรือไม่\r\n    \r\n    ถ้าตรง → ให้ค้นหา Rate แบบเดียวกับ Base\r\n    \r\n    ถ้าไม่ตรง / ไม่พบ → ไม่ต้องค้นหา Rate และกำหนด Rate = 0\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/MonthlyProcessService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/ReinsurerService.java\r\nmsa-reinsurance (ticket/876) $\r\n```\r\nจากการทดสอบพบว่า\r\nเนื่องจากปัจจุบันยังไม่มีข้อมูลของ New Product รหัส OA55–OA59\r\n(โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17) อยู่ในตาราง tx_ri_est_hd\r\nดังนั้นจึงได้ดำเนินการ\r\nนำ plancode ที่มีข้อมูลอยู่แล้วมาทำการตั้งค่า (config) แทน\r\nเพื่อใช้สำหรับการทดสอบระบบ\r\nผลการทดสอบสามารถยืนยันได้ว่า\r\nระบบประมวลผลและเข้าเงื่อนไขการทำงานได้ถูกต้องตามที่ออกแบบไว้\r\n![](Screenshot from 2026-01-09 21-19-15.png)\r\n![](Screenshot from 2026-01-09 21-15-29.png)\r\n![](Screenshot from 2026-01-09 21-14-21.png)\r\n\r\n"
+      },
+      {
+        "by": "Theeradech Taweeboonrungrueng",
+        "on": "2026-01-12T12:28:50+07:00",
+        "notes": "https://10.100.2.187:8443/tickets/msa-reinsurance.git/877\r\nปรับเพิ่ม key ProductGroup method getReserveRate \r\n```xml\r\ncommit c53e715b9a11d5159401bf8e55aacc09eb957d1d (HEAD -> ticket/877, origin/ticket/877)\r\nAuthor: theeradech.ta <theeradech.ta@ocean.co.th>\r\nDate:   Mon Jan 12 12:25:11 2026 +0700\r\n\r\n    33923[UR 20250271][New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17] [EDW PH6] 01. Current Monthly NAR\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateMainProcessService.java\r\nmsa-reinsurance (ticket/877) $ \r\n```"
+      },
+      {
+        "by": "Theeradech Taweeboonrungrueng",
+        "on": "2026-01-13T13:57:09+07:00",
+        "notes": "https://10.100.2.187:8443/tickets/msa-reinsurance.git/878\r\nปรับ การหา previous ในการหากรม specialPlancode \r\n```xml\r\nmsa-reinsurance (ticket/878) $ git show --name-only\r\ncommit cac36362a486ac02f040d8135b64d8ec32e1cc6a (HEAD -> ticket/878)\r\nAuthor: theeradech.ta <theeradech.ta@ocean.co.th>\r\nDate:   Tue Jan 13 13:54:54 2026 +0700\r\n\r\n    33923[UR 20250271][New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17] [EDW PH6] 01. Current Monthly NAR\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/MonthlyProcessService.java\r\nmsa-reinsurance (ticket/878) $ \r\n\r\n```"
+      }
+    ]
+  },
+  {
+    "id": 40963,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "04. Process Mapping Table Estimate & Bordereau",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-07T14:16:23+07:00",
+    "updated": "2026-01-20T10:34:30+07:00",
+    "description": "1.8 Mapping ข้อมูลลง Table tx_ri_est_rider_auto_dt\r\n- rider_code\r\n- rider_coverage_type\r\n- rider_type\r\n\r\n1.10 Mapping ข้อมูลลง Table tx_ri_est_rider_facult_dt\r\n- rider_code\r\n- rider_coverage_type\r\n- rider_type\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911178",
+    "custom": [],
+    "attachments": [
+      "2569-01-07 11_31_14-Edit - 1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean L.png",
+      "2569-01-07 11_37_41-Edit - 1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean L.png",
+      "2569-01-07 11_37_50-Edit - 1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean L.png",
+      "2569-01-07 14_08_31-1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean Life Ins.png",
+      "2569-01-07 14_08_37-1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean Life Ins.png",
+      "2569-01-07 14_08_44-1. Mapping ข้อมูลลง Table Estimate - 20210257-Individual New RI - Ocean Life Ins.png",
+      "Screenshot from 2026-01-09 14-44-57.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T14:53:05+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/8b1c7c9fb9a1ea4b4a3d26790e8a1d59cf80acaf\r\n\r\n``` html\r\ncommit 8b1c7c9fb9a1ea4b4a3d26790e8a1d59cf80acaf (HEAD -> master, origin/master, origin/HEAD)\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 14:50:15 2026 +0700\r\n\r\n    Task #40963 Task #41576 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateMappingService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\r\n```\r\n"
+      }
+    ]
+  },
+  {
+    "id": 40967,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "01. Process Mapping Table Actual & Bordereau",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-07T14:33:10+07:00",
+    "updated": "2026-01-20T10:34:30+07:00",
+    "description": "2.2 Mapping ข้อมูลลง Table tx_ri_bdr_act_alter\r\n- code_plan\r\n\r\n2.3 Mapping ข้อมูลลง Table tx_ri_bdr_act_claim\r\n- code_plan\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1132757529",
+    "custom": [],
+    "attachments": [
+      "2569-01-07 14_32_19-01. Process Mapping Table Actual & Bordereau - 20210257-Individual New RI - Ocea.png",
+      "2569-01-07 14_32_42-01. Process Mapping Table Actual & Bordereau - 20210257-Individual New RI - Ocea.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-11T20:16:08+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/b9f99342df928990fc686d9f50b5742e6a0bcdb2\r\n\r\n``` html\r\ncommit b9f99342df928990fc686d9f50b5742e6a0bcdb2 (HEAD -> master, origin/master, origin/HEAD)\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Sun Jan 11 20:14:29 2026 +0700\r\n\r\n    Task #40967 Process Mapping Table Actual & Bordereau โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/ActualService.java\r\n```\r\n\r\nเนื่องจาก data test case alter ยังไม่มีที่ as400\r\nรอ unit test หลังมีข้อมูลเทส"
+      }
+    ]
+  },
+  {
+    "id": 40970,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "IRI-PS-024 ส่งข้อมูล Actual เข้า EDW",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-07T14:37:21+07:00",
+    "updated": "2026-01-20T10:34:31+07:00",
+    "description": "3. Create tx_ri_std_all (act)\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1135280141\r\n\r\n* กรณีพบข้อมูล New,Renew\r\n* กรณีพบข้อมูล Alteration\r\n* กรณีพบข้อมูล Claim",
+    "custom": [],
+    "attachments": [
+      "2569-01-07 14_36_13-3. Create tx_ri_std_all (act) - 20210257-Individual New RI - Ocean Life Insuranc.png",
+      "2569-01-07 14_36_34-3. Create tx_ri_std_all (act) - 20210257-Individual New RI - Ocean Life Insuranc.png",
+      "2569-01-07 14_36_49-3. Create tx_ri_std_all (act) - 20210257-Individual New RI - Ocean Life Insuranc.png"
+    ],
+    "journals": [
+      {
+        "by": "Supakit Singwieng",
+        "on": "2026-01-12T13:49:45+07:00",
+        "notes": "ดำเนินการแล้วครับ\r\n**ยังไม่มีข้อมูลสำหรับทดสอบ\r\n\r\n{code:title=msa-reinsurance}\r\nBranch   : HEAD -> master, origin/master, origin/HEAD\r\nReversion: e1da81aa026e2dd502e49a9269acb22ebcc0936d\r\nDate     : Mon, 12 Jan 2026 13:48:23 +0700\r\nAuthor   : supakit.si\r\nComment  : Task #40970 IRI-PS-024 ส่งข้อมูล Actual เข้า EDW\r\n\r\nM\tsrc/main/resources/sql/edw_data_actual_alteration.sql\r\nM\tsrc/main/resources/sql/edw_data_actual_alteration_fac.sql\r\nM\tsrc/main/resources/sql/edw_data_actual_claim.sql\r\nM\tsrc/main/resources/sql/edw_data_actual_claim_fac.sql\r\nM\tsrc/main/resources/sql/edw_data_actual_new_renew.sql\r\nM\tsrc/main/resources/sql/edw_data_actual_new_renew_fac.sql\r\n{code}\r\n"
+      }
+    ]
+  },
+  {
+    "id": 40968,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "IRI-PS-023 ส่งข้อมูล Estimate เข้า EDW",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-07T14:35:34+07:00",
+    "updated": "2026-01-20T10:34:31+07:00",
+    "description": "3. Create tx_ri_std_all (est)\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841369\r\n\r\n* กรณีพบข้อมูล New,Renew\r\n* กรณีพบข้อมูล Alteration\r\n* กรณีพบข้อมูล Claim\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1129841428",
+    "custom": [],
+    "attachments": [
+      "2569-01-07 14_34_30-3. Create tx_ri_std_all (est) - 20210257-Individual New RI - Ocean Life Insuranc.png",
+      "2569-01-07 14_34_11-3. Create tx_ri_std_all (est) - 20210257-Individual New RI - Ocean Life Insuranc.png",
+      "2569-01-07 14_34_46-3. Create tx_ri_std_all (est) - 20210257-Individual New RI - Ocean Life Insuranc.png",
+      "40968_T1.png"
+    ],
+    "journals": [
+      {
+        "by": "Supakit Singwieng",
+        "on": "2026-01-09T17:46:24+07:00",
+        "notes": "ดำเนินการแล้วครับ\r\n**ยังไม่มีข้อมูลสำหรับทดสอบ\r\n\r\n\r\n{{thumbnail(40968_T1.png)}}\r\n\r\n\r\nhttps://10.100.2.187:8443/commit/msa-reinsurance.git/d1799f38076be66ef277f79871ef4ef0c289ac3f\r\n```\r\ncommit d1799f38076be66ef277f79871ef4ef0c289ac3f\r\nAuthor: supakit.si <supakit.si@ocean.co.th>\r\nDate:   Fri Jan 9 17:40:08 2026 +0700\r\n\r\n    Task #40968 IRI-PS-023 ส่งข้อมูล Estimate เข้า EDW\r\n\r\nsrc/main/resources/sql/edw_data_alteration.sql  \r\nsrc/main/resources/sql/edw_data_alteration_fac.sql     \r\nsrc/main/resources/sql/edw_data_claim.sql     \r\nsrc/main/resources/sql/edw_data_claim_fac.sql   \r\nsrc/main/resources/sql/edw_data_new_renew.sql   \r\nsrc/main/resources/sql/edw_data_new_renew_fac.sql\r\n\r\n```"
+      }
+    ]
+  },
+  {
+    "id": 41576,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "12-0 ขั้นตอนการเลือก Policy ส่งประกันต่อ",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-09T13:32:55+07:00",
+    "updated": "2026-01-20T10:34:32+07:00",
+    "description": "กรณีที่ไม่พบ rider_code (suthanee.sa 12/01/2025)\r\n\r\n1. ให้นำ rider_code และ plan_code ไปตรวจสอบใน ms_special_plancode\r\n2. หากมีรายการที่ rider_code และ plan_code ให้ตรวจสอบ ms_special_plancode.status\r\n> > ถ้าเท่ากับ A ให้ส่งประกันต่อ\r\n> > ถ้าไม่เท่ากับ A หรือไม่มีข้อมูล ไม่ต้องส่งประกันต่อ\r\n3. หากไม่พบรายการ ไม่ต้องส่งประกันต่อ",
+    "custom": [],
+    "attachments": [
+      "2569-01-12 09_12_40-Edit - 12-0 ขั้นตอนการเลือก Policy ส่งประกันต่อ - 20210257-Individual New RI - O.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T14:52:26+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/8b1c7c9fb9a1ea4b4a3d26790e8a1d59cf80acaf\n\n``` html\ncommit 8b1c7c9fb9a1ea4b4a3d26790e8a1d59cf80acaf (HEAD -> master, origin/master, origin/HEAD)\nAuthor: bodin.it <bodin.it@ocean.co.th>\nDate:   Fri Jan 9 14:50:15 2026 +0700\n\n    Task #40963 Task #41576 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\n\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateMappingService.java\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\n```\n\ngit : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/5a30907450e36a3b7d98786ae3a2c0a1db04cdc1\n\n``` html\ncommit 5a30907450e36a3b7d98786ae3a2c0a1db04cdc1 (HEAD -> master, origin/master, origin/HEAD)\nAuthor: bodin.it <bodin.it@ocean.co.th>\nDate:   Fri Jan 9 14:56:56 2026 +0700\n\n    Task #40963 Task #41576 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\n\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateMappingService.java\n```\n\n\n``` html\nserver.log:INFO  [090126-14:44:12.559][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Total SR | Start | CoverageType:ADD\nserver.log:INFO  [090126-14:44:12.560][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Total SR | Process | CoverageType:ADD, MapKey:3000272L, 2000175L, SR_ADD:2000000.00000, PREVIOUS_SR_ADD:null, Result:2000000.00000\nserver.log:INFO  [090126-14:44:12.560][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Policy ส่งประกันต่อ | Start | CoverageType:ADD\nserver.log:INFO  [090126-14:44:12.560][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Policy ส่งประกันต่อ | Process | CoverageType:ADD, SR:2000000.00000, SarMin:1.00, SarMax:9000000.00, ส่งประกันต่อส่งประกันต่อ\nserver.log:INFO  [090126-14:44:12.560][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Policy ส่งประกันต่อ | Process | plan:A55, PolicyType:ORD, productGroup:BASE, SentReinsurerStatus:SEND, ส่งประกันต่อส่งประกันต่อ\nserver.log:INFO  [090126-14:44:12.560][pool-3-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Policy ส่งประกันต่อ | End | CoverageType:ADD, Result:true\n```\n"
+      }
+    ]
+  },
+  {
+    "id": 44969,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "IRI-PS-030 ส่งข้อมูล Estimate ไปยัง EDW Auto (OIC)",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2026-01-20T10:33:30+07:00",
+    "updated": "2026-05-12T16:21:44+07:00",
+    "description": "ปรับ API WS_RI_40 เพิ่มการส่งข้อมูล rider code ที่ tx_ri_std_all_oic.rider_plan_code (New,Renew,Alteration,Claim) \r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1266090118",
+    "custom": [],
+    "attachments": [
+      "Screenshot 2026-02-05 155132.png",
+      "44969_1.png",
+      "44969_2.png"
+    ],
+    "journals": [
+      {
+        "by": "Supakit Singwieng",
+        "on": "2026-02-05T22:20:40+07:00",
+        "notes": "ดำเนินการแล้วครับ\r\n- ปรับ api process ส่งข้อมูล Estimate ไปยัง EDW Auto (OIC)\r\n\r\n\r\nUnit test local\r\n\r\n{{thumbnail(44969_1.png)}}\r\n\r\n{{thumbnail(44969_2.png)}}\r\n\r\nhttps://10.100.2.187:8443/commit/msa-reinsurance.git/6eac1a78d460a60ca5954594baf270b301e8cea8\r\n\r\n```\r\n\r\nBranch   : HEAD -> master, origin/master, origin/HEAD\r\nReversion: 6eac1a78d460a60ca5954594baf270b301e8cea8\r\nDate     : Thu, 5 Feb 2026 22:15:18 +0700\r\nAuthor   : supakit.si\r\nComment  : IRI-PS-030 ส่งข้อมูล Estimate ไปยัง EDW Auto (OIC)\r\n\r\nM   src/main/java/thaisamut/msa/reinsurance/components/EstimateComponent.java\r\nM   src/main/java/thaisamut/msa/reinsurance/jdbi/dao/TxRiBdrAlterDao.java\r\nM   src/main/java/thaisamut/msa/reinsurance/jdbi/dao/TxRiBdrClaimDao.java\r\nM   src/main/java/thaisamut/msa/reinsurance/jdbi/dao/TxRiBdrNewRenewDao.java\r\nM   src/main/resources/sql/edw_data_alteration.sql\r\nM   src/main/resources/sql/edw_data_alteration_fac.sql\r\nM   src/main/resources/sql/edw_data_claim.sql\r\nM   src/main/resources/sql/edw_data_claim_fac.sql\r\nM   src/main/resources/sql/edw_data_new_renew.sql\r\nM   src/main/resources/sql/edw_data_new_renew_fac.sql\r\n\r\n```"
+      }
+    ]
+  },
+  {
+    "id": 33421,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-0 [NEW-RENEW] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T14:31:06+07:00",
+    "updated": "2026-01-20T10:34:23+07:00",
+    "description": "ปรับ Process 00 ในกรณีอ่านเจอ Plan Code พิเศษแล้วต้องสร้าง Rider Code จำลอง 1 ตัว เพื่อประมวลผล Rider และส่งเบี้ยประกันต่อได้\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1117159566\r\n\r\n{{thumbnail(2568-12-15 14_26_03-Window.png)}}",
+    "custom": [],
+    "attachments": [
+      "2568-12-15 14_26_03-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T10:54:42+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\n\r\n``` html\r\ncommit 05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 10:50:35 2026 +0700\r\n\r\n    Task #33421 Task #33423 Task #33558  Task #33561 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/api/MsSpecialPlancodeTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/api/ReserveRateBean.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/models/ReserveRateTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/utils/CommonUtils.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/CfReserveRateDtDao.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/MsSpecialPlancodeDao.java\r\n```\r\n\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEF11, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT3, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT2, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFTB, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:LIFE\r\nserver.log-INFO  [090126-10:41:26.621][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1704128 ,PlanCode:A55 ,ProductGroup:BASE, Period:202601 | Check isSendReinsurer | Result :false\r\n--\r\nserver.log-INFO  [090126-10:41:26.623][pool-7-threa][na] LogHelper: Tracking EstimateAtuto TreatyCode :THREL_Ind_ORD_2019, Period :202601 | Process32Function | Process 32 Function | Id Card :2050161368219, PolicyNo :1704129, Time usage: 72 ms\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.625][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, MapKey:3000148L, 2000119L, Formula:({INITIAL_SA_LIFE} * {RESERVE_RATE}) / 1000,  INITIAL_SA_LIFE:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n```\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:ADD, MapKey:3000432L, 2000102L, isEventDate:false, Formula:{INITIAL_SA_ADD} * {DEATH_BENEFIT}, INITIAL_SA_ADD:500000.000, Result:500000.00\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Actual SA, Time:8 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.662][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, MapKey:3000150L, 2000120L, Formula:({INITIAL_SA_ADD} * {RESERVE_RATE}) / 1000,  INITIAL_SA_ADD:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n\r\n```\r\n"
+      }
+    ]
+  },
+  {
+    "id": 33423,
+    "tracker": "Task",
+    "status": "Closed",
+    "subject": "00-3 [NEW-RENEW] [FAC] คัดเลือกกรมธรรม์ของแต่ละ Treaty",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 33163,
+    "assigned": "Suthanee Saelim",
+    "created": "2025-12-15T14:31:54+07:00",
+    "updated": "2026-01-20T10:34:23+07:00",
+    "description": "ปรับ Process 00 ในกรณีอ่านเจอ Plan Code พิเศษแล้วต้องสร้าง Rider Code จำลอง 1 ตัว เพื่อประมวลผล Rider และส่งเบี้ยประกันต่อได้\r\n\r\nhttp://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131216956\r\n\r\n{{thumbnail(2568-12-15 14_26_03-Window.png)}}",
+    "custom": [],
+    "attachments": [
+      "2568-12-15 14_26_03-Window.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-01-09T10:54:59+07:00",
+        "notes": "git : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\n\r\n``` html\r\ncommit 05ae8e5e33ef657b024ac5740fd07cbf53f5abc0\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Fri Jan 9 10:50:35 2026 +0700\r\n\r\n    Task #33421 Task #33423 Task #33558  Task #33561 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/api/MsSpecialPlancodeTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/api/ReserveRateBean.java\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateProcessService.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/models/ReserveRateTupleKey.java\r\nsrc/main/java/thaisamut/msa/reinsurance/core/utils/CommonUtils.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/CfReserveRateDtDao.java\r\nsrc/main/java/thaisamut/msa/reinsurance/jdbi/dao/MsSpecialPlancodeDao.java\r\n```\r\n\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEF11, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT3, PlanCode:A55, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFT2, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:LIFE, MapKey:3000105L, 2000101L, isEventDate:false, Formula:{INITIAL_SA_LIFE} * {DEATH_BENEFIT}, INITIAL_SA_LIFE:500000.000, DEATH_BENEFIT:null, RefTable:OLPBEFTB, PlanCode:A55, PolicyYear:1, AttainedAge :15, Result:0\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:LIFE\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:LIFE, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.612][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:LIFE\r\nserver.log-INFO  [090126-10:41:26.621][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1704128 ,PlanCode:A55 ,ProductGroup:BASE, Period:202601 | Check isSendReinsurer | Result :false\r\n--\r\nserver.log-INFO  [090126-10:41:26.623][pool-7-threa][na] LogHelper: Tracking EstimateAtuto TreatyCode :THREL_Ind_ORD_2019, Period :202601 | Process32Function | Process 32 Function | Id Card :2050161368219, PolicyNo :1704129, Time usage: 72 ms\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.624][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, Plan:A55, isBase:true, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.625][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:LIFE, MapKey:3000148L, 2000119L, Formula:({INITIAL_SA_LIFE} * {RESERVE_RATE}) / 1000,  INITIAL_SA_LIFE:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n```\r\n\r\n``` html\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Actual SA | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Actual SA, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.644][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Actual SA | Process | CoverageType:ADD, MapKey:3000432L, 2000102L, isEventDate:false, Formula:{INITIAL_SA_ADD} * {DEATH_BENEFIT}, INITIAL_SA_ADD:500000.000, Result:500000.00\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Actual SA, Time:8 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Previous Reserve amount | Skip Process EstPolicyGroup :CURRENT_POLICY_NEW\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Tracking Time Main Process | TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671, CoverageType:ADD, Process:Previous Reserve amount, Time:0 ms ms\r\nserver.log:INFO  [090126-10:41:26.652][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Start | CoverageType:ADD\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, Rate:0\r\nserver.log:INFO  [090126-10:41:26.661][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, Plan:A55, isBase:false, Sex:F, Age:15, duration:1, PolicyStatus:I, PolicyType:ORD, reserveRate:0.0000\r\nserver.log:INFO  [090126-10:41:26.662][pool-7-threa][na] LogHelper: Main Process TreatyCode:THREL_Ind_ORD_2019, PolicyNo:1703671 | Reserve amount | Process | CoverageType:ADD, MapKey:3000150L, 2000120L, Formula:({INITIAL_SA_ADD} * {RESERVE_RATE}) / 1000,  INITIAL_SA_ADD:500000.000, RESERVE_RATE:0.0000, Result:0.00000\r\n\r\n```\r\n"
+      }
+    ]
+  },
+  {
+    "id": 46114,
+    "tracker": "Defect",
+    "status": "Resolved",
+    "subject": "รายงาน BDR แสดงข้อมูล Rider Plan Code ไม่ถูกต้อง",
+    "project": "UR 20250271 - New product OA55-OA59 โอเชี่ยนไลฟ์ เลิฟ โพรเทค 77/17",
+    "parent": 24371,
+    "assigned": "Watcharaporn Sayowan",
+    "created": "2026-01-22T15:14:08+07:00",
+    "updated": "2026-02-03T14:16:57+07:00",
+    "description": "**ข้อมูลทดสอบ**\r\n1701842 : Base Plan code A55 , Rider code 80\r\n2601043 : Base Plan code A58 , Rider code 80\r\n\r\n![](pic01.png)\r\n\r\n**ประมวลผล Estimate**\r\nTreaty : THREL_Ind_HSS_Rider\r\nPeriod : 2569/01\r\n\r\n**Actual Result**\r\nแสดงข้อมูลในรายงาน BDR New เป็น Z8\r\n\r\n![](pic02.png)\r\n",
+    "custom": [
+      "Application=Individual New RI",
+      "Phase=SIT",
+      "Environment=UAT",
+      "Root Cause=Under Investigated",
+      "Urgency=8"
+    ],
+    "attachments": [
+      "pic01.png",
+      "pic02.png",
+      "Screenshot from 2026-02-03 14-15-44.png"
+    ],
+    "journals": [
+      {
+        "by": "Bodin Itthiphonchayanan",
+        "on": "2026-02-03T14:16:57+07:00",
+        "notes": "เพิ่มเงื่อนไขตอน mapping ให้ตรวจสอบ rider code ว่าเป็น Z8 ไหมถึงจะใช้ mapping\r\n\r\ngit : https://10.100.2.187:8443/commitdiff/msa-reinsurance.git/7c124fa91b37fe98ff5a35bada9f3021d7b9ee55\r\n``` html\r\ncommit 7c124fa91b37fe98ff5a35bada9f3021d7b9ee55 (HEAD -> master, origin/master, origin/HEAD)\r\nAuthor: bodin.it <bodin.it@ocean.co.th>\r\nDate:   Tue Feb 3 14:03:28 2026 +0700\r\n\r\n    Defect #46114 รายงาน BDR แสดงข้อมูล Rider Plan Code ไม่ถูกต้อง\r\n\r\nsrc/main/java/thaisamut/msa/reinsurance/components/service/EstimateMappingService.java\r\n```\r\n"
+      }
+    ]
+  }
+]

@@ -1,0 +1,705 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - banner [ref=e3]:
+      - navigation [ref=e4]:
+        - generic:
+          - generic [ref=e6] [cursor=pointer]:  Linked Applications
+          - generic:
+            - heading "Ocean Life Insurance Public Company Limited" [level=1] [ref=e7]:
+              - link "Ocean Life Insurance Public Company Limited" [ref=e8] [cursor=pointer]:
+                - /url: /
+                - img "Ocean Life Insurance Public Company Limited" [ref=e9]
+            - list [ref=e10]:
+              - listitem [ref=e11]:
+                - link "Spaces" [ref=e12] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e13]:
+                - link "People" [ref=e14] [cursor=pointer]:
+                  - /url: /peopledirectory.action
+              - menu [ref=e15]:
+                - link "Browse" [ref=e16] [cursor=pointer]:
+                  - /url: "#"
+              - listitem [ref=e17]:
+                - link "Create" [ref=e18] [cursor=pointer]:
+                  - /url: /pages/createpage.action?spaceKey=RDSINRI&fromPageId=1116471548
+          - list [ref=e19]:
+            - listitem [ref=e20]:
+              - generic "Show or hide sidebar ([)" [ref=e22] [cursor=pointer]
+            - listitem [ref=e23]:
+              - group [ref=e25]:
+                - generic [ref=e26]: Quick Search
+                - textbox "Quick Search" [ref=e27]:
+                  - /placeholder: Search
+            - listitem [ref=e28]:
+              - link " Help" [ref=e29] [cursor=pointer]:
+                - /url: "#"
+                - generic [ref=e30]:  Help
+            - listitem
+            - listitem [ref=e31]:
+              - link " 0" [ref=e32] [cursor=pointer]:
+                - /url: "#"
+                - generic:
+                  - text: 
+                  - generic:
+                    - generic: "0"
+            - listitem [ref=e33]:
+              - link "อนุชา พิมสร้อย" [ref=e34] [cursor=pointer]:
+                - /url: "#"
+                - img [ref=e37]
+    - generic [ref=e38]:
+      - generic [ref=e40]:
+        - generic [ref=e42]:
+          - textbox [ref=e43]
+          - button "Search" [ref=e44] [cursor=pointer]
+        - list [ref=e45]:
+          - generic [ref=e47]:
+            - img [ref=e49]
+            - text: Loading...
+      - generic [ref=e58]:
+        - link "vsplitbar":
+          - /url: javascript:void(0)
+      - generic [ref=e60]:
+        - generic [ref=e61]:
+          - generic [ref=e62]:
+            - list:
+              - listitem [ref=e63]:
+                - link "Edit" [ref=e64] [cursor=pointer]:
+                  - /url: /pages/editpage.action?pageId=1116471548
+                  - generic [ref=e65]: Edit
+              - listitem [ref=e66]:
+                - link "Watch" [ref=e67] [cursor=pointer]:
+                  - /url: "?watchingPage=false&watchingSpace=false&watchingBlogs=false&isAdmin=false&isBlogPost=false"
+                  - generic [ref=e68]: Watch
+              - listitem [ref=e69]:
+                - link "Share" [ref=e70] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e71]: Share
+              - listitem: ▾
+              - listitem [ref=e72]:
+                - link "Tools▾" [ref=e73] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e74]: Tools▾
+          - generic [ref=e75]:
+            - list [ref=e77]:
+              - listitem [ref=e78]:
+                - link "20210257-Individual New RI" [ref=e80] [cursor=pointer]:
+                  - /url: /display/RDSINRI?src=breadcrumbs-homepage
+              - listitem "Show all breadcrumbs" [ref=e81] [cursor=pointer]:
+                - text: /
+                - strong [ref=e83]: …
+              - text: / / /
+              - listitem [ref=e84]:
+                - text: /
+                - link "A18. MAIN Process" [ref=e86] [cursor=pointer]:
+                  - /url: /display/RDSINRI/A18.+MAIN+Process?src=breadcrumbs-parent
+            - heading "00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty" [level=1] [ref=e87]:
+              - link "00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty" [ref=e88] [cursor=pointer]:
+                - /url: /pages/viewpage.action?pageId=1116471548
+        - generic [ref=e89]:
+          - link "Skip to end of metadata" [ref=e90] [cursor=pointer]:
+            - /url: "#page-metadata-end"
+          - list [ref=e93]:
+            - listitem
+            - listitem [ref=e94]:
+              - link "2 attachments" [ref=e95] [cursor=pointer]:
+                - /url: /pages/viewpageattachments.action?pageId=1116471548&metadataLink=true
+            - listitem [ref=e96]:
+              - text: Added by
+              - link "สุธนี แซ่ลิ่ม" [ref=e97] [cursor=pointer]:
+                - /url: "    /display/~suthanee.sa\n"
+              - text: ", last edited by"
+              - link "สุธนี แซ่ลิ่ม" [ref=e98] [cursor=pointer]:
+                - /url: "    /display/~suthanee.sa\n"
+              - text: on May 21, 2026
+              - generic [ref=e99]:
+                - text: (
+                - link "view change" [ref=e100] [cursor=pointer]:
+                  - /url: /pages/diffpages.action?pageId=1116471548&originalId=1342505311
+                - text: )
+          - link "Go to start of metadata" [ref=e101] [cursor=pointer]:
+            - /url: "#page-metadata-start"
+          - generic [ref=e103]:
+            - generic [ref=e104]:
+              - generic [ref=e105]: นำเข้ากรมธรรม์ Alteration
+              - generic [ref=e106]:
+                - generic [ref=e107]:
+                  - generic [ref=e108]: นำเข้าข้อมูลกรมธรรม์สามัญ (Alteration) Auto
+                  - paragraph [ref=e110]:
+                    - link "เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ (Alteration) Auto" [ref=e111] [cursor=pointer]:
+                      - /url: /display/RDSINRI/ORD+Alteration
+                - generic [ref=e112]:
+                  - generic [ref=e113]: นำเข้าข้อมูลกรมธรรม์ PA (New,Renew)
+                  - generic [ref=e114]:
+                    - paragraph [ref=e115]: เงื่อนไขการดึงข้อมูลกรมธรรม์ PA (New,Renew)
+                    - generic [ref=e117] [cursor=pointer]: แสดงรายละเอียด
+                - generic [ref=e119]:
+                  - generic [ref=e120]: กรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto
+                  - generic [ref=e121]:
+                    - paragraph [ref=e122]: เงื่อนไขการดึงข้อมูลกรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto
+                    - generic [ref=e124] [cursor=pointer]: แสดงรายละเอียด
+                - generic [ref=e126]:
+                  - generic [ref=e127]: นำเข้ากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto
+                  - generic [ref=e128]:
+                    - paragraph [ref=e129]: เงื่อนไขการดึงข้อมูลกรมธรรม์สามัญ (Alteration) Auto
+                    - generic [ref=e131] [cursor=pointer]: แสดงรายละเอียด
+            - generic [ref=e133]:
+              - generic [ref=e134]: เรียงลำดับการประมวลผล
+              - generic [ref=e135]:
+                - paragraph [ref=e136]: เรียงลำดับจากน้อยไปมาก จาก
+                - table [ref=e138]:
+                  - rowgroup [ref=e139]:
+                    - row "ที่มาของข้อมูล ข้อมูล Description Table Field" [ref=e140]:
+                      - columnheader "ที่มาของข้อมูล" [ref=e141] [cursor=pointer]:
+                        - generic [ref=e142]: ที่มาของข้อมูล
+                      - columnheader "ข้อมูล" [ref=e143] [cursor=pointer]:
+                        - generic [ref=e146]: ข้อมูล
+                      - columnheader "Description" [ref=e147] [cursor=pointer]:
+                        - generic [ref=e150]: Description
+                      - columnheader "Table" [ref=e151] [cursor=pointer]:
+                        - generic [ref=e152]: Table
+                      - columnheader "Field" [ref=e153] [cursor=pointer]:
+                        - generic [ref=e156]: Field
+                  - rowgroup [ref=e157]:
+                    - row "นำเข้าข้อมูลกรมธรรม์สามัญ (Alteration) Auto Alteration Date วันที่เปลี่ยนแปลง tx_ri_ord_alteration_dt alteration_date" [ref=e158]:
+                      - cell "นำเข้าข้อมูลกรมธรรม์สามัญ (Alteration) Auto" [ref=e159]
+                      - cell "Alteration Date" [ref=e160]:
+                        - paragraph [ref=e161]: Alteration Date
+                      - cell "วันที่เปลี่ยนแปลง" [ref=e162]
+                      - cell "tx_ri_ord_alteration_dt" [ref=e163]:
+                        - link "tx_ri_ord_alteration_dt" [ref=e164] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/display/RDSINRI/03.+tx_ri_ord_alteration_dt
+                      - cell "alteration_date" [ref=e165]
+                    - row "นำเข้าข้อมูลกรมธรรม์ PA (New,Renew) Alteration Date วันที่เปลี่ยนแปลง tx_ri_pa_new_renew_dt alteration_date" [ref=e166]:
+                      - cell "นำเข้าข้อมูลกรมธรรม์ PA (New,Renew)" [ref=e167]
+                      - cell "Alteration Date" [ref=e168]
+                      - cell "วันที่เปลี่ยนแปลง" [ref=e169]
+                      - cell "tx_ri_pa_new_renew_dt" [ref=e170]:
+                        - link "tx_ri_pa_new_renew_dt" [ref=e171] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/_wFgQg
+                      - cell "alteration_date" [ref=e172]
+                    - row "กรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto Alteration Date วันที่เปลี่ยนแปลง tx_ri_ind_alteration_dt effective_date" [ref=e173]:
+                      - cell "กรมธรรม์ส่งประกันต่ออุตสาหกรรม (Outforce) Auto" [ref=e174]
+                      - cell "Alteration Date" [ref=e175]
+                      - cell "วันที่เปลี่ยนแปลง" [ref=e176]
+                      - cell "tx_ri_ind_alteration_dt" [ref=e177]:
+                        - link "tx_ri_ind_alteration_dt" [ref=e178] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/rQFUQw
+                      - cell "effective_date" [ref=e179]
+                    - row "นำเข้ากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto Alteration Date วันที่เปลี่ยนแปลง tx_ri_ul_alteration_dt alteration_date" [ref=e180]:
+                      - cell "นำเข้ากรมธรรม์ส่งประกันต่อ UL (Alteration) Auto" [ref=e181]
+                      - cell "Alteration Date" [ref=e182]
+                      - cell "วันที่เปลี่ยนแปลง" [ref=e183]
+                      - cell "tx_ri_ul_alteration_dt" [ref=e184]:
+                        - link "tx_ri_ul_alteration_dt" [ref=e185] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/x/HQBYQw
+                      - cell "alteration_date" [ref=e186]
+            - generic [ref=e187]:
+              - generic [ref=e188]: เปรียบเทียบข้อมูลเดิมที่เคยส่ง RE
+              - generic [ref=e189]:
+                - paragraph [ref=e190]:
+                  - text: ตรวจสอบรายการกรมธรรม์ที่มีการ Alteration ที่ได้มา กับรายการที่เคยส่ง
+                  - strong [ref=e191]: ประกันต่อ (Reinsurer)
+                  - text: มาก่อนแล้ว
+                - list [ref=e192]:
+                  - listitem [ref=e193]:
+                    - list [ref=e194]:
+                      - listitem [ref=e195]:
+                        - paragraph [ref=e196]:
+                          - text: ตรวจสอบ
+                          - strong [ref=e197]: วันที่เปลี่ยนแปลงข้อมูล
+                        - generic [ref=e199] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e201]:
+                        - paragraph [ref=e202]: ตรวจสอบรายการ Base หรือ Rider ที่มีการ Alteration
+                        - generic [ref=e204] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e206]:
+                        - paragraph [ref=e207]:
+                          - text: กรณีที่เป็นการ
+                          - strong [ref=e209]: Alter Base
+                          - text: ค้นหาข้อมูลที่ช่วงวันที่อยู่ใน coverage_from - coverage_to จาก
+                          - link "tx_ri_act_policy_dt" [ref=e210] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/9gJcQw
+                          - text: หรือ
+                          - link "tx_ri_est_policy_dt" [ref=e211] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/x/rQIAQw
+                        - generic [ref=e213] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e215]:
+                        - paragraph [ref=e216]:
+                          - text: ค้นหาข้อมูล Base ที่ส่ง
+                          - strong [ref=e217]: ประกันต่อ (Reinsurer)
+                          - text: ในรายการ โดยหาจากในรายการที่ได้มาจากข้อ 3
+                        - generic [ref=e219] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e221]:
+                        - paragraph [ref=e222]:
+                          - text: กรณีที่เป็นการ
+                          - generic [ref=e223]:
+                            - strong [ref=e224]: Alter Rider
+                            - text: ค้นหาข้อมูลที่ช่วงวันที่อยู่ใน coverage_from - coverage_to จาก
+                            - link "tx_ri_act_rider_auto_dt" [ref=e225] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/x/AANcQw
+                            - text: หรือ
+                            - link "tx_ri_act_base_facult_dt" [ref=e226] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/x/AgNcQw
+                            - text: หรือ
+                            - link "tx_ri_est_rider_auto_dt" [ref=e227] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/x/KQFKQw
+                            - text: หรือ
+                            - link "tx_ri_est_rider_facult_dt" [ref=e228] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/x/LwFKQw
+                        - generic [ref=e230] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e232]:
+                        - paragraph [ref=e233]:
+                          - generic [ref=e234]: กรณีไม่พบรายการเลย ให้ตรวจสอบว่ามีการส่งในรอบอื่นๆหรือไม่ (31/03/25)
+                        - generic [ref=e236] [cursor=pointer]: แสดงรายละเอียด
+                      - listitem [ref=e238]:
+                        - text: ตรวจสอบ Treaty ที่กำลังประมวลผลภายใต้ cf_lookup_catalog.parent_id = 1007400 เท่ากับ cf_lookup_catalog.lookup_key
+                        - list [ref=e239]:
+                          - listitem [ref=e240]:
+                            - text: ถ้าตรงกับรายการใดรายการหนึ่ง (แปลว่าเป็น Treaty Rider Only)
+                            - list [ref=e241]:
+                              - listitem [ref=e242]:
+                                - text: ตรวจสอบว่า
+                                - generic [ref=e243]: Alteration Code (รหัสประเภทสลักหลัง) ของรายการที่กำลังประมวลผลอยู่เท่ากับ 'LP' 'SD' 'AS' '6' หรือไม่
+                                - list [ref=e244]:
+                                  - listitem [ref=e245]:
+                                    - generic [ref=e247]:
+                                      - text: ถ้าตรงกัน ให้ตรวจสอบก่อนว่า
+                                      - generic [ref=e248]: ด้วยกรมธรรม์เดียวกัน มีรายการ Alter ที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' หรือไม่
+                                    - list [ref=e249]:
+                                      - listitem [ref=e250]:
+                                        - generic [ref=e252]:
+                                          - text: ถ้ามีให้ตรวจสอบรายการที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' ว่ามีรายการเคลมด้วยกรมธรรม์เดียวกัน และมี event date ตรงกับ
+                                          - generic [ref=e253]: วันที่มีผลสลักหลัง
+                                          - text: และ Rider เดียวกันหรือไม่ (tx_ri_ord_master_claim_dt, tx_ri_ord_health_claim_dt, tx_ri_pa_claim_dt, tx_ri_ul_claim_dt ขึ้นอยุ่กับประเภทของกรมธรรม์)
+                                        - list [ref=e254]:
+                                          - listitem [ref=e255]:
+                                            - generic [ref=e257]:
+                                              - text: ถ้ามี ให้ข้ามการทำรายการ
+                                              - generic [ref=e258]: Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' 'LP' 'SD' 'AS' '6' ของ Rider นั้นทั้งหมด (ให้รายการไปทำข้อมูลที่รายการเคลมแทน)
+                                          - listitem [ref=e259]:
+                                            - text: ถ้าไม่มี ให้ทำรายการ
+                                            - generic [ref=e260]:
+                                              - text: Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' แต่ไม่ต้องทำรายการ ของกรมธรรม์ที่
+                                              - generic [ref=e261]: Alteration Code เท่ากับ 'LP' 'SD' 'AS' '6'
+                                      - listitem [ref=e262]:
+                                        - text: ถ้าไม่มี ให้ทำรายการ
+                                        - generic [ref=e263]: Alteration Code ของกรมธรรม์ที่ Alteration Code เท่ากับ 'LP' 'SD' 'AS' '6'
+                                  - listitem [ref=e264]:
+                                    - generic [ref=e266]:
+                                      - text: ถ้าไม่ตรง
+                                      - generic [ref=e267]: ให้ตรวจสอบว่า รายการ Alter ที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' หรือไม่
+                                    - list [ref=e268]:
+                                      - listitem [ref=e269]:
+                                        - generic [ref=e275]:
+                                          - text: ถ้าตรงให้ตรวจสอบรายการที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' ว่ามีรายการเคลมด้วยกรมธรรม์เดียวกัน และมี event date ตรงกับ
+                                          - generic [ref=e276]: วันที่มีผลสลักหลัง
+                                          - text: และ Rider เดียวกันหรือไม่ (tx_ri_ord_master_claim_dt, tx_ri_ord_health_claim_dt, tx_ri_pa_claim_dt, tx_ri_ul_claim_dt ขึ้นอยุ่กับประเภทของกรมธรรม์)
+                                        - list [ref=e277]:
+                                          - listitem [ref=e278]: ถ้ามี ให้ข้ามการทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' 'LP' 'SD' 'AS' '6' ของ Rider นั้นทั้งหมด (ให้รายการไปทำข้อมูลที่รายการเคลมแทน)
+                                          - listitem [ref=e279]: ถ้าไม่มี ให้ทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD'
+                                  - listitem [ref=e280]: ถ้าไม่ตรงกับทั้งสองเงื่อนไข ให้ทำรายการ Alter ตามเงื่อนไขเดิมปกติ
+                          - listitem [ref=e281]:
+                            - generic [ref=e285]:
+                              - text: ถ้าไม่ตรง
+                              - generic [ref=e286]: กับรายการใดรายการหนึ่ง (แปลว่าไม่เป็น Treaty Rider Only)
+                            - list [ref=e287]:
+                              - listitem [ref=e288]:
+                                - generic [ref=e293]: ตรวจสอบว่า Alteration Code (รหัสประเภทสลักหลัง) ของรายการที่กำลังประมวลผลอยู่เท่ากับ 'LP' 'SD' 'AS' '6' หรือไม่
+                                - list [ref=e294]:
+                                  - listitem [ref=e295]:
+                                    - text: ถ้าตรงกัน ให้ตรวจสอบก่อนว่า ด้วยกรมธรรม์เดียวกัน มีรายการ Alter ที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' ในรอบเดียวกันหรือไม่
+                                    - list [ref=e296]:
+                                      - listitem [ref=e297]:
+                                        - text: ถ้ามีให้ตรวจสอบรายการที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' ว่ามีรายการเคลมด้วยกรมธรรม์เดียวกัน และมี event date ตรงกับ
+                                        - generic [ref=e298]: วันที่มีผลสลักหลัง
+                                        - text: และ Rider เดียวกันหรือไม่ (tx_ri_ord_master_claim_dt, tx_ri_ord_health_claim_dt, tx_ri_pa_claim_dt, tx_ri_ul_claim_dt ขึ้นอยุ่กับประเภทของกรมธรรม์)
+                                        - list [ref=e299]:
+                                          - listitem [ref=e300]: ถ้ามี ให้ข้ามการทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' ของ Rider แต่ให้ทำรายการ 'LP' 'SD' 'AS' '6' ของกรมธรรม์นั้น แต่ไม่ต้องทำรายการยกเลิกกรมธรรม์ Rider (ให้รายการไปทำข้อมูลที่รายการเคลมแทน)
+                                          - listitem [ref=e301]: ถ้าไม่มี ให้ทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' และให้ทำรายการ 'LP' 'SD' 'AS' '6' ของกรมธรรม์นั้น แต่ไม่ต้องทำรายการยกเลิกกรมธรรม์ Rider
+                                      - listitem [ref=e302]: ถ้าไม่มี ให้ทำรายการ Alteration Code ของกรมธรรม์ที่ Alteration Code เท่ากับ 'LP' 'SD' 'AS' '6'
+                                  - listitem [ref=e303]: ถ้าไม่ตรงกับทั้งสองเงื่อนไข ให้ทำรายการ Alter ตามเงื่อนไขเดิมปกติ
+                          - listitem [ref=e304]:
+                            - text: ตรวจสอบ
+                            - generic [ref=e305]:
+                              - link "tx_ri_send_reinsurer_period" [ref=e306] [cursor=pointer]:
+                                - /url: /display/RDSINRI/60.+TX_RI_SEND_REINSURER_PERIOD
+                              - text: .refund_flag ของรายการที่ต้องการไปดึงมาทำรายการ Alter หากไม่ใช่ค่าว่าง
+                      - listitem [ref=e307]:
+                        - paragraph [ref=e308]: เมื่อดึงข้อมูลรายการ New Renew ใดมาทำงาน ให้ดึงข้อมูลเฉพาะรายการ ใน tx_ri_send_reinsurer_period.refund_flag ต้องเป็นค่าว่างเท่านั้น
+                      - listitem [ref=e309]:
+                        - paragraph [ref=e310]: เมื่อดึงข้อมูลรายการ New Renew ใดไปทำรายการ Alter แล้ว ให้บันทึก "ALTER" ลงใน tx_ri_send_reinsurer_period.refund_flag ของทุกรายการที่นำไปทำกระบวนการ Alteration
+                      - listitem [ref=e311]:
+                        - paragraph [ref=e312]: ดำเนินการดึงข้อมูลการประมวลผลในรอบนั้น
+                        - generic [ref=e314] [cursor=pointer]: แสดงรายละเอียด
+            - generic [ref=e316]:
+              - generic [ref=e317]: ประมวลผลต่อ
+              - generic [ref=e318]:
+                - paragraph [ref=e319]: นำข้อมูลที่ได้ทั้งหมดเก็บเป็นรายละเอียดของรายการ Alteration นั้น และนำไปประมวลผลต่อที่
+                - paragraph [ref=e320]: กรณีรูปแบบ A หรือ D หรือ E เริ่มตั้งแต่
+                - list [ref=e321]:
+                  - listitem [ref=e322]:
+                    - list [ref=e323]:
+                      - listitem [ref=e324]:
+                        - paragraph [ref=e325]:
+                          - link "01 การประมวลผล Actual SA" [ref=e326] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471509
+                      - listitem [ref=e327]:
+                        - paragraph [ref=e328]:
+                          - link "02 การประมวลผล Previous Actual SA" [ref=e329] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471544
+                      - listitem [ref=e330]:
+                        - paragraph [ref=e331]:
+                          - link "03 การประมวลผล Reserve amount" [ref=e332] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471525
+                      - listitem [ref=e333]:
+                        - paragraph [ref=e334]:
+                          - link "04 การประมวลผล Previous Reserve amount" [ref=e335] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471456
+                      - listitem [ref=e336]:
+                        - paragraph [ref=e337]:
+                          - link "05 การประมวลผล Net Amount at Risk" [ref=e338] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471527
+                      - listitem [ref=e339]:
+                        - paragraph [ref=e340]:
+                          - link "06 การประมวลผล Previous NAR" [ref=e341] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446312
+                      - listitem [ref=e342]:
+                        - paragraph [ref=e343]:
+                          - link "07 การประมวลผล Total NAR" [ref=e344] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471692
+                      - listitem [ref=e345]:
+                        - paragraph [ref=e346]:
+                          - link "08-0 [AUTO] การประมวลผล Retention" [ref=e347] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471529
+                      - listitem [ref=e348]:
+                        - paragraph [ref=e349]:
+                          - link "08-1 [FAC] การประมวลผล Retention" [ref=e350] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446314
+                      - listitem [ref=e351]:
+                        - paragraph [ref=e352]:
+                          - link "09 การประมวลผล SR" [ref=e353] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446316
+                      - listitem [ref=e354]:
+                        - paragraph [ref=e355]:
+                          - link "10 การประมวลผล Previous SR" [ref=e356] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471553
+                      - listitem [ref=e357]:
+                        - paragraph [ref=e358]:
+                          - link "11 การประมวลผล Total SR" [ref=e359] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471692
+                      - listitem [ref=e360]:
+                        - paragraph [ref=e361]:
+                          - generic [ref=e362]:
+                            - link "12 ขั้นตอนการเลือก Policy ส่งประกันต่อ" [ref=e363] [cursor=pointer]:
+                              - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446319
+                            - text: (suthanee.sa 17/01/2025)
+                      - listitem [ref=e364]:
+                        - paragraph [ref=e365]:
+                          - link "13 การประมวลผล %RI Ratio" [ref=e366] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453416
+                      - listitem [ref=e367]:
+                        - paragraph [ref=e368]:
+                          - link "14 การประมวลผล RI Premium" [ref=e369] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471531
+                      - listitem [ref=e370]:
+                        - paragraph [ref=e371]:
+                          - link "15 การประมวลผล RI Extra Premium" [ref=e372] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471533
+                      - listitem [ref=e373]:
+                        - paragraph [ref=e374]:
+                          - link "16 การประมวลผล RI Commission" [ref=e375] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471538
+                      - listitem [ref=e376]:
+                        - paragraph [ref=e377]:
+                          - link "17 การประมวลผล RI Extra Commission" [ref=e378] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1116471540
+                      - listitem [ref=e379]:
+                        - paragraph [ref=e380]:
+                          - link "18 การประมวลผล Total RI premium" [ref=e381] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446326
+                      - listitem [ref=e382]:
+                        - paragraph [ref=e383]:
+                          - link "19 การประมวลผล Total RI extra premium" [ref=e384] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446328
+                      - listitem [ref=e385]:
+                        - paragraph [ref=e386]:
+                          - link "20 การประมวลผล Total RI commission" [ref=e387] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446330
+                      - listitem [ref=e388]:
+                        - paragraph [ref=e389]:
+                          - link "21 การประมวลผล Total RI extra commission" [ref=e390] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446332
+                      - listitem [ref=e391]:
+                        - paragraph [ref=e392]:
+                          - link "22 การประมวลผล Net RI Premium" [ref=e393] [cursor=pointer]:
+                            - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453418
+                      - listitem [ref=e394]:
+                        - paragraph [ref=e395]: บันทึกข้อมูลที่ New/Rene เพิ่ม แต่ไม่ออก Report
+                      - listitem [ref=e396]:
+                        - table [ref=e398]:
+                          - rowgroup [ref=e399]:
+                            - row "กรณีบันทึก Table New/Renew ประมวลผล ส่งประกันต่อ New / Renew ออก Report New / Renew ออก Report Alter ออก Report Claim report_status" [ref=e400]:
+                              - columnheader "กรณีบันทึก Table New/Renew" [ref=e401] [cursor=pointer]:
+                                - generic [ref=e402]: กรณีบันทึก Table New/Renew
+                              - columnheader "ประมวลผล" [ref=e403] [cursor=pointer]:
+                                - paragraph [ref=e405]: ประมวลผล
+                              - columnheader "ส่งประกันต่อ New / Renew" [ref=e406] [cursor=pointer]:
+                                - paragraph [ref=e408]: ส่งประกันต่อ New / Renew
+                              - columnheader "ออก Report New / Renew" [ref=e409] [cursor=pointer]:
+                                - paragraph [ref=e411]: ออก Report New / Renew
+                              - columnheader "ออก Report Alter" [ref=e412] [cursor=pointer]:
+                                - generic [ref=e414]: ออก Report Alter
+                              - columnheader "ออก Report Claim" [ref=e415] [cursor=pointer]:
+                                - generic [ref=e416]: ออก Report Claim
+                              - columnheader "report_status" [ref=e417] [cursor=pointer]:
+                                - generic [ref=e418]: report_status
+                          - rowgroup [ref=e419]:
+                            - row "กรมธรรม์ส่ง RE ตามปกติ Y Y Y N N NULL" [ref=e420]:
+                              - cell "กรมธรรม์ส่ง RE ตามปกติ" [ref=e421]
+                              - cell "Y" [ref=e422]
+                              - cell "Y" [ref=e423]
+                              - cell "Y" [ref=e424]
+                              - cell "N" [ref=e425]
+                              - cell "N" [ref=e426]
+                              - cell "NULL" [ref=e427]
+                            - row "กรมธรรม์จ่ายค่าเบี้ยใหม่จากการ Alteration Y Y N Y N CAL_SEND_NOREPO" [ref=e428]:
+                              - cell "กรมธรรม์จ่ายค่าเบี้ยใหม่จากการ Alteration" [ref=e429]
+                              - cell "Y" [ref=e430]
+                              - cell "Y" [ref=e431]
+                              - cell "N" [ref=e432]
+                              - cell "Y" [ref=e433]
+                              - cell "N" [ref=e434]
+                              - cell "CAL_SEND_NOREPO" [ref=e435]
+                            - row "กรมธรรม์เข้าเงื่อนไข Treaty แต่ไม่ส่งประกันต่อ เพราะ SR ไม่ถึงหรือเป็นแค่ Previous Y N Y (แค่ส่วนหนึ่งของข้อมูลที่จำเป็น) N N CAL_NOSEND_NOREPO" [ref=e436]:
+                              - cell "กรมธรรม์เข้าเงื่อนไข Treaty แต่ไม่ส่งประกันต่อ เพราะ SR ไม่ถึงหรือเป็นแค่ Previous" [ref=e437]:
+                                - paragraph [ref=e438]: กรมธรรม์เข้าเงื่อนไข Treaty แต่ไม่ส่งประกันต่อ
+                                - paragraph [ref=e439]: เพราะ SR ไม่ถึงหรือเป็นแค่ Previous
+                              - cell "Y" [ref=e440]
+                              - cell "N" [ref=e441]
+                              - cell "Y (แค่ส่วนหนึ่งของข้อมูลที่จำเป็น)" [ref=e442]
+                              - cell "N" [ref=e443]
+                              - cell "N" [ref=e444]
+                              - cell "CAL_NOSEND_NOREPO" [ref=e445]
+                            - row "ข้อมูล Base ของ Treaty ที่ config แต่ไรเดอร์ N N N N Y NOCAL_NOSEND_NOREPO" [ref=e446]:
+                              - cell "ข้อมูล Base ของ Treaty ที่ config แต่ไรเดอร์" [ref=e447]
+                              - cell "N" [ref=e448]
+                              - cell "N" [ref=e449]
+                              - cell "N" [ref=e450]
+                              - cell "N" [ref=e451]
+                              - cell "Y" [ref=e452]
+                              - cell "NOCAL_NOSEND_NOREPO" [ref=e453]
+                            - row "มาจาก Claim รายการที่ไม่เคยส่ง RE (เก็บข้อมูลฝั่ง not sent แต่ออก report) NOCAL_NOSEND_REPO" [ref=e454]:
+                              - cell "มาจาก Claim รายการที่ไม่เคยส่ง RE (เก็บข้อมูลฝั่ง not sent แต่ออก report)" [ref=e455]:
+                                - paragraph [ref=e456]: มาจาก Claim รายการที่ไม่เคยส่ง RE (เก็บข้อมูลฝั่ง not sent แต่ออก report)
+                              - cell [ref=e457]
+                              - cell [ref=e458]
+                              - cell [ref=e459]
+                              - cell [ref=e460]
+                              - cell [ref=e461]
+                              - cell "NOCAL_NOSEND_REPO" [ref=e462]
+                            - row "Claim Rider Benefit Code ที่ไม่ต้องจ่าย ******ต้องเก็บลงฐานข้อมูลฝั่ง Auto (suthanee.sa 03/02/2025) N N N N Y NOCAL_NOSEND_REPORIDER" [ref=e463]:
+                              - cell "Claim Rider Benefit Code ที่ไม่ต้องจ่าย ******ต้องเก็บลงฐานข้อมูลฝั่ง Auto (suthanee.sa 03/02/2025)" [ref=e464]:
+                                - paragraph [ref=e465]: Claim Rider Benefit Code ที่ไม่ต้องจ่าย ******ต้องเก็บลงฐานข้อมูลฝั่ง Auto
+                                - paragraph [ref=e466]: (suthanee.sa 03/02/2025)
+                              - cell "N" [ref=e467]
+                              - cell "N" [ref=e468]
+                              - cell "N" [ref=e469]
+                              - cell "N" [ref=e470]
+                              - cell "Y" [ref=e471]
+                              - cell "NOCAL_NOSEND_REPORIDER" [ref=e472]
+                - paragraph [ref=e473]
+                - paragraph [ref=e474]: การประมวลผลสำหรับการ Alteration อื่น ๆ
+                - list [ref=e475]:
+                  - listitem [ref=e476]:
+                    - list [ref=e477]:
+                      - listitem [ref=e478]:
+                        - link "23 การประมวลผล RI Premium refund" [ref=e479] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453421
+                      - listitem [ref=e480]:
+                        - link "24 การประมวลผล RI Extra Premium refund" [ref=e481] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1121911175
+                      - listitem [ref=e482]:
+                        - link "25 การประมวลผล Total RI premium refund" [ref=e483] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446351
+                      - listitem [ref=e484]:
+                        - link "26 การประมวลผล Total RI Extra Premium refund" [ref=e485] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446338
+                      - listitem [ref=e486]:
+                        - link "27 การประมวลผล RI Commission refund" [ref=e487] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453423
+                      - listitem [ref=e488]:
+                        - link "28 การประมวลผล RI Extra commission refund" [ref=e489] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1119453426
+                      - listitem [ref=e490]:
+                        - link "29 การประมวลผล Total RI Commission refund" [ref=e491] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446343
+                      - listitem [ref=e492]:
+                        - link "30 การประมวลผล Total RI Extra commission refund" [ref=e493] [cursor=pointer]:
+                          - /url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1131446345
+            - paragraph [ref=e494]
+            - list [ref=e495]:
+              - listitem [ref=e496]:
+                - text: ถ้ามีให้ตรวจสอบรายการที่มี Alteration Code (รหัสประเภทสลักหลัง) เท่ากับ 'CC' 'CD' ว่ามีรายการเคลมด้วยกรมธรรม์เดียวกัน และมี event date ตรงกับ
+                - generic [ref=e497]: วันที่มีผลสลักหลัง
+                - text: และ Rider เดียวกันหรือไม่ (tx_ri_ord_master_claim_dt, tx_ri_ord_health_claim_dt, tx_ri_pa_claim_dt, tx_ri_ul_claim_dt ขึ้นอยุ่กับประเภทของกรมธรรม์)
+                - list [ref=e498]:
+                  - listitem [ref=e499]: ถ้ามี ให้ข้ามการทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' 'LP' 'SD' 'AS' '6' ของ Rider นั้นทั้งหมด (ให้รายการไปทำข้อมูลที่รายการเคลมแทน)
+                  - listitem [ref=e500]: ถ้าไม่มี ให้ทำรายการ Alteration Code ของ Rider ที่ตรงกับรายการ 'CC' 'CD' แต่ไม่ต้องทำรายการ ของกรมธรรม์ที่ Alteration Code เท่ากับ 'LP' 'SD' 'AS' '6'
+              - listitem [ref=e501]: ถ้าไม่มี ให้ทำรายการ Alteration Code ของกรมธรรม์ที่ Alteration Code เท่ากับ 'LP' 'SD' 'AS' '6'
+          - generic [ref=e502]:
+            - generic [ref=e503]:
+              - link "Like" [ref=e504] [cursor=pointer]:
+                - /url: ""
+              - text: Be the first to like this
+            - list [ref=e508]:
+              - listitem [ref=e509]: No labels
+              - listitem [ref=e510]:
+                - link "Edit Labels" [ref=e511] [cursor=pointer]:
+                  - /url: "#"
+                  - generic [ref=e512]: Edit Labels
+          - generic [ref=e513]:
+            - heading "3 Child Pages" [level=2] [ref=e515]:
+              - link "3 Child Pages" [ref=e516] [cursor=pointer]:
+                - /url: /pages/viewpage.action?pageId=1116471548&showChildren=false#children
+            - generic [ref=e517]:
+              - generic [ref=e518]:
+                - generic "Page" [ref=e519]: "Page:"
+                - link "[ยกเลิก] 00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty" [ref=e520] [cursor=pointer]:
+                  - /url: /pages/viewpage.action?pageId=1176010862
+              - generic [ref=e521]:
+                - generic "Page" [ref=e522]: "Page:"
+                - link "ORD Alteration" [ref=e523] [cursor=pointer]:
+                  - /url: /display/RDSINRI/ORD+Alteration
+              - generic [ref=e524]:
+                - generic "Page" [ref=e525]: "Page:"
+                - link "หลักการคำนวณ Refund (Alter,Claim)" [ref=e526] [cursor=pointer]:
+                  - /url: /pages/viewpage.action?pageId=1340768497
+          - generic [ref=e527]:
+            - heading "3 Comments" [level=2] [ref=e529]
+            - list [ref=e530]:
+              - listitem [ref=e531]:
+                - generic [ref=e532]:
+                  - paragraph [ref=e533]:
+                    - 'link "User icon: bodin.ri" [ref=e534] [cursor=pointer]':
+                      - /url: "    /display/~bodin.ri\n"
+                      - 'img "User icon: bodin.ri" [ref=e535]'
+                  - heading "Bodin Rinyen" [level=4] [ref=e537]:
+                    - link "Bodin Rinyen" [ref=e538] [cursor=pointer]:
+                      - /url: "    /display/~bodin.ri\n"
+                  - generic [ref=e539]:
+                    - paragraph [ref=e541]:
+                      - generic [ref=e542]:
+                        - link "IRI-829" [ref=e543] [cursor=pointer]:
+                          - /url: http://jira.thaisamut.co.th/browse/IRI-829
+                          - img [ref=e544]
+                          - text: IRI-829
+                        - text: "- [DEV] [PS] 00-1 [ALTER] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty ("
+                        - generic [ref=e545]:
+                          - img [ref=e546]
+                          - text: Closed
+                        - text: )
+                    - generic [ref=e547]:
+                      - list:
+                        - listitem [ref=e548]:
+                          - link "Reply" [ref=e549] [cursor=pointer]:
+                            - /url: /pages/replycomment.action?commentId=1138917421&pageId=1116471548
+                        - listitem [ref=e550]:
+                          - text: •
+                          - link "Like" [ref=e551] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e552]:
+                          - text: •
+                          - link "Mar 04, 2024" [ref=e553] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1116471548&focusedCommentId=1138917421#comment-1138917421
+              - listitem [ref=e554]:
+                - generic [ref=e555]:
+                  - paragraph [ref=e556]:
+                    - 'link "User icon: pongsathorn.pa" [ref=e557] [cursor=pointer]':
+                      - /url: "    /display/~pongsathorn.pa\n"
+                      - 'img "User icon: pongsathorn.pa" [ref=e558]'
+                  - heading "พงศธร พาสุริยันต์" [level=4] [ref=e560]:
+                    - link "พงศธร พาสุริยันต์" [ref=e561] [cursor=pointer]:
+                      - /url: "    /display/~pongsathorn.pa\n"
+                  - generic [ref=e562]:
+                    - paragraph [ref=e564]:
+                      - generic [ref=e565]:
+                        - link "IRI-4151" [ref=e566] [cursor=pointer]:
+                          - /url: http://jira.thaisamut.co.th/browse/IRI-4151
+                          - img [ref=e567]
+                          - text: IRI-4151
+                        - text: "- [New-RI] เพิ่มเงื่อนไขประมวลผล ALTER สำหรับ Auto surrender ("
+                        - generic [ref=e568]:
+                          - img [ref=e569]
+                          - text: Resolved
+                        - text: )
+                    - generic [ref=e570]:
+                      - list:
+                        - listitem [ref=e571]:
+                          - link "Reply" [ref=e572] [cursor=pointer]:
+                            - /url: /pages/replycomment.action?commentId=1253867887&pageId=1116471548
+                        - listitem [ref=e573]:
+                          - text: •
+                          - link "Like" [ref=e574] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e575]:
+                          - text: •
+                          - link "May 29, 2025" [ref=e576] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1116471548&focusedCommentId=1253867887#comment-1253867887
+              - listitem [ref=e577]:
+                - generic [ref=e578]:
+                  - paragraph [ref=e579]:
+                    - 'link "User icon: pongsathorn.pa" [ref=e580] [cursor=pointer]':
+                      - /url: "    /display/~pongsathorn.pa\n"
+                      - 'img "User icon: pongsathorn.pa" [ref=e581]'
+                  - heading "พงศธร พาสุริยันต์" [level=4] [ref=e583]:
+                    - link "พงศธร พาสุริยันต์" [ref=e584] [cursor=pointer]:
+                      - /url: "    /display/~pongsathorn.pa\n"
+                  - generic [ref=e585]:
+                    - paragraph [ref=e587]:
+                      - generic [ref=e588]:
+                        - link "IRI-4151" [ref=e589] [cursor=pointer]:
+                          - /url: http://jira.thaisamut.co.th/browse/IRI-4151
+                          - img [ref=e590]
+                          - text: IRI-4151
+                        - text: "- [New-RI] เพิ่มเงื่อนไขประมวลผล ALTER สำหรับ Auto surrender ("
+                        - generic [ref=e591]:
+                          - img [ref=e592]
+                          - text: Resolved
+                        - text: )
+                    - generic [ref=e593]:
+                      - list:
+                        - listitem [ref=e594]:
+                          - link "Reply" [ref=e595] [cursor=pointer]:
+                            - /url: /pages/replycomment.action?commentId=1253867888&pageId=1116471548
+                        - listitem [ref=e596]:
+                          - text: •
+                          - link "Like" [ref=e597] [cursor=pointer]:
+                            - /url: ""
+                        - listitem [ref=e598]:
+                          - text: •
+                          - link "May 29, 2025" [ref=e599] [cursor=pointer]:
+                            - /url: /pages/viewpage.action?pageId=1116471548&focusedCommentId=1253867888#comment-1253867888
+            - generic [ref=e601]:
+              - paragraph [ref=e602]:
+                - 'link "User icon: Add a picture of yourself" [ref=e603] [cursor=pointer]':
+                  - /url: /users/editmyprofilepicture.action
+                  - 'img "User icon: Add a picture of yourself" [ref=e604]'
+              - generic "Add a Comment (m)" [ref=e607]: Write a comment…
+    - list [ref=e610]:
+      - listitem [ref=e611]:
+        - text: Powered by
+        - link "Atlassian Confluence" [ref=e612] [cursor=pointer]:
+          - /url: http://www.atlassian.com/software/confluence
+        - text: 5.3.1,
+        - link "Team Collaboration Software" [ref=e613] [cursor=pointer]:
+          - /url: http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer
+        - text: ·
+      - text: ·
+      - listitem [ref=e614]:
+        - link "Report a bug" [ref=e615] [cursor=pointer]:
+          - /url: http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470
+        - text: ·
+      - listitem [ref=e616]:
+        - link "Atlassian News" [ref=e617] [cursor=pointer]:
+          - /url: http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch
+  - generic:
+    - button "Choose File"

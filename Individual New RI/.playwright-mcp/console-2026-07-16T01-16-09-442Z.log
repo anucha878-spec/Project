@@ -1,0 +1,6 @@
+[     884ms] [INFO] This page is not reloaded @ chrome-extension://loopjjegnlccnhgfehekecpanpmielcj/content-script/contentScript.js:201
+[  327538ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+[  327539ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+[  327539ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+[  327539ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received
+[  327554ms] A listener indicated an asynchronous response by returning true, but the message channel closed before a response was received

@@ -17,7 +17,10 @@
       "Bash(npm install *)",
       "Bash(node compare.js)",
       "Bash(node report.js)",
-      "mcp__plugin_ecc_playwright__browser_close"
+      "mcp__plugin_ecc_playwright__browser_close",
+      "Bash(node -e \"require\\('pg'\\); console.log\\('pg OK'\\)\")",
+      "Bash(sed -i \"s|const live = fs.readFileSync\\(process.argv\\\\[2\\\\], 'utf8'\\);|let live = fs.readFileSync\\(process.argv[2], 'utf8'\\); if \\(live.trimStart\\(\\).startsWith\\('\\\\\"'\\)\\) live = JSON.parse\\(live\\);|\" cmp.js)",
+      "Bash(node cmp.js \"D:/Claude/Project/Individual New RI/live-1131216954.txt\" \"D:/Claude/Project/Individual New RI/wiki/01. Current Version/09. Appendix/18. A18. MAIN Process/04. 00-2 [CLAIM] [Auto] คัดเลือกกรมธรรม์ของแต่ละ Treaty/_index.md\")"
     ]
   }
 }
