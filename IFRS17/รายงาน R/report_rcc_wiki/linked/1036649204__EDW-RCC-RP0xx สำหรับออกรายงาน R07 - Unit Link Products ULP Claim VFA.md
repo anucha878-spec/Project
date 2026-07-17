@@ -1,0 +1,18 @@
+# EDW-RCC-RP0xx สำหรับออกรายงาน R07 - Unit Link Products ULP Claim VFA
+
+- url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1036649204
+- http status: 200
+- source: Playwright MCP (in-body link, depth 1)
+
+---
+## EDW-RCC-RP0xx สำหรับออกรายงาน R07 - Unit Link Products ULP Claim VFA ให้ฝ่ายคณิตศาสตร์
+
+Process การออกรายงานมีเงื่อนไขดังนี้
+
+1. สถานะดำเนินการจะต้องเป็น "ประมวลผลสำเร็จ" และผู้ใช้ทำการกดยืนยันข้อมูล จากหน้าจอ [EDW-RCC-SD001 หน้าจอประมวลผลข้อมูล และยืนยันการออกรายงาน R](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152455)
+2. ระบบนำปี และเดือนที่ได้รับจากหน้าจอ ไปหาที่ตาราง [tx_rcc_output_r07](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r07)
+3. ทำการ Generate ข้อมูลไปยัง Excel file โดยมีรายละเอียดดังนี้Share drive ให้วางไฟล์ไว้ที่ **$(Default Path)\IFRS17\Report R\XXXXXX_to_XXXXXX_YYYYYYYYYYYYYY** โดยที่ **XXXXXX** แทนข้อมูล Period และ **YYYYYYYYYYYYYY** แทนข้อมูลวันเวลาที่ประมวลผล
+4. ชื่อไฟล์เป็น **R07_ULP Claim_YYYYMM_to_YYYYMM.csv**
+5. ให้ Sorting ตาม Period, PortfolioID
+
+1. ใช้ข้อมูลจากตาราง [tx_rcc_output_r07](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r07) เพื่อออกรายงาน R07 ดังนี้ | No | CSV Column Name | Source - [tx_rcc_output_r07](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r07) | | --- | --- | --- | | 1 | Period | tx_rcc_output_r07.period | | 2 | PolicyNumber | tx_rcc_output_r07.policy_no | | 3 | PortfolioID | tx_rcc_output_r07.portfolio_id | | 4 | PlanCode | tx_rcc_output_r07.plan_code | | 5 | SalesChannel | tx_rcc_output_r07.sales_channel | | 6 | SalesChannelCode | tx_rcc_output_r07.sales_channel_code | | 7 | BusinessLine | tx_rcc_output_r07.business_line | | 8 | EffectiveDate | tx_rcc_output_r07.effective_date | | 9 | ModeOfPayment | tx_rcc_output_r07.mode_of_payment | | 10 | AnnualPremium | tx_rcc_output_r07.annual_premium | | 11 | ModalPremium | tx_rcc_output_r07.modal_premium | | 12 | ClaimEventDate | tx_rcc_output_r07.claim_event_date | | 13 | ClaimReportedDate | tx_rcc_output_r07.claim_reported_date | | 14 | ClaimStatus | tx_rcc_output_r07.claim_status | | 15 | ApproveDate | tx_rcc_output_r07.approve_date | | 16 | ClaimPaidDate | tx_rcc_output_r07.claim_paid_date | | 17 | TotalDeathBenefit | tx_rcc_output_r07.total_death_benefit | | 18 | DeathBenefitUnitCost | tx_rcc_output_r07.death_benefit_unit_cost | | 19 | DeathBenefitNonUnitCost | tx_rcc_output_r07.death_benefit_non_unit_cost | | 20 | PaidAmountAccidentDeath | tx_rcc_output_r07.paid_amount_accident_death | | 21 | PaidAmountAccidentNonDeath | tx_rcc_output_r07.paid_amount_accident_non_death | | 22 | PaidAmountHealth | tx_rcc_output_r07.paid_amount_health | | 23 | PaidAmountDismemberment | tx_rcc_output_r07.paid_amount_dismemberment | | 24 | PaidAmountTPD | tx_rcc_output_r07.paid_amount_tpd | | 25 | PaidAmountOther | tx_rcc_output_r07.paid_amount_other | | 26 | ReturnPremium | tx_rcc_output_r07.return_premium | | 27 | OtherLiabilitiesAmount | tx_rcc_output_r07.other_liabilities_amount | | 28 | AVatDeathEvent | tx_rcc_output_r07.av_at_death_event | | 29 | SurrenderCharge1RateAtDeath | tx_rcc_output_r07.surrender_charge1_rate_at_death | | 30 | SurrenderValue | tx_rcc_output_r07.surrender_value | | 31 | ActualSumAssured | tx_rcc_output_r07.actual_sum_assured | | 32 | SubGroupID | tx_rcc_output_r07.sub_group_id | | 33 | ReceivePaymentType | tx_rcc_output_r07.receive_payment_type | | 34 | ULAlterationID | tx_rcc_output_r07.alteration_type_code |

@@ -1,0 +1,23 @@
+# ---- Dependencies ----
+node_modules/
+**/node_modules/
+
+# ---- Secrets / credentials (NEVER commit) ----
+**/.claude/settings.local.json
+.claude/settings.local.json
+**/cookies.txt
+**/token.json
+**/token.js
+**/write_sheet.js
+*.env
+.env
+**/credentials*
+**/*.pem
+id_rsa*
+
+# ---- Sensitive pentest data ----
+**/sheet_dump/
+
+# ---- Transient tool artifacts / logs ----
+**/.playwright-mcp/
+**/*.log

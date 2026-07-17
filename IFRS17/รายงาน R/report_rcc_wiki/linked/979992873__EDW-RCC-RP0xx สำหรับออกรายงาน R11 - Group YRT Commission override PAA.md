@@ -1,0 +1,19 @@
+# EDW-RCC-RP0xx สำหรับออกรายงาน R11 - Group YRT Commission override PAA
+
+- url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=979992873
+- http status: 200
+- source: Playwright MCP (in-body link, depth 1)
+
+---
+## EDW-RCC-RP001 สำหรับออกรายงาน R11 - Group YRT Commission override PAA ให้ฝ่ายคณิตศาสตร์
+
+ตัวอย่างรายงาน R01 [t](https://docs.google.com/spreadsheets/d/1NKih7buf50uZ6k2_WokfrvemyN3vdrBdHmZpGWaKRRc/edit?usp=sharing)bc
+
+Process การออกรายงานมีเงื่อนไข ดังนี้
+
+1. สถานะดำเนินการจะต้องเป็น "ประมวลผลสำเร็จ" และผู้ใช้ทำการกดยืนยันข้อมูล จากหน้าจอ [EDW-RCC-SD001 หน้าจอประมวลผลข้อมูล และยืนยันการออกรายงาน R](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152455)
+2. ระบบนำปี และเดือนที่ได้รับจากหน้าจอ ไปหาที่ตาราง [tx_rcc_output_r11](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r01)
+3. ทำการ Generate ข้อมูลไปยัง Excel file โดยมีรายละเอียดดังนี้Share drive ให้วางไฟล์ไว้ที่ **$(Default Path)\IFRS17\Report R\XXXXXX_to_XXXXXX_YYYYYYYYYYYYYY** โดยที่ **XXXXXX** แทนข้อมูล Period และ **YYYYYYYYYYYYYY** แทนข้อมูลวันเวลาที่ประมวลผล
+4. ชื่อไฟล์เป็น **R11_GroupYRT_CommissionOverride****_****YYYYMM_to_YYYYMM.csv**
+5. ให้ Sorting ตาม Period, PortfolioID
+6. ใช้ข้อมูลจากตาราง [tx_rcc_output_r11](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r01) เพื่อออกรายงาน R01 ดังนี้ | No | CSV column name | source - [tx_rcc_output_r11](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r01) | | --- | --- | --- | | 1 | Period | period | | 2 | PolicyNumber | policy_no | | 3 | PolicyYear | policy_year | | 4 | EffectiveDate | effective_date | | 5 | EndOfCoverageDate | end_coverage_date | | 6 | PortfolioID | portfolio_id | | 7 | SaleChannel | sales_channel | | 8 | SalesChannelCode | sales_channel_code | | 9 | BusinessLine | business_line | | 10 | ModeOfPayment | mode_of_payment | | 11 | PayFrom | pay_from | | 12 | PayTo | pay_to | | 13 | ReceiveDate | receive_date | | 14 | SaleOption | sale_option | | 15 | ActualCommissionAmountLife | comm_life | | 16 | ActualCommissionAmountAccidentDeath | comm_accident | | 17 | ActualCommissionAmountMedAccident | comm_med | | 18 | ActualCommissionAmountTPD | comm_tpd | | 19 | ActualCommissionAmountIPD | comm_ipd | | 20 | ActualCommissionAmountOPD | comm_opd | | 21 | ActualCommissionAmountDental | comm_dental | | 22 | ActualCommissionAmountOther | comm_other | | 23 | CommissionOVType | comm_ov_type | | 24 | InitialCommission | initial_commission | | 25 | RenewalCommission | renewal_commission | | 26 | InitialOverride | initial_override | | 27 | RenewalOverride | renewal_override |

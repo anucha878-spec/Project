@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Process การประมวลผลข้อมูลออกรายงาน R06 - โครงการ Accounting Data Warehouse - Ocean Life Insurance Public Company Limited</title>
+
+        
+
+                        
+    
+                        
+    
+                        
+    
+
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+<meta charset="UTF-8">
+<meta id="confluence-context-path" name="confluence-context-path" content="">
+<meta id="confluence-base-url" name="confluence-base-url" content="http://wiki.thaisamut.co.th">
+
+<meta id="atlassian-token" name="atlassian-token" content="517d879db598e01168baa5bfb792ca153498ccfd">
+
+<meta id="confluence-space-key" name="confluence-space-key" content="RDSADW">
+<script type="text/javascript">
+        var contextPath = '';
+</script>
+
+    
+
+<!-- include system css resources -->
+
+
+    <link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/css/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/css/batch.css?media=print" media="print">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/css/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<!--[if lte IE 8]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+8" media="all">
+<![endif]-->
+<!--[if lte IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/css/batch.css?conditionalComment=lte+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/4cca4b8b73baf6aacc2fc63abb3548e0/_/download/contextbatch/css/atl.confluence.macros.expand.desktop/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/4cca4b8b73baf6aacc2fc63abb3548e0/_/download/contextbatch/css/atl.confluence.macros.expand.desktop/batch.css?media=%28-webkit-min-device-pixel-ratio%3A+1.5%29%2C+%28min-resolution%3A+148dpi%29" media="(-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 148dpi)">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/10e634cc62a9581ab1243ed29f446629/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,plugin.quick.comment.pre/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/10e634cc62a9581ab1243ed29f446629/_/download/contextbatch/css/atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,plugin.quick.comment.pre/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/991b67be90bd5bcece181fd47bd67d95/_/download/contextbatch/css/page/batch.css" media="all">
+<!--[if lt IE 9]>
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/991b67be90bd5bcece181fd47bd67d95/_/download/contextbatch/css/page/batch.css?conditionalComment=lt+IE+9" media="all">
+<![endif]-->
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/f2a2dd0a8cb7c3ff4bace66a519a272e/_/download/contextbatch/css/theme.doc/batch.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/2.0.22/_/download/batch/confluence.extra.information:information-plugin-adg-styles/confluence.extra.information:information-plugin-adg-styles.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5.1.1/_/download/batch/confluence.extra.jira:web-resources-adg/confluence.extra.jira:web-resources-adg.css" media="all">
+<link type="text/css" rel="stylesheet" href="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/4/_/styles/colors.css?spaceKey=RDSADW" media="all">
+
+<!-- end system css resources -->
+
+    <meta name="confluence-request-time" content="1779937521240">
+        
+            <script type="text/x-template" title="share-content-popup">
+    <form action="#" method="post" class="aui share-content-popup">
+        <div class="field-group">
+            <div class="autocomplete-user-target">
+                <input class="text autocomplete-sharepage" id="users" data-max="10" data-dropdown-target=".autocomplete-user-target" data-none-message="No matches" placeholder="User name, group or email"/>
+            </div>
+            <ol class="recipients">
+            </ol>
+        </div>
+        <div class="field-group">
+            <textarea class="textarea" id="note" placeholder="Add an optional note"/>
+        </div>
+        <div class="field-group button-panel">
+            <div class="progress-messages-icon"></div>
+            <div class="progress-messages">
+            </div>
+            <input class="button submit" type="submit" value="Share" disabled/>
+            <a class="close-dialog" href="#">Cancel</a>
+        </div>
+    </form>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-userKey">
+    <li data-userkey="{userKey}" style="display: none">
+        <img src="{thumbnailLink.href}" title="{title}">
+        <span class="title" title="{title}">{title}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-email">
+    <li data-email="{email}" style="display: none">
+        <img src="{icon}" title="{email}">
+        <span class="title" title="{email}">{email}</span>
+        <span class="remove-recipient"/>
+    </li>
+</script>
+
+<script type="text/x-template" title="share-content-popup-recipient-group">
+    <li data-group="{title}" style="display: none">
+        <span>
+            <img src="{thumbnailLink.href}" title="{title}">
+            <span>{title}</span>
+            <span class="remove-recipient"/>
+        </span>
+    </li>
+</script>
+
+    
+        
+            <meta name="ajs-use-keyboard-shortcuts" content="true">
+            <meta name="ajs-keyboardshortcut-hash" content="89474b2f39a47e65486972357760eeb4">
+            
+
+    
+            
+    
+    
+            <meta name="ajs-page-id" content="930152608">
+            <meta name="ajs-content-type" content="page">
+            <meta name="ajs-page-title" content="Process การประมวลผลข้อมูลออกรายงาน R06">
+            <meta name="ajs-parent-page-title" content="EDW-RCC-SD001 หน้าจอประมวลผล และค้นหาข้อมูล">
+            <meta name="ajs-parent-page-id" content="937132119">
+            <meta name="ajs-space-key" content="RDSADW">
+            <meta name="ajs-space-name" content="โครงการ Accounting Data Warehouse">
+            <meta name="ajs-from-page-title" content="">
+            <meta name="ajs-user-display-name" content="อนุชา พิมสร้อย">
+            <meta name="ajs-editor.loader.comment.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/0d8d7c5c6415d2b98f73e1f285156e56/_/download/contextbatch/css/comment-editor/batch.css&quot; media=&quot;all&quot;&gt;
+">
+            <meta name="ajs-context-path" content="">
+            <meta name="ajs-base-url" content="http://wiki.thaisamut.co.th">
+            <meta name="ajs-version-number" content="5.3.1">
+            <meta name="ajs-build-number" content="4528">
+            <meta name="ajs-remote-user" content="anucha.pi">
+            <meta name="ajs-current-user-fullname" content="อนุชา พิมสร้อย">
+            <meta name="ajs-current-user-avatar-url" content="/images/icons/profilepics/default.png">
+            <meta name="ajs-static-resource-url-prefix" content="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_">
+            <meta name="ajs-global-settings-attachment-max-size" content="52428800">
+            <meta name="ajs-user-locale" content="en_GB">
+            <meta name="ajs-enabled-dark-features" content="sync.event">
+            <meta name="ajs-atl-token" content="517d879db598e01168baa5bfb792ca153498ccfd">
+            <meta name="ajs-confluence-flavour" content="VANILLA">
+            <meta name="ajs-editor.loader.resources" content="&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/947e28e72d498dff8eb75f787dd3b666/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css&quot; media=&quot;all&quot;&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/947e28e72d498dff8eb75f787dd3b666/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css?media=%28max-width%3A+1450px%29&quot; media=&quot;(max-width: 1450px)&quot;&gt;
+&lt;!--[if lt IE 9]&gt;
+&lt;link type=&quot;text/css&quot; rel=&quot;stylesheet&quot; href=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/947e28e72d498dff8eb75f787dd3b666/_/download/contextbatch/css/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.css?conditionalComment=lt+IE+9&quot; media=&quot;all&quot;&gt;
+&lt;![endif]--&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/947e28e72d498dff8eb75f787dd3b666/_/download/contextbatch/js/editor,macro-browser,fullpage-editor,-viewcontent,-atl.general/batch.js&quot; &gt;&lt;/script&gt;
+">
+            <meta name="ajs-date.format" content="MMM dd, yyyy">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch/osd.action" title="Ocean Life Insurance Public Company Limited"/>
+
+    <!-- include system javascript resources -->
+    <script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/js/batch.js" ></script>
+<!--[if lte IE 8]>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5025/_/download/superbatch/js/batch.js?conditionalComment=lte+IE+8" ></script>
+<![endif]-->
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/4cca4b8b73baf6aacc2fc63abb3548e0/_/download/contextbatch/js/atl.confluence.macros.expand.desktop/batch.js" ></script>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/10e634cc62a9581ab1243ed29f446629/_/download/contextbatch/js/atl.confluence.plugins.pagetree-desktop,main,viewcontent,atl.general,plugin.quick.comment.pre/batch.js" ></script>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/991b67be90bd5bcece181fd47bd67d95/_/download/contextbatch/js/page/batch.js" ></script>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/371db2fbed15cd3ec43e923165a075f9/_/download/contextbatch/js/atl.comments/batch.js" ></script>
+<script type="text/javascript" src="/s/d41d8cd98f00b204e9800998ecf8427e/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/1.2/_/download/batch/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor/com.atlassian.mywork.mywork-confluence-host-plugin:mw-header-anchor.js" ></script>
+
+    
+
+        
+    <!-- end system javascript resources -->
+    
+
+    
+                <link rel="canonical" href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152608">
+        <link rel="shortlink" href="http://wiki.thaisamut.co.th/x/oABxNw">
+    <meta name="wikilink" content="[RDSADW:Process การประมวลผลข้อมูลออกรายงาน R06]">
+    <meta name="page-version" content="85">
+
+</head>
+
+<body             onload="placeFocus()"
+     id="com-atlassian-confluence" class="theme-documentation  aui-theme-default aui-layout">
+
+        
+    <div id="full-height-container">
+    <div id="header-precursor">
+        
+                    </div>
+
+
+
+
+
+
+<header id="header" role="banner">
+    <nav class="aui-header aui-dropdown2-trigger-group" role="navigation"><div class="aui-header-inner"><div class="aui-header-before"><a class="aui-dropdown2-trigger app-switcher-trigger" aria-owns="app-switcher" aria-haspopup="true" tabindex="0"><span class="aui-icon aui-icon-small aui-iconfont-appswitcher">Linked Applications</span></a><div id="app-switcher" class="aui-dropdown2 aui-style-default"><div class="app-switcher-loading">Loading&hellip;</div></div><script>
+            (function (NL) {
+                var initialise = function () {
+                    // For some milestones of AUI, the atlassian soy namespace was renamed to aui. Handle that here by ensuring that window.atlassian is defined.
+                    window.atlassian = window.atlassian || window.aui;
+                    new NL.AppSwitcher({
+                        dropdownContents: '#app-switcher'
+                    });
+                };
+                if (NL.AppSwitcher) {
+                    initialise();
+                } else {
+                    NL.onInit = initialise;
+                }
+            }(window.NL = (window.NL || {})));
+            window.NL.isUserAdmin = false</script></div><div class="aui-header-primary"><h1 id="logo" class="aui-header-logo aui-header-logo-custom"><a href="/"><img src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/logo/confluence-logo.png" alt="Ocean Life Insurance Public Company Limited" /></a></h1><ul class="aui-nav">
+                            <li>
+            
+        
+        
+<a  id="space-directory-link" href="/spacedirectory/view.action"  class=" aui-nav-imagelink"   title="Spaces">
+            <span>Spaces</span>
+    </a>
+        </li>
+                    <li>
+            
+    
+        
+<a  id="people-directory-link" href="/peopledirectory.action"  class=" aui-nav-imagelink"   title="People">
+            <span>People</span>
+    </a>
+        </li>
+                                    <li id="browseMenu" role="menu">
+            
+    
+        <a id="browse-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="browse-menu-link-content" title="Browse">
+        <span class="browse">Browse</span>
+    </a>
+    <nav id="browse-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="browse-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="space-pages-link" href="/pages/listpages.action?key=RDSADW" class="    "      title="Browse pages in the โครงการ Accounting Data Warehouse space" >
+        Pages
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-blogposts-link" href="/pages/viewrecentblogposts.action?key=RDSADW" class="    "      title="Browse blogs in the โครงการ Accounting Data Warehouse space" >
+        Blog
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-labels-link" href="/labels/listlabels-heatmap.action?key=RDSADW" class="    "      title="Browse labels in the โครงการ Accounting Data Warehouse space" >
+        Labels
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="space-advanced-link" href="/spaces/viewspacesummary.action?key=RDSADW" class="    "      title="Browse additional space functions in the โครงการ Accounting Data Warehouse space" >
+        Space Operations
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    
+        </li>
+                    <li>
+            
+    
+            
+<a  id="create-page-button" href="#"  class="aui-button aui-style aui-button-primary aui-nav-imagelink"   title="Create Content">
+            <span>Create</span>
+    </a>
+        </li>
+        </ul>
+</div><div class="aui-header-secondary"><ul class="aui-nav">
+                <li>
+        
+    
+            
+<a  id="doctheme-anchor" href="#"  class=" aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>
+<form id="quick-search" class="aui-quicksearch dont-default-focus header-quicksearch" action="/dosearchsite.action" method="get">
+    <fieldset>
+                        <label for="quick-search-query" class="assistive">Quick Search</label>
+        <input id="quick-search-query" class="text app-search search quick-search-query" type="text"
+               accessKey="q" autocomplete="off" name="queryString" title="Quick Search"  placeholder="Search" />
+        <input id="quick-search-submit" class="quick-search-submit" type="submit" value="Search"/>
+
+        <div class="aui-dd-parent quick-nav-drop-down"></div>
+    </fieldset>
+    <div class="hidden parameters">
+                    <!-- putMetadata failed to add value for key "quick-nav-enabled" so rendering metadata inline - see server debug log for details -->
+        <meta name="ajs-quick-nav-enabled" content="true">
+                </div>
+</form>
+</li>
+    <li>    
+        <a id="help-menu-link" class="aui-nav-link aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="help-menu-link-content" title="Help">
+        <span class="aui-icon aui-icon-small aui-iconfont-help">Help</span>
+    </a>
+    <nav id="help-menu-link-content" class="aui-dropdown2 aui-style-default" aria-hidden="true">
+                    <div class="aui-dropdown2-section">
+                <ul  id="help-menu-link-leading" class="aui-list-truncate section-leading first">
+                                            <li>
+    
+        
+<a  id="confluence-help-link" href="http://docs.atlassian.com/confluence/docs-53/Getting+Help+And+Support" class="    "      title="Visit the Confluence documentation home"  target="_blank"
+>
+        Online Help
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="keyboard-shortcuts-link" href="#" class="    "      title="View available keyboard shortcuts" >
+        Keyboard Shortcuts
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="feed-builder-link" href="/dashboard/configurerssfeed.action" class="    "      title="Create your custom RSS feed." >
+        Feed Builder
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="whats-new-menu-link" href="http://docs.atlassian.com/confluence/docs-53/whatsnew/iframe?e=YW51Y2hhLnBpQG9jZWFuLmNvLnRo&amp;od=false&amp;a=false" class="    "      title="" >
+        What’s new
+</a>
+</li>
+                                            <li>
+    
+            
+<a  id="gadget-directory-link" href="#" class="   user-item administration-link "      title="Browse gadgets provided by Confluence" >
+        Available Gadgets
+</a>
+</li>
+                                            <li>
+    
+        
+<a  id="confluence-about-link" href="/aboutconfluencepage.action" class="    "      title="Get more information about Confluence" >
+        About Confluence
+</a>
+</li>
+                                    </ul>
+            </div>
+            </nav>
+    </li>
+    <li>    
+    </li>
+                <li>
+        
+    
+            
+<a  id="notifications-anchor" href="#"  class="mw-anchor read aui-nav-imagelink"   title="">
+            <span></span>
+    </a>
+    </li>
+        <li>                                    
+        <a id="user-menu-link" class="aui-dropdown2-trigger " aria-haspopup="true" aria-owns="user-menu-link-content" data-username="anucha.pi" href="#" title="อนุชา พิมสร้อย">
+                    <div class="aui-avatar aui-avatar-small">
+                <div class="aui-avatar-inner">
+                    <img src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/profilepics/default.png"/>
+                </div>
+            </div>
+            <span class="aui-icon-dropdown"></span>
+        </a>
+        <nav id="user-menu-link-content" class="aui-dropdown2 aui-style-default">
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-status"                        class="aui-list-truncate section-user-status first">
+                                                    <li>
+    
+        
+<a  id="create-user-status-link" href="/display/~anucha.pi" class="   user-item update-user-status "      title="Update your status" >
+        Update Status…
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-preferences"                        class="aui-list-truncate section-user-preferences">
+                                                    <li>
+    
+        
+<a  id="create-personal-space-link" href="/spaces/createpersonalspace.action" class="   user-item personal-space create-personal-space-link "      title="" >
+        Add Personal Space…
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="view-user-history-link" href="/users/viewuserhistory.action" class="   user-item user-history popup-link "      title="" >
+        Recently Viewed
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-content"                        class="aui-list-truncate section-user-content">
+                                                    <li>
+    
+        
+<a  id="view-user-profile-link" href="/users/viewmyprofile.action" class="   user-item user-profile "      title="" >
+        Profile
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-settings-link" href="/users/viewmysettings.action" class="   user-item "      title="" >
+        Settings
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  href="/users/viewfollow.action?username=anucha.pi" class="   follow-link "      title="" >
+        Network
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  href="/display/status/anucha.pi/list" class="   user-item list-user-status "      title="" >
+        Status Updates
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-favourites-link" href="/users/viewmyfavourites.action" class="   user-item "      title="" >
+        Favourites
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-watches-link" href="/users/viewnotifications.action" class="   user-item "      title="" >
+        Watches
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="user-drafts-link" href="/users/viewmydrafts.action" class="   user-item "      title="" >
+        Drafts
+</a>
+</li>
+                                                    <li>
+    
+        
+<a  id="upm-requests-link" href="/plugins/servlet/upm/requests?source=header_user" class="    "      title="" >
+        Atlassian Marketplace
+</a>
+</li>
+                                            </ul>
+                </div>
+                            <div class="aui-dropdown2-section">
+                    <ul  id="user-menu-link-user-operations"                        class="aui-list-truncate section-user-operations">
+                                                    <li>
+    
+        
+<a  id="logout-link" href="/logout.action" class="   user-item logout-link "      title="" >
+        Log Out
+</a>
+</li>
+                                            </ul>
+                </div>
+                    </nav>
+                    </li>
+</ul>
+</div></div><!-- .aui-header-inner--></nav><!-- .aui-header -->
+    <br class="clear">
+</header>
+
+    <div id="splitter">
+    <div id="splitter-sidebar" >
+        
+
+                    
+    
+
+
+<div class="plugin_pagetree">
+
+                        <div id="pagetreesearch">
+            <form method="POST" class="aui" action="/plugins/pagetreesearch/pagetreesearch.action" name="pagetreesearchform">
+                                    <input type="hidden" name="ancestorId" value="739049546">
+                                <input type="hidden" name="spaceKey" value="RDSADW">
+                <input type="text"  class="text medium-field" size="20" name="queryString">
+                <input type="submit" class="aui-button" value="Search">
+            </form>
+        </div>
+            
+        
+    <ul class="plugin_pagetree_children_list plugin_pagetree_children_list_noleftspace">
+        <div class="plugin_pagetree_children">
+        </div>
+    </ul>
+
+    <fieldset class="hidden">
+        <input type="hidden" name="treeId" value="">
+        <input type="hidden" name="treeRequestId" value="/plugins/pagetree/naturalchildren.action?decorator=none&amp;excerpt=false&amp;sort=position&amp;reverse=false&amp;disableLinks=false&amp;expandCurrent=false">
+        <input type="hidden" name="treePageId" value="930152608">
+
+        <input type="hidden" name="noRoot" value="false">
+        <input type="hidden" name="rootPageId" value="739049546">
+
+        <input type="hidden" name="rootPage" value="">
+        <input type="hidden" name="startDepth" value="0">
+        <input type="hidden" name="spaceKey" value="RDSADW" >
+
+        <input type="hidden" name="i18n-pagetree.loading" value="Loading...">
+        <input type="hidden" name="i18n-pagetree.error.permission" value="Unable to load page tree. It seems that you do not have permission to view the root page.">
+        <input type="hidden" name="i18n-pagetree.eeror.general" value="There was a problem retrieving the page tree. Please check the server log file for more information.">
+        <input type="hidden" name="loginUrl" value="/login.action?os_destination=%2Fpages%2Fviewpage.action%3FpageId%3D930152608">
+        <input type="hidden" name="mobile" value="false">
+
+                <fieldset class="hidden">
+                                                <input type="hidden" name="ancestorId" value="937132119">
+                                    <input type="hidden" name="ancestorId" value="923533618">
+                                    <input type="hidden" name="ancestorId" value="903315469">
+                                    <input type="hidden" name="ancestorId" value="903315459">
+                                    <input type="hidden" name="ancestorId" value="739049553">
+                                    <input type="hidden" name="ancestorId" value="739049547">
+                                    <input type="hidden" name="ancestorId" value="739049546">
+                                    </fieldset>
+    </fieldset>
+</div>
+
+
+
+            </div>
+    <div id="splitter-content">
+
+                    <script type="text/javascript" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/5.3.1/_/download/resources/com.atlassian.confluence.plugins.doctheme:resources/doc-theme.js"></script>
+    
+                        
+            
+<div id="main"  class="aui-page-panel" >
+    <div id="main-header">
+        
+        
+    <div id="navigation" class="content-navigation view">
+                    <ul class="ajs-menu-bar">
+                            <li class="ajs-button normal">
+
+    
+        
+    
+    <a  id="editPageLink" href="/pages/editpage.action?pageId=930152608"  class="edit full-load"  accessKey="e"  title="Edit">
+                <span><u>E</u>dit</span>    </a>
+</li>
+                <li class="ajs-button normal">
+
+    
+        
+    
+    <a  id="watch-content-button" href="?watchingPage=false&amp;watchingSpace=false&amp;watchingBlogs=false&amp;isAdmin=false&amp;isBlogPost=false"  class="watch-menu not-watching"   title="Watch (w)">
+                <span><u>W</u>atch</span>    </a>
+</li>
+                <li class="ajs-button normal">
+
+    
+            
+    
+    <a  id="shareContentLink" href="#"  class="share"   title="Share this content by emailing other users">
+                <span><u>S</u>hare</span>    </a>
+</li>
+                        
+        <li class="normal ajs-menu-item">
+        <a id="add-menu-link" class="add hidden ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="add-menu" data-container="#navigation"><span><span>Add</span></span></a>         <div id="add-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="add-menu-space"                     class="section-space first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="createPageLink" href="/pages/createpage.action?spaceKey=RDSADW&amp;fromPageId=930152608"  class="add-page"  accessKey="p"  title="Add a Page">
+                <span>Page</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createPageLinkTemplate" href="/pages/createpage-choosetemplate.action?spaceKey=RDSADW&amp;newSpaceKey=RDSADW&amp;fromPageId=930152608"  class="add-page-template"  accessKey="p"  title="Add a Page using a template">
+                <span>Page from template</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="createBlogpostLink" href="/pages/createblogpost.action?spaceKey=RDSADW"  class="add-news"   title="Add a Blog Post">
+                <span>Blog Post</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="add-menu-page"                     class="section-page aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="add-comment-menu-link" href="/pages/viewpage.action?pageId=930152608&amp;showComments=true&amp;showCommentArea=true#addcomment"  class="add-comment"   title="Add a Comment">
+                <span>Comment</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="add-attachment-link" href="/pages/viewpageattachments.action?pageId=930152608"  class="add-attachment"  accessKey="t"  title="Add an Attachment">
+                <span>Attachment</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+                    
+        <li class="normal ajs-menu-item">
+        <a id="action-menu-link" class="action ajs-menu-title aui-dropdown2-trigger" href="#" aria-haspopup="true" aria-owns="action-menu" data-container="#navigation"><span><span>Tools</span></span></a>         <div id="action-menu" class="aui-dropdown2 aui-style-default">
+                            <ul  id="action-menu-primary"                     class="section-primary first aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-attachments-link" href="/pages/viewpageattachments.action?pageId=930152608"  class="action-view-attachments"  accessKey="t"  title="View Attachments">
+                <span>A<u>t</u>tachments (1)</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-history-link" href="/pages/viewpreviousversions.action?pageId=930152608"  class="action-view-history"   title="">
+                <span>Page History</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-page-permissions-link" href="/pages/viewinfo.action?pageId=930152608"  class="action-page-permissions"   title="Edit restrictions">
+                <span>Restrictions</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-marker"                     class="section-marker aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="page-favourite" href="/labels/addfavourite.action?entityId=930152608&amp;atl_token=517d879db598e01168baa5bfb792ca153498ccfd"  class="action-page-favourite"   title="">
+                <span>Favourite</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-secondary"                     class="section-secondary aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="view-page-info-link" href="/pages/viewinfo.action?pageId=930152608"  class="action-view-info"   title="">
+                <span>Page Information</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="link-to-page-link" href="/pages/viewinfo.action?pageId=930152608"  class=""   title="Link to this Page">
+                <span>Link to this Page…</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="view-in-hierarchy-link" href="/pages/listpages-dirview.action?key=RDSADW&amp;openId=930152608#selectedPageInHierarchy"  class=""   title="">
+                <span>View in Hierarchy</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-view-source-link" href="/plugins/viewsource/viewpagesrc.action?pageId=930152608"  class="action-view-source popup-link"   title="">
+                <span>View Source</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-pdf-link" href="/spaces/flyingpdf/pdfpageexport.action?pageId=930152608"  class=""   title="">
+                <span>Export to PDF</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-export-word-link" href="/exportword?pageId=930152608"  class="action-export-word"   title="">
+                <span>Export to Word</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="import-word-doc" href="/pages/worddav/uploadimport.action?pageId=930152608"  class=""   title="">
+                <span>Import Word Document</span>    </a>
+</li>
+                                </ul>
+                            <ul  id="action-menu-modify"                     class="section-modify aui-dropdown2-section">
+                                            <li>
+
+    
+        
+    
+    <a  id="action-copy-page-link" href="/pages/copypage.action?idOfPageToCopy=930152608&amp;spaceKey=RDSADW"  class="action-copy"   title="">
+                <span>Copy</span>    </a>
+</li>
+                                        <li>
+
+    
+        
+    
+    <a  id="action-move-page-dialog-link" href="/pages/viewpage.action?pageId=930152608"  class="action-move"   title="">
+                <span>Move</span>    </a>
+</li>
+                                </ul>
+                    </div>
+    </li>
+            </ul>
+    </div>
+
+        
+                <div id="title-heading" class="pagetitle with-breadcrumbs">
+                            <div class="space-logo " data-key="RDSADW" data-name="โครงการ Accounting Data Warehouse" data-entity-type="confluence.space">
+            <a><img class="logo global custom" src="/download/attachments/393217/global.logo?version=1&amp;modificationDate=1319599279732&amp;api=v2" alt=""></a>
+        </div>            
+                            <div id="breadcrumb-section">
+                    
+    
+    
+    <ol id="breadcrumbs">
+                    
+                
+        <li class="first" >
+                
+
+                    <span class=""><a href="/display/RDSADW">โครงการ Accounting Data Warehouse</a></span>
+                                                <li id="ellipsis" title="Show all breadcrumbs"><span><strong>&#8230;</strong></span></li>
+                                    
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/Home">Home</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/Current+Version">Current Version</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/03.+User+Interface+Specification">03. User Interface Specification</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/EDW+Phase3">EDW Phase3</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/Reconcile+and+Adjustment+Posting">Reconcile and Adjustment Posting</a></span>
+                                        
+                
+        <li class="hidden-crumb" >
+                
+
+                    <span class=""><a href="/display/RDSADW/1%29+Screen_RCC">1) Screen_RCC</a></span>
+                            
+                
+        <li>
+                
+
+                    <span class=""><a href="/pages/viewpage.action?pageId=937132119">EDW-RCC-SD001 หน้าจอประมวลผล และค้นหาข้อมูล</a></span>
+                </ol>
+
+
+                </div>
+            
+            <h1 id="title-text" class="with-breadcrumbs">
+                                        <a href="/pages/viewpage.action?pageId=930152608">Process การประมวลผลข้อมูลออกรายงาน R06</a>
+                            </h1>
+        </div>
+    </div>
+
+    
+
+    
+    
+    
+    
+    
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+    
+                    
+    
+
+    
+
+
+<div id="content" class="page view">
+    
+
+<div id="action-messages">
+                        </div>
+
+
+
+    
+<script type="text/x-template" title="movePageDialog">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Specify the new parent page for this page and its children by space and title.
+            </div>
+        </div>
+    </div>
+        <form class="aui" onsubmit="return false;">
+	        <fieldset>
+	                
+
+    <legend class="assistive"><span>Change the Parent Page to a Known Page</span></legend>
+	            <div class="field-group">
+	                <label for="new-space">New space:</label>
+	                <div class="value new-space-value">
+	                    <input id="new-space-key" name="new-space-key" type="hidden" value="RDSADW">
+	                    	                        <span class="space-input">
+	                            <input id="new-space" name="new-space" value="โครงการ Accounting Data Warehouse" disabled="disabled" class="text long-field">
+	                        </span>
+                            <div class="description warning">You cannot move this page to another space because you do not have permission to delete it from this space.</div>
+	                    	                    <div class="new-space-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	            <div class="field-group">
+	                <label for="new-parent-page">New parent page:</label>
+	                <div class="value new-parent-page-value">
+	                    <span class="page-input">
+	                        <input id="new-parent-page" name="new-parent-page" value="EDW-RCC-SD001 หน้าจอประมวลผล และค้นหาข้อมูล" class="text long-field">
+	                    </span>
+                        <div class="description">Start typing a page title to see a list of suggestions.</div>
+	                    <div class="new-parent-page-dropdown aui-dd-parent autocomplete"></div>
+	                </div>
+	            </div>
+	        </fieldset>
+        </form>
+    <div class="location-info">
+        <div class="row">
+            <label>Current location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="current-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <label>New location:</label>
+            <div class="value breadcrumbs-container">
+                <div class="breadcrumbs-line">
+                    <ul id="new-parent-breadcrumbs" class="breadcrumbs">
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/x-template" title="movePageSearchPanel">
+    <div class="row information">
+        <div class="inner">
+            <div class="element">
+                Search for and select the new parent page for this page and its children.
+            </div>
+        </div>
+    </div>
+    <div id="move-page-search-container" class="row">
+	        <form class="aui" onsubmit="return false;">
+	            <fieldset>
+	                    
+
+    <legend class="assistive"><span>Search for a New Parent Page</span></legend>
+	                    
+
+    <label  for="move-page-search-query" class="assistive">Search keywords</label>
+	                <input class="search-query text" id="move-page-search-query">
+	                    
+
+    <label  for="move-page-search-space" class="assistive">Search in space</label>
+	                	                    <select id="move-page-search-space" class="search-space select" disabled="disabled">
+	                        <option value="RDSADW" selected="selected">โครงการ Accounting Data Warehouse</option>
+	                    </select>
+	                	                <input type="button" value="Search" class="button submit">
+	                	                    <div class="description warning">You cannot move this page to another space because you do not have permission to delete it from this space.</div>
+	                	            </fieldset>
+	        </form>
+        <div class="search-results">
+        </div>
+    </div>
+</script>
+<script type="text/x-template" title="searchResultsGrid">
+    <table class="aui">
+        <thead>
+            <tr class="header">
+                <th class="search-result-title">Page Title</th>
+                <th class="search-result-space">Space</th>
+                <th class="search-result-date">Updated</th>
+            </tr>
+        </thead>
+    </table>
+</script>
+<script type="text/x-template" title="searchResultsGridCount">
+    <p class="search-result-count">{0}</p>
+</script>
+<script type="text/x-template" title="searchResultsGridRow">
+    <tr class="search-result">
+        <th class="search-result-title"><a href="{1}" class="content-type-{2}"><span>{0}</span></a></th>
+        <td class="search-result-space"><a class="space" href="/display/{4}/" title="{3}">{3}</a></td>
+        <td class="search-result-date"><span class="date" title="{6}">{5}</span></td>
+    </tr>
+</script><!-- Start restrictions section -->
+<script type="text/x-template" title="page-permissions-div">
+<div id="page-permissions-div">
+    <div id="page-permissions-editor-form">
+                <div id="page-permissions-error-div" class="aui-message warning shadowed closeable hidden">
+            <p class="title"/>
+            <span class="aui-icon icon-warning"></span>
+            <span class="aui-icon icon-close" tabindex="0" role="button"></span>
+        </div>
+                <div id="page-permissions-type-radios" class="page-permissions-label-rows">
+            <div class="radio">
+                <input id="restrictViewRadio" class="radio" type="radio" checked="checked" name="pagePermissionTypeRadio" value="view"/>
+                <label for="restrictViewRadio">Restrict viewing of this page</label>
+                <input id="restrictEditRadio" class="radio" type="radio" name="pagePermissionTypeRadio" value="edit"/>
+                <label for="restrictEditRadio">Restrict editing of this page</label>
+            </div>
+        </div>
+        <div id="page-permissions-input" class="page-permissions-label-rows">
+            <div class="page-permissions-label">To:</div>
+            <div id="page-permissions-chooser-box">
+                                    <span id="page-permissions-choose-me" class="aui-button normal">
+                        <a href="#">
+                            <img src="/images/icons/profilepics/default.png" alt="Me"/>
+                            Me
+                        </a>
+                        <span class="remote-user-name hidden">anucha.pi</span>
+                    </span>
+                                <span id="page-permissions-choose-user" class="aui-button">
+                    
+
+
+    
+    
+
+
+
+
+
+
+<a id='userpicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/openuserpicker.action?key=RDSADW&amp;startIndex=0&amp;onPopupSubmit=AJS.PagePermissions.addUserPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=700,height=680,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/user_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose users" />
+						    Person...
+	        </a>
+
+
+                </span>
+                <span id="page-permissions-choose-group" class="aui-button">
+                    
+
+
+    
+    
+
+ 
+
+
+
+
+<a id='grouppicker-popup-link'  href='#' onClick="var picker = window.open('/spaces/opengrouppicker.action?key=RDSADW&amp;startIndex=0&amp;actionName=dosearchgroups.action&amp;onPopupSubmit=AJS.PagePermissions.addGroupPermissions', 'EntitiesPicker', 'status=yes,resizable=yes,top=100,left=200,width=580,height=550,scrollbars=yes'); picker.focus(); return false;">
+    				    <img src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/group_16.png" height=16 width=16 border=0 align="absmiddle"  title="Choose groups" />
+						    Group...
+	        </a>
+
+
+                </span>
+            </div>
+            <div id="page-permissions-input-box">
+                <input id="page-permissions-names-input" class="autocomplete-user-or-group text" type="text" name="permissionNames"
+                    placeholder="Enter user or group name:"
+                    data-max="10" data-none-message="No matches"
+                    data-target="#page-permissions-names-hidden"
+                    data-dropdown-target="#page-perms-name-dropdown-wrapper" data-resize-to-input="true"
+                    size="30"/>
+                <input
+    type="hidden"
+                            id="page-permissions-names-hidden"           />                <button class="aui-button" id="add-typed-names">Restrict</button>
+                <div id="page-perms-name-dropdown-wrapper" class="aui-dd-parent autocomplete autocomplete-user-or-group-target"></div>
+            </div>
+        </div>
+    </div>
+    <div id="page-permissions-tables">
+        <div id="page-permissions-table-div">
+                        <table id="page-permissions-table" class="page-permissions-table">
+                <tr id="page-permissions-no-views" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small aui-iconfont-view"></span>
+                        <span>No view restrictions are defined for this page</span>
+                    </td>
+                </tr>
+                <tr id="page-permissions-no-edits" class="marker-row">
+                    <td colspan="3" class="page-permissions-marker-cell">
+                            <span class="aui-icon aui-icon-small edit-icon"></span>
+                        <span>No edit restrictions are defined for this page</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="page-inherited-permissions-table-div" class="hidden">
+            <span id="page-inherited-permissions-table-desc">
+                <a class="icon twisty-closed">Show/Hide</a>
+                <a id="toggle-inherited-permissions" title="Click to see inherited restrictions">This page has restricted parent pages. It can only be seen by users who can see those parent pages.</a>
+            </span>
+            <div id="page-inherited-permissions-tables" class="hidden page-inheritance-togglable"></div>
+        </div>
+    </div>
+</div>
+</script>
+
+<!-- End restrictions section -->
+
+        
+    
+    
+        <fieldset class="hidden parameters">
+            <input type="hidden" title="parentPageId" value="937132119">
+        </fieldset>
+
+                            
+    
+
+                    
+
+        
+        <a href="#page-metadata-end" class="assistive">Skip to end of metadata</a>
+<div id="page-metadata-start" class="assistive"></div>
+
+    <div class="page-metadata">
+        <ul>
+                            <li class="page-metadata-item noprint">
+
+    
+            
+    
+    <a  id="content-metadata-page-restrictions" href="#"  class="hidden"   title="Page restrictions apply">
+                    <img alt="" src="/download/resources/com.atlassian.confluence.plugins.confluence-page-banner:page-banner-resources/images/red_padlock.png" height="16" width="16" title="">
+                <span></span>    </a>
+</li>
+                            <li class="page-metadata-item noprint">
+
+    
+        
+    
+    <a  id="content-metadata-attachments" href="/pages/viewpageattachments.action?pageId=930152608&amp;metadataLink=true"  class=""  accessKey="t"  title="1 attachment">
+                    <img alt="" src="/download/resources/com.atlassian.confluence.plugins.confluence-page-banner:page-banner-resources/images/grey_attach.png" height="16" width="16" title="">
+                <span></span>    </a>
+</li>
+                        <li class="page-metadata-modification-info">
+                                    Added by     <a href="    /display/~attaporn.ke
+"
+                       class="url fn confluence-userlink" data-username="attaporn.ke"
+                            >อรรถพร เกษแก้ว</a>, last edited by     <a href="    /display/~attaporn.ke
+"
+                       class="url fn confluence-userlink" data-username="attaporn.ke"
+                            >อรรถพร เกษแก้ว</a> on Aug 20, 2024
+                                                                <span class="noprint">&nbsp;(<a id="view-change-link" href="/pages/diffpages.action?pageId=930152608&originalId=1184432142">view change</a>)</span>
+                                                </li>
+                    </ul>
+                </div>
+
+
+<a href="#page-metadata-start" class="assistive">Go to start of metadata</a>
+<div id="page-metadata-end" class="assistive"></div>
+        
+        <fieldset class="hidden parameters">
+                        <input type="hidden" title="browsePageTreeMode" value="view">
+        </fieldset>
+
+        <div class="wiki-content">
+                           
+        <div><div><strong>Objective</strong> : ส่งข้อมูล Reconcile actual data and Adjustment posting เพื่อออกรายงาน R06</div></div><p><strong>Precondition :</strong> เมื่อฝ่ายบัญชีประมวลผล และพิจารณายืนยันข้อมูลการประมวลผลแล้ว ให้ระบบบันทึกข้อมูล Reconcile actual data and Adjustment posting เข้า EDW โดยมีเงื่อนไขดังนี้</p><p><strong>step1 :</strong> ฝ่ายบัญชี กดประมวลผลข้อมูลที่หน้าจอ <a href="/pages/viewpage.action?pageId=930152455">EDW-RCC-SD001 &#3627;&#3609;&#3657;&#3634;&#3592;&#3629;&#3611;&#3619;&#3632;&#3617;&#3623;&#3621;&#3612;&#3621;&#3586;&#3657;&#3629;&#3617;&#3641;&#3621; &#3649;&#3621;&#3632;&#3618;&#3639;&#3609;&#3618;&#3633;&#3609;&#3585;&#3634;&#3619;&#3629;&#3629;&#3585;&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; R</a></p><p><strong>step2 : </strong>ฝ่ายบัญชี เลือกข้อมูลเพื่อยืนยันการออกรายงาน R06 เพื่อส่งต่อให้ฝ่ายคณิตศาสตร์นำข้อมูลไปใช้งานต่อ </p><ol><li><strong>หาวันที่บันทึกบัญชีจาก Period หน้าจอ</strong>: ระบบนำปี และเดือนที่ได้รับจากหน้าจอ โดยใช้เงื่อนไข วันที่เริ่มต้น และวันที่สิ้นสุดของเดือนที่ต้องการไปหาที่ตาราง <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_account_head" rel="nofollow">tx_adw_account_head</a>.<span style="color: rgb(0,0,0);">accounting_date ให้นำ id ที่ได้ไปดำเนินการต่อ</span></li><li><p><strong>หา Transaction ที่มีการบันทึกบัญชี:</strong><span style="color: rgb(0,0,0);"> นำข้อมูลจากตาราง <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_account_head" rel="nofollow">tx_adw_account_head</a>.id ที่ได้จากข้อ 1 ไปหาข้อมูลต่อที่ <a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=759529628" rel="nofollow">tx_adw_account_head_system</a>.tx_adw_account_head_id = <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_account_head" rel="nofollow">tx_adw_account_head</a>.id and <a href="/pages/viewpage.action?pageId=759529628">tx_adw_account_head_system</a>.</span><span style="color: rgb(0,0,0);">status</span> = <span style="color: rgb(0,128,0);">'POST'</span><span style="color: rgb(0,128,0);"><span style="color: rgb(128,0,0);"> </span></span><span style="color: rgb(0,0,0);">and <a href="/pages/viewpage.action?pageId=759529628">tx_adw_account_head_system</a></span>.<span style="color: rgb(0,0,0);">post_approved_date </span><span style="color: rgb(128,0,0);">is</span> <span style="color: rgb(128,0,0);">not</span> <span style="color: rgb(128,0,0);">null</span></p></li><li><p><span style="color: rgb(0,0,0);">นำ<span style="color: rgb(0,0,0);">ข้อมูลจากตาราง</span> <a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=759529628" rel="nofollow">tx_adw_account_head_system</a>.id ที่ได้จากข้อ 2 ไปหาข้อมูลต่อที่ </span><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.tx_adw_account_head_system_id = <a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=759529628" rel="nofollow">tx_adw_account_head_system</a>.id จากนั้นจะได้กลุ่มของข้อมูลเป็น Transaction ตามวันที่ปิดบัญชีที่ได้จากหน้าจอในข้อ 1 ให้นำข้อมูลที่ได้จากตาราง <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a> ไปดำเนินการต่อ</p></li><li>นำข้อมูลจากตาราง <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.id ที่ได้จากข้อ 3 ไปหาข้อมูลต่อที่ <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_detail" rel="nofollow">tx_adw_transaction_detail</a>.tx_adw_transaction_policy_id = <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.id</li><li>นำข้อมูล <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_detail" rel="nofollow">tx_adw_transaction_detail</a>.id ที่ได้จากข้อ 4 ไปหา<span style="color: rgb(51,51,51);"><u><strong>ข้อมูลที่ Model ตามกลุ่ม Commission, OV (<u><strong>model_type = COMMISSION_OV)</strong></u></strong></u></span> ที่ <a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a>.<span style="color: rgb(0,0,0);">tx_adw_transaction_detail_id = <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_detail" rel="nofollow">tx_adw_transaction_detail</a>.id</span></li><li><span style="color: rgb(0,0,0);">นำข้อมูล <a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a>.id ที่ได้จากข้อ 5 ไปหาข้อมูลต่อที่ <a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.<span style="color: rgb(0,0,0);">tx_adw_commission_ov_</span><span style="color: rgb(0,0,0);">detail</span><span style="color: rgb(0,0,0);">_id = <a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a><span style="color: rgb(0,0,0);">.id</span></span></span></li><li>เงื่อนไขการดึงข้อมูล ดังนี้<ol><li><span>ดึงข้อมูลที่เป็นกลุ่ม UL ให้ใช้ Business line code ที่เป็น Unit Linked = &quot;07&quot; (<a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.business_line_code)</span></li><li><p><span style="color: rgb(0,0,0);">กรณีที่เป็น RIDER ให้ดึงเฉพาะ UL Type Rider = 'UDR&quot; มาแสดงเท่านั้น</span><span style="color: rgb(0,0,0);">  <span style="color: rgb(255,0,255);">--ปรับเพิ่มโครงการ UL Rider</span></span></p></li><li><p><span>ดึงข้อมูล GL Code ของรายงาน R06 ดังนี้</span></p>
+<div id="expander-575680279" class="expand-container">
+<div id="expander-control-575680279" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตารางแสดงข้อมูล GL Code สำหรับรายงาน R06</span>
+</div>
+<div id="expander-content-575680279" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><div class="tablesorter-header-inner"><span style="color: rgb(51,51,51);">Account code</span></div></th><th style="text-align: center;" class="confluenceTh"><div class="tablesorter-header-inner"><span style="color: rgb(51,51,51);">Account name</span></div></th><th class="confluenceTh"><div class="tablesorter-header-inner"><span style="color: rgb(51,51,51);">Table group</span></div></th><th class="confluenceTh"><div class="tablesorter-header-inner">Amount Type</div></th></tr><tr><td class="confluenceTd">50551101</td><td class="confluenceTd"><p>ค่าบำเหน็จรับตรงประกันชีวิตปีที่ 1</p>    <div class="aui-message warning shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p><span>ยังไม่มาในการทดสอบครั้งนี้ จะต้องทดสอบหลังจากที่ UL เสร็จ ต้อง sync plan อีกครั้ง</span></p>
+                    </div>
+    </div>
+</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">InitialCommission</td></tr><tr><td class="confluenceTd">50551103</td><td class="confluenceTd">ค่าบำเหน็จปีต่อไป ตัวแทน</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalCommission</td></tr><tr><td class="confluenceTd">50551107</td><td class="confluenceTd"><p>ค่าบำเหน็จรับตรงประกันชีวิต-ชำระครั้งเดียว</p>    <div class="aui-message warning shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>ยังไม่มาในการทดสอบครั้งนี้ จะต้องทดสอบหลังจากที่ UL เสร็จ ต้อง sync plan อีกครั้ง</p>
+                    </div>
+    </div>
+</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">InitialCommission</td></tr><tr><td class="confluenceTd">50551108</td><td class="confluenceTd">ค่าบำเหน็จ - เบี้ยเพิ่มพิเศษ</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">InitialCommission</td></tr><tr><td class="confluenceTd">50551110</td><td class="confluenceTd">ค่าเก็บเบี้ยประกันตัวแทน</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalCommission</td></tr><tr><td class="confluenceTd">50551104</td><td class="confluenceTd">ค่าอนุรักษ์เบี้ยปี 2</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalOverride</td></tr><tr><td class="confluenceTd">50551105</td><td class="confluenceTd">ค่าอนุรักษ์เบี้ยปี 2 ผจก.หน่วย</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551115</td><td colspan="1" class="confluenceTd">ค่าจัดงานตัวแทน</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551125</td><td colspan="1" class="confluenceTd">ค่าโบนัสตัวแทน</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551126</td><td colspan="1" class="confluenceTd">ค่าโบนัสประจำงวด FY</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551127</td><td colspan="1" class="confluenceTd">ค่าสร้างฝ่ายบริหารตัวแทน - ปีแรก</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551128</td><td colspan="1" class="confluenceTd">ค่าสรรหาตัวแทนใหม่ - ฝ่ายบริหารตัวแทน</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551206</td><td colspan="1" class="confluenceTd">เงินประจำตำแหน่งผลงาน - ปีแรก</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551208</td><td colspan="1" class="confluenceTd">โบนัสผู้จัดการหน่วย</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551210</td><td colspan="1" class="confluenceTd">ค่าจัดงานเบี้ยปีแรกงวดแรก</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551211</td><td colspan="1" class="confluenceTd">ค่าจัดงานเบี้ยปีต่อไป</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">RenewalOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551215</td><td colspan="1" class="confluenceTd">ค่าบริหารหน่วย</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551216</td><td colspan="1" class="confluenceTd">ค่าบริหารทีม - ปีแรก</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd">50551217</td><td colspan="1" class="confluenceTd">ค่าสร้างฝ่ายบริหารขาย-ปีแรก</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">50551218</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(255,102,0);">ค่าบริหารทีมงานพิเศษ - ปีแรก  </span></p><p><span style="color: rgb(255,102,0);"><span style="color: rgb(255,0,0);"><img class="emoticon emoticon-yellow-star" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/emoticons/star_yellow.png" data-emoticon-name="yellow-star" alt="(star)" /> <span style="color: rgb(0,0,255);"><em>หาก </em><em>Cost Center เป็น 830044 <em><em><em>และขึ้นต้นด้วย 1 ถึง 7 </em></em></em>จะไม่ใช้ออกรายงาน นอกนั้นประมวลผลตามปกติ</em></span></span></span></p></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">Commission,OV</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">InitialOverride</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">50551219</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(255,102,0);">ค่าบริหารทีมงานพิเศษ</span></p><p><span style="color: rgb(255,102,0);"><img class="emoticon emoticon-yellow-star" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/emoticons/star_yellow.png" data-emoticon-name="yellow-star" alt="(star)" /> <span style="color: rgb(0,0,255);"><em>หาก </em><em>Cost Center เป็น 830044 <em><em><em>และขึ้นต้นด้วย 1 ถึง 7 </em></em></em>จะไม่ใช้ออกรายงาน นอกนั้นประมวลผลตามปกติ</em></span></span></p></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">Commission,OV</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">RenewalOverride</span></td></tr><tr><td colspan="1" class="confluenceTd">50551220</td><td colspan="1" class="confluenceTd">เงินอุดหนุน</td><td colspan="1" class="confluenceTd">Commission,OV</td><td colspan="1" class="confluenceTd">InitialOverride</td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">50551221</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(255,102,0);">โบนัสราย 3 งวด </span></p><p><span style="color: rgb(255,102,0);"><img class="confluence-embedded-image" src="/download/attachments/930152608/star_yellow.png?version=1&amp;modificationDate=1692686108155&amp;api=v2" data-image-src="/download/attachments/930152608/star_yellow.png?version=1&amp;modificationDate=1692686108155&amp;api=v2"> <span style="color: rgb(0,0,255);"><em>หาก </em><em>Cost Center เป็น 830044 <em><em><em>และขึ้นต้นด้วย 1 ถึง 7 </em></em></em>จะไม่ใช้ออกรายงาน นอกนั้นประมวลผลตามปกติ</em></span></span></p></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">Commission,OV</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(255,102,0);">InitialOverride</span></td></tr><tr><td class="confluenceTd">50551225</td><td class="confluenceTd">เงินรางวัล</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalOverride</td></tr><tr><td class="confluenceTd">50551226</td><td class="confluenceTd">เงินรางวัล - ปีต่อ</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalOverride</td></tr><tr><td class="confluenceTd">50551212</td><td class="confluenceTd">ค่าอนุรักษ์เบี้ยปี2 (ผู้บริหาร)</td><td class="confluenceTd">Commission,OV</td><td class="confluenceTd">RenewalOverride</td></tr><tr><td class="confluenceTd"><span style="color: rgb(255,102,0);">51090170</span></td><td class="confluenceTd"><p><span style="color: rgb(255,102,0);">ค่าบริการอื่น</span></p><p><span style="color: rgb(255,102,0);"><img class="emoticon emoticon-yellow-star" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/emoticons/star_yellow.png" data-emoticon-name="yellow-star" alt="(star)" /> <span style="color: rgb(0,0,255);">เฉพาะ</span><em style="color: rgb(0,0,255);"> </em><em style="color: rgb(0,0,255);">Cost Center เป็น 8300A9 ที่ใช้ประมวลผลออกรายงาน นอกนั้นไม่ต้องประมวลผลมาออกรายงาน</em></span></p>    <div class="aui-message warning shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p>Update 24-APR-2024</p><p>เนื่องจากมี UR โครงการ <span style="color: rgb(38,38,38);">SP Life แจ้งแก้ไข GL 51090170, Cost Center 8300A9 ให้นำออกจากรายงาน R06 ให้ไปออกรายงาน R13 แทน <span style="color: rgb(0,0,255);">ให้มีผลตั้งแต่ Period 04/2024 เป็นต้นไป</span></span></p>
+                    </div>
+    </div>
+</td><td class="confluenceTd"><span style="color: rgb(255,102,0);">Commission,OV</span></td><td class="confluenceTd"><span style="color: rgb(255,102,0);">InitialOverride</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">50551120</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">เงินรับรองรายได้</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">Commission,OV</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">InitialOverride</span></td></tr></tbody></table></div></div>
+</div>
+</li></ol></li><li><p>นำข้อมูลที่ได้ไปบันทึกในตาราง โดยมีรายละเอียดดังนี้</p><ol><li><p>บันทึกข้อมูลที่ตาราง <a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a></p>
+<div id="expander-1035313385" class="expand-container">
+<div id="expander-control-1035313385" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตาราง tx_rcc_reconcile_r06</span>
+</div>
+<div id="expander-content-1035313385" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Mapping</span></th></tr><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd">Period</td><td colspan="1" class="confluenceTd"><span>แสดงผลเป็น </span><span style="color: rgb(0,0,0);"><span style="color: rgb(51,51,51);">Period เป็นรูปแบบ YYYYMM (ปี ค.ศ.)</span> </span></td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Disclosure Type</td><td class="confluenceTd"><span style="color: rgb(51,51,51);">Fix เป็น &quot;Investment&quot;</span></td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Code</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_code</span></span></td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Account Name</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.</span></span><span style="color: rgb(51,51,51);">gl_name</span></td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">BL</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.business_line_code</span></span></td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">Plan Code</td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);">Fix 'ALL'</span></p></td></tr><tr><td class="confluenceTd">7</td><td class="confluenceTd">Amount</td><td class="confluenceTd"><p><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.</span></span><span style="color: rgb(51,51,51);">gl_amount</span></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_type</span></th><th colspan="1" class="confluenceTh"><span style="color: rgb(51,51,51);">รูปแบบข้อมูล</span></th></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,128,0);">DR</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">เป็นบวก</td></tr><tr><td class="confluenceTd"><span style="color: rgb(128,0,0);">CR</span></td><td class="highlight-red confluenceTd" colspan="1" data-highlight-colour="red">เป็นลบ</td></tr></tbody></table></div><p><span> ** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></p></td></tr><tr><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">Adj.Posting</td><td colspan="1" class="confluenceTd"><span>นำ Field Amount ในลำดับที่ 6 มากลับข้าง ตัวอย่างเช่น Amount ได้ยอดเป็น 1000 ใน Field นี้ ให้แสดงเป็น -1000</span></td></tr></tbody></table></div></div>
+</div>
+
+<div id="expander-774532180" class="expand-container">
+<div id="expander-control-774532180" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ประมวลผล Grouping  และ Summary ตามรายการคอลัมน์ต่อไปนี้ แล้วบันทึกข้อมูลที่ตาราง tx_rcc_reconcile_r06</span>
+</div>
+<div id="expander-content-774532180" class="expand-content expand-hidden"><ul><li><span style="color: rgb(0,0,0);"><strong>ทำการ Grouping Column ตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th></tr><tr><td colspan="1" class="confluenceTd"><span>1</span></td><td colspan="1" class="confluenceTd"><span>Period</span></td></tr><tr><td class="confluenceTd"><span>2</span></td><td class="confluenceTd"><span>Disclosure Type</span></td></tr><tr><td colspan="1" class="confluenceTd"><span>3</span></td><td colspan="1" class="confluenceTd"><span>Account Code</span></td></tr><tr><td colspan="1" class="confluenceTd"><span>4</span></td><td colspan="1" class="confluenceTd"><span>Account Name</span></td></tr><tr><td colspan="1" class="confluenceTd"><span>5</span></td><td colspan="1" class="confluenceTd"><span>BL</span></td></tr><tr><td colspan="1" class="confluenceTd"><span>6</span></td><td colspan="1" class="confluenceTd"><span>Plan Code</span></td></tr></tbody></table></div><ul><li><span style="color: rgb(0,0,0);"><strong>ทำการ Summary ยอดเงินตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td colspan="1" class="confluenceTd"><span>1</span></td><td colspan="1" class="confluenceTd"><span>Amount</span></td></tr><tr><td class="confluenceTd"><span>2</span></td><td class="confluenceTd"><span>Adj.Posting</span></td></tr></tbody></table></div></div>
+</div>
+</li><li><p>บันทึกข้อมูลที่ตาราง <a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a></p>
+<div id="expander-224721272" class="expand-container">
+<div id="expander-control-224721272" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตาราง tx_rcc_adj_r06</span>
+</div>
+<div id="expander-content-224721272" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Mapping</span></th></tr><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd">Period</td><td colspan="1" class="confluenceTd">แสดงผลเป็น <span style="color: rgb(0,0,0);"><span style="color: rgb(51,51,51);">Period เป็นรูปแบบ YYYYMM (ปี ค.ศ.)</span> </span></td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Disclosure Type</td><td class="confluenceTd"><span style="color: rgb(51,51,51);">Fix เป็น &quot;Investment&quot;</span></td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Code</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.<span style="color: rgb(51,51,51);">gl_code</span></span></td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Account Name</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.</span><span style="color: rgb(51,51,51);">gl_name</span></td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">BL</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.business_line_code</span></td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">Plan Code</td><td class="confluenceTd"><p><s><a href="/display/RDSADW/tx_adw_transaction_policy">tx_adw_transaction_policy</a><span style="color: rgb(51,51,51);">.plan_code</span></s></p><p><span style="color: rgb(51,51,51);"><span style="color: rgb(0,0,0);">Fix 'ALL'</span></span></p></td></tr><tr><td colspan="1" class="confluenceTd">7</td><td colspan="1" class="confluenceTd">Adj.Posting</td><td colspan="1" class="confluenceTd"><span>นำ Field </span><span>Adj.Posting ที่อยู่ในขั้นตอนบันทึกข้อมูลที่ตาราง tx_rcc_reconcile_r06 </span><span>มาใช้งาน</span></td></tr></tbody></table></div></div>
+</div>
+
+<div id="expander-1160329481" class="expand-container">
+<div id="expander-control-1160329481" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ประมวลผล Grouping  และ Summary ตามรายการคอลัมน์ต่อไปนี้ แล้วบันทึกข้อมูลที่ตาราง tx_rcc_adj_r06</span>
+</div>
+<div id="expander-content-1160329481" class="expand-content expand-hidden"><ul><li><span style="color: rgb(0,0,0);"><strong>ทำการ Grouping Column ตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th></tr><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Period</span></td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Disclosure Type</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Code</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Account Name</td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">BL</td></tr><tr><td colspan="1" class="confluenceTd">6</td><td colspan="1" class="confluenceTd">Plan Code</td></tr></tbody></table></div><ul><li><span style="color: rgb(0,0,0);"><strong>ทำการ Summary ยอดเงินตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><span style="color: rgb(0,0,0);">1</span></td><td class="confluenceTd">Adj.Posting</td></tr></tbody></table></div></div>
+</div>
+</li><li><p>บันทึกข้อมูลที่ตาราง <a href="/display/RDSADW/tx_rcc_output_r06">tx_rcc_output_r06</a></p>
+<div id="expander-176185374" class="expand-container">
+<div id="expander-control-176185374" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตาราง tx_rcc_output_r06</span>
+</div>
+<div id="expander-content-176185374" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Mapping</span></th></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">1</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">period</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_account_head" rel="nofollow">tx_adw_account_head</a>.<span style="color: rgb(51,51,51);">accounting_date</span></span><span style="color: rgb(51,51,51);"> </span></p><p><span style="color: rgb(51,51,51);"><img class="emoticon emoticon-yellow-star" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/emoticons/star_yellow.png" data-emoticon-name="yellow-star" alt="(star)" /> บันทึก Period เป็นรูปแบบ YYYYMM (ปี ค.ศ.) </span></p></td></tr><tr><td class="confluenceTd"><span>2</span></td><td class="confluenceTd"><span>policy_no</span></td><td class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.<span style="color: rgb(51,51,51);">policy_no</span></span></td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">portfolio_id</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">»» นำ Policy No. และ Period ไปอ่านที่ตาราง <a href="/pages/viewpage.action?pageId=944833125">tx_mps_master_i04 (CoreEDW)</a> ฟิล์ด policy_number, period</span></p><p><span style="color: rgb(51,51,51);">»» อ่านข้อมูล  <a href="/pages/viewpage.action?pageId=944833125">tx_mps_master_i04 (CoreEDW)</a>.portfolio_id มาบันทึกเป็น portfolio_id</span></p><p><span style="color: rgb(51,51,51);">&gt;&gt; กรณีไม่พบข้อมูล portfolio_id ที่ตาราง<span style="color: rgb(255,102,0);"> </span><a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=944833125" rel="nofollow">tx_mps_master_i04 (CoreEDW)</a><span style="color: rgb(255,102,0);"> ให้ทำการหา Auto Tagging </span><a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1081934402" rel="nofollow">A5. กระบวนการการติด Tagging รายงาน R กรณีไม่พบข้อมูลจากรายงาน I</a></span></p></td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd"><span>plan_code</span></td><td colspan="1" class="confluenceTd"><p><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_detail" rel="nofollow">tx_adw_transaction_detail</a><span style="color: rgb(51,51,51);">.plan_code_actuarial</span></p></td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd"><span>sales_channel</span></td><td colspan="1" class="confluenceTd"><p><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.sale_channel</p></td></tr><tr><td colspan="1" class="confluenceTd"><span>6</span></td><td colspan="1" class="confluenceTd"><span>sales_channel_code</span></td><td colspan="1" class="confluenceTd"><p><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.channel_code</p></td></tr><tr><td colspan="1" class="confluenceTd">7</td><td colspan="1" class="confluenceTd"><span>business_line</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.<span style="color: rgb(51,51,51);">business_line_code</span></span></td></tr><tr><td colspan="1" class="confluenceTd"><span>8</span></td><td colspan="1" class="confluenceTd"><span>effective_date</span></td><td colspan="1" class="confluenceTd"><a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1091502911" rel="nofollow">A8. กระบวนการบันทึก Effective Date</a></td></tr><tr><td colspan="1" class="confluenceTd"><span>9</span></td><td colspan="1" class="confluenceTd"><span>mode_of_payment</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a>.<span style="color: rgb(51,51,51);">mode_of_payment</span></span></td></tr><tr><td colspan="1" class="confluenceTd"><span>10</span></td><td colspan="1" class="confluenceTd"><span>annual_premium</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a>.<span style="color: rgb(51,51,51);">annual_premium</span></span></span></p><p><span style="color: rgb(51,51,51);"> ** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><span>11</span></td><td colspan="1" class="confluenceTd"><span>modal_premium</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a>.<span style="color: rgb(51,51,51);">modal_premium</span></span></p><p><span style="color: rgb(0,0,0);"> </span> ** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</p></td></tr><tr><td colspan="1" class="confluenceTd"><span>12</span></td><td colspan="1" class="confluenceTd"><span>basic_rider_indicator</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);"><a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_detail" rel="nofollow">tx_adw_transaction_detail</a>.<span style="color: rgb(51,51,51);">basic_rider_indicator</span></span></td></tr><tr><td colspan="1" class="confluenceTd"><span>13</span></td><td colspan="1" class="confluenceTd"><span>initial_commission</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_amount</span></span></span></p><p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"><span style="color: rgb(51,51,51);"><span>** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></span></span></span></p><p><span style="color: rgb(0,0,0);"><span style="color: rgb(0,0,0);"> </span></span><span style="color: rgb(51,51,51);">เช็คเงื่อนไขที่ <a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.gl_type นำมาเทียบกับ <a href="/display/RDSADW/cf_rcc_gl_mapping">cf_rcc_gl_mapping</a>.gl_type</span></p><ol><li>กรณีที่มีข้อมูลตรงกัน ให้แสดงเป็น<span style="color: rgb(0,128,0);">เครื่องหมายบวก</span> และนำค่ามาใช้งาน</li><li>กรณีที่มีข้อมูลไม่ตรงกัน ให้แสดงเป็น<span style="color: rgb(128,0,0);">เครื่องหมายลบ</span> และนำค่ามาใช้งาน</li></ol></td></tr><tr><td colspan="1" class="confluenceTd"><span>14</span></td><td colspan="1" class="confluenceTd"><span>renewal_commission</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><span><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_amount</span></span></span></p><p><span style="color: rgb(0,0,0);"><span><span style="color: rgb(51,51,51);">** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></span></span></p><p><span style="color: rgb(0,0,0);"> </span><span>เช็คเงื่อนไขที่ <a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.gl_type นำมาเทียบกับ <a href="/display/RDSADW/cf_rcc_gl_mapping">cf_rcc_gl_mapping</a>.gl_type</span></p><ol><li>กรณีที่มีข้อมูลตรงกัน ให้แสดงเป็น<span style="color: rgb(0,128,0);">เครื่องหมายบวก</span> และนำค่ามาใช้งาน</li><li>กรณีที่มีข้อมูลไม่ตรงกัน ให้แสดงเป็น<span style="color: rgb(128,0,0);">เครื่องหมายลบ</span> และนำค่ามาใช้งาน</li></ol></td></tr><tr><td colspan="1" class="confluenceTd"><span>15</span></td><td colspan="1" class="confluenceTd"><span>initial_override</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><span><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_amount</span></span></span></p><p><span style="color: rgb(0,0,0);"><span><span style="color: rgb(51,51,51);">** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></span></span></p><p><span style="color: rgb(0,0,0);"> </span><span>เช็คเงื่อนไขที่ <a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.gl_type นำมาเทียบกับ <a href="/display/RDSADW/cf_rcc_gl_mapping">cf_rcc_gl_mapping</a>.gl_type</span></p><ol><li>กรณีที่มีข้อมูลตรงกัน ให้แสดงเป็น<span style="color: rgb(0,128,0);">เครื่องหมายบวก</span> และนำค่ามาใช้งาน</li><li>กรณีที่มีข้อมูลไม่ตรงกัน ให้แสดงเป็น<span style="color: rgb(128,0,0);">เครื่องหมายลบ</span> และนำค่ามาใช้งาน</li></ol></td></tr><tr><td colspan="1" class="confluenceTd"><span>16</span></td><td colspan="1" class="confluenceTd"><span>renewal_override</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(0,0,0);"><span><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a><span style="color: rgb(51,51,51);">.gl_amount</span></span></span></p><p><span style="color: rgb(0,0,0);"><span><span style="color: rgb(51,51,51);">** หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่า 0</span></span></span></p><p><span style="color: rgb(0,0,0);"> </span><span>เช็คเงื่อนไขที่ <a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.gl_type นำมาเทียบกับ <a href="/display/RDSADW/cf_rcc_gl_mapping">cf_rcc_gl_mapping</a>.gl_type</span></p><ol><li>กรณีที่มีข้อมูลตรงกัน ให้แสดงเป็น<span style="color: rgb(0,128,0);">เครื่องหมายบวก</span> และนำค่ามาใช้งาน</li><li>กรณีที่มีข้อมูลไม่ตรงกัน ให้แสดงเป็น<span style="color: rgb(128,0,0);">เครื่องหมายลบ</span> และนำค่ามาใช้งาน</li></ol></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">17</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">sub_group_id</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">»» นำ Policy No. และ Period ไปอ่านที่ตาราง <a href="/pages/viewpage.action?pageId=944833125">tx_mps_master_i04 (CoreEDW)</a> ฟิล์ด policy_number, period</span></p><p><span style="color: rgb(51,51,51);">»» อ่านข้อมูล <a href="/pages/viewpage.action?pageId=944833125">tx_mps_master_i04 (CoreEDW)</a>.sub_group_id มาบันทึกเป็น sub_group_id</span></p></td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">18</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>commission_ov_type</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><div>เงื่อนไขข้อมูลประเภทการจ่าย <span>Commission&amp;OV มีดังนี้</span></div><ol><li>กรณีที่พบว่า <a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a><span style="color: rgb(0,0,0);">.<span style="color: rgb(51,51,51);">collection_type เป็น &quot;CASH&quot; ให้ระบบนำ </span></span><a href="/display/RDSADW/tx_adw_double_entry_detail">tx_adw_double_entry_detail</a>.gl_type นำมาเทียบกับ <a href="/display/RDSADW/cf_rcc_gl_mapping">cf_rcc_gl_mapping</a>.gl_type<ol><li>กรณีที่มีข้อมูลตรงกัน ให้บันทึกเป็น <span style="color: rgb(0,128,0);">NORMAL</span></li><li>กรณีที่มีข้อมูลไม่ตรงกัน ให้บันทึกเป็น <span style="color: rgb(128,0,0);">CLAWBACK</span></li></ol></li><li><span style="color: rgb(128,0,0);"><span style="color: rgb(51,51,51);">กรณีที่พบว่า</span> <a href="/display/RDSADW/tx_adw_commission_ov_detail">tx_adw_commission_ov_detail</a><span style="color: rgb(0,0,0);">.<span style="color: rgb(51,51,51);">collection_type เป็น &quot;<span>ACCRUAL</span>&quot; ให้ระบบบันทึกเป็น </span><span style="color: rgb(255,102,0);">ACCRUED</span></span></span></li><li><span style="color: rgb(0,0,255);">กรณีอื่นๆ ให้บันทึกตามจริง</span><span style="color: rgb(128,0,0);"><span style="color: rgb(0,0,0);"><span style="color: rgb(255,102,0);"><br /></span></span></span></li></ol></td></tr><tr><td colspan="1" class="confluenceTd">19</td><td colspan="1" class="confluenceTd"><span>sales_channel_abbr</span></td><td colspan="1" class="confluenceTd"><p>เงื่อนไขการดึงข้อมูลดังนี้</p><p>1. ค้นหาที่ <a href="/display/RDSADW/cf_adw_catalog">cf_adw_catalog</a>.type มีค่าเป็น &quot;SALE_CHANNEL_LIST&quot;</p><p>2. Mapping ข้อมูลด้วย <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_adw_transaction_policy" rel="nofollow">tx_adw_transaction_policy</a>.sale_channel = <a href="/display/RDSADW/cf_adw_catalog">cf_adw_catalog</a>.config1</p><p>3. ให้นำ <a href="/display/RDSADW/cf_adw_catalog">cf_adw_catalog</a>.config_detail มาบันทึก</p><p><span style="color: rgb(255,102,0);">** เพิ่มวันที่ 07-NOV-2022 </span></p></td></tr><tr><td colspan="1" class="confluenceTd">20</td><td colspan="1" class="confluenceTd"><span>rider_type </span><span style="color: rgb(255,0,255);">--ปรับเพิ่มโครงการ UL Rider</span></td><td colspan="1" class="confluenceTd"><p>เงื่อนไขการเช็ค UL Rider ดูจากเงื่อนไข <span style="color: rgb(0,0,0);">Business_line_code = 07 และ </span><span style="color: rgb(0,0,0);">basic_rider_indicator = 'RIDER' ให้ดึงข้อมูลจาก <a href="/pages/viewpage.action?pageId=944833116">tx_mps_master_i02</a>.rider_ul_type โดยใช้ policy, period ค้นหาข้อมูล </span></p><p>1. กรณีที่เป็น UL Rider ให้นำข้อมูลจาก <a href="/pages/viewpage.action?pageId=944833116">tx_mps_master_i02</a>.rider_ul_type บันทึก</p><p>2. กรณีที่ไม่ใช่ Rider ให้บันทึกเป็นค่าว่าง</p><p>3. หากไม่มีข้อมูล (ค่าว่าง / null / 0) ให้บันทึกเป็นค่าว่าง</p><p><span style="color: rgb(255,0,0);">หมายเหตุ: รายงาน R06 กรณีที่เป็น RIDER ให้แสดงข้อมูลเฉพาะ UL Type Rider = 'UDR&quot; เท่านั้น</span></p></td></tr></tbody></table></div></div>
+</div>
+
+<div id="expander-1041998420" class="expand-container">
+<div id="expander-control-1041998420" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ประมวลผล Grouping  และ Summary ตามรายการคอลัมน์ต่อไปนี้ แล้วบันทึกข้อมูลที่ตาราง tx_rcc_output_r06</span>
+</div>
+<div id="expander-content-1041998420" class="expand-content expand-hidden"><ul><li><span style="color: rgb(51,51,51);"><strong>Grouping Column ตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th><th colspan="1" class="confluenceTh"><span style="color: rgb(51,51,51);">Description</span></th></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">1</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">period</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">วันที่บันทึกบัญชี ตามช่วงเวลาที่เลือกประมวลผล โดยบันทึกเป็นรูปแบบปี ค.ศ. และเดือน ( YYYYMM ) </span><br /><span style="color: rgb(51,51,51);">เช่น 202201 , 202202 , 202203 เป็นต้น</span></td></tr><tr><td class="confluenceTd"><span style="color: rgb(51,51,51);">2</span></td><td class="confluenceTd"><span style="color: rgb(51,51,51);">policy_no</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">เลขที่กรมธรรม์</span></td></tr><tr><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">3</span></s></td><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">portfolio_id</span></s></td><td colspan="1" class="confluenceTd"><p><s><span style="color: rgb(51,51,51);">การจัดกลุ่มแบบประกันตาม IFRS 17 Portfolio โดยจะทำการ Update ข้อมูลหลังจากทีมคณิตศาสตร์ได้ดำเนินการจัดทำ Initial Recognition และนำส่งข้อมูล ICG/RCG Tagging เรียบร้อยแล้ว </span></s></p><p><s><span style="color: rgb(51,51,51);">(IFRS17 </span>Group Level: Portfolio &amp; Profitability Group &amp; Cohort)</s></p></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">4</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">plan_code</span></td><td colspan="1" class="confluenceTd"><p>รหัสแบบประกัน (Prophet Plan Code) แบบประกันตามที่คณิตศาสตร์กำหนด จะมีตัวอักษรตามประเภทกรมธรรม์และตามด้วยรหัสแบบประกัน</p><p>- UL001 : RP01</p><p>- UL002 : SP02</p></td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">sales_channel</td><td colspan="1" class="confluenceTd"><p>รหัสช่องทางการขาย</p><p>− AGT : ช่องทางตัวแทน</p><p>− ALB : ช่องทาง Alternative Division ฝ่ายธุรกิจสถาบัน</p><p>− ALG : ช่องทาง Corporate &amp; Group Life insurance Division ฝ่ายการตลาดประกันชีวิตกลุ่ม</p><p>− DGS : ช่องทาง Digital sale</p><p>− OTH : ช่องทางอื่น ๆ Other Channel</p><p>** หมายเหตุ: ในรายงาน R06 จะมี AGT เท่านั้น **</p></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">6</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">sales_channel_code</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">รหัสช่องทางการขายตัวเลข 7 หลัก</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">7</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">business_line</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">Code ของ Business Line ตามข้อมูลการบันทึกบัญชี</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">8</span></s></td><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">effective_date</span></s></td><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">ข้อมูลวันที่เริ่มสัญญาของกรมธรรม์นั้น ๆ</span></s></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">9</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">mode_of_payment</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">ข้อมูลโหมดชำระเบี้ย </span></p><p><span style="color: rgb(51,51,51);">− ชำระเบี้ยรายปี กำหนดค่าเป็น 12 </span></p><p><span style="color: rgb(51,51,51);">− ชำระเบี้ยราย 6 เดือน กำหนดค่าเป็น 6 </span></p><p><span style="color: rgb(51,51,51);">− ชำระเบี้ยราย 3 เดือน กำหนดค่าเป็น 3 </span></p><p><span style="color: rgb(51,51,51);">− ชำระเบี้ยรายเดือน กำหนดค่าเป็น 1 </span></p><p><span style="color: rgb(51,51,51);">− ชำระเบี้ยครั้งเดียว กำหนดค่าเป็น 99</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">10</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">annual_premium</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ข้อมูลยอดเบี้ยประกันรายปีของกรมธรรม์</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">11</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">modal_premium</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ข้อมูลยอดเบี้ยชำระตามโหมดของกรมธรรม์</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">12</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">basic_rider_indicator</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">ข้อมูลเพื่อบอกว่ารายการนี้เป็น Plan หลัก หรือ Rider </span></p><p><span style="color: rgb(51,51,51);">− BASIC : สัญญาประกันภัยหลัก</span></p><p><span style="color: rgb(51,51,51);">− RIDER : สัญญาประกันภัยเพิ่มเติม</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">13</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">commission_ov_type</span></td><td colspan="1" class="confluenceTd"><p><span style="color: rgb(51,51,51);">ข้อมูลประเภทการจ่าย Commission&amp;OV</span></p></td></tr><tr><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">14</span></s></td><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">sub_group_id</span></s></td><td colspan="1" class="confluenceTd"><s><span style="color: rgb(51,51,51);">การจัดกลุ่มแบบประกันตาม IFRS 17 Portfolio โดยจะทำการ Update ข้อมูลหลังจากทีมคณิตศาสตร์ได้ดำเนินการจัดทำ Initial Recognition และนำส่งข้อมูล ICG/RCG Tagging เรียบร้อยแล้ว <br />(IFRS17 Sub-Group Level: Plan Code &amp; Profitability Group &amp; Cohort)</span></s></td></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">15</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span>sales_channel_abbr</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><p>ช่องทางการขายชื่อย่อ <span style="color: rgb(255,0,0);">(ในรายงาน R06 จะมี AGT เท่านั้น)</span></p><p>− AGT : ช่องทางตัวแทน</p><p>− ALB : ช่องทาง Alternative Division ฝ่ายธุรกิจสถาบัน</p><p>− ALG : ช่องทาง Corporate &amp; Group Life insurance Division ฝ่ายการตลาดประกันชีวิตกลุ่ม</p><p>− DGS : ช่องทาง Digital sale</p><p>− OTH : ช่องทางอื่น ๆ Other Channel</p><p><span style="color: rgb(255,102,0);">** เพิ่มวันที่ 07-NOV-2022 **</span></p></td></tr><tr><td colspan="1" class="confluenceTd">16</td><td colspan="1" class="confluenceTd">rider_type<span style="color: rgb(0,0,0);"> </span><span style="color: rgb(255,0,255);">--ปรับเพิ่มโครงการ UL Rider </span></td><td colspan="1" class="confluenceTd"><span>ประเภทสัญญาเพิ่มเติมสำหรับ Unit Linked</span></td></tr></tbody></table></div><ul><li><span style="color: rgb(51,51,51);"><strong>Summary ยอดเงินตามฟิล์ดดังนี้</strong></span></li></ul><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="confluenceTd"><span style="color: rgb(51,51,51);">1</span></td><td class="confluenceTd"><span style="color: rgb(51,51,51);">initial_commission</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ผลรวมยอดเงินค่าบำเหน็จปีแรก ตาม GL Code ที่กำหนด</span></td></tr><tr><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">2</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">renewal_commission</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ผลรวมยอดเงินค่าบำเหน็จปีต่อไป ตาม GL Code ที่กำหนด</span></td></tr><tr><td class="confluenceTd"><span style="color: rgb(51,51,51);">3</span></td><td class="confluenceTd"><span style="color: rgb(51,51,51);">initial_override</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ผลรวมยอดเงินค่า Override ปีแรก ตาม GL Code ที่กำหนด</span></td></tr><tr><td class="confluenceTd"><span style="color: rgb(51,51,51);">4</span></td><td class="confluenceTd"><span style="color: rgb(51,51,51);">renewal_override</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(51,51,51);">ผลรวมยอดเงินค่า Override ปีต่อไป ตาม GL Code ที่กำหนด</span></td></tr></tbody></table></div></div>
+</div>
+</li></ol></li></ol><p><strong>step3 : </strong>ฝ่ายบัญชี กด Download File ที่หน้าจอ <a href="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152455" rel="nofollow">EDW-RCC-SD002 หน้าจอแสดงรายละเอียด และยืนยันการออกรายงาน R</a></p><ol><li><span>สถานะดำเนินการจะต้องเป็น &quot;</span><span style="color: rgb(34,34,34);"><span style="color: rgb(51,51,51);">ประมวลผลสำเร็จ&quot; หรือ &quot;ยืนยันข้อมูล&quot; ตามสถานะในหน้าจอ <a href="/pages/viewpage.action?pageId=930152455">EDW-RCC-SD002 &#3627;&#3609;&#3657;&#3634;&#3592;&#3629;&#3649;&#3626;&#3604;&#3591;&#3619;&#3634;&#3618;&#3621;&#3632;&#3648;&#3629;&#3637;&#3618;&#3604; &#3649;&#3621;&#3632;&#3618;&#3639;&#3609;&#3618;&#3633;&#3609;&#3585;&#3634;&#3619;&#3629;&#3629;&#3585;&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; R</a></span></span></li><li><p>ระบบจะนำช่วงวันที่ประมวลผล ปี และเดือนที่ได้รับจากหน้าจอ ไปหาที่ตาราง <a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a><span style="color: rgb(0,0,0);"><span style="color: rgb(51,51,51);">.period และ</span> <a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.<span style="color: rgb(51,51,51);">period</span></span></p></li><li><p><span style="color: rgb(0,0,0);"><span style="color: rgb(51,51,51);">ทำการ Generate ข้อมูลไปยัง Excel file เพื่อ export ให้ผู้ใช้ โดยตั้งชื่อไฟล์เป็น</span> <span style="color: rgb(51,102,255);"><u><strong>R06ACC_YYYYMM_to_YYYYMM.xls</strong></u></span><span style="color: rgb(51,51,51);"> โดยแยกเป็น 2 Sheet มีรายละเอียดดังนี้</span></span></p><ol><li><p> Sheet ที่ 1 ชื่อ Reconcile Actual Data ใช้ข้อมูลจากตาราง <a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a> (Sorting by Account Code, BL)</p>
+<div id="expander-1397296705" class="expand-container">
+<div id="expander-control-1397296705" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตารางอธิบายข้อมูลในไฟล์ excel ส่วนของ Reconcile Actual Data</span>
+</div>
+<div id="expander-content-1397296705" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">No</th><th class="confluenceTh">Column Name</th><th class="confluenceTh">Mapping</th></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">1</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Period</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.period</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Disclosure Type</td><td class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.disclosure_type</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Code</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.account_code</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Account Name</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.account_name</td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">BL</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.business_line</td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">Plan Code</td><td class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.plan_code</td></tr><tr><td class="confluenceTd">7</td><td class="confluenceTd">Amount</td><td class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.amount</td></tr><tr><td colspan="1" class="confluenceTd">8</td><td colspan="1" class="confluenceTd">Adj.Posting</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_reconcile_r06">tx_rcc_reconcile_r06</a>.adj_posting</td></tr></tbody></table></div></div>
+</div>
+<p><img class="confluence-embedded-image" src="/download/attachments/930840941/star_yellow.png?version=2&amp;modificationDate=1647843991696&amp;api=v2" data-image-src="/download/attachments/930840941/star_yellow.png?version=2&amp;modificationDate=1647843991696&amp;api=v2"> ประมวลผลเพื่อสรุปยอดเงินรวมใต้ Record สุดท้ายของรายการ Reconcile Actual Data โดยอ่านเงื่อนไขจาก <span style="color: rgb(51,102,255);">cf_rcc_template_formular</span></p>
+<div id="expander-1636396203" class="expand-container">
+<div id="expander-control-1636396203" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">เพิ่มเติม cf_rcc_template_formular</span>
+</div>
+<div id="expander-content-1636396203" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">No</th><th class="confluenceTh">Field</th><th colspan="1" class="confluenceTh">เงื่อนไข</th></tr><tr><td colspan="1" class="confluenceTd">1</td><td colspan="1" class="confluenceTd">cf_template_field_id</td><td colspan="1" class="confluenceTd">Column ที่ใช้จัดวาง/ใช้ประมวลผล อ้างอิงจากตาราง <a href="/display/RDSADW/cf_rcc_template_field">cf_rcc_template_field</a></td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">top_or_buttom</td><td colspan="1" class="confluenceTd">T : Top แสดงบนสุดของรายการแรก B : Buttom แสดงด้านล่างสุดของรายการสุดท้าย</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">display_type</td><td colspan="1" class="confluenceTd">C : Count นับจำนวนรายการ<br />S : Summary บวกผลรวมของรายการ<br />D : Display แสดงข้อความ</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">display_text</td><td colspan="1" class="confluenceTd">ข้อความที่จะแสดง สำหรับกรณีที่ display_type = 'D'</td></tr></tbody></table></div></div>
+</div>
+</li><li><p>Sheet ที่ 2 ชื่อ Adjustment Posting ใช้ข้อมูลจากตาราง <a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a> (Sorting by Account Code, BL)</p>
+<div id="expander-88703913" class="expand-container">
+<div id="expander-control-88703913" class="expand-control">
+    <span class="expand-control-icon icon">&nbsp;</span><span class="expand-control-text">ตารางอธิบายข้อมูลในไฟล์ excel  ส่วนของ Adjustment Posting</span>
+</div>
+<div id="expander-content-88703913" class="expand-content expand-hidden"><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh">No</th><th class="confluenceTh">Column Name</th><th class="confluenceTh">Mapping</th></tr><tr><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">1</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">Period</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.period</td></tr><tr><td class="confluenceTd">2</td><td class="confluenceTd">Disclosure Type</td><td class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.disclosure_type</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Code</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.account_code</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">Account Name</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.account_name</td></tr><tr><td colspan="1" class="confluenceTd">5</td><td colspan="1" class="confluenceTd">BL</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.business_line</td></tr><tr><td class="confluenceTd">6</td><td class="confluenceTd">Plan Code</td><td class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.plan_code</td></tr><tr><td colspan="1" class="confluenceTd">7</td><td colspan="1" class="confluenceTd">Adj.Posting</td><td colspan="1" class="confluenceTd"><a href="/display/RDSADW/tx_rcc_adj_r06">tx_rcc_adj_r06</a>.adj_posting</td></tr></tbody></table></div>    <div class="aui-message warning shadowed information-macro">
+                    <p class="title">Note</p>
+                            <span class="aui-icon icon-warning">Icon</span>
+                <div class="message-content">
+                            <p><img class="emoticon emoticon-yellow-star" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/emoticons/star_yellow.png" data-emoticon-name="yellow-star" alt="(star)" /> ประมวลผลเพื่อสรุปยอดเงินรวมท้ายตารางของรายการ Adjustment Posting โดย Summary แยกตาม Disclosure Type ดังนี้<br />» อ่านข้อมูลเฉพาะส่วนของรายงาน R06 (<a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a>.group_type_id = '6' ) <span>และต้องดู Version ประกอบว่าเป็นของ Phase 3 หรือ 4.1 ตามเงื่อนไข (<a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a></span><span>.version)</span></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><span style="color: rgb(51,51,51);">No</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Column Name</span></th><th class="confluenceTh"><span style="color: rgb(51,51,51);">Mapping</span></th></tr><tr><td class="confluenceTd">1</td><td class="confluenceTd">Disclosure Type</td><td class="confluenceTd">หยิบจาก <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a>.disclosure_type<br />» <em>เพื่อนำไปอ่านข้อมูลเฉพาะ Disclosure Type ที่ตรงกันในข้อมูล Adjustment Posting</em></td></tr><tr><td colspan="1" class="confluenceTd">2</td><td colspan="1" class="confluenceTd">Account Code</td><td colspan="1" class="confluenceTd">หยิบจาก <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a>.account_code</td></tr><tr><td colspan="1" class="confluenceTd">3</td><td colspan="1" class="confluenceTd">Account Name</td><td colspan="1" class="confluenceTd">หยิบจาก <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a>.account_name</td></tr><tr><td colspan="1" class="confluenceTd">4</td><td colspan="1" class="confluenceTd">BL</td><td colspan="1" class="confluenceTd">ให้แสดงเป็นค่าว่าง</td></tr><tr><td class="confluenceTd">5</td><td class="confluenceTd">Plan Code</td><td class="confluenceTd">ให้แสดงเป็นค่าว่าง</td></tr><tr><td colspan="1" class="confluenceTd">6 </td><td colspan="1" class="confluenceTd">Adj.Posting</td><td colspan="1" class="confluenceTd"><p>1. นำข้อมูลจำนวนเงินใน Column Adj.Posting ประมวลผล Summary ตามเงื่อนไขดังนี้</p><p>- Summary ตาม Disclosure Type<br /><span style="color: rgb(255,0,255);"><em><em><span style="color: rgb(255,0,0);">**ยกเลิก** </span></em>--EDW PH5.1 แยกรายการ Initial Commission และ Renewal Commission (05.03.2024)</em></span></p><p>- นำ <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_adj_r06" rel="nofollow">tx_rcc_adj_r06</a>.account_code ไปเทียบกับ <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_gl_mapping" rel="nofollow">cf_rcc_gl_mapping</a>.account_code (<span>group_type_id = '6'</span>) จะได้ <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_gl_mapping" rel="nofollow">cf_rcc_gl_mapping</a>.amount_type <br />- sum จำนวนเงินใน Column Adj.Posting ตาม <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_adj_r06" rel="nofollow">tx_rcc_adj_r06</a>.<span style="color: rgb(0,0,0);">disclosure_type และ <a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_gl_mapping" rel="nofollow">cf_rcc_gl_mapping</a></span>.amount_type<br />- นำค่า sum ที่ได้ มารวมกันตามเงื่อนไขดังนี้</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><strong>Disclosure Type</strong></th><th class="confluenceTh"><strong>Account Code</strong></th><th colspan="1" class="confluenceTh"><strong>Account Name</strong></th><th class="confluenceTh">เงื่อนไขการแสดงผลรวมใน Column <strong>Adj.Posting</strong></th></tr><tr><td class="confluenceTd"><span style="color: rgb(0,0,0);">Investment</span></td><td class="confluenceTd"><span style="color: rgb(0,0,0);">79120002</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Suspense - InitialCommission_VFA</span></td><td class="confluenceTd">จำนวนเงินใน Column Adj.Posting ที่ amount_type = InitialCommission + จำนวนเงินใน Column Adj.Posting ที่ amount_type = InitialOverride <span>โดย</span><span> </span><span style="color: rgb(0,0,0);">disclosure_type = '<span style="color: rgb(0,0,0);">Investment</span>'</span></td></tr><tr><td class="confluenceTd"><span style="color: rgb(0,0,0);">Investment</span></td><td class="confluenceTd"><span style="color: rgb(0,0,0);">79120003</span></td><td colspan="1" class="confluenceTd"><span style="color: rgb(0,0,0);">Suspense - RenewalCommission_VFA</span></td><td class="confluenceTd">จำนวนเงินใน Column Adj.Posting ที่ amount_type = RenewalCommission + จำนวนเงินใน Column Adj.Posting ที่ amount_type = RenewalOverride <span>โดย </span><span style="color: rgb(0,0,0);">disclosure_type = '<span>Investment</span>'</span></td></tr></tbody></table></div><p>2. ระบุจำนวนเงินรวม ที่ท้ายตารางใน Column ของ <u>Adj.Posting</u> <span style="color: rgb(255,0,255);">โดยให้กลับรายการบัญชี ถ้าค่า adjustment เป็นลบ ให้เปลี่ยนเป็นค่าบวก, ถ้าค่า </span><span style="color: rgb(255,0,255);">adjustment เป็นบวก ให้เปลี่ยนเป็นค่าลบ</span></p><p><strong><u>ตัวอย่างเช่น</u></strong></p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="highlight-grey confluenceTd" colspan="6" data-highlight-colour="grey"><strong>Table: <a href="http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_adj_r06" rel="nofollow">tx_rcc_adj_r06</a></strong></td></tr><tr><th class="confluenceTh">period</th><th class="confluenceTh">disclosure_type</th><th class="confluenceTh">account_code</th><th colspan="1" class="confluenceTh">account_name</th><th colspan="1" class="confluenceTh"><span style="color: rgb(0,0,0);">business_line</span></th><th class="confluenceTh">adj_posting</th></tr><tr><td class="confluenceTd">202304</td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow">50551101</td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow"><span style="color: rgb(0,0,0);">ค่าบำเหน็จรับตรงประกันชีวิตปีที่ 1</span></td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow" style="text-align: center;"><span>07</span></td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow" style="text-align: right;">-3505436.780000000000000</td></tr><tr><td colspan="1" class="confluenceTd">202304</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow">50551115</td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow">ค่าจัดงานตัวแทน</td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow" style="text-align: center;"><span>07</span></td><td class="highlight-yellow confluenceTd" colspan="1" data-highlight-colour="yellow" style="text-align: right;">-254035.510000000000000</td></tr><tr><td colspan="1" class="confluenceTd">202304</td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue">50551103</td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue"><span style="color: rgb(0,0,0);">ค่าบำเหน็จปีต่อไป ตัวแทน</span></td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue" style="text-align: center;"><span>07</span></td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue" style="text-align: right;">-25504726.000000000000000</td></tr><tr><td class="confluenceTd">202304</td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-blue confluenceTd" data-highlight-colour="blue">50551212</td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue">ค่าอนุรักษ์เบี้ยปี 2 (ผู้บริหาร)</td><td class="highlight-blue confluenceTd" colspan="1" data-highlight-colour="blue" style="text-align: center;"><span>07</span></td><td class="highlight-blue confluenceTd" data-highlight-colour="blue" style="text-align: right;">-31043.000000000000000</td></tr></tbody></table></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="highlight-grey confluenceTd" colspan="5" data-highlight-colour="grey"><strong>Table:</strong> <strong><a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_suspense_mapping" rel="nofollow">cf_rcc_suspense_mapping</a></strong></td></tr><tr><th class="confluenceTh">group_type_id</th><th class="confluenceTh">disclosure_type</th><th class="confluenceTh">account_code</th><th colspan="1" class="confluenceTh">account_name</th><th colspan="1" class="confluenceTh">vesion</th></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green">6</td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">79120002</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Suspense - InitialCommission_VFA</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">3</td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green">6</td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">79120003</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Suspense - RenewalCommission_VFA</span></td><td class="highlight-green confluenceTd" colspan="1" data-highlight-colour="green">3</td></tr></tbody></table></div><div class="table-wrap"><table class="confluenceTable"><tbody><tr><td class="highlight-grey confluenceTd" colspan="2" data-highlight-colour="grey"><strong>Table:</strong> <strong><a href="http://wiki.thaisamut.co.th/display/RDSADW/cf_rcc_gl_mapping" rel="nofollow">cf_rcc_gl_mapping</a></strong></td></tr><tr><th class="confluenceTh">account_code</th><th class="confluenceTh">amount_type</th></tr><tr><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow">50551101</td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow">InitialCommission</td></tr><tr><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow">50551115</td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow">InitialOverride</td></tr><tr><td class="highlight-blue confluenceTd" data-highlight-colour="blue">50551103</td><td class="highlight-blue confluenceTd" data-highlight-colour="blue">RenewalCommission</td></tr><tr><td class="highlight-blue confluenceTd" data-highlight-colour="blue">50551212</td><td class="highlight-blue confluenceTd" data-highlight-colour="blue">RenewalOverride</td></tr></tbody></table></div><p>สรุปยอดเงินรวมท้ายตารางของรายการ Adjustment Posting ดังนี้</p><div class="table-wrap"><table class="confluenceTable"><tbody><tr><th class="confluenceTh"><strong>Disclosure Type</strong></th><th class="confluenceTh"><strong>Account Code</strong></th><th class="confluenceTh"><strong>Account Name</strong></th><th class="confluenceTh"><strong>BL</strong></th><th class="confluenceTh"><strong>Plan Code</strong></th><th class="confluenceTh"><strong>Adj.Posting</strong></th></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">79120002</span></td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow"><span style="color: rgb(0,0,0);">Suspense - InitialCommission_VFA</span></td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow"> </td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow"> </td><td class="highlight-yellow confluenceTd" data-highlight-colour="yellow" style="text-align: right;"><span style="color: rgb(32,33,36);">3759472.290000000000000</span></td></tr><tr><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">Investment</span></td><td class="highlight-green confluenceTd" data-highlight-colour="green"><span style="color: rgb(0,0,0);">79120003</span></td><td class="highlight-blue confluenceTd" data-highlight-colour="blue"><span style="color: rgb(0,0,0);">Suspense - RenewalCommission_VFA</span></td><td class="highlight-blue confluenceTd" data-highlight-colour="blue"> </td><td class="highlight-blue confluenceTd" data-highlight-colour="blue"> </td><td class="highlight-blue confluenceTd" data-highlight-colour="blue" style="text-align: right;"><span style="color: rgb(32,33,36);">25535769.000000000000000</span></td></tr></tbody></table></div><p><u><br /></u></p></td></tr></tbody></table></div>
+                    </div>
+    </div>
+</div>
+</div>
+</li></ol></li></ol>
+
+                
+        
+    
+        </div>
+
+        <!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+         <rdf:Description
+    rdf:about="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152608"
+    dc:identifier="http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152608"
+    dc:title="Process การประมวลผลข้อมูลออกรายงาน R06"
+    trackback:ping="http://wiki.thaisamut.co.th/rpc/trackback/930152608"/>
+</rdf:RDF>
+-->
+
+            
+    
+
+
+
+<div id="labels-section" class="pageSection group">
+    <div class="labels-section-content content-column" entityid="930152608" entitytype="page">
+	<div class="labels-content">
+		
+    <ul class="label-list label-list-right  has-pen">
+            <li class="no-labels-message">
+            No labels
+        </li>
+                <li class="labels-edit-container">
+            <a href="#" class="show-labels-editor editor-icon" title="Edit Labels">
+                <span class="icon icon-edit">Edit Labels</span>
+            </a>
+        </li>
+        </ul>
+
+    </div>
+</div></div>
+
+            
+            
+
+
+
+
+            
+    
+
+
+
+
+
+
+
+
+                    
+    
+<div id="comments-section" class="pageSection group">
+    
+    
+    
+    
+            <div class="bottom-comment-panels comment-panels">
+                                    
+    
+
+                    
+    
+
+
+    
+
+<div class="quick-comment-container comment add"><p class="comment-user-logo"><a class="userLogoLink" data-username="anucha.pi" href="/users/editmyprofilepicture.action" title="Add a picture of yourself"><img class="userLogo logo defaultLogo" src="/s/en_GB-1988229788/4528/eaa35c45b124c018e6c8bf70a069c3c2f63fd66d.9/_/images/icons/profilepics/add_profile_pic.png" alt="User icon: Add a picture of yourself"></a></p><div class="quick-comment-vertical-spacer"></div><div class="quick-comment-body"><div class="quick-comment-loading-container" style="display:none;"><p class="quick-comment-loading-message">Loading the Editor</p></div><div id="editor-messages"></div><div id="all-messages"></div><form style="display:block;" class="quick-comment-form aui" method="post" name="inlinecommentform" action="/pages/doaddcomment.action?pageId=930152608" ><div title="Add a Comment" class="quick-comment-prompt"><span>Write a comment…</span></div></form></div></div>
+
+    
+            </div>
+    
+                        <div id="comments-actions" class="aui-toolbar noprint">
+                <p class="toolbar-group">
+                    <span class="toolbar-item"><a href="/pages/viewpage.action?pageId=930152608&showComments=true&amp;showCommentArea=true#addcomment" id="add-comment-rte" accesskey="m" class="toolbar-trigger full-load">Add Comment</a></span>
+                </p>
+            </div>
+            </div>
+
+
+            
+</div>
+
+
+    
+
+
+
+
+    
+    
+
+    
+    
+    
+
+
+
+
+
+
+
+
+</div>
+  
+    </div>
+</div>
+
+
+        
+            <div id="footer">
+
+    <section class="footer-body">
+
+                        
+    
+
+    <ul id="poweredby">
+        <li class="noprint">Powered by <a href="http://www.atlassian.com/software/confluence" class="hover-footer-link">Atlassian Confluence</a> <span id='footer-build-information'>5.3.1</span>, <a href="http://www.atlassian.com/software/confluence/overview/team-collaboration-software?utm_source=confluence-footer" class="hover-footer-link">Team Collaboration Software</a></li>
+        <li class="print-only">Printed by Atlassian Confluence 5.3.1, Team Collaboration Software.</li>
+        <li class="noprint"><a href="http://jira.atlassian.com/secure/BrowseProject.jspa?id=10470" class="hover-footer-link">Report a bug</a></li>
+        <li class="noprint"><a href="http://www.atlassian.com/about/connected.jsp?s_kwcid=Confluence-stayintouch" class="hover-footer-link">Atlassian News</a></li>
+    </ul>
+
+    
+
+            <script>
+AJS.toInit(function() {
+  $('#notifyWatchers').removeAttr('checked');
+})
+</script>
+    
+    </section>
+
+</div>
+
+            
+    </div>
+</body>
+</html>

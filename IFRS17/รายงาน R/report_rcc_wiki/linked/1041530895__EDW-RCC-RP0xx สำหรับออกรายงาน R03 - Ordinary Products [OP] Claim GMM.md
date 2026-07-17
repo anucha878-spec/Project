@@ -1,0 +1,18 @@
+# EDW-RCC-RP0xx สำหรับออกรายงาน R03 - Ordinary Products [OP] Claim GMM
+
+- url: http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=1041530895
+- http status: 200
+- source: Playwright MCP (in-body link, depth 1)
+
+---
+## EDW-RCC-RP0xx สำหรับออกรายงาน R03 - Ordinary Products [OP] Claim GMM ให้ฝ่ายคณิตศาสตร์
+
+Process การออกรายงานมีเงื่อนไขดังนี้
+
+1. สถานะดำเนินการจะต้องเป็น "ประมวลผลสำเร็จ" และผู้ใช้ทำการกดยืนยันข้อมูล จากหน้าจอ [EDW-RCC-SD001 หน้าจอประมวลผลข้อมูล และยืนยันการออกรายงาน R](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930152455)
+2. ระบบนำปี และเดือนที่ได้รับจากหน้าจอ ไปหาที่ตาราง [tx_rcc_output_r03](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r03)
+3. ทำการ Generate ข้อมูลไปยัง Excel file โดยมีรายละเอียดดังนี้Share drive ให้วางไฟล์ไว้ที่ **$(Default Path)\IFRS17\Report R\XXXXXX_to_XXXXXX_YYYYYYYYYYYYYY** โดยที่ **XXXXXX** แทนข้อมูล Period และ **YYYYYYYYYYYYYY** แทนข้อมูลวันเวลาที่ประมวลผล
+4. ชื่อไฟล์เป็น **R03_OP Claim_YYYYMM_to_YYYYMM.csv**
+5. ให้ Sorting ตาม Period, PortfolioID
+
+1. ใช้ข้อมูลจากตาราง [tx_rcc_output_r03](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r03) เพื่อออกรายงาน R03 ดังนี้ | No | CSV Column Name | Source - [tx_rcc_output_r03](http://wiki.thaisamut.co.th/display/RDSADW/tx_rcc_output_r03) | | --- | --- | --- | | 1 | Period | tx_rcc_output_r03.period | | 2 | PolicyNumber | tx_rcc_output_r03.policy_no | | 3 | PortfolioID | tx_rcc_output_r03.portfolio_id | | 4 | PlanCode | tx_rcc_output_r03.plan_code | | 5 | SalesChannel | tx_rcc_output_r03.sales_channel | | 6 | SalesChannelCode | tx_rcc_output_r03.sales_channel_code | | 7 | BusinessLine | tx_rcc_output_r03.business_line | | 8 | EffectiveDate | tx_rcc_output_r03.effective_date | | 9 | ActualSumAssured | tx_rcc_output_r03.actual_sum_assured | | 10 | ModeOfPayment | tx_rcc_output_r03.mode_of_payment | | 11 | AnnualPremium | tx_rcc_output_r03.annual_premium | | 12 | ModalPremium | tx_rcc_output_r03.modal_premium | | 13 | ClaimEventDate | tx_rcc_output_r03.claim_event_date | | 14 | ClaimReportedDate | tx_rcc_output_r03.claim_reported_date | | 15 | ClaimStatus | tx_rcc_output_r03.claim_status | | 16 | ApproveDate | tx_rcc_output_r03.approve_date | | 17 | ClaimPaidDate | tx_rcc_output_r03.claim_paid_date | | 18 | PolicyLoanPrincipalAmount | tx_rcc_output_r03.policy_loan_principal_amount | | 19 | PolicyLoanInterestAmount | tx_rcc_output_r03.policy_loan_interest_amount | | 20 | APLPrincipalAmount | tx_rcc_output_r03.apl_principal_amount | | 21 | APLInterestAmount | tx_rcc_output_r03.apl_interest_amount | | 22 | OtherLiabilitiesAmount | tx_rcc_output_r03.other_liabilities_amount | | 23 | PaidAmountLife | tx_rcc_output_r03.paid_amount_life | | 24 | PaidAmountAccidentDeath | tx_rcc_output_r03.paid_amount_accident_death | | 25 | PaidAmountAccidentNonDeath | tx_rcc_output_r03.paid_amount_accident_non_death | | 26 | PaidAmountHealth | tx_rcc_output_r03.paid_amount_health | | 27 | PaidAmountDismemberment | tx_rcc_output_r03.paid_amount_dismemberment | | 28 | PaidAmountTPD | tx_rcc_output_r03.paid_amount_tpd | | 29 | PaidAmountOther | tx_rcc_output_r03.paid_amount_other | | 30 | ReturnPremium | tx_rcc_output_r03.return_premium | | 31 | InvestmentComponent | tx_rcc_output_r03.investment_component | | 32 | InsuranceComponent | tx_rcc_output_r03.Insurance_component | | 33 | ExgratiaFlag | tx_rcc_output_r03.exgratia | | 34 | CoPaymentClientPaid | tx_rcc_output_r03.co_payment_client_paid | | 35 | PremiumAmount | tx_rcc_output_r03.premium_amount | | 36 | ClaimNo | tx_rcc_output_r03.claim_no | | 37 | SubGroupID | tx_rcc_output_r03.sub_group_id |

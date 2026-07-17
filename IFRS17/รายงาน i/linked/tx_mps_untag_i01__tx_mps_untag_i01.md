@@ -1,0 +1,137 @@
+# tx_mps_untag_i01
+
+- url: http://wiki.thaisamut.co.th/display/RDSADW/tx_mps_untag_i01
+- http status: 200
+- source: Playwright MCP (in-body link, depth 1)
+
+---
+## TOC
+
+[ [TOC](#tx_mps_untag_i01-TOC) ] [ [Convention](#tx_mps_untag_i01-Convention) ] [ [Table : tx_mps_untag_i01](#tx_mps_untag_i01-Table:tx_mps_untag_i01) ]
+
+## Convention
+
+Description: ข้อมูล Transaction MPS Untag ของ I01 สามัญและอุตสาหกรรม
+
+สามารถดูเงื่อนไข และคำอธิบายเพิ่มเติมได้ที่ [EDW-MPS-PS001-02 เงื่อนไขการบันทึกข้อมูลกรมธรรม์สามัญ](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=930513120) และ [EDW-MPS-PS002-02 เงื่อนไขการบันทึกข้อมูลกรมธรรม์อุตสาหกรรม](http://wiki.thaisamut.co.th/pages/viewpage.action?pageId=937394358)
+
+## Table : tx_mps_untag_i01
+
+| **No** | **ATTRIBUTE_NAME** | **KEY** | **DATA_TYPE** | **SIZE** | **DECIMAL** | **Not Null constraint** | **Description** | **Business Rule** | **Default Value** | **Validation Rule** | **ตัวอย่างข้อมูล** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | mps_untag_i01_ord_idmps_untag_i01_id | PK | Numeric | 188 | | not null | รหัสของตาราง | | | | 1 |
+| 2 | mps_process_dt_id | FK | Numeric | 8 | | not null | [tx_mps_untag_detail](http://wiki.thaisamut.co.th/display/RDSADW/tx_mps_untag_detail).mps_process_dt_id | | | | 1 |
+| 3 | period | | Varchar | 6 | | not null | รอบการประมวลผลformat YYYYMM | YYYY = ปี 4 Digits (ค.ศ.)MM = เดือน 2 Digits | | | 202207 |
+| 4 | policy_number | | Varchar | 50 | | not null | เลขที่กรมธรรม์ | | | | 1470411 |
+| 5 | plan_code | | Varchar | 50 | | | แบบประกัน | | | | C98 |
+| 6 | prophet_plan_code | | Varchar | 50 | | | แบบประกันในรูปแบบ Prophet | | | | OC98 |
+| 7 | initial_sum_insured | | Numeric | 12,2 | | | จำนวนเอาเงินประกัน | | | | 100000.00 |
+| 8 | actual_sum_assured | | Numeric | 12,2 | | | มูลค่ากรมธรรม์ | | | | 100000.00 |
+| 9 | eti_amount | | Numeric | 12,2 | | | เงินครบกำหนดสัญญาของ ETI | | | | 100000.00 |
+| 10 | insured_date_of_birth | | Date | | | | วันเกิดผู้เอาประกัน | | | | 1997-11-17 |
+| 11 | insured_sex | | Varchar | 1 | | | เพศของผู้เอาประกัน | | | | F |
+| 12 | insured_issue_age | | Numeric | 3 | | | อายุของผู้เอาประกัน ณ. วันที่ซื้อ | | | | 30 |
+| 13 | med | | Varchar | 1 | | | ตรวจสุขภาพ | | | | Y |
+| 14 | standard | | Varchar | 1 | | | Sub Standard | | | | N |
+| 15 | ocp_class | | Numeric | 12 | | | ชั้นอาชีพ | | | | 1 |
+| 16 | mode_of_payment | | Numeric | 2 | | | โหมดการชำระ ณ. ปัจจุบัน | | | | 12 |
+| 17 | modal_premium | | Numeric | 12,2 | | | Premium by Mode ณ. ปัจจุบัน เฉพาะเบี้ยมาตราฐาน | | | | 44690.00 |
+| 18 | extra_premium | | Numeric | 12,2 | | | เบี้ยประกันภัยเพิ่มพิเศษ ณ ปัจจุบัน | | | | 11220.00 |
+| 19 | total_premium | | Numeric | 12,2 | | | เบี้ยประกันภัยรวม = เบี้ยประกันรายโหมด + เบี้ยประกันภัยเพิ่มพิเศษ | | | | 55910.00 |
+| 20 | premium_term | | Numeric | 12,2 | | | Premium term in year (กรณีแบบประกันจ่ายเบี้ย At age เช่น 85/60 จะต้องคำนวณ Premium term ตามระยะเวลาที่ชำระเบี้ย) | | | | 1.00 |
+| 21 | coverage_term | | Numeric | 12,2 | | | Coverage term in year กรณีแบบประกันคุ้มครอง At age เช่น 90/x จะต้องคำนวณ Coverage term ตามระยะเวลาที่คุ้มครอง | | | | 4.50 |
+| 22 | effective_date | | Date | | | | วันที่เริ่มความคุ้มครอง | | | | 1988-10-26 |
+| 23 | issue_date | | Date | | | | วันที่รับรู้กรมธรรม์ | | | | 1988-10-26 |
+| 24 | maturity_date | | Date | | | | วันครบกำหนดสัญญา | | | | 2009-10-26 |
+| 25 | sales_channel | | Varchar | 50 | | | ช่องทางขายใช้ตัวย่อตามบัญชี**EDW 5.1 Group 3**SalesChannel ตามสาขาที่ดูแลกรมธรรม์ | | | | AGT |
+| 26 | sales_channel_code | | Varchar | 50 | | | 7 Numericdigit in AS400**EDW 5.1 Group 3**SalesChannelCode ตามสาขาที่ดูแลกรมธรรม์ | | | | 2072805 |
+| 27 | policy_month | | Numeric | 3 | | | อายุกรมธรรม์เป็นเดือน | | | | 2 |
+| 28 | curr_basic_policy_statuscurrent_basic_policy_status | | Varchar | 32 | | | สถานะกรมธรรม์ | | | | I |
+| 29 | prev_month_basic_policy_status | | Varchar | 32 | | | สถานะกรมธรรม์ ณ สิ้นเดือนก่อนของกรมธรรม์ | | | | I |
+| 30 | prev_basic_policy_status | | Varchar | 32 | | | สถานะกรมธรรม์ก่อนหน้า | | | | I |
+| 31 | curr_basic_policy_status_date | | Date | | | | วันที่เปลี่ยนเป็น สถานะปัจจุบัน | | | | 2023-07-21 |
+| 32 | prev_month_basic_policy_status_date | | Date | | | | วันที่เปลี่ยนเป็น สถานะ ณ สิ้นเดือนก่อน | | | | 2023-07-21 |
+| 33 | prev_basic_policy_status_date | | Date | | | | วันที่เปลี่ยนเป็น สถานะก่อนหน้า (System Date ที่ ปรับสถานะ) | | | | 2023-07-21 |
+| 34 | mode_of_pension_payment | | Varchar | 2 | | | โหมดรับเงินบำนาญ | | | | 1 |
+| 35 | tpd_premium | | Numeric | 12,2 | | | เบี้ยประกัน TPD Rider | | | | 0 |
+| 36 | add_premium | | Numeric | 12,2 | | | เบี้ยประกัน ADD Rider | | | | 0 |
+| 37 | ttd_premium | | Numeric | 12,2 | | | เบี้ยประกัน TTD Rider | | | | 0 |
+| 38 | ame_premium | | Numeric | 12,2 | | | เบี้ยประกัน AME Rider | | | | 0 |
+| 39 | tpd_sum_assured | | Numeric | 12,2 | | | ทุนประกัน TPD Rider | | | | 0 |
+| 40 | add_sum_assured | | Numeric | 12,2 | | | ทุนประกัน ADD Rider | | | | 0 |
+| 41 | ttd_sum_assured | | Numeric | 12,2 | | | ทุนประกัน TTD Rider | | | | 0 |
+| 42 | ame_sum_assured | | Numeric | 12,2 | | | ทุนประกัน AME Rider | | | | 0 |
+| 43 | loan_issue_date | | Date | | | | วันเริ่มสัญญาเงินกู้ (Policy Loan) | | | | 2023-07-21 |
+| 44 | loan_principle_amount | | Numeric | 12,2 | | | จำนวนเงินต้น ของเงินกู้ตามกรมธรรม์ ณ สิ้นเดือน | | | | 0 |
+| 45 | loan_interest_amount | | Numeric | 12,2 | | | จำนวนดอกเบี้ย ของเงินกู้ตามกรมธรรม์ ณ สิ้นเดือน | | | | 0 |
+| 46 | loan_balance_amount | | Numeric | 12,2 | | | จำนวนเงินต้น + จำนวนดอกเบี้ย ของเงินกู้ตามกรมธรรม์ ณ สิ้นเดือน | | | | 0 |
+| 47 | apl_issue_date | | Date | | | | วันที่เกิด APL | | | | 2023-07-21 |
+| 48 | apl_principle_amount | | Numeric | 12,2 | | | จำนวนเงินต้น ของ APL ณ สิ้นเดือน | | | | 0 |
+| 49 | apl_interest_amount | | Numeric | 12,2 | | | จำนวนดอกเบี้ย ของ APL ณ สิ้นเดือน | | | | 0 |
+| 50 | apl_balance_amount | | Numeric | 12,2 | | | จำนวนเงินต้น + จำนวนดอกเบี้ย ของ APL ณ สิ้นเดือน | | | | 0 |
+| 51 | loan_policy_month | | Numeric | 3 | | | จำนวนเดือนที่กู้ | | | | 0 |
+| 52 | apl_policy_month | | Numeric | 3 | | | จำนวนเดือนที่ทำการ APL | | | | 0 |
+| 53 | err_message | | Varchar | 500 | | | Error Message | | | | |
+| 54 | transaction_date | | Timestamp | | | not null | วันที่ทำรายการ | | | | 2022-09-09 19:36:45 |
+| 55 | as400_last_update_date | | Timestamp | | | not null | วันที่อัพเดทรายการ ของ as400 | | | | 2022-09-09 19:36:45 |
+| 56 | created_date | | Timestamp | | | not null | วันที่บันทึกรายการ | | | | 2022-09-09 19:36:45 |
+| 57 | created_by | | Varchar | 50 | | not null | ผู้บันทึกรายการ | | | | boss |
+| 58 | updated_date | | Timestamp | | | | วันที่อัพเดทรายการ | | | | 2022-09-09 19:36:45 |
+| 59 | updated_by | | Varchar | 50 | | | ผู้อัพเดทรายการ | | | | boss |
+| 60 | ri_commencement_date | | Date | | | | วันเริ่มสัญญา RI | | | | 2023-07-21 |
+| 61 | treaty_code_1 | | Varchar | 50 | | | รหัสบริษัทประกันภัยต่อ 1 | | | | PLR_Ind_ORD |
+| 62 | ri_method_1 | | Varchar | 50 | | | Method ของ RI 1 | 1 - QS2 - Surplus5 - QS-Surplus6 - Surplus-QS | | | QS-Surplus |
+| 63 | ri_mode_of_payment_1 | | Numeric | 3 | | | โหมดการชำระ ของ RI 1 | 1 = รายเดือน3= ราย3เดือน6=ราย6เดือน12=ราย12เดือน | | | |
+| 64 | ri_gross_premium_1 | | Numeric | 12,2 | | | เบี้ยประกันภัยที่ส่ง RI 1 | | | | |
+| 65 | ri_sum_assured_1 | | Numeric | 12,2 | | | ทุนประกันภัยที่ส่ง RI 1 | | | | |
+| 66 | ri_prev_net_amount_at_risk_1 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Previous) ของ RI 1 | | | | |
+| 67 | ri_current_net_amount_at_Risk_1 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Current) ของ RI 1 | | | | |
+| 68 | treaty_code_2 | | Varchar | 50 | | | รหัสบริษัทประกันภัยต่อ 2 | | | | |
+| 69 | ri_method_2 | | Varchar | 50 | | | Method ของ RI 2 | 1 - QS2 - Surplus5 - QS-Surplus6 - Surplus-QS | | | QS-Surplus |
+| 70 | ri_mode_of_payment_2 | | Numeric | 3 | | | โหมดการชำระ ของ RI 2 | 1 = รายเดือน3= ราย3เดือน6=ราย6เดือน12=ราย12เดือน | | | |
+| 71 | ri_gross_premium_2 | | Numeric | 12,2 | | | เบี้ยประกันภัยที่ส่ง RI 2 | | | | |
+| 72 | ri_sum_assured_2 | | Numeric | 12,2 | | | ทุนประกันภัยที่ส่ง RI 2 | | | | |
+| 73 | ri_prev_net_amount_at_risk_2 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Previous) ของ RI 2 | | | | |
+| 74 | ri_current_net_amount_at_Risk_2 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Current) ของ RI 2 | | | | |
+| 75 | treaty_code_3 | | Varchar | 50 | | | รหัสบริษัทประกันภัยต่อ 3 | | | | |
+| 76 | ri_method_3 | | Varchar | 50 | | | Method ของ RI 3 | 1 - QS2 - Surplus5 - QS-Surplus6 - Surplus-QS | | | QS-Surplus |
+| 77 | ri_mode_of_payment_3 | | Numeric | 3 | | | โหมดการชำระ ของ RI 3 | 1 = รายเดือน3= ราย3เดือน6=ราย6เดือน12=ราย12เดือน | | | |
+| 78 | ri_gross_premium_3 | | Numeric | 12,2 | | | เบี้ยประกันภัยที่ส่ง RI 3 | | | | |
+| 79 | ri_sum_assured_3 | | Numeric | 12,2 | | | ทุนประกันภัยที่ส่ง RI 3 | | | | |
+| 80 | ri_prev_net_amount_at_risk_3 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Previous) ของ RI 3 | | | | |
+| 81 | ri_current_net_amount_at_Risk_3 | | Numeric | 12,2 | | | จำนวนเงินเสี่ยงภัยสุทธิ (Current) ของ RI 3 | | | | |
+| 82 | policy_type | | Varchar | 10 | | | ประเภทกรมธรรม์ | สามัญ (ORD)Credit Life (MLTA,MRTA)บำนาญ (ANN) | | | ORD |
+| 83 | ocp_code | | Numeric | 4 | | | รหัสอาชีพ | | | | 1000 |
+| 84 | portfolio_name | | Varchar | 50 | | | IFRS17 Portfolio name | | | | |
+| 85 | profitability_group | | Varchar | 50 | | | Profitability group | | | | |
+| 86 | ri_portfolio_name | | Varchar | 50 | | | IFRS17 RI Portfolio name | | | | |
+| 87 | ri_profitability_group | | Varchar | 50 | | | RI Profitability group | | | | |
+| 88 | portfolio_id | | Varchar | 50 | | | Insurance contract group (ICG) | | | | |
+| 89 | ri_portfolio_id | | Varchar | 50 | | | Reinsruance contract group (RCG) | | | | |
+| 90 | record_type | | Varchar | 50 | | | แยกประเภทกธ. จาก event ที่ขอ tagging | กรณีตั้งฐานบันทึก 'Transition'กรณี ongoing บันทึกเฉพาะตอน untagกรณี newcase บันทึก 'Newbusiness'กรณี reinstate แบบชำระย้อนหลัง บันทึก 'Reinstate'กรณี reinstate แบบต่อยกเว้น บันทึก 'Redate'กรณีไม่เข้าเงื่อนไขตามด้านบนบันทึก 'Other' | | | Transition |
+| 91 | unhealth_benefit_name | | Varchar | 100 | | | ประเภทความคุ้มครองที่ต้องจ่าย Claim ตาม Benefit State | | | | CI01-CI02-CI03-CI04-CI05-CI06-CI07 |
+| 92 | unhealth_benefit_paid | | Varchar | 100 | | | ความคุ้มครองที่จ่ายให้ลูกค้าไปแล้ว ตามประเภทความคุ้มครองที่ต้องจ่าย Claim ตาม Benefit State | | | | 001-000-102-002-110-000-010 |
+| 93 | bundle_flag | | Boolean | | | | bundle flagTrue = กธ.หลักที่มี Bundle RiderFalse = กธ.หลักที่ไม่มี Bundle Rider | | | | True |
+| **ปรับเพิ่มจากโครงการ EDW 5.1 Group 3** | | | | | | | | | | | |
+| 94 | customer_id | | Varchar | 25 | | | รหัสของลูกค้าที่ระบบ CIS | | | | |
+| 95 | previous_effective_date | | Date | | | | วันเริ่มสัญญาของสัญญาหลักรอบก่อนหน้า | | | | |
+| 96 | xml_product_type | | Varchar | 100 | | | กลุ่มของแบบประกันตาม OIC | | | | |
+| 97 | edw_product_type | | Varchar | 100 | | | กลุ่มของแบบประกันสำหรับ EDW | | | | |
+| 98 | underwrite_type | | Varchar | 100 | | | กลุ่มของแบบประกันตามการพิจารณารับประกัน | | | | |
+| 99 | sale_agency_code | | Varchar | 50 | | | รหัสตัวแทนที่ขายกรมธรรม์นี้ (จะไม่มีทางเปลี่ยน) (7 หลัก) | | | | |
+| 100 | current_agency_code | | Varchar | 50 | | | รหัสตัวแทนที่ดูแลกรมธรรม์ในปัจจุบัน (7 หลัก) | | | | |
+| 101 | occupation_name | | Varchar | 125 | | | อาชีพของลูกค้า | | | | |
+| 102 | income | | Numeric | 14,2 | | | รายได้ต่อปีของลูกค้า | | | | |
+| 103 | smoke | | Varchar | 1 | | | สูบบุหรี่/ไม่สูบบุหรี่ | สูบบุหรี่ ให้ใส่ค่าในฟิลด์เป็น Yไม่สูบบุหรี่ ให้ใส่ค่าในฟิลด์เป็น N | | | |
+| 104 | source_sale_channel_code | | Varchar | 50 | | | SalesChannelcode ตามสาขาที่ขายแรกเริ่ม | | | | |
+| 105 | source_sale_channel | | Varchar | 50 | | | SalesChannel ตามสาขาที่ขายแรกเริ่ม | | | | |
+| 106 | policy_year | | Numeric | 3 | | | จำนวนปีกรมธรรม์ | | | | |
+| **ปรับเพิ่มเติมจาก Project EDW-P6** | | | | | | | | | | | |
+| 107 | partner_code | | Varchar | 10 | | | รหัสคู่ค้า (ปัจจุบันจะมีเฉพาะ Credit Life) | | | | B000089 |
+| 108 | ri_status | | Varchar | 1 | | | ระบุว่ากรมธรรม์นี้ยังส่ง RI อยู่หรือไม่ในปัจจุบัน | | | | Y |
+| 109 | loan_branch_code | | Varchar | 7 | | | สาขาที่ให้บริการเงินกู้ครั้งล่าสุด (เฉพาะ PolicyLoan) | | | | 4610 |
+| 110 | claim_accumulate | | Numeric | 12,2 | | | สินไหม Bundle Rider สะสมตลอดสัญญา (ปัจจุบันใช้ในแบบประกัน Better Life) | | | | |
+| 111 | error_remark | | Varchar | 200 | | | ใช้ระบุ error ของกรมธรรม์ที่ operation ไม่สามารถแแก้ไข จัดเก็บเป็น "Description1_Description2_Description3_ ...." | | | | อายุไม่ถูกต้อง_วันเกิดเดิมไม่ถูกต้อง |
+| 112 | emr | | Numeric | 4 | | | Extra Mortality Rate | | | | 150 |
+| 113 | extra_premium_emr | | Numeric | 12,2 | | | ExtraPremium จากความเสี่ยงสุขภาพ | | | | 11220 |
+| 114 | extra_premium_ocpclass | | Numeric | 12,2 | | | ExtraPremium จากความเสี่ยงชั้นอาชีพ | | | | 0 |
