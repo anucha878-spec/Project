@@ -39,7 +39,19 @@
       "Read(//d/Claude/Project/SpecKitTest/.claude/skills/qa-speckit-marketplace-v2-main/plugins/qa-speckit-workflow/skills/**)",
       "Read(//d/Claude/Project/SpecKitTest/.claude/skills/qa-speckit-marketplace-v2-main/plugins/**)",
       "Read(//d/Claude/.claude/skills/qa-speckit-marketplace-v2-main/plugins/**)",
-      "Read(//d/Claude/.claude/skills/qa-speckit-marketplace-v2-main/**)"
+      "Read(//d/Claude/.claude/skills/qa-speckit-marketplace-v2-main/**)",
+      "Bash(node gen.mjs)",
+      "Bash(sed -i 's/10,000/10000/g; s/10,001/10001/g' test-cases_csms-003-grace-period.csv)",
+      "Bash(node \"C:/Users/anucha.pi/AppData/Local/Temp/claude/D--Claude-Project-New-Basic-Marketing-Campaign/12d172f4-88a4-41a8-bb9e-a691d6f42d34/scratchpad/fixjson.js\" test-data_csms-002-welcome-round2.json)",
+      "Bash(node *)",
+      "Bash(grep -n '\\\\\\\\\"' test-cases_csms-002-welcome-round2.csv)",
+      "Bash(gh auth *)",
+      "Bash(gh repo *)",
+      "mcp__plugin_ecc_github__search_repositories",
+      "Bash(git config *)",
+      "Bash(sed -E 's#https://[^@]*@#https://***@#' ~/.git-credentials)",
+      "Bash(cp -r 'D:/Claude/Project/New Basic Marketing Campaign/.' 'C:/Users/anucha.pi/AppData/Local/Temp/claude/D--Claude-Project-New-Basic-Marketing-Campaign/c04b201d-33ed-4e96-b882-bdb0ab052861/scratchpad/repoclone/New Basic Marketing Campaign/')",
+      "Bash(echo \"exit=$?\")"
     ]
   }
 }

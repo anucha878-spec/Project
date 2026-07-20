@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>4 SMS Batch — CSMS Module (สรุปสำหรับ QA)</title>
+<style>
+  :root{
+    --bg:#0b1f33; --bg2:#0e2a45; --card:#12324f; --card2:#173d5e;
+    --ink:#eaf3fb; --muted:#9fc0da; --line:#25577f;
+    --accent:#33c6d6; --accent2:#57d9a3; --warn:#ffcf6b; --danger:#ff8a8a;
+    --b1:#33c6d6; --b2:#57d9a3; --b3:#ffb454; --b4:#c792ea;
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+  }
+  @media (prefers-color-scheme: light){
+    :root{
+      --bg:#eef5fb; --bg2:#e2eefb; --card:#ffffff; --card2:#f4f9ff;
+      --ink:#0e2740; --muted:#4d6a86; --line:#cadcee;
+      --accent:#0e8fa6; --accent2:#1f9e6f; --warn:#b8811a; --danger:#c0392b;
+      --b1:#0e8fa6; --b2:#1f9e6f; --b3:#c47a12; --b4:#7d54c9;
+      --shadow:0 18px 44px rgba(23,74,120,.18);
+    }
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    font-family:"Segoe UI","Tahoma","Sarabun",system-ui,-apple-system,sans-serif;
+    background:radial-gradient(1200px 700px at 78% -8%,var(--bg2),var(--bg));
+    color:var(--ink); overflow:hidden;
+  }
+  .stage{height:100vh;display:flex;align-items:center;justify-content:center;padding:34px}
+  .slide{
+    display:none; width:min(1120px,96vw); max-height:92vh; overflow:auto;
+    background:linear-gradient(160deg,var(--card),var(--card2));
+    border:1px solid var(--line); border-radius:22px; box-shadow:var(--shadow);
+    padding:44px 50px; animation:fade .4s ease;
+  }
+  .slide.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .kicker{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:44px;line-height:1.12;margin:14px 0 10px;letter-spacing:-.5px}
+  h2{font-size:30px;margin:6px 0 20px;letter-spacing:-.3px}
+  h2 .tag{font-size:14px;font-weight:600;color:var(--muted);background:rgba(120,160,190,.14);
+    padding:4px 12px;border-radius:999px;margin-left:10px;vertical-align:middle;font-family:monospace}
+  p.lead{font-size:19px;color:var(--muted);line-height:1.6;max-width:80ch}
+  .grid{display:grid;gap:16px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  @media (prefers-color-scheme: light){.box{background:rgba(14,143,166,.05)}}
+  .box h3{font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+  .box.biz h3{color:var(--accent)} .box.in h3{color:var(--accent2)}
+  .box.cfg h3{color:var(--b3)} .box.out h3{color:var(--b4)}
+  .box ul{list-style:none;font-size:15px;line-height:1.65}
+  .box li{padding-left:16px;position:relative;margin-bottom:5px}
+  .box li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.6}
+  code,.mono{font-family:"Cascadia Code",Consolas,monospace;background:rgba(120,170,210,.16);
+    padding:1px 7px;border-radius:6px;font-size:.9em;color:var(--ink)}
+  table{width:100%;border-collapse:collapse;font-size:14px;margin-top:6px}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);position:sticky;top:0;
+    background:var(--card)}
+  tbody tr:hover{background:rgba(120,170,210,.06)}
+  td.b{font-weight:700}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:15px;margin-top:8px}
+  .step{background:rgba(51,198,214,.12);border:1px solid var(--line);border-radius:10px;padding:9px 13px;font-weight:600}
+  .arw{color:var(--accent);font-weight:800}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .chip{font-size:13px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+  .pill{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;color:#04202a}
+  .p1{background:var(--b1)} .p2{background:var(--b2)} .p3{background:var(--b3)} .p4{background:var(--b4)}
+  .warn{border-left:4px solid var(--warn)!important}
+  .danger{border-left:4px solid var(--danger)!important}
+  .warnlist li{margin-bottom:12px;font-size:15.5px;line-height:1.55}
+  .warnlist b{color:var(--warn)}
+  .num{color:var(--danger);font-weight:800;margin-right:6px}
+  .cover{text-align:center}
+  .cover h1{font-size:56px;margin-top:18px}
+  .cover .subs{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+  .cover .subs .chip{font-size:14px;border-color:var(--accent);color:var(--ink)}
+  .meta{color:var(--muted);font-size:14px;margin-top:30px}
+  /* nav */
+  .nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:14px;align-items:center;
+    background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 16px;box-shadow:var(--shadow);z-index:10}
+  .nav button{background:none;border:none;color:var(--ink);cursor:pointer;font-size:20px;padding:2px 8px;border-radius:8px}
+  .nav button:hover{background:rgba(120,170,210,.16)}
+  .counter{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums;min-width:52px;text-align:center}
+  .dots{position:fixed;top:18px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--line);cursor:pointer;transition:.2s}
+  .dot.on{background:var(--accent);transform:scale(1.25)}
+  .hint{position:fixed;bottom:22px;right:22px;font-size:12px;color:var(--muted);z-index:10}
+  .small{font-size:13px;color:var(--muted)}
+  @media print{
+    body{overflow:visible} .stage{height:auto;display:block;padding:0}
+    .slide{display:block!important;max-height:none;page-break-after:always;margin:0 0 20px;border-radius:0;box-shadow:none}
+    .nav,.dots,.hint{display:none}
+  }
+</style>
+</head>
+<body>
+<div class="dots" id="dots"></div>
+<div class="stage">
+
+  <!-- 1 COVER -->
+  <section class="slide active cover">
+    <div class="kicker">Ocean Life Web Portal · CSMS Module · UR20260070 Basic Campaign (MCMP)</div>
+    <h1>4 SMS Batch<br>สรุปเชิง Business / Input / Config / Output</h1>
+    <p class="lead" style="margin:16px auto 0">เอกสารตั้งต้นสำหรับทีม QA — ทำความเข้าใจ scope, กลุ่มเป้าหมาย, config และผลลัพธ์ของแต่ละ batch เพื่อออกแบบ Test Plan / Test Case</p>
+    <div class="subs">
+      <span class="chip"><span class="pill p1">CSMS-001</span> Welcome LINE</span>
+      <span class="chip"><span class="pill p2">CSMS-002</span> Welcome รอบ 2 (App)</span>
+      <span class="chip"><span class="pill p3">CSMS-003</span> Grace Period 7 วัน</span>
+      <span class="chip"><span class="pill p4">CSMS-004</span> Birthday</span>
+    </div>
+    <p class="meta">อ้างอิงจาก spec.md ปัจจุบัน (Draft) · สถานะ pipeline: spec → checklist → plan (ยังไม่มี tasks.md)</p>
+  </section>
+
+  <!-- 2 SHARED FLOW -->
+  <section class="slide">
+    <div class="kicker">พื้นฐานร่วม</div>
+    <h2>Flow เดียวกันทั้ง 4 batch — เข้าใจอันนี้ก่อน ที่เหลือดูแค่ “จุดต่าง”</h2>
+    <div class="flow">
+      <span class="step">ดึงกลุ่มเป้าหมาย</span><span class="arw">→</span>
+      <span class="step">คัด Do Not Contact</span><span class="arw">→</span>
+      <span class="step">map policy_no → cardNo</span><span class="arw">→</span>
+      <span class="step">ตรวจ LINE/App via cisappapi</span><span class="arw">→</span>
+      <span class="step">dedup กันส่งซ้ำ</span><span class="arw">→</span>
+      <span class="step">สร้าง CSV (UTF-8)</span><span class="arw">→</span>
+      <span class="step">ESB → SMS Gateway</span><span class="arw">→</span>
+      <span class="step">log (S/F) + refer_no</span><span class="arw">→</span>
+      <span class="step">email เมื่อรอบล้มเหลว</span><span class="arw">→</span>
+      <span class="step">Manual Fix</span>
+    </div>
+    <div class="grid g2" style="margin-top:22px">
+      <div class="box biz">
+        <h3>ข้อยุติ Error/Recovery ร่วม (inherited จาก CSMS-001)</h3>
+        <ul>
+          <li><b>E13 / ผลผิดปกติรายรายการ</b> → skip + บันทึก <code>F</code> ไม่ retry ไม่หยุดรอบ</li>
+          <li><b>API ล่มทั้งระบบ</b> → retry ≤3 ครั้ง แล้ว <b>หยุดรอบ + email</b></li>
+          <li>รายการ <code>F</code> → daily ไม่ retry อัตโนมัติ ซ่อมผ่าน Manual Fix เท่านั้น</li>
+          <li>Manual Fix = <b>idempotent</b> หยิบเฉพาะ <code>sms_sent_date IS NULL</code></li>
+        </ul>
+      </div>
+      <div class="box out">
+        <h3>Endpoint / โครงสร้างกลางที่ใช้ร่วม</h3>
+        <ul>
+          <li>ตรวจสถานะ: <code>cisappapi</code> @ <code>11.100.8.44</code></li>
+          <li>ส่ง: Web Service กลาง <code>ESB → SMS Gateway</code> (คืน <code>refer_no</code>)</li>
+          <li>DNC: <code>ili_policy_remark</code> · Config: <code>cf_catalog</code></li>
+          <li>ไฟล์: <code>MKT_CSMS_[Category]_[YYMMDDhhmmss].csv</code> (ปี พ.ศ. 2 หลัก)</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small" style="margin-top:14px">💡 QA tip: เขียน test suite “Shared Behavior” ชุดเดียว (error/log/Manual-Fix/idempotency) แล้ว reuse ข้าม batch — ลด TC ซ้ำ</p>
+  </section>
+
+  <!-- 3 CSMS-001 -->
+  <section class="slide">
+    <div class="kicker"><span class="pill p1">CSMS-001</span> &nbsp; branch 002-...line-sms</div>
+    <h2>Welcome New Customer (LINE) <span class="tag">Daily 10:00</span></h2>
+    <div class="grid g2">
+      <div class="box biz"><h3>◆ Business</h3><ul>
+        <li>ต้อนรับลูกค้าใหม่ที่กรมธรรม์ Inforce เมื่อวาน (T-1) ปี 2026+</li>
+        <li>ยังไม่ลงทะเบียน LINE Ocean Connect / Ocean Club</li>
+        <li>เป้าหมาย: ยืนยันความคุ้มครอง + ชวนลง LINE</li>
+      </ul></div>
+      <div class="box in"><h3>▼ Input</h3><ul>
+        <li>กรมธรรม์ <b>ORD / IND / PA</b> · issue_date = T-1 · Inforce · มี mobile_no</li>
+        <li>Source: <code>ili_application_osp_ord/ind/pa</code>, <code>ili_policy_master</code>, <code>ili_customer_data_analytics</code></li>
+        <li>DNC: ORD <code>remark_code='1'</code> · IND/PA <code>='4'</code> (map O/I,G/P)</li>
+      </ul></div>
+      <div class="box cfg"><h3>⚙ Config</h3><ul>
+        <li><code>SMS_CATEGORY</code> code <b>113</b> = MKTWelcomeNewCust</li>
+        <li>ลิงก์: <code>cf_catalog</code> type=<code>LINE_LINK</code>, value1=<code>CSMS_SNC_NewCust</code>, active='Y'</li>
+        <li>template: <code>sms_message_schedule</code> → fallback <code>SMS_CATEGORY</code></li>
+      </ul></div>
+      <div class="box out"><h3>▶ Output</h3><ul>
+        <li>CSV <code>MKT_CSMS_MKTWelcomeNewCust_...csv</code></li>
+        <li>ตาราง <b>WELCOME_NEW_CUST_LINE</b> (ใหม่) + <code>CSMS_LOG</code></li>
+        <li>รายงานประจำวัน (US3) · email เมื่อล้มเหลว</li>
+      </ul></div>
+    </div>
+    <div class="chips">
+      <span class="chip">Dedup: รายลูกค้า (fname,lname,mobile) → MIN(issue_date)</span>
+      <span class="chip">ส่งเมื่อ: ไม่พบ LINE+Club | ไม่มี Club+block LINE</span>
+      <span class="chip">ไม่ส่ง: พบ LINE(ไม่บล็อก) หรือมี Club</span>
+    </div>
+  </section>
+
+  <!-- 4 CSMS-002 -->
+  <section class="slide">
+    <div class="kicker"><span class="pill p2">CSMS-002</span> &nbsp; branch 003-...app-sms</div>
+    <h2>Welcome New Customer รอบ 2 — Ocean Club App <span class="tag">Daily 10:00 · ~1,000/วัน</span></h2>
+    <div class="grid g2">
+      <div class="box biz"><h3>◆ Business</h3><ul>
+        <li>Follow-up ต่อจากรอบ 1 เมื่อครบ <b>20 วัน</b> (ปรับได้)</li>
+        <li>ลูกค้ายังไม่ลง LINE + App → ชวนโหลด Ocean Club App + ของรางวัล</li>
+      </ul></div>
+      <div class="box in"><h3>▼ Input</h3><ul>
+        <li>อ่านจากประวัติรอบ 1: <code>WELCOME_NEW_CUST_LINE.sms_sent_date</code> + N วัน</li>
+        <li>กรมธรรม์ <b>ORD/IND/GOV/PA</b> Inforce (ORD/PA=<code>'1'</code>; IND/GOV=<code>'1','2','3'</code>)</li>
+        <li><b>เบอร์ = ปัจจุบันจากกรมธรรม์</b> (mobile1→mobile2) ไม่ใช่เบอร์รอบแรก</li>
+      </ul></div>
+      <div class="box cfg"><h3>⚙ Config</h3><ul>
+        <li>N วัน: <code>cf_catalog</code> type=<code>DATE_COUNT</code> (<code>CSMS_SNC_NewCustApp</code>, default 20)</li>
+        <li>รางวัล <code>REWARDS</code> (var2) · ลิงก์ <code>LINE_LINK</code> (var3)</li>
+        <li>template code <b>111</b></li>
+      </ul></div>
+      <div class="box out"><h3>▶ Output</h3><ul>
+        <li>CSV <code>MKT_CSMS_MKTWelcomeNewCustApp_...csv</code></li>
+        <li>ตาราง <b>WELCOME_NEW_CUST_APP</b> (ใหม่) — มี <b>FK อ้างกลับรอบ 1</b></li>
+        <li>รายงานกลาง CSMS (ไม่แยกใหม่)</li>
+      </ul></div>
+    </div>
+    <div class="chips">
+      <span class="chip">Dedup: รายลูกค้า 1 ข้อความ/รอบ</span>
+      <span class="chip warn">⚠ GOV รวมสโคป (ต่างจาก 001)</span>
+      <span class="chip warn">⚠ FR-020.2 ปน Manual-Fix + reporting</span>
+    </div>
+  </section>
+
+  <!-- 5 CSMS-003 -->
+  <section class="slide">
+    <div class="kicker"><span class="pill p3">CSMS-003</span> &nbsp; branch 004-gp7-sms-batch</div>
+    <h2>Grace Period 7 วันก่อนหมดผ่อนผัน <span class="tag">Daily 10:00 · LINE-only</span></h2>
+    <div class="grid g2">
+      <div class="box biz"><h3>◆ Business</h3><ul>
+        <li>เตือนกรมธรรม์ Inforce เลย due_date แต่ยังใน grace period</li>
+        <li>เหลือ <b>7 วันปฏิทิน</b> ก่อน <code>grace_end_date</code> · เฉพาะยังไม่ลง LINE</li>
+        <li>เป้าหมาย: กระตุ้นชำระเบี้ยก่อนขาดความคุ้มครอง</li>
+      </ul></div>
+      <div class="box in"><h3>▼ Input</h3><ul>
+        <li><b>ORD/IND/PA</b> Inforce · <code>grace_end_date − current_date = 7</code> (ไม่รวมวันปัจจุบัน)</li>
+        <li>Source: <code>ili_policy_master</code> + <code>ili_notification_letter</code></li>
+        <li>ตรวจ <b>LINE เท่านั้น</b> (ไม่ตรวจ App)</li>
+      </ul></div>
+      <div class="box cfg"><h3>⚙ Config</h3><ul>
+        <li>จำนวนวัน: <code>cf_catalog</code> type=<code>REMINDER_DAYS</code> (<code>CSMS_GP_7Days</code>, default 7)</li>
+        <li>template Grace Period · vars: var1=policy_no, var2=due_date, var3=grace_end_date</li>
+      </ul></div>
+      <div class="box out"><h3>▶ Output</h3><ul>
+        <li>CSV <code>MKT_CSMS_MKTGracePeriod7Days_...csv</code></li>
+        <li>ตาราง <b>SMS_GRACE_PERIOD_LOG</b> (ใหม่) · ฟิลด์ <code>sms_sent_status</code></li>
+      </ul></div>
+    </div>
+    <div class="chips">
+      <span class="chip danger">🔑 Dedup รายกรมธรรม์: key = policy_no + due_date → 2 กรมธรรม์ = 2 ข้อความ</span>
+      <span class="chip">ส่ง: E02 | คัดออก: E00+isBlockLine=false</span>
+      <span class="chip warn">NFR: ≤5 นาที / 10,000 รายการ</span>
+    </div>
+  </section>
+
+  <!-- 6 CSMS-004 -->
+  <section class="slide">
+    <div class="kicker"><span class="pill p4">CSMS-004</span> &nbsp; branch 005-batch-birthday-sms</div>
+    <h2>Customer Birthday <span class="tag">Daily 09:00 (ต่างจากทุก batch)</span></h2>
+    <div class="grid g2">
+      <div class="box biz"><h3>◆ Business</h3><ul>
+        <li>อวยพรวันเกิด (วัน/เดือนตรงวันประมวลผล) + ของขวัญ + ชวนลง LINE</li>
+        <li>เฉพาะลูกค้า <b>ช่องทางตัวแทน</b> ที่ยังไม่ใช้ทั้ง LINE + App</li>
+      </ul></div>
+      <div class="box in"><h3>▼ Input</h3><ul>
+        <li><b>ORD/IND/GOV/PA</b> Inforce · <code>birthdate</code> วัน/เดือน = วันนี้ (ไม่เทียบปี)</li>
+        <li>เบอร์ <code>coalesce(mobile1,mobile2)</code> · Source: <code>ili_policy_master</code>, <code>ili_agent_master</code></li>
+        <li>Agent-only: ORD <code>title_desc≠'ชำระเอง'</code> · อื่น <code>position_code≠'99'</code> · <code>policy_org</code> ∈ 2070001–2079999 / 5070001–5079999</li>
+      </ul></div>
+      <div class="box cfg"><h3>⚙ Config</h3><ul>
+        <li><code>SMS_CATEGORY</code> code <b>112</b> = MKTBirthday</li>
+        <li>ของขวัญ <code>REWARDS</code> (<code>CSMS_SBD_Birthday</code>) · ลิงก์ <code>LINE_LINK</code> (<code>CSMS_SBD_Birthday</code>)</li>
+        <li>template code 112 · vars: var1=fname, var2=ของขวัญ, var3=ลิงก์</li>
+      </ul></div>
+      <div class="box out"><h3>▶ Output</h3><ul>
+        <li>CSV <code>MKT_CSMS_MKTBirthday_...csv</code> — คอลัมน์เฉพาะ: <code>mobile,var1,var2,var3,seq_no,datetime</code></li>
+        <li>ตาราง <b>CUSTOMER_BIRTHDAY</b> (ใหม่) + <code>CSMS_LOG</code></li>
+      </ul></div>
+    </div>
+    <div class="chips">
+      <span class="chip danger">🔑 Dedup รายลูกค้า (cardNo) 1 ข้อความ/วันเกิด/ปี</span>
+      <span class="chip">ตรวจ 2 ช่องทาง: LINE=E02 และ App=E02 → ส่ง</span>
+      <span class="chip warn">29 ก.พ. ปีไม่อธิกสุรทิน → ส่ง 28 ก.พ.</span>
+    </div>
+  </section>
+
+  <!-- 7 MATRIX -->
+  <section class="slide">
+    <div class="kicker">เปรียบเทียบ</div>
+    <h2>Matrix — จุดที่ทำให้ Test Case ต่างกัน</h2>
+    <table>
+      <thead><tr><th>มิติ</th>
+        <th><span class="pill p1">001</span> LINE</th>
+        <th><span class="pill p2">002</span> App</th>
+        <th><span class="pill p3">003</span> GP7</th>
+        <th><span class="pill p4">004</span> Birthday</th></tr></thead>
+      <tbody>
+        <tr><td class="b">เวลา</td><td>10:00</td><td>10:00</td><td>10:00</td><td><b>09:00</b></td></tr>
+        <tr><td class="b">ประเภทกรมธรรม์</td><td>ORD/IND/PA</td><td>ORD/IND/<b>GOV</b>/PA</td><td>ORD/IND/PA</td><td>ORD/IND/<b>GOV</b>/PA</td></tr>
+        <tr><td class="b">ตรวจช่องทาง</td><td>LINE+App</td><td>LINE+App</td><td><b>LINE-only</b></td><td>LINE+App</td></tr>
+        <tr><td class="b">เกณฑ์เลือกเป้าหมาย</td><td>issue_date=T-1</td><td>รอบ1 + N วัน</td><td>grace_end − 7</td><td>birthdate=วันนี้</td></tr>
+        <tr><td class="b">Dedup level</td><td>รายลูกค้า</td><td>รายลูกค้า</td><td><b>รายกรมธรรม์</b><br><span class="small">policy+due</span></td><td><b>รายลูกค้า</b><br><span class="small">cardNo</span></td></tr>
+        <tr><td class="b">ข้อความอ้างอิง</td><td>ชื่อ+ลิงก์</td><td>ชื่อ+รางวัล+ลิงก์</td><td>policy/due/grace</td><td>ชื่อ+ของขวัญ+ลิงก์</td></tr>
+        <tr><td class="b">ตารางใหม่</td><td>WELCOME_NEW_CUST_LINE</td><td>WELCOME_NEW_CUST_APP</td><td>SMS_GRACE_PERIOD_LOG</td><td>CUSTOMER_BIRTHDAY</td></tr>
+        <tr><td class="b">Category code</td><td>113</td><td>(tmpl 111)</td><td>—</td><td>112</td></tr>
+        <tr><td class="b">NFR perf</td><td>ไม่ระบุ</td><td>ไม่ระบุ</td><td>5min/10k</td><td>5min/10k</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 8 WARNINGS -->
+  <section class="slide">
+    <div class="kicker">ก่อนเริ่มเทสต์</div>
+    <h2>🚩 ธงเตือน QA (จาก spec + memory)</h2>
+    <ul class="warnlist">
+      <li><span class="num">1.</span><b>QA artifacts เดิม stale</b> — test cases ชุดเก่าทดสอบ CSV ที่ design ตัดออกแล้ว <b>ยังไม่พร้อม SIT</b> ต้อง re-baseline กับ spec ปัจจุบันก่อน</li>
+      <li><span class="num">2.</span><b>ไม่มี Security/PII NFR</b> ทุก batch — หนักสุด Birthday (<code>cardNo</code> = เลขบัตร ปชช.) → เพิ่ม test masking/encryption เอง</li>
+      <li><span class="num">3.</span><b>policy_type code ยังไม่นิ่ง</b> ระหว่าง <code>'O/I/G/P'</code> (log) กับ <code>'0'/'1'</code> (คัดกรอง) — Birthday ใช้ <code>'0'</code> สำหรับ ORD; ตัวอื่นใช้ <code>'O'</code> → <b>ยืนยันกับ dev ก่อนเขียน TC คัดกรอง</b></li>
+      <li><span class="num">4.</span><b>CSMS-002 FR-020.2</b> ในสเปคปน 2 เรื่อง (Manual-Fix date + reporting) ทำให้ reporting ขาด FR number — ระวังตอน trace requirement → TC</li>
+      <li><span class="num">5.</span><b>ยังไม่มี <code>tasks.md</code></b> ทั้ง 4 — spec อยู่ระดับ plan; ยังไม่มี implementation task ให้อ้างใน traceability</li>
+    </ul>
+    <p class="small" style="margin-top:16px">ขั้นถัดไปที่แนะนำ: (ก) Traceability Matrix FR → Test Scenario ราย batch · (ข) Shared-Behavior test suite · (ค) ยืนยัน policy_type code กับ plan.md</p>
+  </section>
+
+</div>
+
+<div class="dots" id="dotnav"></div>
+<div class="nav">
+  <button id="prev" aria-label="ก่อนหน้า">‹</button>
+  <span class="counter" id="counter">1 / 8</span>
+  <button id="next" aria-label="ถัดไป">›</button>
+</div>
+<div class="hint">← → เลื่อนสไลด์ · F ฟูลสกรีน · P พิมพ์</div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const dotnav=document.getElementById('dotnav');
+  const counter=document.getElementById('counter');
+  let i=0;
+  slides.forEach((_,n)=>{const d=document.createElement('div');d.className='dot';d.onclick=()=>go(n);dotnav.appendChild(d);});
+  const dots=[...dotnav.children];
+  function go(n){i=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+    dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+    counter.textContent=(i+1)+' / '+slides.length;
+    slides[i].scrollTop=0;}
+  document.getElementById('next').onclick=()=>go(i+1);
+  document.getElementById('prev').onclick=()=>go(i-1);
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown')go(i+1);
+    else if(e.key==='ArrowLeft'||e.key==='PageUp')go(i-1);
+    else if(e.key==='Home')go(0); else if(e.key==='End')go(slides.length-1);
+    else if(e.key.toLowerCase()==='f'){if(!document.fullscreenElement)document.documentElement.requestFullscreen();else document.exitFullscreen();}
+    else if(e.key.toLowerCase()==='p')window.print();
+  });
+  go(0);
+</script>
+</body>
+</html>
